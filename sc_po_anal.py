@@ -4,6 +4,7 @@
 #analyzing relationship between public opinion and supreme court decisions
 
 import numpy as np
+import datetime as dt
 
 #global variables
 SURVEY_YEAR='VCF0004'
@@ -89,6 +90,12 @@ def num_supp_votes(ind):
     #case decided in cons. dir., conservatives are PRO-ISSUE, supp. votes are maj. votes
     if cons_dir and CONS_PRO_ISSUE: supp_votes = case['majVotes']
     return supp_votes
+
+#get year case was decided
+def case_year(ind):
+    case=jd_df.iloc[ind]
+    return dt.datetime.strptime(case['dateDecision'],'%m/%d/%Y').year
+
 
 #PUBLIC OPINION
 #########################################################################################
