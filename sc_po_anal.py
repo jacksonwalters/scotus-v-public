@@ -96,6 +96,8 @@ def case_year(ind):
     case=jd_df.iloc[ind]
     return dt.datetime.strptime(case['dateDecision'],'%m/%d/%Y').year
 
+sc_support={case_year(ind):num_supp_votes(ind)/NUM_JUSTICES for ind in sc_rel_ind}
+
 
 #PUBLIC OPINION
 #########################################################################################
