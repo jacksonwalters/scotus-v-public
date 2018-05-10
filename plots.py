@@ -18,7 +18,7 @@ min_yr=min(list(sc_support.keys())+list(gay_temp_yr_avg.keys())+list(gay_mil_yr_
 plt.axis([min_yr-4, CURRENT_YEAR, 0.0, 1.1])
 
 plt.savefig('./plots/sc_support.png', bbox_inches='tight')
-plt.show()
+#plt.show()
 plt.gcf().clear()
 
 #PUBLIC OPINION SUPPORT
@@ -40,7 +40,7 @@ min_yr=min(list(sc_support.keys())+list(gay_temp_yr_avg.keys())+list(gay_mil_yr_
 plt.axis([min_yr-4, CURRENT_YEAR, 0.0, 1.1])
 
 plt.savefig('./plots/po_support.png', bbox_inches='tight')
-plt.show()
+#plt.show()
 plt.gcf().clear()
 
 #SUPREME COURT v. PUBLIC OPINION
@@ -65,5 +65,5 @@ min_yr=min(list(sc_support.keys())+list(gay_temp_yr_avg.keys())+list(gay_mil_yr_
 plt.axis([min_yr-4, CURRENT_YEAR, 0.0, 1.1])
 
 plt.savefig('./plots/sc_v_po.png', bbox_inches='tight')
-plt.show()
+#plt.show()
 plt.gcf().clear()
