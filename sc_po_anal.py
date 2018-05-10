@@ -56,12 +56,15 @@ def format(entry):
     else: return False
 
 #convert entry to normalized value in [0,1]
-def norm(entry,max):
-    if format(entry) and format(entry) <= max: return format(entry)/max
+#requires maximum value in col, and dict to convert responses to a scale
+#default scale is just identity function
+def norm(entry,max,scale=(lambda x: x)):
+    form_ent=format(entry)
+    if form_ent and form_ent <= max: return scale(form_ent)/max
     else: return False
 
 #normalize each entry in a series
-def norm_col(col,col_max): return [norm(entry,col_max) for entry in col if norm(entry,col_max)]
+def norm_col(col,col_max,scale=(lambda x: x)): return [norm(entry,col_max,scale) for entry in col if norm(entry,col_max,scale)]
 
 #get dict of averages for each column by year
 def col_yr_avg(ind,col_max):
@@ -91,5 +94,8 @@ gay_temp_yr_avg=col_yr_avg(0,MAX_TEMP)
 #9 -  NA if favor or oppose ---> nan
 #INAP - inappropriate ---> nan
 MAX_GAY_MIL=3
+gay_mil_conv={1:3,2:2,4:1,5:0}
+scale=(lambda x: gay_mil_conv[x])
+#gay_mil_yr_avg=col_yr_avg(1,MAX_GAY_MIL,scale)
 
 plt.plot(gay_temp_yr_avg.keys(),gay_temp_yr_avg.values())
