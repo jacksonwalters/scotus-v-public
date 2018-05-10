@@ -48,11 +48,16 @@ sc_rel_ind=[4255,9086,10940,11870,12983,12985,13161]
 #identifiers for RELEVANT QUESTIONS from ANES PO surveys
 po_rel_ques=['VCF0232','VCF0877','VCF0878']
 
+#format entry to be float or int if possible
+def format(entry):
+    if isinstance(entry, int) or isinstance(entry, float): return entry
+    if isinstance(entry, str) and entry != '  ': return float(entry)
+    else: return False
+
 #convert entry to normalized value in [0,1]
 def norm(entry,max):
-    if isinstance(entry, int) and entry <= max: return entry/max
-    if isinstance(entry, float) and entry<=max: return entry/max
-    if isinstance(entry, str) and entry != '  ' and float(entry)<=max: return float(entry)/max
+    ent=format(entry)
+    if ent <= max: return ent/max
     else: return False
 
 #normalize each entry in a series
