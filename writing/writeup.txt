@@ -34,10 +34,12 @@ LIMITED DATA:
 	- for a given issue, only a handful (10-20) of Supreme Court cases
 	
 WHAT EXACTLY ARE WE ASKING:
-	- data may be uncorrelated, positively, or negatively correlated.	
-	- Q1: after analyzing many (~1000) issues, which cases are out of the ordinary? in the
+	- Q1: For a given issue, how are SC ruling and PO correlated.
+	- Q2: after analyzing many (~1000) issues, which cases are out of the ordinary? in the
 	sense that data is negatively correlated, i.e. SC *disagrees* with PO.
-	- Q2: 
+	- Q3: by looking at many issues and measuring the 'time gap' between when
+	the public is in majority support, and then the SC follows, can we predict
+	for other issues when the SC will make a definitive ruling?
 
 THINGS TO KEEP IN MIND/CONSIDER: 
 	- for a given case, it should be clear which side is 'PRO' and which is 'ANTI'.
