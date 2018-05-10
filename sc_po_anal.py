@@ -88,6 +88,7 @@ def col_yr_avg(ind,col_max,scale=(lambda x: x)):
     return ques_yr_avg
 
 #question VCF0232 - from ANES "GROUP THERMOMETER: Gays and Lesbians"
+#"Gay men and lesbians (that is), homosexuals -- thermometer"
 #0-96 temp, 97 unclear, 98=DK, 99=NA, INAP=inappropriate
 MAX_TEMP=96
 gay_temp_yr_avg=col_yr_avg(0,MAX_TEMP)
