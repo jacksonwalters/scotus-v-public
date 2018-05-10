@@ -49,10 +49,10 @@ sc_rel_ind=[4255,9086,10940,11870,12983,12985,13161]
 po_rel_ques=['VCF0232','VCF0877','VCF0878']
 
 #format entry to be float if possible
-def format(entry):
+def is_num(entry):
     try:
         float(entry)
-        return float(entry)
+        return True
     except ValueError:
         return False
 
@@ -60,8 +60,17 @@ def format(entry):
 #requires maximum value in col, and dict to convert responses to a scale
 #default scale is just identity function
 def norm(entry,max,scale=(lambda x: x)):
-    form_ent=format(entry)
-    if form_ent and form_ent <= max: return scale(form_ent)/max
+    if is_num(entry):
+        try:
+            scale(float(entry))
+            if(float(entry)==2):
+                print(float(entry))
+                print(scale(float(entry)))
+                print(max)
+                print(scale(float(entry))/max)
+            return scale(float(entry))/max
+        except KeyError:
+            return False
     else: return False
 
 #normalize each entry in a series
@@ -94,9 +103,9 @@ gay_temp_yr_avg=col_yr_avg(0,MAX_TEMP)
 #7 - DK if favor or oppose; depends (1988); ---> nan
 #9 -  NA if favor or oppose ---> nan
 #INAP - inappropriate ---> nan
-MAX_GAY_MIL=3
 gay_mil_conv={1:3,2:2,4:1,5:0}
-scale=(lambda x: gay_mil_conv[x])
-gay_mil_yr_avg=col_yr_avg(1,MAX_GAY_MIL,scale)
+MAX_GAY_MIL=max(gay_mil_conv.values())
+gay_mil_scale=(lambda x: gay_mil_conv[x])
+gay_mil_yr_avg=col_yr_avg(1,MAX_GAY_MIL,gay_mil_scale)
 
 plt.plot(gay_temp_yr_avg.keys(),gay_temp_yr_avg.values())
