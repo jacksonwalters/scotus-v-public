@@ -68,6 +68,7 @@ CONS_PRO_ISSUE = not LIB_PRO_ISSUE
 sc_rel_dates=['6/12/1967','6/30/1986','5/20/1996','6/26/2003','6/26/2013','6/26/2013','6/26/2015'] #DATES NOT UNIQUE INDEX
 sc_rel_ids=['1966-119','1985-144','1995-053','2002-083','2012-077','2012-079','2014-070'] #weirdly caseId 1966-199, Loving v. VA is entered twice
 sc_rel_names=['LOVING et ux. v. VIRGINIA','BOWERS, ATTORNEY GENERAL OF GEORGIA v. HARDWICK et al.', 'ROY ROMER, GOVERNOR OF COLORADO, et al. v. RICHARD G. EVANS et al.', 'JOHN GEDDES LAWRENCE AND TYRON GARNER v. TEXAS', 'HOLLINGSWORTH v. PERRY', 'UNITED STATES v. WINDSOR', 'OBERGEFELL v. HODGES']
+#N.B.: case indices are unique, but only for *case* centered data.
 sc_rel_ind=[4255,9086,10940,11870,12983,12985,13161]
 
 #ASSUMPTION: binary variable - "liberals supportive of ISSUE". This means:
@@ -76,7 +77,7 @@ sc_rel_ind=[4255,9086,10940,11870,12983,12985,13161]
 
 #get number of supportive votes given case index
 def num_supp_votes(ind):
-    case=jd_df.iloc[ind]
+    case=cd_df.iloc[ind]
     dir=case['decisionDirection']
     if is_num(dir):
         lib_dir = (dir==2)
@@ -93,7 +94,7 @@ def num_supp_votes(ind):
 
 #get year case was decided
 def case_year(ind):
-    case=jd_df.iloc[ind]
+    case=cd_df.iloc[ind]
     return dt.datetime.strptime(case['dateDecision'],'%m/%d/%Y').year
 
 sc_support={case_year(ind):num_supp_votes(ind)/NUM_JUSTICES for ind in sc_rel_ind}
