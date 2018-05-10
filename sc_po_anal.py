@@ -5,8 +5,9 @@
 
 import numpy as np
 
-#global name for variable corresponding to year of survey
+#global names for year of survey variables
 SURVEY_YEAR='VCF0004'
+CURRENT_YEAR=2018
 SURVEY_YEARS=list(set(po_df[SURVEY_YEAR]))
 
 #the headers which are in justice data and not in case data
