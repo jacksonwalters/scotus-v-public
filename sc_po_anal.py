@@ -56,8 +56,7 @@ def format(entry):
 
 #convert entry to normalized value in [0,1]
 def norm(entry,max):
-    ent=format(entry)
-    if ent <= max: return ent/max
+    if format(entry) and format(entry) <= max: return format(entry)/max
     else: return False
 
 #normalize each entry in a series
