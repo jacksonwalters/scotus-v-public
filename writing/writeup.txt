@@ -18,14 +18,14 @@ US SUPREME COURT v. COURT OF PUBLIC OPINION
 
 
 TWO SIDES TO EACH ISSUE:
-	- 'PRO' and 'ANTI', nuance is difficult.
+	- 'PRO' and 'ANTI', nuance is difficult. SC data has 'decisionDirection' for liberal
+	or conservative.
 
 ARBITRARINESS: 
-	- choosing an issue such as 'Gay Marriage'. Where does this come from?
-	- which cases are relevant? (fairly clear to a human)
-	- which public opinion questions are relevant? (fairly clear to a human. question 
-	probably includes words found in issue, e.g. gay, homosexual, lesbian, marriage, 
-	same-sex)
+	- choosing an issue such as 'Gay Marriage'. This comes from set of keywords.
+	- relevant cases come from looking at opinions/plain text descriptions of cases
+	and doing keyword matching.
+	- which public opinion questions are relevant? keyword matching in list of PO questions
 	- weighting public opinion questions: directly relevant questions weighted higher, 
 	e.g. "Do you support same-sex marriage?" vs. "Do you support gays in the military?, 
 	however how do we assign weights?
@@ -34,16 +34,17 @@ LIMITED DATA:
 	- for a given issue, only a handful (10-20) of Supreme Court cases
 	
 WHAT EXACTLY ARE WE ASKING:
-	- data may be uncorrelated, positively, or negatively correlated.
-	- Q1: over many 	
-	- Q2: after analyzing many (~1000) issues, which cases are out of the ordinary? in the
+	- data may be uncorrelated, positively, or negatively correlated.	
+	- Q1: after analyzing many (~1000) issues, which cases are out of the ordinary? in the
 	sense that data is negatively correlated, i.e. SC *disagrees* with PO.
+	- Q2: 
 
 THINGS TO KEEP IN MIND/CONSIDER: 
 	- for a given case, it should be clear which side is 'PRO' and which is 'ANTI'.
 	
 WHO CARES?:
-	- use this data to make predictions
+	- use this data to make predictions. given an issue which is not yet 'fully' decided
+	can use linear regression, etc. to try to predict future decisions.
 	
 ENDGAME:
 	- create web interface for user to input keywords/issues. result is comparision plot
