@@ -55,21 +55,24 @@ def norm(entry,max):
     if isinstance(entry, str) and entry != '  ' and float(entry)<=max: return float(entry)/max
     else: return False
 
+#normalize each entry in a series
+def norm_col(col,col_max): return [norm(entry,col_max) for entry in col if norm(entry,col_max)]
+
+#get dict of averages for each column by year
+def col_yr_avg(ind,col_max):
+    #get relevant question from index
+    rel_ques=po_rel_ques[ind]
+    #for each survey year, get all data for given question variable
+    ques_raw={yr:po_df.loc[po_df[SURVEY_YEAR]==yr][rel_ques] for yr in SURVEY_YEARS}
+    #clean and normalize the series data from relevant question col
+    ques_norm={yr:norm_col(ques_raw[yr],col_max) for yr in SURVEY_YEARS}
+    #average normalized temp for each year
+    ques_yr_avg={yr:np.average(ques_norm[yr]) for yr in SURVEY_YEARS if not np.isnan(np.average(ques_norm[yr]))}
+
 #question VCF0232 - from ANES "GROUP THERMOMETER: Gays and Lesbians"
 #0-96 temp, 97 unclear, 98=DK, 99=NA, INAP=inappropriate
 MAX_TEMP=96
-
-#normalize each entry in a series
-def norm_col(series,max): return [norm(raw_temp,max) for raw_temp in series if norm(raw_temp,max)]
-
-#for each survey year, get all data for given question variable
-gay_temp_raw={yr:po_df.loc[po_df[SURVEY_YEAR]==yr][po_rel_ques[0]] for yr in SURVEY_YEARS}
-
-#clean and normalize the series data from relevant question col
-gay_temp_norm={yr:norm_col(gay_temp_raw[yr],MAX_TEMP) for yr in SURVEY_YEARS}
-
-#average normalized temp for each year
-gay_temp_yr_avg={yr:np.average(gay_temp_norm[yr]) for yr in SURVEY_YEARS if not np.isnan(np.average(gay_temp_norm[yr]))}
+gay_temp_yr_avg=col_yr_avg(0,MAX_TEMP)
 
 #question VCF0877 - from ANES "Strength of Position on Gays in the Military"
 #"Do you feel strongly or not strongly that homosexuals should be
