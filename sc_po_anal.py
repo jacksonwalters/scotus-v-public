@@ -5,10 +5,12 @@
 
 import numpy as np
 
-#global names for year of survey variables
+#global variables
 SURVEY_YEAR='VCF0004'
 CURRENT_YEAR=2018
 SURVEY_YEARS=tuple(set(po_df[SURVEY_YEAR]))
+NUM_JUSTICES=9
+
 
 #get the justice's name given their number
 def get_name(num: int) -> str:
@@ -48,12 +50,16 @@ issue_df=pd.read_csv('./sc_issues.csv')
 
 #ISSUE=GAY MARRIAGE
 ############################################################################
+############################################################################
 
 #keywords associated with ISSUE
 #liberals are supportive of ISSUE
 GAY_MAR_KEYWORDS=['gay','lesbian','marriage','same-sex','same sex','homosexual','spouse']
-LIB_PRO_ISSUE=True
+LIB_PRO_ISSUE = True
 CONS_PRO_ISSUE = not LIB_PRO_ISSUE
+
+#SUPREME COURT
+#############################################################################
 
 #identifiers for RELEVANT CASES from SCDB
 #KEY Q: HOW TO GET RELEVANT CASES FROM KEYWORDS
@@ -83,6 +89,9 @@ def num_supp_votes(ind):
     #case decided in cons. dir., conservatives are PRO-ISSUE, supp. votes are maj. votes
     if cons_dir and CONS_PRO_ISSUE: supp_votes = case['majVotes']
     return supp_votes
+
+#PUBLIC OPINION
+#########################################################################################
 
 #identifiers for RELEVANT QUESTIONS from ANES PO surveys
 po_rel_ques=['VCF0232','VCF0877','VCF0878']
