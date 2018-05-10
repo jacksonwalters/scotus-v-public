@@ -4,7 +4,6 @@
 #analyzing relationship between public opinion and supreme court decisions
 
 import numpy as np
-import matplotlib.pyplot as plt
 
 #global name for variable corresponding to year of survey
 SURVEY_YEAR='VCF0004'
@@ -108,5 +107,3 @@ gay_mil_conv={1:3,2:2,4:1,5:0}
 MAX_GAY_MIL=max(gay_mil_conv.values())
 gay_mil_scale=(lambda x: gay_mil_conv[x])
 gay_mil_yr_avg=col_yr_avg(1,MAX_GAY_MIL,gay_mil_scale)
-
-plt.plot(gay_temp_yr_avg.keys(),gay_temp_yr_avg.values())
