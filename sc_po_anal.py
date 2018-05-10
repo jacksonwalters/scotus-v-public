@@ -48,12 +48,13 @@ sc_rel_ind=[4255,9086,10940,11870,12983,12985,13161]
 #identifiers for RELEVANT QUESTIONS from ANES PO surveys
 po_rel_ques=['VCF0232','VCF0877','VCF0878']
 
-#format entry to be float or int if possible
+#format entry to be float if possible
 def format(entry):
-    if isinstance(entry, int): return float(entry)
-    if isinstance(entry, float): return entry
-    if isinstance(entry, str) and entry != '  ': return float(entry)
-    else: return False
+    try:
+        float(entry)
+        return float(entry)
+    except ValueError:
+        return False
 
 #convert entry to normalized value in [0,1]
 #requires maximum value in col, and dict to convert responses to a scale
