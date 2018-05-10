@@ -56,28 +56,29 @@ def is_num(entry):
     except ValueError:
         return False
 
-#convert entry to normalized value in [0,1]
-#requires maximum value in col, and dict to convert responses to a scale
-#default scale is just identity function
-def norm(entry,max,scale=(lambda x: x)):
+#check if the entry is scalable
+def scalable(entry,scale=(lambda x: x)):
     if is_num(entry):
         try:
             scale(float(entry))
-            if(float(entry)==2):
-                print(float(entry))
-                print(scale(float(entry)))
-                print(max)
-                print(scale(float(entry))/max)
-            return scale(float(entry))/max
+            return True
         except KeyError:
             return False
     else: return False
 
+#convert entry to normalized value in [0,1]
+#requires maximum value in col, and dict to convert responses to a scale
+#default scale is just identity function
+def norm(entry,max,scale=(lambda x: x)):
+    if scalable(entry,scale): return scale(float(entry))/max
+    else: return False
+
 #normalize each entry in a series
-def norm_col(col,col_max,scale=(lambda x: x)): return [norm(entry,col_max,scale) for entry in col if norm(entry,col_max,scale)]
+def norm_col(col,col_max,scale=(lambda x: x)): return [norm(entry,col_max,scale) for entry in col if scalable(entry,scale)]
 
 #get dict of averages for each column by year
 def col_yr_avg(ind,col_max,scale=(lambda x: x)):
+    print(col_max)
     #get relevant question from index
     rel_ques=po_rel_ques[ind]
     #for each survey year, get all data for given question variable
