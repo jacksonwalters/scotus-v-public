@@ -77,7 +77,6 @@ def norm_col(col,col_max,scale=(lambda x: x)): return [norm(entry,col_max,scale)
 
 #get dict of averages for each column by year
 def col_yr_avg(ind,col_max,scale=(lambda x: x)):
-    print(col_max)
     #get relevant question from index
     rel_ques=po_rel_ques[ind]
     #for each survey year, get all data for given question variable
