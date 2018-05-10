@@ -50,7 +50,8 @@ po_rel_ques=['VCF0232','VCF0877','VCF0878']
 
 #format entry to be float or int if possible
 def format(entry):
-    if isinstance(entry, int) or isinstance(entry, float): return entry
+    if isinstance(entry, int): return float(entry)
+    if isinstance(entry, float): return entry
     if isinstance(entry, str) and entry != '  ': return float(entry)
     else: return False
 
@@ -72,6 +73,7 @@ def col_yr_avg(ind,col_max):
     ques_norm={yr:norm_col(ques_raw[yr],col_max) for yr in SURVEY_YEARS}
     #average normalized temp for each year
     ques_yr_avg={yr:np.average(ques_norm[yr]) for yr in SURVEY_YEARS if not np.isnan(np.average(ques_norm[yr]))}
+    return ques_yr_avg
 
 #question VCF0232 - from ANES "GROUP THERMOMETER: Gays and Lesbians"
 #0-96 temp, 97 unclear, 98=DK, 99=NA, INAP=inappropriate
