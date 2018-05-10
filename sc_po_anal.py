@@ -82,6 +82,7 @@ def num_supp_votes(ind):
     if cons_dir and LIB_PRO_ISSUE: supp_votes = case['minVotes']
     #case decided in cons. dir., conservatives are PRO-ISSUE, supp. votes are maj. votes
     if cons_dir and CONS_PRO_ISSUE: supp_votes = case['majVotes']
+    return supp_votes
 
 #identifiers for RELEVANT QUESTIONS from ANES PO surveys
 po_rel_ques=['VCF0232','VCF0877','VCF0878']
