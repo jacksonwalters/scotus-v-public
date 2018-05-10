@@ -8,7 +8,7 @@ import numpy as np
 #global names for year of survey variables
 SURVEY_YEAR='VCF0004'
 CURRENT_YEAR=2018
-SURVEY_YEARS=list(set(po_df[SURVEY_YEAR]))
+SURVEY_YEARS=tuple(set(po_df[SURVEY_YEAR]))
 
 #the headers which are in justice data and not in case data
 in_j_not_c=[x for x in list(jd_df) if x not in list(cd_df)]
