@@ -10,43 +10,12 @@ SURVEY_YEAR='VCF0004'
 CURRENT_YEAR=2018
 SURVEY_YEARS=tuple(set(po_df[SURVEY_YEAR]))
 
-#the headers which are in justice data and not in case data
-in_j_not_c=[x for x in list(jd_df) if x not in list(cd_df)]
-
 #get the justice's name given their number
 def get_name(num: int) -> str:
     result=list(set(jd_df.loc[jd_df['justice'] == num]['justiceName']))
     if len(result) > 1: return 'NON-UNIQUE'
     if len(result) == 0: return 'FAIL'
     if len(result) == 1: return result[0]
-
-#build dict of justice names based on order
-#only 113 unique persons have served on the court, however this list
-#has 115 index numbers. some assoc. justice were later appointed Chief justice
-#seperately, such as Charles Evan Hughes and William Rehnquist.
-justice_names={i:get_name(i) for i in range(84,116)}
-
-#fields of interest: caseIssuesId, issue, issueArea. these are id numbers.
-#online documentation reveals what they correspond to. create dicts/tables.
-issue_areas={1:'Criminal Procedure',2:'Civil Rights',3:'First Amendment',4:'Due Process',5:'Privacy',6:'Attorneys',7:'Unions',8:'Economic Activity',9:'Judicial Power',10:'Federalism',11:'Interstate Relations',12:'Federal Taxation',13:'Miscellaneous',14:'Private Action'}
-issue_df=pd.read_csv('./sc_issues.csv')
-
-#ISSUE=GAY MARRIAGE
-############################################################################
-
-#keywords associated with ISSUE
-gay_mar_keywords=['gay','lesbian','marriage','same-sex','same sex','homosexual','spouse']
-
-#identifiers for RELEVANT CASES from SCDB
-#KEY Q: HOW TO GET RELEVANT CASES FROM KEYWORDS
-#POTENTIAL A: get natural language description for each case (using API). classify utilizing keywords and SVD.
-sc_rel_dates=['6/12/1967','6/30/1986','5/20/1996','6/26/2003','6/26/2013','6/26/2013','6/26/2015'] #DATES NOT UNIQUE INDEX
-sc_rel_ids=['1966-119','1985-144','1995-053','2002-083','2012-077','2012-079','2014-070'] #weirdly caseId 1966-199, Loving v. VA is entered twice
-sc_rel_names=['LOVING et ux. v. VIRGINIA','BOWERS, ATTORNEY GENERAL OF GEORGIA v. HARDWICK et al.', 'ROY ROMER, GOVERNOR OF COLORADO, et al. v. RICHARD G. EVANS et al.', 'JOHN GEDDES LAWRENCE AND TYRON GARNER v. TEXAS', 'HOLLINGSWORTH v. PERRY', 'UNITED STATES v. WINDSOR', 'OBERGEFELL v. HODGES']
-sc_rel_ind=[4255,9086,10940,11870,12983,12985,13161]
-
-#identifiers for RELEVANT QUESTIONS from ANES PO surveys
-po_rel_ques=['VCF0232','VCF0877','VCF0878']
 
 #format entry to be float if possible
 def is_num(entry):
@@ -65,6 +34,57 @@ def scalable(entry,scale=(lambda x: x)):
         except KeyError:
             return False
     else: return False
+
+#build dict of justice names based on order
+#only 113 unique persons have served on the court, however this list
+#has 115 index numbers. some assoc. justice were later appointed Chief justice
+#seperately, such as Charles Evan Hughes and William Rehnquist.
+justice_names={i:get_name(i) for i in range(84,116)}
+
+#fields of interest: caseIssuesId, issue, issueArea. these are id numbers.
+#online documentation reveals what they correspond to. create dicts/tables.
+issue_areas={1:'Criminal Procedure',2:'Civil Rights',3:'First Amendment',4:'Due Process',5:'Privacy',6:'Attorneys',7:'Unions',8:'Economic Activity',9:'Judicial Power',10:'Federalism',11:'Interstate Relations',12:'Federal Taxation',13:'Miscellaneous',14:'Private Action'} #scraped by hand
+issue_df=pd.read_csv('./sc_issues.csv')
+
+#ISSUE=GAY MARRIAGE
+############################################################################
+
+#keywords associated with ISSUE
+#liberals are supportive of ISSUE
+GAY_MAR_KEYWORDS=['gay','lesbian','marriage','same-sex','same sex','homosexual','spouse']
+LIB_PRO_ISSUE=True
+CONS_PRO_ISSUE = not LIB_PRO_ISSUE
+
+#identifiers for RELEVANT CASES from SCDB
+#KEY Q: HOW TO GET RELEVANT CASES FROM KEYWORDS
+#POTENTIAL A: get natural language description for each case (using API). classify utilizing keywords and SVD.
+sc_rel_dates=['6/12/1967','6/30/1986','5/20/1996','6/26/2003','6/26/2013','6/26/2013','6/26/2015'] #DATES NOT UNIQUE INDEX
+sc_rel_ids=['1966-119','1985-144','1995-053','2002-083','2012-077','2012-079','2014-070'] #weirdly caseId 1966-199, Loving v. VA is entered twice
+sc_rel_names=['LOVING et ux. v. VIRGINIA','BOWERS, ATTORNEY GENERAL OF GEORGIA v. HARDWICK et al.', 'ROY ROMER, GOVERNOR OF COLORADO, et al. v. RICHARD G. EVANS et al.', 'JOHN GEDDES LAWRENCE AND TYRON GARNER v. TEXAS', 'HOLLINGSWORTH v. PERRY', 'UNITED STATES v. WINDSOR', 'OBERGEFELL v. HODGES']
+sc_rel_ind=[4255,9086,10940,11870,12983,12985,13161]
+
+#ASSUMPTION: binary variable - "liberals supportive of ISSUE". This means:
+# decisionDirection = 1: conservative dir., minVotes = num of supporting votes
+# decisionDirection = 2: liberal dir., majVotes = num of supporting votes
+
+#get number of supportive votes given case index
+def num_supp_votes(ind):
+    case=jd_df.iloc[ind]
+    dir=case['decisionDirection']
+    if is_num(dir):
+        lib_dir = (dir==2)
+        cons_dir = not lib_dir
+    #case decided in lib. dir., liberals are PRO-ISSUE, supp. votes are maj. votes
+    if lib_dir and LIB_PRO_ISSUE: supp_votes = case['majVotes']
+    #case decided in lib. dir., conservatives are PRO-ISSUE, supp. votes are maj. votes
+    if lib_dir and CONS_PRO_ISSUE: supp_votes = case['minVotes']
+    #case decided in cons. dir., liberals are PRO-ISSUE, supp. votes are min. votes
+    if cons_dir and LIB_PRO_ISSUE: supp_votes = case['minVotes']
+    #case decided in cons. dir., conservatives are PRO-ISSUE, supp. votes are maj. votes
+    if cons_dir and CONS_PRO_ISSUE: supp_votes = case['majVotes']
+
+#identifiers for RELEVANT QUESTIONS from ANES PO surveys
+po_rel_ques=['VCF0232','VCF0877','VCF0878']
 
 #convert entry to normalized value in [0,1]
 #requires maximum value in col, and dict to convert responses to a scale

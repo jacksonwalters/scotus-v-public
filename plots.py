@@ -8,3 +8,5 @@ plt.title('Public Support for Gay/Lesbian Issues')
 
 min_yr=min(list(gay_temp_yr_avg.keys())+list(gay_mil_yr_avg.keys()))
 plt.axis([min_yr-4, CURRENT_YEAR, 0.0, 1.0])
+
+#supreme court decisions
