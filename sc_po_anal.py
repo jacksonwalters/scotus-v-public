@@ -67,13 +67,13 @@ def norm(entry,max,scale=(lambda x: x)):
 def norm_col(col,col_max,scale=(lambda x: x)): return [norm(entry,col_max,scale) for entry in col if norm(entry,col_max,scale)]
 
 #get dict of averages for each column by year
-def col_yr_avg(ind,col_max):
+def col_yr_avg(ind,col_max,scale=(lambda x: x)):
     #get relevant question from index
     rel_ques=po_rel_ques[ind]
     #for each survey year, get all data for given question variable
     ques_raw={yr:po_df.loc[po_df[SURVEY_YEAR]==yr][rel_ques] for yr in SURVEY_YEARS}
     #clean and normalize the series data from relevant question col
-    ques_norm={yr:norm_col(ques_raw[yr],col_max) for yr in SURVEY_YEARS}
+    ques_norm={yr:norm_col(ques_raw[yr],col_max,scale) for yr in SURVEY_YEARS}
     #average normalized temp for each year
     ques_yr_avg={yr:np.average(ques_norm[yr]) for yr in SURVEY_YEARS if not np.isnan(np.average(ques_norm[yr]))}
     return ques_yr_avg
@@ -96,6 +96,6 @@ gay_temp_yr_avg=col_yr_avg(0,MAX_TEMP)
 MAX_GAY_MIL=3
 gay_mil_conv={1:3,2:2,4:1,5:0}
 scale=(lambda x: gay_mil_conv[x])
-#gay_mil_yr_avg=col_yr_avg(1,MAX_GAY_MIL,scale)
+gay_mil_yr_avg=col_yr_avg(1,MAX_GAY_MIL,scale)
 
 plt.plot(gay_temp_yr_avg.keys(),gay_temp_yr_avg.values())
