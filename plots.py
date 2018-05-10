@@ -7,6 +7,8 @@ plt.plot(gay_mil_yr_avg.keys(),gay_mil_yr_avg.values(),'bs',label='Gays in the M
 #supreme court decisions
 plt.plot(sc_support.keys(),sc_support.values(),'ro',label='Supreme Court Supp. Vote Ratio')
 
+plt.axhline(y=.5)
+
 plt.legend()
 plt.xlabel('Time (year)')
 plt.ylabel('Support')
