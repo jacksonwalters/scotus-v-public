@@ -19,3 +19,23 @@ The cases cover 1946 - 2016. The case descriptions and opinions
 are scraped and a sentiment analysis is performed using the
 given keywords. For gay marriage, there are approximately 14
 relevant cases.
+
+The public opinion data are sourced from ANES, the American
+National Election Studies. These are publicly available online.
+The data are questions posed to a representative sample of
+voters every two years before elections and cover 1948-2016.
+An example question for 'Gay Marriage' is
+
+Q: "Gay men and lesbians (that is), homosexuals -- thermometer"
+Output: 0-96
+
+By taking a weighted average over relevant questions, we can form
+a metric to measure whether the public supports gay marriage.
+
+Looking at the proportion of pro-'Gay Marriage' votes, we obtain
+a metric which measures to what degree the Supreme Court is deciding
+in favor of 'Gay Marriage'.
+
+My website displays a plot of both metrics, linear regressions for each
+set of data, relevant statistics, and the set of relevant cases to the
+left and relevant public opinion questions to the right.
