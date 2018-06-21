@@ -21,18 +21,18 @@ TWO SIDES TO EACH ISSUE:
 	- 'PRO' and 'ANTI', nuance is difficult. SC data has 'decisionDirection' for liberal
 	or conservative.
 
-ARBITRARINESS: 
+ARBITRARINESS:
 	- choosing an issue such as 'Gay Marriage'. This comes from set of keywords.
 	- relevant cases come from looking at opinions/plain text descriptions of cases
 	and doing keyword matching.
 	- which public opinion questions are relevant? keyword matching in list of PO questions
-	- weighting public opinion questions: directly relevant questions weighted higher, 
-	e.g. "Do you support same-sex marriage?" vs. "Do you support gays in the military?, 
+	- weighting public opinion questions: directly relevant questions weighted higher,
+	e.g. "Do you support same-sex marriage?" vs. "Do you support gays in the military?,
 	however how do we assign weights?
-	
-LIMITED DATA: 
+
+LIMITED DATA:
 	- for a given issue, only a handful (10-20) of Supreme Court cases
-	
+
 WHAT EXACTLY ARE WE ASKING:
 	- Q1: For a given issue, how are SC ruling and PO correlated.
 	- Q2: after analyzing many (~1000) issues, which cases are out of the ordinary? in the
@@ -41,18 +41,17 @@ WHAT EXACTLY ARE WE ASKING:
 	the public is in majority support, and then the SC follows, can we predict
 	for other issues when the SC will make a definitive ruling?
 
-THINGS TO KEEP IN MIND/CONSIDER: 
+THINGS TO KEEP IN MIND/CONSIDER:
 	- for a given case, it should be clear which side is 'PRO' and which is 'ANTI'.
-	
+
 WHO CARES?:
 	- use this data to make predictions. given an issue which is not yet 'fully' decided
 	can use linear regression, etc. to try to predict future decisions.
-	
+
 HAS IT BEEN DONE BEFORE?:
 	- Talked to Data Journalist. She mentioned NYT v. Sullivan.
 	- Not super sure.
-	
+
 ENDGAME:
 	- create web interface for user to input keywords/issues. result is comparision plot
-	of supreme court and public opinion.	
-	
+	of supreme court and public opinion.
