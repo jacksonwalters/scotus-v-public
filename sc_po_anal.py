@@ -104,7 +104,8 @@ sc_support={case_year(ind):num_supp_votes(ind)/NUM_JUSTICES for ind in sc_rel_in
 #########################################################################################
 
 #identifiers for RELEVANT QUESTIONS from ANES PO surveys
-po_rel_ques=['VCF0232','VCF0877','VCF0878']
+po_rel_ques=['VCF0232','VCF0877','VCF0878','VCF0876']
+num_q=len(po_rel_ques)
 
 #convert entry to normalized value in [0,1]
 #requires maximum value in col, and dict to convert responses to a scale
@@ -116,23 +117,38 @@ def norm(entry,max,scale=(lambda x: x)):
 #normalize each entry in a series
 def norm_col(col,col_max,scale=(lambda x: x)): return [norm(entry,col_max,scale) for entry in col if scalable(entry,scale)]
 
+#returns the value for a given key in a dictionary else returns NaN
+def get_or_nan(key,dict):
+    if key in dict.keys(): return dict[key]
+    else: return float('NaN')
+
 #get dict of averages for each column by year
-def col_yr_avg(ind,col_max,scale=(lambda x: x)):
-    #get relevant question from index
-    rel_ques=po_rel_ques[ind]
+def col_yr_avg(q_id,col_max=1,scale=(lambda x: x)):
+
+    resp_conv=response_dict(q_id)
+    col_max=max(resp_conv.values())
+    scale=(lambda x: resp_conv[x])
+
     #for each survey year, get all data for given question variable
-    ques_raw={yr:po_df.loc[po_df[SURVEY_YEAR]==yr][rel_ques] for yr in SURVEY_YEARS}
+    ques_raw={yr:po_df.loc[po_df[SURVEY_YEAR]==yr][q_id] for yr in SURVEY_YEARS}
     #clean and normalize the series data from relevant question col
     ques_norm={yr:norm_col(ques_raw[yr],col_max,scale) for yr in SURVEY_YEARS}
     #average normalized temp for each year
     ques_yr_avg={yr:np.average(ques_norm[yr]) for yr in SURVEY_YEARS if not np.isnan(np.average(ques_norm[yr]))}
     return ques_yr_avg
 
+#convert text dict of possible repsponses to python dictionary
+#for given relevent question index
+def response_dict(q_id):
+    if q_id == 'VCF0232': return {i:i for i in range(96)}
+    if q_id == 'VCF0877': return {1:3,2:2,4:1,5:0}
+    if q_id == 'VCF0878': return {1:1,5:0}
+    if q_id == 'VCF0876': return {1:1,5:0}
+
 #question VCF0232 - from ANES "GROUP THERMOMETER: Gays and Lesbians"
 #"Gay men and lesbians (that is), homosexuals -- thermometer"
 #0-96 temp, 97 unclear, 98=DK, 99=NA, INAP=inappropriate
-MAX_TEMP=96
-gay_temp_yr_avg=col_yr_avg(0,MAX_TEMP)
+gay_temp_yr_avg=col_yr_avg('VCF0232')
 
 #question VCF0877 - from ANES "Strength of Position on Gays in the Military"
 #"Do you feel strongly or not strongly that homosexuals should be
@@ -144,10 +160,7 @@ gay_temp_yr_avg=col_yr_avg(0,MAX_TEMP)
 #7 - DK if favor or oppose; depends (1988); ---> nan
 #9 -  NA if favor or oppose ---> nan
 #INAP - inappropriate ---> nan
-gay_mil_conv={1:3,2:2,4:1,5:0}
-MAX_GAY_MIL=max(gay_mil_conv.values())
-gay_mil_scale=(lambda x: gay_mil_conv[x])
-gay_mil_yr_avg=col_yr_avg(1,MAX_GAY_MIL,gay_mil_scale)
+gay_mil_yr_avg=col_yr_avg('VCF0877')
 
 #question VCF0878 - ISSUES: Should Gays/Lesbians Be Able to Adopt Children
 #---------
@@ -160,15 +173,45 @@ gay_mil_yr_avg=col_yr_avg(1,MAX_GAY_MIL,gay_mil_scale)
 #--------------
 #9.  NA; no Post IW
 #INAP. Inap. question not used
-gay_adopt_conv={1:1,5:0}
-MAX_GAY_ADOPT=max(gay_adopt_conv.values())
-gay_adopt_scale=(lambda x: gay_adopt_conv[x])
-gay_adopt_yr_avg=col_yr_avg(2,MAX_GAY_ADOPT,gay_adopt_scale)
+gay_adopt_yr_avg=col_yr_avg('VCF0878')
+
+#=============================================================================
+#VCF0876
+#
+#ISSUES: Law to Protect Homosexuals Against Discrimination
+#
+#Q:
+#---------
+#Do you favor or oppose laws to protect homosexuals against job
+#discrimination?
+
+#VALID_CODES:
+#------------
+#1.  Favor
+#5.  Oppose
+#8.  DK; depends (1988)
+#
+#MISSING_CODES:
+#--------------
+#9.  NA; no Post IW
+#INAP. Inap. question not used
+gay_protect_yr_avg=col_yr_avg('VCF0876')
 
 #AVERAGE PUBLIC OPINION
 #########################################################################################
-def get_or_nan(key,dict):
-    if key in dict.keys(): return dict[key]
-    else: return float('NaN')
-keys=set(list(gay_temp_yr_avg.keys())+list(gay_mil_yr_avg.keys())+list(gay_adopt_yr_avg.keys()))
+
+#compute averages for all relevant columns
+col_avgs=[col_yr_avg(q_id) for q_id in po_rel_ques]
+
+#build dict of overall averages.
+#looks like MapReduce.
+all_yr_avg={}
+for q_id in po_rel_ques:
+    yr_avg=col_yr_avg(q_id)
+    for key in yr_avg.keys():
+        all_yr_avg
+
+keys=set(sum((list(col_yr_avg(i).keys()) for i in range(num_q)),[]))
+
+
 gay_all_yr_avg={key:np.nanmean([get_or_nan(key,gay_temp_yr_avg),get_or_nan(key,gay_mil_yr_avg),get_or_nan(key,gay_adopt_yr_avg)]) for key in keys}
