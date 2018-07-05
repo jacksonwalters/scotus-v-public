@@ -1,0 +1,21 @@
+#NOTES: Watch for repition, remove pauses in speech, cut to 2 minutes, focus on
+fewer plots.
+
+Capstone Project for TDI
+
+Name: Jackson Walters
+Project Title: US Supreme Court v. Court of Public Opinion
+
+Concept: Relates opinions and decisions of SC to opinion of US public at large.
+
+Implementation:
+
+- Uses publicly available data from SCDB and ANES.
+- Input: Set of keywords to specify issue, e.g. LGBTQ rights.
+- App uses NLP tools to identify relevants cases and PO questions.
+- Sentiment analysis to decide polarity of judicial vote and public
+responses (pro or anti), e.g. a vote in favor of the plantiff Obgefell
+would be considered pro LGBTQ rights as would a response of 'Yes' to the
+question "Do you support gays in the military?".
+- After normalizing to a scale of [-1,1] and averaging, we obtain a metric
+for measuring SC support and public support on an issue.

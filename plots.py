@@ -90,3 +90,27 @@ plt.axis([min_yr-4, CURRENT_YEAR, 0.0, 1.1])
 plt.savefig('./plots/sc_v_po.png', bbox_inches='tight')
 #plt.show()
 plt.gcf().clear()
+
+#SUPREME COURT v. PUBLIC OPINION AVERAGE
+################################################################################
+
+#public support for gay issues on average
+plt.plot(gay_all_yr_avg.keys(),gay_all_yr_avg.values(),'bo',label='Public Support on LGBTQ Issues')
+
+#supreme court decisions
+plt.plot(sc_support.keys(),sc_support.values(),'ro',label='Supreme Court Supp. Vote Ratio')
+
+plt.axhline(y=.5)
+
+plt.legend()
+plt.xlabel('Time (year)')
+plt.ylabel('Support')
+plt.title('SC v. PO for Gay/Lesbian Issues')
+plt.grid(True)
+
+min_yr=min(list(sc_support.keys())+list(gay_all_yr_avg.keys()))
+plt.axis([min_yr-4, CURRENT_YEAR, 0.0, 1.1])
+
+plt.savefig('./plots/avg_sc_v_po.png', bbox_inches='tight')
+#plt.show()
+plt.gcf().clear()
