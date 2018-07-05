@@ -104,8 +104,8 @@ sc_support={case_year(ind):num_supp_votes(ind)/NUM_JUSTICES for ind in sc_rel_in
 #########################################################################################
 
 #identifiers for RELEVANT QUESTIONS from ANES PO surveys
-po_rel_ques=['VCF0232','VCF0877','VCF0878','VCF0876']
-num_q=len(po_rel_ques)
+#po_rel_ques=['VCF0232','VCF0877','VCF0878','VCF0876']
+po_rel_ques=['VCF0232','VCF0877','VCF0878']
 
 #convert entry to normalized value in [0,1]
 #requires maximum value in col, and dict to convert responses to a scale
@@ -117,16 +117,14 @@ def norm(entry,max,scale=(lambda x: x)):
 #normalize each entry in a series
 def norm_col(col,col_max,scale=(lambda x: x)): return [norm(entry,col_max,scale) for entry in col if scalable(entry,scale)]
 
-#returns the value for a given key in a dictionary else returns NaN
-def get_or_nan(key,dict):
-    if key in dict.keys(): return dict[key]
-    else: return float('NaN')
-
 #get dict of averages for each column by year
 def col_yr_avg(q_id,col_max=1,scale=(lambda x: x)):
 
+    #get appropriate conversion of responses to support values
     resp_conv=response_dict(q_id)
+    #compute the possible max of all responses
     col_max=max(resp_conv.values())
+    #construct a function to use as a conversion scale
     scale=(lambda x: resp_conv[x])
 
     #for each survey year, get all data for given question variable
@@ -200,18 +198,19 @@ gay_protect_yr_avg=col_yr_avg('VCF0876')
 #AVERAGE PUBLIC OPINION
 #########################################################################################
 
-#compute averages for all relevant columns
-col_avgs=[col_yr_avg(q_id) for q_id in po_rel_ques]
-
 #build dict of overall averages.
 #looks like MapReduce.
-all_yr_avg={}
+all_po_avg={}
 for q_id in po_rel_ques:
-    yr_avg=col_yr_avg(q_id)
-    for key in yr_avg.keys():
-        all_yr_avg
+    #compute average of column for question id q_id
+    col_avg = col_yr_avg(q_id)
+    print(col_avg)
+    #append each value in the dictonary to the appropirate key
+    for key,value in col_avg.items():
+        if key in all_po_avg.keys():
+            all_po_avg[key] += [value]
+        else:
+            all_po_avg[key] = [value]
 
-keys=set(sum((list(col_yr_avg(i).keys()) for i in range(num_q)),[]))
-
-
-gay_all_yr_avg={key:np.nanmean([get_or_nan(key,gay_temp_yr_avg),get_or_nan(key,gay_mil_yr_avg),get_or_nan(key,gay_adopt_yr_avg)]) for key in keys}
+#reduce by averaging each list of col averages
+all_po_avg = {key:np.average(all_po_avg[key]) for key in all_po_avg.keys()}

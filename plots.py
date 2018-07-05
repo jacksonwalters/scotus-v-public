@@ -95,7 +95,7 @@ plt.gcf().clear()
 ################################################################################
 
 #public support for gay issues on average
-plt.plot(gay_all_yr_avg.keys(),gay_all_yr_avg.values(),'bo',label='Public Support on LGBTQ Issues')
+plt.plot(all_po_avg.keys(),all_po_avg.values(),'bo',label='Public Support for Issue')
 
 #supreme court decisions
 plt.plot(sc_support.keys(),sc_support.values(),'ro',label='Supreme Court Supp. Vote Ratio')
