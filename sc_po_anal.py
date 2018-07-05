@@ -164,3 +164,11 @@ gay_adopt_conv={1:1,5:0}
 MAX_GAY_ADOPT=max(gay_adopt_conv.values())
 gay_adopt_scale=(lambda x: gay_adopt_conv[x])
 gay_adopt_yr_avg=col_yr_avg(2,MAX_GAY_ADOPT,gay_adopt_scale)
+
+#AVERAGE PUBLIC OPINION
+#########################################################################################
+def get_or_nan(key,dict):
+    if key in dict.keys(): return dict[key]
+    else: return float('NaN')
+keys=set(list(gay_temp_yr_avg.keys())+list(gay_mil_yr_avg.keys())+list(gay_adopt_yr_avg.keys()))
+gay_all_yr_avg={key:np.nanmean([get_or_nan(key,gay_temp_yr_avg),get_or_nan(key,gay_mil_yr_avg),get_or_nan(key,gay_adopt_yr_avg)]) for key in keys}
