@@ -148,3 +148,19 @@ gay_mil_conv={1:3,2:2,4:1,5:0}
 MAX_GAY_MIL=max(gay_mil_conv.values())
 gay_mil_scale=(lambda x: gay_mil_conv[x])
 gay_mil_yr_avg=col_yr_avg(1,MAX_GAY_MIL,gay_mil_scale)
+
+#question VCF0878 - ISSUES: Should Gays/Lesbians Be Able to Adopt Children
+#---------
+#VALID_CODES:
+#------------
+#1.  Yes -----> 1
+#5.  No ------> 0
+#8.  DK ------> nan
+#MISSING_CODES:
+#--------------
+#9.  NA; no Post IW
+#INAP. Inap. question not used
+gay_adopt_conv={1:1,5:0}
+MAX_GAY_ADOPT=max(gay_adopt_conv.values())
+gay_adopt_scale=(lambda x: gay_adopt_conv[x])
+gay_adopt_yr_avg=col_yr_avg(2,MAX_GAY_ADOPT,gay_adopt_scale)
