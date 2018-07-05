@@ -12,10 +12,20 @@ Implementation:
 
 - Uses publicly available data from SCDB and ANES.
 - Input: Set of keywords to specify issue, e.g. LGBTQ rights.
-- App uses NLP tools to identify relevants cases and PO questions.
+- App uses NLP tools to identify relevant cases and PO questions.
 - Sentiment analysis to decide polarity of judicial vote and public
 responses (pro or anti), e.g. a vote in favor of the plantiff Obgefell
 would be considered pro LGBTQ rights as would a response of 'Yes' to the
 question "Do you support gays in the military?".
 - After normalizing to a scale of [-1,1] and averaging, we obtain a metric
 for measuring SC support and public support on an issue.
+
+Product: These two bodies are indirectly connected via the public's
+elected president who appoints justices, and their elected representatives in the
+senate who vote on confirmation. We expect that their views on issues be correlated.
+This app provides insight into the direction support for an issue is trending towards.
+By modeling the data we can predict when a paradigm shift might occur, e.g. public
+paradigm shift on gay rights seems to have occurred in 1996 and within a year
+supreme court decisions were being decided in favor as well. If it is determined
+that the supreme court has shifted before the public, this could be used to
+inform political campaigns.
