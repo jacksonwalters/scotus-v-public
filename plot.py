@@ -1,14 +1,52 @@
 import matplotlib.pyplot as plt
+import scipy.stats as stats
+import numpy as np
+
+#STATS & MODEL
+################################################################################
+
+#PO
+x_po=list(all_po_avg.keys())
+y_po=list(all_po_avg.values())
+
+#get basic stats
+slope, intercept, r_value, p_value, std_err = stats.linregress(x_po,y_po)
+
+#degree 1 model for PO
+po_deg1=np.polyfit(x_po,y_po,1)
+f1 = np.poly1d(po_deg1)
+#degree 3 model for PO
+po_deg3=np.polyfit(x_po,y_po,3)
+f3 = np.poly1d(po_deg3)
+
+#SC
+x_sc=list(sc_support.keys())
+y_sc=list(sc_support.values())
+
+#get basic stats
+slope, intercept, r_value, p_value, std_err = stats.linregress(x_sc,y_sc)
+
+#degree 1 model for SC
+sc_deg1=np.polyfit(x_sc,y_sc,1)
+g1 = np.poly1d(po_deg1)
+#degree 3 model for SC
+sc_deg3=np.polyfit(x_sc,y_sc,3)
+g3 = np.poly1d(po_deg3)
 
 #SUPREME COURT SUPPORT v. PUBLIC SUPPORT
 ################################################################################
 
-#public support for gay issues on average
+#average public opinion on issue
 plt.plot(all_po_avg.keys(),all_po_avg.values(),'bo',label='Public Support')
+#model for PO data
+plt.plot(x_po,f3(x_po),'-b')
 
 #supreme court decisions
 plt.plot(sc_support.keys(),sc_support.values(),'ro',label='Supreme Court Supp. Support')
+#model for SC data
+plt.plot(x_sc,g3(x_sc),'-r')
 
+#include horizontal neutral opinion line
 plt.axhline(y=.5)
 
 plt.legend()
