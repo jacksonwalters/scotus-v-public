@@ -14,7 +14,7 @@ plt.axhline(y=.5)
 plt.legend()
 plt.xlabel('Time (year)')
 plt.ylabel('Support')
-plt.title('SC v. PO Support for LGBTQ Issues')
+plt.title('SC v. PO Support for' + ISSUE_NAME)
 plt.grid(True)
 
 min_yr=min(list(sc_support.keys())+list(all_po_avg.keys()))

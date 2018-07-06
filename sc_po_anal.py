@@ -105,7 +105,8 @@ sc_support={case_year(ind):num_supp_votes(ind)/NUM_JUSTICES for ind in sc_rel_in
 #########################################################################################
 
 #identifiers for RELEVANT QUESTIONS from ANES PO surveys
-po_rel_ques=['VCF0232','VCF0877','VCF0878','VCF0876']
+#po_rel_ques=['VCF0232','VCF0877','VCF0878','VCF0876']
+po_rel_ques=['VCF0232','VCF0877']
 
 #convert entry to normalized value in [0,1]
 #requires maximum value in col, and dict to convert responses to a scale
