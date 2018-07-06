@@ -138,7 +138,7 @@ def col_yr_avg(q_id,col_max=1,scale=(lambda x: x)):
 #convert text dict of possible repsponses to python dictionary
 #for given relevent question index
 def response_dict(q_id):
-    if q_id == 'VCF0232': return {i:i for i in range(96)}
+    if q_id == 'VCF0232': return {i:i for i in range(97)}
     if q_id == 'VCF0877': return {1:3,2:2,4:1,5:0}
     if q_id == 'VCF0878': return {1:1,5:0}
     if q_id == 'VCF0876': return {1:1,5:0}
@@ -210,6 +210,8 @@ for q_id in po_rel_ques:
             all_po_avg[key] += [value]
         else:
             all_po_avg[key] = [value]
+
+print(all_po_avg)
 
 #reduce by averaging each list of col averages
 all_po_avg = {key:np.average(all_po_avg[key]) for key in all_po_avg.keys()}
