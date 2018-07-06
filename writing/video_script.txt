@@ -12,7 +12,7 @@ Implementation:
 
 - Uses publicly available data from SCDB and ANES.
 - Input: Set of keywords to specify issue, e.g. LGBTQ rights.
-- App uses NLP tools to identify relevant cases and PO questions.
+- App uses NLP tools (tfidf) to identify relevant cases and PO questions.
 - Sentiment analysis to decide polarity of judicial vote and public
 responses (pro or anti), e.g. a vote in favor of the plantiff Obgefell
 would be considered pro LGBTQ rights as would a response of 'Yes' to the
