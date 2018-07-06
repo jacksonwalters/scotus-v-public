@@ -1,16 +1,19 @@
 import matplotlib.pyplot as plt
-import scipy.stats as stats
+import scipy as sp
 import numpy as np
 
 #STATS & MODEL
 ################################################################################
+
+#the line deciding which side of the issue
+NEUTRAL = .5
 
 #PO
 x_po=list(all_po_avg.keys())
 y_po=list(all_po_avg.values())
 
 #get basic stats
-slope, intercept, r_value, p_value, std_err = stats.linregress(x_po,y_po)
+slope, intercept, r_value, p_value, std_err = sp.stats.linregress(x_po,y_po)
 
 #degree 1 model for PO
 po_deg1=np.polyfit(x_po,y_po,1)
@@ -19,12 +22,15 @@ f1 = np.poly1d(po_deg1)
 po_deg3=np.polyfit(x_po,y_po,3)
 f3 = np.poly1d(po_deg3)
 
+#find paradigm shift for PO
+p_shift_po=sp.optimize.fsolve(f3-NEUTRAL,2000)
+
 #SC
 x_sc=list(sc_support.keys())
 y_sc=list(sc_support.values())
 
 #get basic stats
-slope, intercept, r_value, p_value, std_err = stats.linregress(x_sc,y_sc)
+slope, intercept, r_value, p_value, std_err = sp.stats.linregress(x_sc,y_sc)
 
 #degree 1 model for SC
 sc_deg1=np.polyfit(x_sc,y_sc,1)
@@ -32,6 +38,9 @@ g1 = np.poly1d(po_deg1)
 #degree 3 model for SC
 sc_deg3=np.polyfit(x_sc,y_sc,3)
 g3 = np.poly1d(po_deg3)
+
+#find paradigm shift for SC
+p_shift_sc=sp.optimize.fsolve(f3-NEUTRAL,2000)
 
 #SUPREME COURT SUPPORT v. PUBLIC SUPPORT
 ################################################################################
