@@ -48,7 +48,7 @@ plt.gcf().clear()
 ################################################################################
 
 #average public support for gay issues
-plt.plot(gay_all_yr_avg.keys(),gay_all_yr_avg.values(),'mo',label='Public Support on LGBTQ Issues')
+plt.plot(all_po_avg.keys(),all_po_avg.values(),'mo',label='Public Support on LGBTQ Issues')
 
 plt.axhline(y=.5)
 
@@ -108,7 +108,7 @@ plt.ylabel('Support')
 plt.title('SC v. PO for Gay/Lesbian Issues')
 plt.grid(True)
 
-min_yr=min(list(sc_support.keys())+list(gay_all_yr_avg.keys()))
+min_yr=min(list(sc_support.keys())+list(all_po_avg.keys()))
 plt.axis([min_yr-4, CURRENT_YEAR, 0.0, 1.1])
 
 plt.savefig('./plots/avg_sc_v_po.png', bbox_inches='tight')

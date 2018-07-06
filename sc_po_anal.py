@@ -204,7 +204,6 @@ all_po_avg={}
 for q_id in po_rel_ques:
     #compute average of column for question id q_id
     col_avg = col_yr_avg(q_id)
-    print(col_avg)
     #append each value in the dictonary to the appropirate key
     for key,value in col_avg.items():
         if key in all_po_avg.keys():
