@@ -14,7 +14,7 @@ Implementation:
 - Input: Set of keywords to specify issue, e.g. LGBTQ rights.
 - App uses NLP tools (tfidf) to identify relevant cases and PO questions.
 - Sentiment analysis to decide polarity of judicial vote and public
-responses (pro or anti), e.g. a vote in favor of the plantiff Obgefell
+responses (pro or anti), e.g. a vote in favor of the plaintiff Obergefell
 would be considered pro LGBTQ rights as would a response of 'Yes' to the
 question "Do you support gays in the military?".
 - After normalizing to a scale of [-1,1] and averaging, we obtain a metric
