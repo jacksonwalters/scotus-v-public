@@ -211,7 +211,5 @@ for q_id in po_rel_ques:
         else:
             all_po_avg[key] = [value]
 
-print(all_po_avg)
-
 #reduce by averaging each list of col averages
 all_po_avg = {key:np.average(all_po_avg[key]) for key in all_po_avg.keys()}
