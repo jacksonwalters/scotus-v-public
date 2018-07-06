@@ -4,14 +4,14 @@ import matplotlib.pyplot as plt
 ################################################################################
 
 #supreme court decisions
-plt.plot(sc_support.keys(),sc_support.values(),'ro',label='Supreme Court Supp. Vote Ratio')
+plt.plot(sc_support.keys(),sc_support.values(),'ro',label='Supreme Court Supp Support')
 
 plt.axhline(y=.5)
 
 plt.legend()
 plt.xlabel('Time (year)')
 plt.ylabel('Support')
-plt.title('SC Support for Gay Marriage')
+plt.title('SC Support for Same-Sex Marriage')
 plt.grid(True)
 
 min_yr=min(list(sc_support.keys()))

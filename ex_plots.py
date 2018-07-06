@@ -26,9 +26,7 @@ plt.savefig('./plots/po_support.png', bbox_inches='tight')
 #plt.show()
 plt.gcf().clear()
 
-
-
-#SUPREME COURT v. PUBLIC OPINION for three LGBTQ questions
+#SUPREME COURT SUPPORT v. PUBLIC SUPPORT for three LGBTQ questions
 ################################################################################
 
 #public support for gay issues
