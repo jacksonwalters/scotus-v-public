@@ -47,13 +47,13 @@ plt.savefig('./plots/po_support.png', bbox_inches='tight')
 #plt.show()
 plt.gcf().clear()
 
-#PUBLIC OPINION SUPPORT for three LGBTQ issues
+#PUBLIC OPINION SUPPORT for 3 LGBTQ issues
 ################################################################################
 
 #public support for LGBTQ issues
 plt.plot(gay_temp_yr_avg.keys(),gay_temp_yr_avg.values(),'g^',label='Gay/Lesbian Thermometer')
 plt.plot(gay_mil_yr_avg.keys(),gay_mil_yr_avg.values(),'bs',label='Gays in the Military')
-plt.plot(gay_adopt_yr_avg.keys(),gay_adopt_yr_avg.values(),'m.',label='Gays Adopting')
+plt.plot(gay_adopt_yr_avg.keys(),gay_adopt_yr_avg.values(),'m.',label='Gay Adoption')
 
 plt.axhline(y=.5)
 
@@ -70,7 +70,7 @@ plt.savefig('./plots/po_support_3.png', bbox_inches='tight')
 #plt.show()
 plt.gcf().clear()
 
-#SUPREME COURT SUPPORT v. PUBLIC SUPPORT for three LGBTQ questions
+#SUPREME COURT SUPPORT v. PUBLIC SUPPORT for 3 LGBTQ questions
 ################################################################################
 
 #public support for gay issues
