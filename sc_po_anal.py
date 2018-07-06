@@ -55,6 +55,7 @@ issue_df=pd.read_csv('./sc_issues.csv')
 
 #keywords associated with ISSUE
 #liberals are supportive of ISSUE
+ISSUE_NAME="Same-Sex Marriage"
 GAY_MAR_KEYWORDS=['gay','lesbian','marriage','same-sex','same sex','homosexual','spouse']
 LIB_PRO_ISSUE = True
 CONS_PRO_ISSUE = not LIB_PRO_ISSUE
@@ -104,8 +105,7 @@ sc_support={case_year(ind):num_supp_votes(ind)/NUM_JUSTICES for ind in sc_rel_in
 #########################################################################################
 
 #identifiers for RELEVANT QUESTIONS from ANES PO surveys
-#po_rel_ques=['VCF0232','VCF0877','VCF0878','VCF0876']
-po_rel_ques=['VCF0232','VCF0877','VCF0878']
+po_rel_ques=['VCF0232','VCF0877','VCF0878','VCF0876']
 
 #convert entry to normalized value in [0,1]
 #requires maximum value in col, and dict to convert responses to a scale
