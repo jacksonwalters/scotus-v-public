@@ -104,9 +104,6 @@ sc_support={case_year(ind):num_supp_votes(ind)/NUM_JUSTICES for ind in sc_rel_in
 #PUBLIC OPINION
 #########################################################################################
 
-#identifiers for RELEVANT QUESTIONS from ANES PO surveys
-po_rel_ques=['VCF0232','VCF0877','VCF0878','VCF0876']
-
 #convert entry to normalized value in [0,1]
 #requires maximum value in col, and dict to convert responses to a scale
 #default scale is just identity function
@@ -135,13 +132,18 @@ def col_yr_avg(q_id,col_max=1,scale=(lambda x: x)):
     ques_yr_avg={yr:np.average(ques_norm[yr]) for yr in SURVEY_YEARS if not np.isnan(np.average(ques_norm[yr]))}
     return ques_yr_avg
 
+#identifiers for RELEVANT QUESTIONS from ANES PO surveys
+#these should be computed from keyword set input
+po_rel_ques=['VCF0232','VCF0877','VCF0878','VCF0876','VCF0876a']
+
 #convert text dict of possible repsponses to python dictionary
 #for given relevent question index
 def response_dict(q_id):
-    if q_id == 'VCF0232': return {i:i for i in range(97)}
-    if q_id == 'VCF0877': return {1:3,2:2,4:1,5:0}
-    if q_id == 'VCF0878': return {1:1,5:0}
-    if q_id == 'VCF0876': return {1:1,5:0}
+    if q_id == 'VCF0232': return {i:i for i in range(97)} #polarity unclear as HOT/COLD is hard to judge
+    if q_id == 'VCF0877': return {1:3,2:2,4:1,5:0} #polarity=descending
+    if q_id == 'VCF0878': return {1:1,5:0} #polarity=descending
+    if q_id == 'VCF0876': return {1:1,5:0} #polarity=descending
+    if q_id == 'VCF0876a': return {1:4,2:3,4:2,5:1} #polarity=descending
 
 #AVERAGE PUBLIC OPINION
 #########################################################################################
