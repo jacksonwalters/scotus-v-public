@@ -20,6 +20,6 @@ plt.grid(True)
 min_yr=min(list(sc_support.keys())+list(all_po_avg.keys()))
 plt.axis([min_yr-4, CURRENT_YEAR, 0.0, 1.1])
 
-plt.savefig('./plots/avg_sc_v_po.png', bbox_inches='tight')
+plt.savefig('./plots/sc_v_po.png', bbox_inches='tight')
 #plt.show()
 plt.gcf().clear()
