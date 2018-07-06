@@ -149,7 +149,7 @@ def response_dict(q_id):
 #########################################################################################
 
 #build dict of overall averages.
-#looks like MapReduce.
+#COULD USE MapReduce HERE.
 all_po_avg={}
 for q_id in po_rel_ques:
     #compute average of column for question id q_id
