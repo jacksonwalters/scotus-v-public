@@ -42,7 +42,7 @@ plt.plot(all_po_avg.keys(),all_po_avg.values(),'bo',label='Public Support')
 plt.plot(x_po,f3(x_po),'-b')
 
 #supreme court decisions
-plt.plot(sc_support.keys(),sc_support.values(),'ro',label='Supreme Court Supp. Support')
+plt.plot(sc_support.keys(),sc_support.values(),'ro',label='Supreme Court Support')
 #model for SC data
 plt.plot(x_sc,g3(x_sc),'-r')
 
@@ -52,7 +52,7 @@ plt.axhline(y=.5)
 plt.legend()
 plt.xlabel('Time (year)')
 plt.ylabel('Support')
-plt.title('SC v. PO Support for' + ISSUE_NAME)
+plt.title('SC v. PO Support for ' + ISSUE_NAME)
 plt.grid(True)
 
 min_yr=min(list(sc_support.keys())+list(all_po_avg.keys()))
