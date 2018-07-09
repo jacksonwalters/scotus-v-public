@@ -10,11 +10,11 @@ import csv
 ######################################################################
 #load csv files with pandas. not utf-8, must use alternate encoding
 #case centered data stored in dataframe
-cd_df=pd.read_csv('~/data/scdb_case_data.csv',encoding='windows-1252')
+cd_df=pd.read_csv('~/Data/scvpo/scdb_case_data.csv',encoding='windows-1252')
 #justice (the SC justice as a person) centered data stored in dataframe
 #justice data is a superset of case data and gives info about how
 #each particular jusitce voted.
-jd_df=pd.read_csv('~/data/scdb_justice_data.csv',encoding='windows-1252')
+jd_df=pd.read_csv('~/Data/scvpo/scdb_justice_data.csv',encoding='windows-1252')
 
 #ANES time series cumulative data. question surveys to monitor voting,
 #public opinion, and political participation in the US from 1948-2016.
@@ -28,4 +28,4 @@ with open('./anes/data_types.csv', mode='r') as infile:
     reader = csv.reader(infile)
     data_types = {rows[0]:rows[1] for rows in reader}
 
-po_df=pd.read_csv('~/data/anes_data.csv')
+po_df=pd.read_csv('~/Data/scvpo/anes_data.csv')
