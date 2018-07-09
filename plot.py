@@ -61,7 +61,7 @@ plt.plot(all_po_avg.keys(),all_po_avg.values(),'bo',label='Public Support')
 plt.plot(x_po,f3(x_po),'-b')
 
 #supreme court decisions
-plt.plot(sc_support.keys(),sc_support.values(),'ro',label='Supreme Court Support')
+plt.plot(sc_support.keys(),sc_support.values(),'rs',label='Supreme Court Support')
 #model for SC data
 plt.plot(x_sc,g3(x_sc),'-r')
 
