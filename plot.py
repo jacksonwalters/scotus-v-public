@@ -26,7 +26,7 @@ f3 = np.poly1d(po_deg3)
 #find paradigm shift for PO.
 #assuming one point of intersectionself.
 #this is guaranteed for a linear fit.
-p_shift_po=opt.fsolve(f3-NEUTRAL,2000)
+p_shift_po=opt.fsolve(f1-NEUTRAL,2000)
 
 #SC
 x_sc=list(sc_support.keys())
@@ -37,18 +37,20 @@ slope, intercept, r_value, p_value, std_err = stats.linregress(x_sc,y_sc)
 
 #degree 1 model for SC
 sc_deg1=np.polyfit(x_sc,y_sc,1)
-g1 = np.poly1d(po_deg1)
+g1 = np.poly1d(sc_deg1)
 #degree 3 model for SC
 sc_deg3=np.polyfit(x_sc,y_sc,3)
-g3 = np.poly1d(po_deg3)
+g3 = np.poly1d(sc_deg3)
 
 #find paradigm shift for SC.
 #assuming one point of intersection.
 #this is guaranteed for a linear fit.
-p_shift_sc=opt.fsolve(f3-NEUTRAL,2000)
+p_shift_sc=opt.fsolve(g1-NEUTRAL,2000)
 
 #find difference of paradigm shift
 p_shift_diff = p_shift_sc - p_shift_po
+
+print(p_shift_diff)
 
 
 
@@ -58,12 +60,12 @@ p_shift_diff = p_shift_sc - p_shift_po
 #average public opinion on issue
 plt.plot(all_po_avg.keys(),all_po_avg.values(),'bo',label='Public Support')
 #model for PO data
-plt.plot(x_po,f3(x_po),'-b')
+plt.plot(x_po,f1(x_po),'-b')
 
 #supreme court decisions
 plt.plot(sc_support.keys(),sc_support.values(),'rs',label='Supreme Court Support')
 #model for SC data
-plt.plot(x_sc,g3(x_sc),'-r')
+plt.plot(x_sc,g1(x_sc),'-r')
 
 #include horizontal neutral opinion line
 plt.axhline(y=NEUTRAL,color='#551A8B')
