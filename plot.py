@@ -3,11 +3,11 @@ import scipy.stats as stats
 import scipy.optimize as opt
 import numpy as np
 
-#STATS & MODEL
-################################################################################
-
 #the line deciding which side of the issue
 NEUTRAL = .5
+
+#STATS & MODEL
+################################################################################
 
 #PO
 x_po=list(all_po_avg.keys())
@@ -23,7 +23,9 @@ f1 = np.poly1d(po_deg1)
 po_deg3=np.polyfit(x_po,y_po,3)
 f3 = np.poly1d(po_deg3)
 
-#find paradigm shift for PO
+#find paradigm shift for PO.
+#assuming one point of intersectionself.
+#this is guaranteed for a linear fit.
 p_shift_po=opt.fsolve(f3-NEUTRAL,2000)
 
 #SC
@@ -40,8 +42,15 @@ g1 = np.poly1d(po_deg1)
 sc_deg3=np.polyfit(x_sc,y_sc,3)
 g3 = np.poly1d(po_deg3)
 
-#find paradigm shift for SC
+#find paradigm shift for SC.
+#assuming one point of intersection.
+#this is guaranteed for a linear fit.
 p_shift_sc=opt.fsolve(f3-NEUTRAL,2000)
+
+#find difference of paradigm shift
+p_shift_diff = p_shift_sc - p_shift_po
+
+
 
 #SUPREME COURT SUPPORT v. PUBLIC SUPPORT
 ################################################################################
@@ -57,7 +66,12 @@ plt.plot(sc_support.keys(),sc_support.values(),'ro',label='Supreme Court Support
 plt.plot(x_sc,g3(x_sc),'-r')
 
 #include horizontal neutral opinion line
-plt.axhline(y=.5)
+plt.axhline(y=NEUTRAL,color='#551A8B')
+
+#include vertical lines at paradigm shift moments
+plt.plot([p_shift_po], [NEUTRAL], marker='x', markersize=7, color="black")
+plt.plot([p_shift_sc], [NEUTRAL], marker='x', markersize=7, color="black")
+
 
 plt.legend()
 plt.xlabel('Time (year)')
