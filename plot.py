@@ -49,10 +49,10 @@ p_shift_sc=opt.fsolve(g1-NEUTRAL,2000)
 
 #find difference of paradigm shift
 p_shift_diff = p_shift_sc - p_shift_po
+p_shift_min = min(p_shift_sc,p_shift_po)
 
 print(p_shift_diff)
-
-
+print(p_shift_min)
 
 #SUPREME COURT SUPPORT v. PUBLIC SUPPORT
 ################################################################################
@@ -69,11 +69,9 @@ plt.plot(x_sc,g1(x_sc),'-r')
 
 #include horizontal neutral opinion line
 plt.axhline(y=NEUTRAL,color='#551A8B')
-
 #include vertical lines at paradigm shift moments
 plt.plot([p_shift_po], [NEUTRAL], marker='x', markersize=7, color="black")
 plt.plot([p_shift_sc], [NEUTRAL], marker='x', markersize=7, color="black")
-
 
 plt.legend()
 plt.xlabel('Time (year)')
