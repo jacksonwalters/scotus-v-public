@@ -6,13 +6,6 @@
 import numpy as np
 import datetime as dt
 
-#global variables
-SURVEY_YEAR='VCF0004'
-CURRENT_YEAR=2018
-SURVEY_YEARS=tuple(set(po_df[SURVEY_YEAR]))
-NUM_JUSTICES=9
-
-
 #get the justice's name given their number
 def get_name(num: int) -> str:
     result=list(set(jd_df.loc[jd_df['justice'] == num]['justiceName']))
@@ -55,58 +48,58 @@ issue_df=pd.read_csv('./sc_issues.csv')
 
 #keywords associated with ISSUE
 #liberals are supportive of ISSUE
-ISSUE_NAME="Same-Sex Marriage"
-GAY_MAR_KEYWORDS=['gay','lesbian','marriage','same-sex','same sex','homosexual','spouse']
 LIB_PRO_ISSUE = True
 CONS_PRO_ISSUE = not LIB_PRO_ISSUE
 
 #SUPREME COURT
 #############################################################################
 
-#ASSUMPTION: binary variable - "liberals supportive of ISSUE". This means:
-# decisionDirection = 1: conservative dir., minVotes = num of supporting votes
-# decisionDirection = 2: liberal dir., majVotes = num of supporting votes
+def num_justices(id):
+    return len(jd_df.loc[jd_df['caseId']==id].index)
 
-#get number of supportive votes given case index
-def num_supp_votes(ind):
-    case=cd_df.iloc[ind]
-    dir=case['decisionDirection']
-    if is_num(dir):
-        lib_dir = (dir==2)
-        cons_dir = not lib_dir
-    #case decided in lib. dir., liberals are PRO-ISSUE, supp. votes are maj. votes
-    if lib_dir and LIB_PRO_ISSUE: supp_votes = case['majVotes']
-    #case decided in lib. dir., conservatives are PRO-ISSUE, supp. votes are maj. votes
-    if lib_dir and CONS_PRO_ISSUE: supp_votes = case['minVotes']
-    #case decided in cons. dir., liberals are PRO-ISSUE, supp. votes are min. votes
-    if cons_dir and LIB_PRO_ISSUE: supp_votes = case['minVotes']
-    #case decided in cons. dir., conservatives are PRO-ISSUE, supp. votes are maj. votes
-    if cons_dir and CONS_PRO_ISSUE: supp_votes = case['majVotes']
-    return supp_votes
+#normalize to be between [-1,+1]
+#-1 = force towards minus pole
+#0 = no force on the issue
+#+1 = force towards plus pole
+#requires deciding polarity
+def sc_force(id):
+    case = cd_df.iloc[id]   #get case
+    num_justices = case['minVotes'] + case['majVotes'] #total number of justices
+    polarity = sc_direction(id)  #determine polarity/direction of decision
+    vote_diff = abs(case['minVotes'] - case['majVotes'])
+    vote_mag = vote_diff/num_justices #normalized magnitude of vote force
 
-#polarity is given in SCDB data
-def sc_polarity(ind):
-    case = cd_df.iloc[ind]
+    if polarity == PLUS_POLE:
+        return PLUS_POLE*vote_strength
+    elif polarity == MINUS_POLE:
+        return MINUS_POLE*vote_strength
+    elif polarity == NO_POLE:
+        return NO_POLE*vote_strength
+
+
+
+
+#polarity of supreme court case.
+#use decision direction column to decide
+#liberal vs conservative.
+def sc_direction(id):
+    case = cd_df.iloc[id]
     dir = case['decisionDirection']
     if is_num(dir):
         if dir==2:
-            return 'LIBERAL'
+            return PLUS_POLE
         if dir==1:
-            return 'CONSERVATIVE'
+            return MINUS_POLE
     else:
-        return 'NO DIRECTION'
-
-#normalize the vote split to [-1,1]
-#requires deciding polarity.
-def sc_norm(ind):
-    num_supp_votes(ind)/NUM_JUSTICES
+        return NO_POLE
 
 #get year case was decided
-def case_year(ind):
-    case=cd_df.iloc[ind]
+def case_year(id):
+    case=cd_df.iloc[id]
     return dt.datetime.strptime(case['dateDecision'],'%m/%d/%Y').year
 
-sc_support={case_year(ind):sc_norm(ind) for ind in sc_rel_ind}
+#dict of supreme court polarity by year
+sc_support={case_year(id):sc_norm(id) for id in sc_rel_ind}
 
 
 #PUBLIC OPINION

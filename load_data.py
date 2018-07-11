@@ -6,9 +6,22 @@
 import pandas as pd
 import csv
 
+#GLOBAL VARIABLES
+SURVEY_YEAR = 'VCF0004'
+PLUS_POLE = 1
+MINUS_POLE = -1
+NO_POLE = 0
+CURRENT_YEAR=2018
+NUM_JUSTICES=9
+
 #USER INPUT
 ######################################################################
 
+ISSUE_NAME="Same-Sex Marriage"
+GAY_MAR_KEYWORDS=['gay','lesbian','marriage','same-sex','same sex','homosexual','spouse']
+
+
+#COMPUTED FROM INPUT
 #identifiers for RELEVANT CASES from SCDB
 #KEY Q: HOW TO GET RELEVANT CASES FROM KEYWORDS
 #A: scrape opinion text from web or load into db. classify utilizing keywords and tfidf.
@@ -22,6 +35,8 @@ po_rel_ques=['VCF0232','VCF0877','VCF0878','VCF0876','VCF0876a']
 
 #DATA
 ######################################################################
+
+#SUPREME COURT DATA
 #load csv files with pandas. not utf-8, must use alternate encoding
 #case centered data stored in dataframe
 cd_df=pd.read_csv('~/Data/scvpo/scdb_case_data.csv',encoding='windows-1252')
@@ -32,6 +47,7 @@ cd_legacy_df=pd.read_csv('~/Data/scvpo/scdb_legacy_case_data.csv',encoding='wind
 jd_df=pd.read_csv('~/Data/scvpo/scdb_justice_data.csv',encoding='windows-1252')
 jd_legacy_df=pd.read_csv('~/Data/scvpo/scdb_legacy_case_data.csv',encoding='windows-1252')
 
+#PUBLIC OPINION DATA
 #ANES time series cumulative data. question surveys to monitor voting,
 #public opinion, and political participation in the US from 1948-2016.
 #55674 rows x 952 columns. ROWS are grouped by YEAR (VCF0004). first few COLS
@@ -45,3 +61,5 @@ with open('./anes/data_types.csv', mode='r') as infile:
     data_types = {rows[0]:rows[1] for rows in reader}
 
 po_df=pd.read_csv('~/Data/scvpo/anes_data.csv')
+
+SURVEY_YEARS=tuple(set(po_df[SURVEY_YEAR]))
