@@ -40,17 +40,10 @@ justice_names={i:get_name(i) for i in range(84,116)}
 #fields of interest: caseIssuesId, issue, issueArea. these are id numbers.
 #online documentation reveals what they correspond to. create dicts/tables.
 issue_areas={1:'Criminal Procedure',2:'Civil Rights',3:'First Amendment',4:'Due Process',5:'Privacy',6:'Attorneys',7:'Unions',8:'Economic Activity',9:'Judicial Power',10:'Federalism',11:'Interstate Relations',12:'Federal Taxation',13:'Miscellaneous',14:'Private Action'} #scraped by hand
-issue_df=pd.read_csv('./sc_issues.csv')
-
-#ISSUE=GAY MARRIAGE
-############################################################################
-############################################################################
+issue_df=pd.read_csv('./scdb/sc_issues.csv')
 
 #SUPREME COURT
 #############################################################################
-
-def num_justices(id):
-    return len(jd_df.loc[jd_df['caseId']==id].index)
 
 #normalize to be between [-1,+1]
 #-1 = force towards minus pole
@@ -100,29 +93,40 @@ sc_support={case_year(id):sc_force(id) for id in sc_rel_ind}
 #normalize entry to polarization value in [-1,1]
 #requires maximum value in col, and dict to convert responses to a scale
 #default scale is just identity function
-def norm(entry,max,scale=(lambda x: x)):
+def norm(entry,resp_conv):
+    resp_max = max(resp_conv.values())
+    scale=(lambda x: resp_conv[x])
     if scalable(entry,scale):
-        mag = scale(float(entry))/max #normalize to [0,1]
-        return 2*mag - 1
-    else: return False
+        mag = scale(float(entry))/resp_max   #normalize to [0,1]
+        return 2*mag - 1    #map to [-1,1]
+    else:
+        return float(nan)
 
 #normalize each entry in a series
-def norm_col(col,col_max,scale=(lambda x: x)):
-    return [norm(entry,col_max,scale) for entry in col if scalable(entry,scale)]
+def norm_col(col,resp_conv):
+    scale=(lambda x: resp_conv[x])
+    return [norm(entry,resp_conv) for entry in col if scalable(entry,scale)]
 
 #get dict of averages for each column by year
-def col_yr_avg(q_id):
+def scaled_avg_by_year(q_id):
+    #get column for q_id
+    col = rel_po_df[ [SURVEY_YEAR,q_id] ]
     #get appropriate conversion of responses to support values
     resp_conv=resp_convert()[q_id]
     #compute the possible max of all responses
     col_max=max(resp_conv.values())
     #construct a function to use as a conversion scale
-    scale=(lambda x: resp_conv[x])
+    scale=(lambda x: norm(x,resp_conv) )
+    #scale the entire column
+    #scaled_col = col[q_id].apply(scale,axis=1)
+    #separate by year
+    #scaled_col.groupby([SURVEY_YEAR])[q_id]
+
 
     #for each survey year, get all data for given question variable
     ques_raw={yr:po_df.loc[po_df[SURVEY_YEAR]==yr][q_id] for yr in SURVEY_YEARS}
     #clean and normalize the series data from relevant question col
-    ques_norm={yr:norm_col(ques_raw[yr],col_max,scale) for yr in SURVEY_YEARS}
+    ques_norm={yr:norm_col(ques_raw[yr],resp_conv) for yr in SURVEY_YEARS}
     #average normalized temp for each year
     ques_yr_avg={yr:np.average(ques_norm[yr]) for yr in SURVEY_YEARS if not np.isnan(np.average(ques_norm[yr]))}
     return ques_yr_avg
@@ -147,7 +151,7 @@ def resp_convert():
 all_po_avg={}
 for q_id in po_rel_ques:
     #compute average of column for question id q_id
-    col_avg = col_yr_avg(q_id)
+    col_avg = scaled_avg_by_year(q_id)
     #append each value in the dictonary to the appropirate key
     for key,value in col_avg.items():
         if key in all_po_avg.keys():

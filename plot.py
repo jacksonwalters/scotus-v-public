@@ -3,9 +3,6 @@ import scipy.stats as stats
 import scipy.optimize as opt
 import numpy as np
 
-#the line deciding which side of the issue
-NEUTRAL = .5
-
 #STATS & MODEL
 ################################################################################
 
@@ -80,7 +77,7 @@ plt.title('SC v. PO Support for ' + ISSUE_NAME)
 plt.grid(True)
 
 min_yr=min(list(sc_support.keys())+list(all_po_avg.keys()))
-plt.axis([min_yr-4, CURRENT_YEAR, 0.0, 1.1])
+plt.axis([min_yr-4, CURRENT_YEAR, -1.1, 1.1])
 
 plt.savefig('./plots/sc_v_po.png', bbox_inches='tight')
 #plt.show()

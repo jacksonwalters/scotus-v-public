@@ -13,6 +13,7 @@ MINUS_POLE = -1
 NO_POLE = 0
 CURRENT_YEAR=2018
 NUM_JUSTICES=9
+NEUTRAL = 0 #the line deciding which side of the issue
 
 #USER INPUT
 ######################################################################
@@ -70,7 +71,7 @@ with open('./anes/data_types.csv', mode='r') as infile:
     reader = csv.reader(infile)
     data_types = {rows[0]:rows[1] for rows in reader}
 
-po_df=pd.read_csv('~/Data/scvpo/anes_data.csv')
-rel_po_df = po_df[po_rel_ques] #only use relevant public opinion questions
+po_df=pd.read_csv('~/Data/scvpo/anes_data.csv') #load PO data into dataframe
+rel_po_df = po_df[ [SURVEY_YEAR] + po_rel_ques ] #only use relevant public opinion questions
 
 SURVEY_YEARS=tuple(set(po_df[SURVEY_YEAR]))
