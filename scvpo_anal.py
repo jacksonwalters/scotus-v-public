@@ -46,11 +46,6 @@ issue_df=pd.read_csv('./sc_issues.csv')
 ############################################################################
 ############################################################################
 
-#keywords associated with ISSUE
-#liberals are supportive of ISSUE
-LIB_PRO_ISSUE = True
-CONS_PRO_ISSUE = not LIB_PRO_ISSUE
-
 #SUPREME COURT
 #############################################################################
 
@@ -70,14 +65,11 @@ def sc_force(id):
     vote_mag = vote_diff/num_justices #normalized magnitude of vote force
 
     if polarity == PLUS_POLE:
-        return PLUS_POLE*vote_strength
+        return PLUS_POLE*vote_mag
     elif polarity == MINUS_POLE:
-        return MINUS_POLE*vote_strength
+        return MINUS_POLE*vote_mag
     elif polarity == NO_POLE:
-        return NO_POLE*vote_strength
-
-
-
+        return NO_POLE*vote_mag
 
 #polarity of supreme court case.
 #use decision direction column to decide
@@ -99,26 +91,29 @@ def case_year(id):
     return dt.datetime.strptime(case['dateDecision'],'%m/%d/%Y').year
 
 #dict of supreme court polarity by year
-sc_support={case_year(id):sc_norm(id) for id in sc_rel_ind}
+sc_support={case_year(id):sc_force(id) for id in sc_rel_ind}
 
 
 #PUBLIC OPINION
 #########################################################################################
 
-#convert entry to normalized value in [0,1]
+#normalize entry to polarization value in [-1,1]
 #requires maximum value in col, and dict to convert responses to a scale
 #default scale is just identity function
 def norm(entry,max,scale=(lambda x: x)):
-    if scalable(entry,scale): return scale(float(entry))/max
+    if scalable(entry,scale):
+        mag = scale(float(entry))/max #normalize to [0,1]
+        return 2*mag - 1
     else: return False
 
 #normalize each entry in a series
-def norm_col(col,col_max,scale=(lambda x: x)): return [norm(entry,col_max,scale) for entry in col if scalable(entry,scale)]
+def norm_col(col,col_max,scale=(lambda x: x)):
+    return [norm(entry,col_max,scale) for entry in col if scalable(entry,scale)]
 
 #get dict of averages for each column by year
-def col_yr_avg(q_id,col_max=1,scale=(lambda x: x)):
+def col_yr_avg(q_id):
     #get appropriate conversion of responses to support values
-    resp_conv=response_dict(q_id)
+    resp_conv=resp_convert()[q_id]
     #compute the possible max of all responses
     col_max=max(resp_conv.values())
     #construct a function to use as a conversion scale
@@ -132,16 +127,17 @@ def col_yr_avg(q_id,col_max=1,scale=(lambda x: x)):
     ques_yr_avg={yr:np.average(ques_norm[yr]) for yr in SURVEY_YEARS if not np.isnan(np.average(ques_norm[yr]))}
     return ques_yr_avg
 
+#a dictionary keeping track of the conversion scales for
+#for each PO question
+def resp_convert():
+    return {
+        'VCF0232': {i:i for i in range(97)}, #polarity unclear as HOT/COLD is hard to judge
+        'VCF0877': {1:3,2:2,4:1,5:0}, #polarity=descending
+        'VCF0878': {1:1,5:0}, #polarity=descending
+        'VCF0876': {1:1,5:0}, #polarity=descending
+        'VCF0876a': {1:4,2:3,4:2,5:1}, #polarity=descending
+    }
 
-
-#convert text dict of possible repsponses to python dictionary
-#for given relevent question index
-def response_dict(q_id):
-    if q_id == 'VCF0232': return {i:i for i in range(97)} #polarity unclear as HOT/COLD is hard to judge
-    if q_id == 'VCF0877': return {1:3,2:2,4:1,5:0} #polarity=descending
-    if q_id == 'VCF0878': return {1:1,5:0} #polarity=descending
-    if q_id == 'VCF0876': return {1:1,5:0} #polarity=descending
-    if q_id == 'VCF0876a': return {1:4,2:3,4:2,5:1} #polarity=descending
 
 #AVERAGE PUBLIC OPINION
 #########################################################################################

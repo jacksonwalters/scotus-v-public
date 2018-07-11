@@ -41,11 +41,21 @@ po_rel_ques=['VCF0232','VCF0877','VCF0878','VCF0876','VCF0876a']
 #case centered data stored in dataframe
 cd_df=pd.read_csv('~/Data/scvpo/scdb_case_data.csv',encoding='windows-1252')
 cd_legacy_df=pd.read_csv('~/Data/scvpo/scdb_legacy_case_data.csv',encoding='windows-1252')
+
+cd_dfs=[cd_df,cd_legacy_df]
+all_cd_df = pd.concat(cd_dfs) #merge case centered dataframes
+rel_cd_cases = all_cd_df.iloc[sc_rel_ind] #only need relevant SC cases
+
 #justice (the SC justice as a person) centered data stored in dataframe
 #justice data is a superset of case data and gives info about how
 #each particular jusitce voted.
 jd_df=pd.read_csv('~/Data/scvpo/scdb_justice_data.csv',encoding='windows-1252')
 jd_legacy_df=pd.read_csv('~/Data/scvpo/scdb_legacy_case_data.csv',encoding='windows-1252')
+
+#relevant justice data
+jd_dfs=[jd_df,jd_legacy_df]
+all_jd_df = pd.concat(jd_dfs) #merge justice centered dataframes
+rel_jd_cases = all_jd_df.iloc[sc_rel_ind] #only need relevant cases
 
 #PUBLIC OPINION DATA
 #ANES time series cumulative data. question surveys to monitor voting,
@@ -61,5 +71,6 @@ with open('./anes/data_types.csv', mode='r') as infile:
     data_types = {rows[0]:rows[1] for rows in reader}
 
 po_df=pd.read_csv('~/Data/scvpo/anes_data.csv')
+rel_po_df = po_df[po_rel_ques] #only use relevant public opinion questions
 
 SURVEY_YEARS=tuple(set(po_df[SURVEY_YEAR]))
