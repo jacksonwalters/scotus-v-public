@@ -100,7 +100,7 @@ def norm(entry,resp_conv):
         mag = scale(float(entry))/resp_max   #normalize to [0,1]
         return 2*mag - 1    #map to [-1,1]
     else:
-        return float(nan)
+        return float('nan')
 
 #normalize each entry in a series
 def norm_col(col,resp_conv):
@@ -117,18 +117,18 @@ def scaled_avg_by_year(q_id):
     col_max=max(resp_conv.values())
     #construct a function to use as a conversion scale
     scale=(lambda x: norm(x,resp_conv) )
-    #scale the entire column
-    #scaled_col = col[q_id].apply(scale,axis=1)
-    #separate by year
-    #scaled_col.groupby([SURVEY_YEAR])[q_id]
-
+    #scale the column of question responses
+    col[q_id] = col[q_id].apply(scale)
+    #group by year and average
+    ques_yr_avg=col.groupby([SURVEY_YEAR])[q_id].mean()
 
     #for each survey year, get all data for given question variable
-    ques_raw={yr:po_df.loc[po_df[SURVEY_YEAR]==yr][q_id] for yr in SURVEY_YEARS}
+    #ques_raw={yr:po_df.loc[po_df[SURVEY_YEAR]==yr][q_id] for yr in SURVEY_YEARS}
     #clean and normalize the series data from relevant question col
-    ques_norm={yr:norm_col(ques_raw[yr],resp_conv) for yr in SURVEY_YEARS}
+    #ques_norm={yr:norm_col(ques_raw[yr],resp_conv) for yr in SURVEY_YEARS}
     #average normalized temp for each year
-    ques_yr_avg={yr:np.average(ques_norm[yr]) for yr in SURVEY_YEARS if not np.isnan(np.average(ques_norm[yr]))}
+    #ques_yr_avg={yr:np.average(ques_norm[yr]) for yr in SURVEY_YEARS if not np.isnan(np.average(ques_norm[yr]))}
+
     return ques_yr_avg
 
 #a dictionary keeping track of the conversion scales for
@@ -148,16 +148,16 @@ def resp_convert():
 
 #build dict of overall averages.
 #COULD USE MapReduce HERE.
-all_po_avg={}
-for q_id in po_rel_ques:
+#all_po_avg={}
+#for q_id in po_rel_ques:
     #compute average of column for question id q_id
-    col_avg = scaled_avg_by_year(q_id)
-    #append each value in the dictonary to the appropirate key
-    for key,value in col_avg.items():
-        if key in all_po_avg.keys():
-            all_po_avg[key] += [value]
-        else:
-            all_po_avg[key] = [value]
+#    col_avg = scaled_avg_by_year(q_id)
+#    #append each value in the dictonary to the appropirate key
+#    for key,value in col_avg.items():
+#        if key in all_po_avg.keys():
+#            all_po_avg[key] += [value]
+#        else:
+#            all_po_avg[key] = [value]
 
 #reduce by averaging each list of col averages
-all_po_avg = {key:np.average(all_po_avg[key]) for key in all_po_avg.keys()}
+#all_po_avg = {key:np.average(all_po_avg[key]) for key in all_po_avg.keys()}

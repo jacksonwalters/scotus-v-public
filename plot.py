@@ -55,12 +55,12 @@ print(p_shift_min)
 ################################################################################
 
 #average public opinion on issue
-plt.plot(all_po_avg.keys(),all_po_avg.values(),'bo',label='Public Support')
+plt.plot(all_po_avg.keys(),all_po_avg.values(),'bo',label='US Public Polarity')
 #model for PO data
 plt.plot(x_po,f1(x_po),'-b')
 
 #supreme court decisions
-plt.plot(sc_support.keys(),sc_support.values(),'rs',label='Supreme Court Support')
+plt.plot(sc_support.keys(),sc_support.values(),'rs',label='US Supreme Court Polarity')
 #model for SC data
 plt.plot(x_sc,g1(x_sc),'-r')
 
@@ -73,7 +73,7 @@ plt.plot([p_shift_sc], [NEUTRAL], marker='x', markersize=7, color="black")
 plt.legend()
 plt.xlabel('Time (year)')
 plt.ylabel('Support')
-plt.title('SC v. PO Support for ' + ISSUE_NAME)
+plt.title('SC v. PO Polarity on ' + ISSUE_NAME)
 plt.grid(True)
 
 min_yr=min(list(sc_support.keys())+list(all_po_avg.keys()))
