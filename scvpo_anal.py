@@ -148,7 +148,7 @@ def resp_convert():
 
 #build df of overall year averages
 po_q_avgs = [scaled_avg_by_year(q_id) for q_id in po_rel_ques] #collect avg's for all Q's
-po_q_avgs_df = pd.concat(po_avgs_by_year,axis=1) #join series into df
+po_q_avgs_df = pd.concat(po_q_avgs,axis=1) #join series into df
 po_avgs_df = po_q_avgs_df.mean(axis=1) #take row mean
 po_avgs_df = po_avgs_df.loc[ po_avgs_df.notna() ] #remove NaN's
 po_polarity = po_avgs_df.to_dict() #go from df to dictionary
