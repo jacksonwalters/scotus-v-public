@@ -84,7 +84,7 @@ def case_year(id):
     return dt.datetime.strptime(case['dateDecision'],'%m/%d/%Y').year
 
 #dict of supreme court polarity by year
-sc_support={case_year(id):sc_force(id) for id in sc_rel_ind}
+sc_polarity={case_year(id):sc_force(id) for id in sc_rel_ind}
 
 
 #PUBLIC OPINION
@@ -146,18 +146,9 @@ def resp_convert():
 #AVERAGE PUBLIC OPINION
 #########################################################################################
 
-#build dict of overall averages.
-#COULD USE MapReduce HERE.
-#all_po_avg={}
-#for q_id in po_rel_ques:
-    #compute average of column for question id q_id
-#    col_avg = scaled_avg_by_year(q_id)
-#    #append each value in the dictonary to the appropirate key
-#    for key,value in col_avg.items():
-#        if key in all_po_avg.keys():
-#            all_po_avg[key] += [value]
-#        else:
-#            all_po_avg[key] = [value]
-
-#reduce by averaging each list of col averages
-#all_po_avg = {key:np.average(all_po_avg[key]) for key in all_po_avg.keys()}
+#build df of overall year averages
+po_q_avgs = [scaled_avg_by_year(q_id) for q_id in po_rel_ques] #collect avg's for all Q's
+po_q_avgs_df = pd.concat(po_avgs_by_year,axis=1) #join series into df
+po_avgs_df = po_q_avgs_df.mean(axis=1) #take row mean
+po_avgs_df = po_avgs_df.loc[ po_avgs_df.notna() ] #remove NaN's
+po_polarity = po_avgs_df.to_dict() #go from df to dictionary

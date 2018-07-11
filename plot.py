@@ -7,8 +7,8 @@ import numpy as np
 ################################################################################
 
 #PO
-x_po=list(all_po_avg.keys())
-y_po=list(all_po_avg.values())
+x_po=list(po_polarity.keys())
+y_po=list(po_polarity.values())
 
 #get basic stats
 slope, intercept, r_value, p_value, std_err = stats.linregress(x_po,y_po)
@@ -26,8 +26,8 @@ f3 = np.poly1d(po_deg3)
 p_shift_po=opt.fsolve(f1-NEUTRAL,2000)
 
 #SC
-x_sc=list(sc_support.keys())
-y_sc=list(sc_support.values())
+x_sc=list(sc_polarity.keys())
+y_sc=list(sc_polarity.values())
 
 #get basic stats
 slope, intercept, r_value, p_value, std_err = stats.linregress(x_sc,y_sc)
@@ -55,12 +55,12 @@ print(p_shift_min)
 ################################################################################
 
 #average public opinion on issue
-plt.plot(all_po_avg.keys(),all_po_avg.values(),'bo',label='US Public Polarity')
+plt.plot(po_polarity.keys(),po_polarity.values(),'bo',label='US Public Polarity')
 #model for PO data
 plt.plot(x_po,f1(x_po),'-b')
 
 #supreme court decisions
-plt.plot(sc_support.keys(),sc_support.values(),'rs',label='US Supreme Court Polarity')
+plt.plot(sc_polarity.keys(),sc_polarity.values(),'rs',label='US Supreme Court Polarity')
 #model for SC data
 plt.plot(x_sc,g1(x_sc),'-r')
 
@@ -76,7 +76,7 @@ plt.ylabel('Support')
 plt.title('SC v. PO Polarity on ' + ISSUE_NAME)
 plt.grid(True)
 
-min_yr=min(list(sc_support.keys())+list(all_po_avg.keys()))
+min_yr=min(list(sc_polarity.keys())+list(po_polarity.keys()))
 plt.axis([min_yr-4, CURRENT_YEAR, -1.1, 1.1])
 
 plt.savefig('./plots/sc_v_po.png', bbox_inches='tight')
