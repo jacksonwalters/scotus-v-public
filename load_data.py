@@ -6,6 +6,20 @@
 import pandas as pd
 import csv
 
+#USER INPUT
+######################################################################
+
+#identifiers for RELEVANT CASES from SCDB
+#KEY Q: HOW TO GET RELEVANT CASES FROM KEYWORDS
+#A: scrape opinion text from web or load into db. classify utilizing keywords and tfidf.
+sc_rel_ids=['1985-144','1995-053','2002-083','2012-077','2012-079','2014-070'] #weirdly caseId 1966-119, Loving v. VA is entered twice
+#N.B.: case indices are unique, but only for *case* centered data.
+sc_rel_ind=[9086,10940,11870,12983,12985,13161]
+
+#identifiers for RELEVANT QUESTIONS from ANES PO surveys
+#these should be computed from keyword set input
+po_rel_ques=['VCF0232','VCF0877','VCF0878','VCF0876','VCF0876a']
+
 #DATA
 ######################################################################
 #load csv files with pandas. not utf-8, must use alternate encoding

@@ -63,15 +63,6 @@ CONS_PRO_ISSUE = not LIB_PRO_ISSUE
 #SUPREME COURT
 #############################################################################
 
-#identifiers for RELEVANT CASES from SCDB
-#KEY Q: HOW TO GET RELEVANT CASES FROM KEYWORDS
-#POTENTIAL A: get natural language description for each case (using API). classify utilizing keywords and SVD.
-sc_rel_dates=['6/30/1986','5/20/1996','6/26/2003','6/26/2013','6/26/2013','6/26/2015'] #DATES NOT UNIQUE INDEX
-sc_rel_ids=['1985-144','1995-053','2002-083','2012-077','2012-079','2014-070'] #weirdly caseId 1966-199, Loving v. VA is entered twice
-sc_rel_names=['BOWERS, ATTORNEY GENERAL OF GEORGIA v. HARDWICK et al.', 'ROY ROMER, GOVERNOR OF COLORADO, et al. v. RICHARD G. EVANS et al.', 'JOHN GEDDES LAWRENCE AND TYRON GARNER v. TEXAS', 'HOLLINGSWORTH v. PERRY', 'UNITED STATES v. WINDSOR', 'OBERGEFELL v. HODGES']
-#N.B.: case indices are unique, but only for *case* centered data.
-sc_rel_ind=[9086,10940,11870,12983,12985,13161]
-
 #ASSUMPTION: binary variable - "liberals supportive of ISSUE". This means:
 # decisionDirection = 1: conservative dir., minVotes = num of supporting votes
 # decisionDirection = 2: liberal dir., majVotes = num of supporting votes
@@ -93,12 +84,29 @@ def num_supp_votes(ind):
     if cons_dir and CONS_PRO_ISSUE: supp_votes = case['majVotes']
     return supp_votes
 
+#polarity is given in SCDB data
+def sc_polarity(ind):
+    case = cd_df.iloc[ind]
+    dir = case['decisionDirection']
+    if is_num(dir):
+        if dir==2:
+            return 'LIBERAL'
+        if dir==1:
+            return 'CONSERVATIVE'
+    else:
+        return 'NO DIRECTION'
+
+#normalize the vote split to [-1,1]
+#requires deciding polarity.
+def sc_norm(ind):
+    num_supp_votes(ind)/NUM_JUSTICES
+
 #get year case was decided
 def case_year(ind):
     case=cd_df.iloc[ind]
     return dt.datetime.strptime(case['dateDecision'],'%m/%d/%Y').year
 
-sc_support={case_year(ind):num_supp_votes(ind)/NUM_JUSTICES for ind in sc_rel_ind}
+sc_support={case_year(ind):sc_norm(ind) for ind in sc_rel_ind}
 
 
 #PUBLIC OPINION
@@ -116,7 +124,6 @@ def norm_col(col,col_max,scale=(lambda x: x)): return [norm(entry,col_max,scale)
 
 #get dict of averages for each column by year
 def col_yr_avg(q_id,col_max=1,scale=(lambda x: x)):
-
     #get appropriate conversion of responses to support values
     resp_conv=response_dict(q_id)
     #compute the possible max of all responses
@@ -132,9 +139,7 @@ def col_yr_avg(q_id,col_max=1,scale=(lambda x: x)):
     ques_yr_avg={yr:np.average(ques_norm[yr]) for yr in SURVEY_YEARS if not np.isnan(np.average(ques_norm[yr]))}
     return ques_yr_avg
 
-#identifiers for RELEVANT QUESTIONS from ANES PO surveys
-#these should be computed from keyword set input
-po_rel_ques=['VCF0232','VCF0877','VCF0878','VCF0876','VCF0876a']
+
 
 #convert text dict of possible repsponses to python dictionary
 #for given relevent question index
