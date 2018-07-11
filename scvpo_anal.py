@@ -6,13 +6,6 @@
 import numpy as np
 import datetime as dt
 
-#get the justice's name given their number
-def get_name(num: int) -> str:
-    result=list(set(jd_df.loc[jd_df['justice'] == num]['justiceName']))
-    if len(result) > 1: return 'NON-UNIQUE'
-    if len(result) == 0: return 'FAIL'
-    if len(result) == 1: return result[0]
-
 #format entry to be float if possible
 def is_num(entry):
     try:
@@ -31,12 +24,6 @@ def scalable(entry,scale=(lambda x: x)):
             return False
     else: return False
 
-#build dict of justice names based on order
-#only 113 unique persons have served on the court, however this list
-#has 115 index numbers. some assoc. justice were later appointed Chief justice
-#seperately, such as Charles Evan Hughes and William Rehnquist.
-justice_names={i:get_name(i) for i in range(84,116)}
-
 #fields of interest: caseIssuesId, issue, issueArea. these are id numbers.
 #online documentation reveals what they correspond to. create dicts/tables.
 issue_areas={1:'Criminal Procedure',2:'Civil Rights',3:'First Amendment',4:'Due Process',5:'Privacy',6:'Attorneys',7:'Unions',8:'Economic Activity',9:'Judicial Power',10:'Federalism',11:'Interstate Relations',12:'Federal Taxation',13:'Miscellaneous',14:'Private Action'} #scraped by hand
@@ -44,6 +31,19 @@ issue_df=pd.read_csv('./scdb/sc_issues.csv')
 
 #SUPREME COURT
 #############################################################################
+
+#get the justice's name given their number
+def get_name(num: int) -> str:
+    result=list(set(jd_df.loc[jd_df['justice'] == num]['justiceName']))
+    if len(result) > 1: return 'NON-UNIQUE'
+    if len(result) == 0: return 'FAIL'
+    if len(result) == 1: return result[0]
+
+#build dict of justice names based on order
+#only 113 unique persons have served on the court, however this list
+#has 115 index numbers. some assoc. justice were later appointed Chief justice
+#seperately, such as Charles Evan Hughes and William Rehnquist.
+justice_names={i:get_name(i) for i in range(84,116)}
 
 #normalize to be between [-1,+1]
 #-1 = force towards minus pole
@@ -121,13 +121,6 @@ def scaled_avg_by_year(q_id):
     col[q_id] = col[q_id].apply(scale)
     #group by year and average
     ques_yr_avg=col.groupby([SURVEY_YEAR])[q_id].mean()
-
-    #for each survey year, get all data for given question variable
-    #ques_raw={yr:po_df.loc[po_df[SURVEY_YEAR]==yr][q_id] for yr in SURVEY_YEARS}
-    #clean and normalize the series data from relevant question col
-    #ques_norm={yr:norm_col(ques_raw[yr],resp_conv) for yr in SURVEY_YEARS}
-    #average normalized temp for each year
-    #ques_yr_avg={yr:np.average(ques_norm[yr]) for yr in SURVEY_YEARS if not np.isnan(np.average(ques_norm[yr]))}
 
     return ques_yr_avg
 
