@@ -1,11 +1,41 @@
 import pandas as pd
 
+#FIND RELEVANT CASES BASED ON KEYWORDS
+##################################################################
+
 #search for a partial match in
 def search(word):
     return all_cd_df[all_cd_df['caseName'].str.contains(word,na=False)]
 
+def sc_find_case(name):
+    upper=str.upper(name)
+    words=upper.split()
+    key_words=[]
+    year=int(words.pop().strip("()"))
+    words=" ".join(words).split("V.")
+
+    #should search for all words in each party name
+    party1=words[0].strip()
+    party2=words[1].strip()
+
+    df1=search(party1)
+    index1=set(list(df1.index))
+
+    df2=search(party2)
+    index2=set(list(df2.index))
+
+    result = sorted(list(index1.intersection(index2)))
+
+    return result
+
+def possible_ids():
+    return {name:sc_find_case(name) for name in civil_rights_cases}
+
 #BLACK RIGHTS
 ######################################################################
+
+CIVIL_RIGHTS_NAME="Civil Rights"
+CIVIL_RIGHTS_KEYWORDS=['black','color','oppressed','civil','rights']
 
 #natural language case names
 civil_rights_cases=["Dred Scott v. Sandford (1856)",
@@ -50,7 +80,7 @@ poss_match={'Dred Scott v. Sandford (1856)': [2488],
 'Grutter v. Bollinger (2003)': [31724, 31725, 31726]}
 
 #CASE IDS
-civil_rights_ids=[2488,
+civil_rights_ind=[2488,
 10220,
 19387,
 19575,
@@ -68,36 +98,32 @@ civil_rights_ids=[2488,
 31724
 ]
 
-def sc_find_case(name):
-    upper=str.upper(name)
-    words=upper.split()
-    key_words=[]
-    year=int(words.pop().strip("()"))
-    words=" ".join(words).split("V.")
+civil_rights_resp_conv={
+    'VCF0216': {i:i for i in range(97)}, #polarity unclear as HOT/COLD is hard to judge
+}
 
-    #should search for all words in each party name
-    party1=words[0].strip()
-    party2=words[1].strip()
 
-    df1=search(party1)
-    index1=set(list(df1.index))
 
-    df2=search(party2)
-    index2=set(list(df2.index))
-
-    result = sorted(list(index1.intersection(index2)))
-
-    return result
-
-def possible_ids():
-    return {name:sc_find_case(name) for name in civil_rights_cases}
 
 #GAY MARRIAGE
 ######################################################################
 
+#USER INPUT
+######################################################################
+GAY_MARRIAGE_NAME="Same-Sex Marriage"
+GAY_KEYWORDS=['gay','lesbian','marriage','same-sex','same sex','homosexual','spouse']
+
 #identifiers for RELEVANT CASES from SCDB
 #KEY Q: HOW TO GET RELEVANT CASES FROM KEYWORDS
 #A: scrape opinion text from web or load into db. classify utilizing keywords and tfidf.
-gay_marriage_rel_ids=['1985-144','1995-053','2002-083','2012-077','2012-079','2014-070'] #weirdly caseId 1966-119, Loving v. VA is entered twice
+gay_marriage_ids=['1985-144','1995-053','2002-083','2012-077','2012-079','2014-070'] #weirdly caseId 1966-119, Loving v. VA is entered twice
 #N.B.: case indices are unique, but only for *case* centered data.
-gay_marriage_rel_ind=[9086,10940,11870,12983,12985,13161]
+gay_marriage_ind=[9086,10940,11870,12983,12985,13161]
+
+gay_resp_conv={
+    'VCF0232': {i:i for i in range(97)}, #polarity unclear as HOT/COLD is hard to judge
+    'VCF0877': {1:3,2:2,4:1,5:0}, #polarity=descending
+    'VCF0878': {1:1,5:0}, #polarity=descending
+    'VCF0876': {1:1,5:0}, #polarity=descending
+    'VCF0876a': {1:4,2:3,4:2,5:1}, #polarity=descending
+}

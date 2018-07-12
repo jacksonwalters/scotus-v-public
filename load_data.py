@@ -15,10 +15,10 @@ CURRENT_YEAR=2018
 NUM_JUSTICES=9
 NEUTRAL = 0 #the line deciding which side of the issue
 
-#USER INPUT
-######################################################################
-ISSUE_NAME="Same-Sex Marriage"
-KEYWORDS=['gay','lesbian','marriage','same-sex','same sex','homosexual','spouse']
+ISSUE_NAME=GAY_MARRIAGE_NAME
+KEYWORDS=GAY_KEYWORDS
+
+RESP_CONVERT=gay_response_conv
 
 #COMPUTED FROM INPUT
 sc_rel_ind=[9086,10940,11870,12983,12985,13161]

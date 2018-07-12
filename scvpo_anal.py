@@ -127,13 +127,7 @@ def scaled_avg_by_year(q_id):
 #a dictionary keeping track of the conversion scales for
 #for each PO question
 def resp_convert():
-    return {
-        'VCF0232': {i:i for i in range(97)}, #polarity unclear as HOT/COLD is hard to judge
-        'VCF0877': {1:3,2:2,4:1,5:0}, #polarity=descending
-        'VCF0878': {1:1,5:0}, #polarity=descending
-        'VCF0876': {1:1,5:0}, #polarity=descending
-        'VCF0876a': {1:4,2:3,4:2,5:1}, #polarity=descending
-    }
+    return RESP_CONVERT
 
 
 #AVERAGE PUBLIC OPINION
