@@ -99,6 +99,8 @@ civil_rights_ind=[2488,
 31724
 ]
 
+civil_rights_rel_ques=['VCF0216', 'VCF0517', 'VCF0518', 'VCF0830', 'VCF0860', 'VCF0861', 'VCF0862', 'VCF0863', 'VCF0864', 'VCF0865', 'VCF0866', 'VCF0867', 'VCF9037']
+
 civil_rights_resp_conv={
     'VCF0216': {i:i for i in range(97)}, #polarity unclear as HOT/COLD is hard to judge
     'VCF0517': {1:+1,7:-1},

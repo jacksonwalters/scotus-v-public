@@ -15,15 +15,15 @@ CURRENT_YEAR=2018
 NUM_JUSTICES=9
 NEUTRAL = 0 #the line deciding which side of the issue
 
-ISSUE_NAME=GAY_MARRIAGE_NAME
-KEYWORDS=GAY_KEYWORDS
+ISSUE_NAME=CIVIL_RIGHTS_NAME
+KEYWORDS=CIVIL_RIGHTS_KEYWORDS
 
-RESP_CONVERT=gay_resp_conv
+RESP_CONVERT=civil_rights_resp_conv
 
 #COMPUTED FROM INPUT
-SC_REL_IND=gay_marriage_ind
+SC_REL_IND=civil_rights_ind
 #identifiers for RELEVANT QUESTIONS from ANES PO surveys
-PO_REL_QUES=gay_marriage_rel_ques
+PO_REL_QUES=civil_rights_rel_ques
 
 #DATA
 ######################################################################
