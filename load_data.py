@@ -37,7 +37,8 @@ cd_df=pd.read_csv('~/Data/scvpo/scdb_case_data.csv',encoding='windows-1252')
 cd_legacy_df=pd.read_csv('~/Data/scvpo/scdb_legacy_case_data.csv',encoding='windows-1252')
 
 cd_dfs=[cd_legacy_df,cd_df]
-all_cd_df = pd.concat(cd_dfs) #merge case centered dataframes
+#merge case centered dataframes making sure to keep a unique numeric index
+all_cd_df = pd.concat(cd_dfs,ignore_index=True)
 rel_cd_cases = all_cd_df.iloc[sc_rel_ind] #only need relevant SC cases
 
 #justice (the SC justice as a person) centered data stored in dataframe
