@@ -50,41 +50,40 @@ p_shift_sc=opt.fsolve(g1-NEUTRAL,2000)
 p_shift_diff = p_shift_sc - p_shift_po
 p_shift_min = min(p_shift_sc,p_shift_po)
 
-print(p_shift_diff)
-print(p_shift_min)
-
 #SUPREME COURT SUPPORT v. PUBLIC SUPPORT
 ################################################################################
 
+fig = plt.figure()
+ax = fig.add_subplot(111)
+
 #average public opinion on issue
-plt.plot(x_po,y_po,'bo',label='US Public Polarity')
+ax.scatter(x_po,y_po,c='b',marker="x",label='Public Opinion',vmin=-1, vmax=1)
 #model for PO data
-plt.plot(x_po,f1(x_po),'-b')
+ax.plot(x_po,f1(x_po),'-b')
 
 #supreme court decisions
-plt.plot(x_sc,y_sc,'rs',label='US Supreme Court Polarity')
+sc_scatter=ax.scatter(x_sc,y_sc,c='r',marker="+",label='Supreme Court',vmin=-1, vmax=1)
 #model for SC data
-plt.plot(x_sc,g1(x_sc),'-r')
+ax.plot(x_sc,g1(x_sc),'-r')
 
 #include horizontal neutral opinion line
-plt.axhline(y=NEUTRAL,color='#551A8B')
+#purple='#551A8B'
+ax.axhline(y=NEUTRAL,color='k')
 #include vertical lines at paradigm shift moments
-plt.plot([p_shift_po], [NEUTRAL], marker='x', markersize=7, color="black")
-plt.plot([p_shift_sc], [NEUTRAL], marker='x', markersize=7, color="black")
+ax.plot([p_shift_po], [NEUTRAL], marker='|', markersize=7, color="black")
+ax.plot([p_shift_sc], [NEUTRAL], marker='|', markersize=7, color="black")
 
-# Add colorbar, make sure to specify tick locations to match desired ticklabels
-#data = np.clip(randn(250, 250), -1, 1)
-#cbar = fig.colorbar(cax, ticks=[-1, 0, 1])
-#cbar.ax.set_yticklabels(['< -1', '0', '> 1'])  # vertically oriented colorbar
-
-plt.legend()
+ax.legend()
 plt.xlabel('Time (year)')
-plt.ylabel('Support')
-plt.title('SC v. PO Polarity on ' + ISSUE_NAME)
+plt.ylabel('Polarity')
+plt.title('SC, PO Polarity on ' + ISSUE_NAME)
 plt.grid(True)
+plt.yticks(np.arange(-1,2,1),["Conservative","Neutral","Liberal"])
 
-min_yr=min(list(sc_polarity.keys())+list(po_polarity.keys()))
-plt.axis([min_yr-4, CURRENT_YEAR, -1.1, 1.1])
+#fig.colorbar(sc_scatter)
+
+min_yr=min(x_po+x_sc)
+plt.axis([min_yr-2, CURRENT_YEAR, -1.1, 1.1])
 
 plt.savefig('./plots/sc_v_po.png', bbox_inches='tight')
 #plt.show()
