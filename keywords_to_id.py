@@ -1,6 +1,8 @@
+import pandas as pd
+
 #search for a partial match in
 def sc_search(word,col_name,df):
-    df[df[col_name].str.contains(word,na=False)]
+    return df[df[col_name].str.contains(word,na=False)]
 
 #BLACK RIGHTS
 ######################################################################
@@ -22,6 +24,20 @@ civil_rights_cases=["Dred Scott v. Sanford (1856)",
 "Batson v. Kentucky (1986)",
 "Grutter v. Bollinger (2003)"
 ]
+
+def sc_find_case(name):
+    upper=str.upper(name)
+    words=upper.split()
+    key_words=[]
+    year=int(words.pop().strip("()"))
+    words=" ".join(words).split("V.")
+    party1=words[0].strip()
+    party2=words[1].strip()
+    df1=sc_search(party1,'caseName',all_cd_df)
+    df2=sc_search(party2,'caseName',all_cd_df)
+    return pd.merge(df1,df2,how="inner")
+
+
 
 #GAY MARRIAGE
 ######################################################################
