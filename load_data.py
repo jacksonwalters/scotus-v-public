@@ -36,7 +36,7 @@ po_rel_ques=['VCF0232','VCF0877','VCF0878','VCF0876','VCF0876a']
 cd_df=pd.read_csv('~/Data/scvpo/scdb_case_data.csv',encoding='windows-1252')
 cd_legacy_df=pd.read_csv('~/Data/scvpo/scdb_legacy_case_data.csv',encoding='windows-1252')
 
-cd_dfs=[cd_df,cd_legacy_df]
+cd_dfs=[cd_legacy_df,cd_df]
 all_cd_df = pd.concat(cd_dfs) #merge case centered dataframes
 rel_cd_cases = all_cd_df.iloc[sc_rel_ind] #only need relevant SC cases
 

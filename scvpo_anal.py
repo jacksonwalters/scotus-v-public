@@ -80,7 +80,7 @@ def sc_direction(id):
 
 #get year case was decided
 def case_year(id):
-    case=cd_df.iloc[id]
+    case=all_cd_df.iloc[id]
     return dt.datetime.strptime(case['dateDecision'],'%m/%d/%Y').year
 
 #dict of supreme court polarity by year
