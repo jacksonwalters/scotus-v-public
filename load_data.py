@@ -23,7 +23,7 @@ RESP_CONVERT=civil_rights_resp_conv
 #COMPUTED FROM INPUT
 SC_REL_IND=civil_rights_ind
 #identifiers for RELEVANT QUESTIONS from ANES PO surveys
-PO_REL_QUES=civil_rights_rel_ques
+PO_REL_QUES=list(RESP_CONVERT.keys())
 
 #DATA
 ######################################################################

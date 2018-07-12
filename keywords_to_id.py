@@ -63,22 +63,6 @@ civil_rights_cases=["Dred Scott v. Sandford (1856)",
 #check for misspellings
 #check year to avoid repeats
 #don't use indices - merging dfs will mess with this!
-poss_match={'Dred Scott v. Sandford (1856)': [2488],
-'Plessy v. Ferguson (1896)': [10220],
-'Korematsu v. UNITED STATES (1942)': [19387, 19575],
-'Korematsu v. UNITED STATES (1944)': [19387, 19575],
-'Shelley v. Kraemer (1948)': [20272, 20273],
-'Brown v. Board of Education (1954)': [21112, 21113, 21114, 21129, 21421, 21562],
-'Brown v. Board of Education (1955)': [21112, 21113, 21114, 21129, 21421, 21562],
-'Bailey v. Patterson (1962)': [22828, 22857, 22858, 22859],
-'Loving v. Virginia (1967)': [24116, 24117],
-'Jones v. Mayer Co. (1968)': [24444, 24445, 24446],
-'Griggs v. Duke Power Co. (1971)': [25009],
-'Lau v. Nichols (1974)': [25736],
-'Village of Arlington Heights v. Metropolitan Housing Development Corp. (1977)': [26502, 26503],
-'Regents of the University of California v. Bakke (1978)': [26966, 26967, 26968],
-'Batson v. Kentucky (1986)': [28853, 28854],
-'Grutter v. Bollinger (2003)': [31724, 31725, 31726]}
 
 #CASE IDS
 civil_rights_ind=[2488,
@@ -98,8 +82,6 @@ civil_rights_ind=[2488,
 28853,
 31724
 ]
-
-civil_rights_rel_ques=['VCF0216', 'VCF0517', 'VCF0518', 'VCF0830', 'VCF0860', 'VCF0861', 'VCF0862', 'VCF0863', 'VCF0864', 'VCF0865', 'VCF0866', 'VCF0867', 'VCF9037']
 
 civil_rights_resp_conv={
     'VCF0216': {i:i for i in range(97)}, #polarity unclear as HOT/COLD is hard to judge
@@ -135,8 +117,6 @@ GAY_KEYWORDS=['gay','lesbian','marriage','same-sex','same sex','homosexual','spo
 gay_marriage_ids=['1985-144','1995-053','2002-083','2012-077','2012-079','2014-070'] #weirdly caseId 1966-119, Loving v. VA is entered twice
 #N.B.: case indices are unique, but only for *case* centered data.
 gay_marriage_ind=[28947,30801,31731,32844,32846,33022]
-
-gay_marriage_rel_ques=['VCF0232','VCF0877','VCF0878','VCF0876','VCF0876a']
 
 gay_resp_conv={
     'VCF0232': {i: i-48 for i in range(97)}, #polarity unclear as HOT/COLD is hard to judge
