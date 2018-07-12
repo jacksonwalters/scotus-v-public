@@ -84,7 +84,7 @@ civil_rights_ind=[2488,
 ]
 
 civil_rights_resp_conv={
-    'VCF0216': {i:i for i in range(97)}, #polarity unclear as HOT/COLD is hard to judge
+    'VCF0216': {i:i-48 for i in range(97)},
     'VCF0517': {1:+1,7:-1},
     'VCF0518': {1:+1,7:-1},
     'VCF0830': {1:+1,7:-1,9:0},
