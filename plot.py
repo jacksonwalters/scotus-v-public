@@ -57,12 +57,12 @@ print(p_shift_min)
 ################################################################################
 
 #average public opinion on issue
-plt.plot(po_polarity.keys(),po_polarity.values(),'bo',label='US Public Polarity')
+plt.plot(x_po,y_po,'bo',label='US Public Polarity')
 #model for PO data
 plt.plot(x_po,f1(x_po),'-b')
 
 #supreme court decisions
-plt.plot(sc_polarity.keys(),sc_polarity.values(),'rs',label='US Supreme Court Polarity')
+plt.plot(x_sc,y_sc,'rs',label='US Supreme Court Polarity')
 #model for SC data
 plt.plot(x_sc,g1(x_sc),'-r')
 
@@ -72,13 +72,10 @@ plt.axhline(y=NEUTRAL,color='#551A8B')
 plt.plot([p_shift_po], [NEUTRAL], marker='x', markersize=7, color="black")
 plt.plot([p_shift_sc], [NEUTRAL], marker='x', markersize=7, color="black")
 
-#include vertical color bar
 # Add colorbar, make sure to specify tick locations to match desired ticklabels
-#fig, ax = plt.subplots()
 #data = np.clip(randn(250, 250), -1, 1)
-#cax = ax.imshow(data, interpolation='nearest', cmap=cm.coolwarm)
 #cbar = fig.colorbar(cax, ticks=[-1, 0, 1])
-#cbar.ax.set_yticklabels(['-1', '0', '1'])  # vertically oriented colorbar
+#cbar.ax.set_yticklabels(['< -1', '0', '> 1'])  # vertically oriented colorbar
 
 plt.legend()
 plt.xlabel('Time (year)')
