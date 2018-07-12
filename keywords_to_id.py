@@ -128,7 +128,7 @@ GAY_KEYWORDS=['gay','lesbian','marriage','same-sex','same sex','homosexual','spo
 #A: scrape opinion text from web or load into db. classify utilizing keywords and tfidf.
 gay_marriage_ids=['1985-144','1995-053','2002-083','2012-077','2012-079','2014-070'] #weirdly caseId 1966-119, Loving v. VA is entered twice
 #N.B.: case indices are unique, but only for *case* centered data.
-gay_marriage_ind=[9086,10940,11870,12983,12985,13161]
+gay_marriage_ind=[28947,30801,31731,32844,32846,33022]
 
 gay_marriage_rel_ques=['VCF0232','VCF0877','VCF0878','VCF0876','VCF0876a']
 
