@@ -51,7 +51,7 @@ justice_names={i:get_name(i) for i in range(84,116)}
 #+1 = force towards plus pole
 #requires deciding polarity
 def sc_force(id):
-    case = cd_df.iloc[id]   #get case
+    case = all_cd_df.iloc[id]   #get case
     num_justices = case['minVotes'] + case['majVotes'] #total number of justices
     polarity = sc_direction(id)  #determine polarity/direction of decision
     vote_diff = abs(case['minVotes'] - case['majVotes'])
@@ -68,7 +68,7 @@ def sc_force(id):
 #use decision direction column to decide
 #liberal vs conservative.
 def sc_direction(id):
-    case = cd_df.iloc[id]
+    case = all_cd_df.iloc[id]
     dir = case['decisionDirection']
     if is_num(dir):
         if dir==2:
