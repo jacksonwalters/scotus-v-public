@@ -1,8 +1,8 @@
 import pandas as pd
 
 #search for a partial match in
-def sc_search(word,col_name,df):
-    return df[df[col_name].str.contains(word,na=False)]
+def search(word):
+    return all_cd_df[all_cd_df['caseName'].str.contains(word,na=False)]
 
 #BLACK RIGHTS
 ######################################################################
@@ -25,6 +25,25 @@ civil_rights_cases=["Dred Scott v. Sanford (1856)",
 "Grutter v. Bollinger (2003)"
 ]
 
+#case_ids
+civil_rights_ids=[2488,10220,]
+
+#possible ids
+[set(),
+{10220},
+set(),
+{411, 412},
+{1251, 1252, 1701, 1253, 5198, 4529, 1268, 1560},
+set(),
+{2996, 2997, 2998, 2967},
+{4256, 4255},
+{4584, 4585, 4583},
+{5148}, {5875},
+{6641, 6642},
+set(),
+{8992, 8993},
+{11864, 11865, 11863}]
+
 def sc_find_case(name):
     upper=str.upper(name)
     words=upper.split()
@@ -33,9 +52,15 @@ def sc_find_case(name):
     words=" ".join(words).split("V.")
     party1=words[0].strip()
     party2=words[1].strip()
-    df1=sc_search(party1,'caseName',all_cd_df)
-    df2=sc_search(party2,'caseName',all_cd_df)
-    return pd.merge(df1,df2,how="inner")
+    df1=search(party1)
+    index1=set(list(df1.index))
+    df2=search(party2)
+    index2=set(list(df2.index))
+    #pd.merge(df1,df2,how="inner")
+    return index1.intersection(index2)
+
+def possible_matches():
+    return {name:sc_find_case(name) for name in civil_rights_cases}
 
 
 
