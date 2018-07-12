@@ -34,6 +34,7 @@ def possible_ids():
 #BLACK RIGHTS
 ######################################################################
 
+#user input
 CIVIL_RIGHTS_NAME="Civil Rights"
 CIVIL_RIGHTS_KEYWORDS=['black','color','oppressed','civil','rights']
 
@@ -100,15 +101,24 @@ civil_rights_ind=[2488,
 
 civil_rights_resp_conv={
     'VCF0216': {i:i for i in range(97)}, #polarity unclear as HOT/COLD is hard to judge
+    'VCF0517': {1:+1,7:-1}
+    'VCF0518': {1:+1,7:-1}
+    'VCF0830': {1:+1,7:-1,9:0}
+    'VCF0860': {1:-2,2:-1,3:0,4:1,5:2}
+    'VCF0861': {1:-2,2:-1,3:0,4:1,5:2}
+    'VCF0862': {1:-2,2:-1,3:0,4:1,5:2}
+    'VCF0863': {1:-2,2:-1,3:0,4:1,5:2}
+    'VCF0864': {1:-2,2:-1,3:0,4:1,5:2}
+    'VCF0865': {1:-2,2:-1,3:0,4:1,5:2}
+    'VCF0866': {1:-2,2:-1,3:0,4:1,5:2}
+    'VCF0867': {1:+1,5:-1}
+    'VCF9037': {1:+1,5:-1}
 }
-
-
-
 
 #GAY MARRIAGE
 ######################################################################
 
-#USER INPUT
+#user input
 ######################################################################
 GAY_MARRIAGE_NAME="Same-Sex Marriage"
 GAY_KEYWORDS=['gay','lesbian','marriage','same-sex','same sex','homosexual','spouse']
@@ -120,10 +130,12 @@ gay_marriage_ids=['1985-144','1995-053','2002-083','2012-077','2012-079','2014-0
 #N.B.: case indices are unique, but only for *case* centered data.
 gay_marriage_ind=[9086,10940,11870,12983,12985,13161]
 
+gay_marriage_rel_ques=['VCF0232','VCF0877','VCF0878','VCF0876','VCF0876a']
+
 gay_resp_conv={
-    'VCF0232': {i:i for i in range(97)}, #polarity unclear as HOT/COLD is hard to judge
-    'VCF0877': {1:3,2:2,4:1,5:0}, #polarity=descending
-    'VCF0878': {1:1,5:0}, #polarity=descending
-    'VCF0876': {1:1,5:0}, #polarity=descending
-    'VCF0876a': {1:4,2:3,4:2,5:1}, #polarity=descending
+    'VCF0232': {i: i-48 for i in range(97)}, #polarity unclear as HOT/COLD is hard to judge
+    'VCF0877': {1:2,2:1,4:-1,5:-2}, #polarity=descending
+    'VCF0878': {1:1,5:-1}, #polarity=descending
+    'VCF0876': {1:1,5:-1}, #polarity=descending
+    'VCF0876a': {1:2,2:1,4:-1,5:-2}, #polarity=descending
 }

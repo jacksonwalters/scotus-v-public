@@ -84,7 +84,7 @@ def case_year(id):
     return dt.datetime.strptime(case['dateDecision'],'%m/%d/%Y').year
 
 #dict of supreme court polarity by year
-sc_polarity={case_year(id):sc_force(id) for id in sc_rel_ind}
+sc_polarity={case_year(id):sc_force(id) for id in SC_REL_IND}
 
 
 #PUBLIC OPINION
@@ -94,11 +94,12 @@ sc_polarity={case_year(id):sc_force(id) for id in sc_rel_ind}
 #requires maximum value in col, and dict to convert responses to a scale
 #default scale is just identity function
 def norm(entry,resp_conv):
-    resp_max = max(resp_conv.values())
+    high = max(resp_conv.values())
+    low = min(resp_conv.values())
+    max_mag = max(abs(high),abs(low))
     scale=(lambda x: resp_conv[x])
     if scalable(entry,scale):
-        mag = scale(float(entry))/resp_max   #normalize to [0,1]
-        return 2*mag - 1    #map to [-1,1]
+        return scale(float(entry))/max_mag   #normalize to [-1,1]
     else:
         return float('nan')
 
@@ -134,7 +135,7 @@ def resp_convert():
 #########################################################################################
 
 #build df of overall year averages
-po_q_avgs = [scaled_avg_by_year(q_id) for q_id in po_rel_ques] #collect avg's for all Q's
+po_q_avgs = [scaled_avg_by_year(q_id) for q_id in PO_REL_QUES] #collect avg's for all Q's
 po_q_avgs_df = pd.concat(po_q_avgs,axis=1) #join series into df
 po_avgs_df = po_q_avgs_df.mean(axis=1) #take row mean
 po_avgs_df = po_avgs_df.loc[ po_avgs_df.notna() ] #remove NaN's
