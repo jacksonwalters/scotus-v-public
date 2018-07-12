@@ -85,6 +85,6 @@ plt.yticks(np.arange(-1,2,1),["Conservative","Neutral","Liberal"])
 min_yr=min(x_po+x_sc)
 plt.axis([min_yr-2, CURRENT_YEAR, -1.1, 1.1])
 
-plt.savefig('./plots/sc_v_po_gay_civil_rights.png', bbox_inches='tight')
+plt.savefig('./plots/sc_v_po_civil_rights.png', bbox_inches='tight')
 #plt.show()
 plt.gcf().clear()
