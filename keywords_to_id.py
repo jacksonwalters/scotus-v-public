@@ -31,24 +31,22 @@ civil_rights_cases=["Dred Scott v. Sandford (1856)",
 #nb: U.S. <-> UNITED STATES
 #check for misspellings
 #check year to avoid repeats
-poss_match={
-'Dred Scott v. Sandford (1856)': ['1856-061'],
-'Plessy v. Ferguson (1896)': ['1895-271'],
-'Korematsu v. UNITED STATES (1942)': ['1942-142', '1944-018'],
-'Korematsu v. UNITED STATES (1944)': ['1942-142', '1944-018'],
-'Shelley v. Kraemer (1948)': ['1947-072'],
-'Brown v. Board of Education (1954)': ['1952-001', '1952-015', '1953-069', '1954-085'],
-'Brown v. Board of Education (1955)': ['1952-001', '1952-015', '1953-069', '1954-085'],
-'Bailey v. Patterson (1962)': ['1961-019', '1961-039'],
-'Loving v. Virginia (1967)': ['1966-119'],
-'Jones v. Mayer Co. (1968)': ['1967-181'],
-'Griggs v. Duke Power Co. (1971)': ['1970-056'],
-'Lau v. Nichols (1974)': ['1973-041'],
-'Village of Arlington Heights v. Metropolitan Housing Development Corp. (1977)': ['1976-028'],
-'Regents of the University of California v. Bakke (1978)': ['1977-147'],
-'Batson v. Kentucky (1986)': ['1985-078'],
-'Grutter v. Bollinger (2003)': ['2002-078']
-}
+poss_match={'Dred Scott v. Sandford (1856)': [2488],
+'Plessy v. Ferguson (1896)': [10220],
+'Korematsu v. UNITED STATES (1942)': [19387, 19575],
+'Korematsu v. UNITED STATES (1944)': [19387, 19575],
+'Shelley v. Kraemer (1948)': [411, 412],
+'Brown v. Board of Education (1954)': [1251, 1252, 1253, 1268, 1560, 1561, 1562, 1563, 1701, 1702, 1703, 1704, 1705],
+'Brown v. Board of Education (1955)': [1251, 1252, 1253, 1268, 1560, 1561, 1562, 1563, 1701, 1702, 1703, 1704, 1705],
+'Bailey v. Patterson (1962)': [2967, 2996, 2997, 2998],
+'Loving v. Virginia (1967)': [4255, 4256],
+'Jones v. Mayer Co. (1968)': [4583, 4584, 4585],
+'Griggs v. Duke Power Co. (1971)': [5148],
+'Lau v. Nichols (1974)': [5875],
+'Village of Arlington Heights v. Metropolitan Housing Development Corp. (1977)': [6641, 6642],
+'Regents of the University of California v. Bakke (1978)': [7105, 7106, 7107],
+'Batson v. Kentucky (1986)': [8992, 8993],
+'Grutter v. Bollinger (2003)': [11863, 11864, 11865]}
 
 #CASE IDS
 civil_rights_ids=[2488,
@@ -89,10 +87,17 @@ def sc_find_case(name):
 
     return result
 
-def possible_matches():
+def possible_ids():
     return {name:sc_find_case(name) for name in civil_rights_cases}
 
-
+def possible_inds():
+    poss_inds={}
+    for name,ids in possible_ids().items():
+        inds=[]
+        for id in ids:
+            inds+=list(all_cd_df.loc[all_cd_df['caseId'] == id].index.values)
+        poss_inds[name]=inds
+    return poss_inds
 
 #GAY MARRIAGE
 ######################################################################
