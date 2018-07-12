@@ -17,17 +17,10 @@ NEUTRAL = 0 #the line deciding which side of the issue
 
 #USER INPUT
 ######################################################################
-
 ISSUE_NAME="Same-Sex Marriage"
-GAY_MAR_KEYWORDS=['gay','lesbian','marriage','same-sex','same sex','homosexual','spouse']
-
+KEYWORDS=['gay','lesbian','marriage','same-sex','same sex','homosexual','spouse']
 
 #COMPUTED FROM INPUT
-#identifiers for RELEVANT CASES from SCDB
-#KEY Q: HOW TO GET RELEVANT CASES FROM KEYWORDS
-#A: scrape opinion text from web or load into db. classify utilizing keywords and tfidf.
-sc_rel_ids=['1985-144','1995-053','2002-083','2012-077','2012-079','2014-070'] #weirdly caseId 1966-119, Loving v. VA is entered twice
-#N.B.: case indices are unique, but only for *case* centered data.
 sc_rel_ind=[9086,10940,11870,12983,12985,13161]
 
 #identifiers for RELEVANT QUESTIONS from ANES PO surveys
