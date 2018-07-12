@@ -22,9 +22,7 @@ RESP_CONVERT=gay_resp_conv
 
 #COMPUTED FROM INPUT
 SC_REL_IND=gay_marriage_ind
-
 #identifiers for RELEVANT QUESTIONS from ANES PO surveys
-#these should be computed from keyword set input
 PO_REL_QUES=gay_marriage_rel_ques
 
 #DATA
