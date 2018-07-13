@@ -16,7 +16,7 @@ Implementation:
 responses (pro/anti, conservative/liberal), e.g. a vote in favor of the plaintiff
 Obergefell would be considered pro LGBTQ rights as would a response of 'Yes' to the
 question "Do you support gays in the military?".
-- After normalizing to a scale of [-1,1] and averaging, we obtain a metric
+- After normalizing to a polarity scale of [-1,1] and averaging, we obtain a metric
 for measuring SC support and public support on an issue.
 
 Product:
