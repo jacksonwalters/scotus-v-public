@@ -1,13 +1,14 @@
-WINDOW
-
 Name: Jackson Walters
 Title: Fellow w/ The Data Incubator
 
-Hook: Confirmation of Kavanaugh.
+Hook: Confirmation of Judge Kavanaugh. You voted in 2016 pres. election, voted
+for your senator. Do you have a say?
+
+The app: WINDOW
 
 What is it?
 - Window is a product for various entities (e.g. investment firms, political campaigns,
-and policy makers) to gain insight into trends of the judiciary and US public.
+and policy makers) to gain insight into polarity trends of the judiciary and US public.
 
 How does it work?
 -NLP & tf-idf
