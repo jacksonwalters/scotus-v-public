@@ -3,18 +3,21 @@ WINDOW
 Name: Jackson Walters
 Title: Fellow w/ The Data Incubator
 
+Hook: Confirmation of Kavanaugh.
+
 What is it?
-- Window is a product for various entities (e.g. investment firms, political campaigns, policy makers)
-to gain insight into trends of the judiciary and US public.
+- Window is a product for various entities (e.g. investment firms, political campaigns,
+and policy makers) to gain insight into trends of the judiciary and US public.
 
 How does it work?
 -NLP & tf-idf
 
 Sell:
 -Window allows one to see the Public influence on the Supreme Court and ... one can
-look through Window at Supreme Court to see and predict the
+look through Window at Supreme Court to see and predict the *direction of *the Public*.
 
-*direction of *the Public*.
+Insight: Judiciary & public trends.
+Prediction: Time until Public *OR* Supreme Court paradigm shift.
 
 ###################################################################################
 
