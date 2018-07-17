@@ -8,6 +8,7 @@ import math
 import sys
 import csv
 from bs4 import BeautifulSoup
+from requests_futures.sessions import FuturesSession
 
 BASE_URL = 'https://www.courtlistener.com/c/'
 
