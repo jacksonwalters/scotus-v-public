@@ -40,14 +40,16 @@ def get_opinion_text(ind,id=None):
     response = requests.get(BASE_URL + get_citation_url(ind))
     soup = BeautifulSoup(response.text)
     opinion_content = soup.select('div#opinion-content') #returns a list
-    opinion_text = str(opinion_content)
-    return opinion_text
+    if len(opinion_content) == 0:
+        return ""
+    else:
+        return str(opinion_content)
 
 #put all opinion text into database
 def build_database():
     with open('sc_opinions.csv', 'w') as csvfile:
         opinion_writer = csv.writer(csvfile, delimiter=',',quotechar='|', quoting=csv.QUOTE_MINIMAL)
         num_cases = len(all_cd_df)
-        for ind in range(1,10):
+        for ind in range(1,5):
             opinion_text = get_opinion_text(ind)
             opinion_writer.writerow([ind,opinion_text])
