@@ -50,4 +50,4 @@ def build_database():
         num_cases = len(all_cd_df)
         for ind in range(1,10):
             opinion_text = get_opinion_text(ind)
-            opinion_writer.writerow([id,opinion_text])
+            opinion_writer.writerow([ind,opinion_text])
