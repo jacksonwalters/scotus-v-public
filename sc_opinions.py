@@ -39,5 +39,6 @@ def get_citation_url(ind,id=None):
 def get_opinion_text(ind,id=None):
     response = requests.get(BASE_URL + get_citation_url(ind))
     soup = BeautifulSoup(response.text)
-    opinion_content = soup.select('div#opinion-content')
-    return opinion_content
+    opinion_content = soup.select('div#opinion-content') #returns a list
+    opinion_text = str(opinion_content)
+    return opinion_text
