@@ -6,6 +6,7 @@
 import requests
 import math
 import sys
+import csv
 from bs4 import BeautifulSoup
 
 BASE_URL = 'https://www.courtlistener.com/c/'
@@ -30,7 +31,6 @@ def get_citation_url(ind,id=None):
     else:
         return float('NaN')
 
-
     citation_url = '/'.join([reporter,volume,page])
     return citation_url
 
@@ -42,3 +42,12 @@ def get_opinion_text(ind,id=None):
     opinion_content = soup.select('div#opinion-content') #returns a list
     opinion_text = str(opinion_content)
     return opinion_text
+
+#put all opinion text into database
+def build_database():
+    with open('sc_opinions.csv', 'w') as csvfile:
+        opinion_writer = csv.writer(csvfile, delimiter=',',quotechar='|', quoting=csv.QUOTE_MINIMAL)
+        num_cases = len(all_cd_df)
+        for ind in range(1,10):
+            opinion_text = get_opinion_text(ind)
+            opinion_writer.writerow([id,opinion_text])
