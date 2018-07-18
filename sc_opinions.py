@@ -2,6 +2,8 @@
 #https://www.courtlistener.com/c/
 #US Court Citation -> /c/U.S./410/113/ = /c/U.S./volume/page
 #Supreme Court Citation -> /c/S. Ct./410/113/ = /c/S. Ct./volume/page
+#better to use RESTful API
+#API key = 68d4a69e6f381cfc3c9824a37487d918d218b89a
 
 import requests
 import math
@@ -11,6 +13,7 @@ from bs4 import BeautifulSoup
 
 sys.path.insert(0, '/Users/jackson/Documents/GitHub/requests-futures')
 from requests_futures.sessions import FuturesSession
+#from concurrent.futures import ThreadPoolExecutor
 
 BASE_URL = 'https://www.courtlistener.com/c/'
 
@@ -50,11 +53,12 @@ def opinion_text(response):
 #put all opinion text into database
 def scrape_opinions():
     num_cases = len(all_cd_df)
-    session = FuturesSession(max_workers=3)
+    session = FuturesSession(max_workers=5)
     #create all requests in parallel
-    futures = {ind:session.get(BASE_URL + get_citation_url(ind)) for ind in range(10)}
+    futures = {ind:session.get(BASE_URL + get_citation_url(ind)) for ind in range(100)}
+    print(futures)
     #collect all results
-    responses = {ind:futures[ind].result() for ind in range(10)}
+    responses = {ind:futures[ind].result() for ind in range(100)}
     return responses
 
 def write_opinion_db(result):
