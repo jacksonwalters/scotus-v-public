@@ -9,6 +9,7 @@ import requests
 import math
 import sys
 import csv
+import json
 from bs4 import BeautifulSoup
 
 sys.path.insert(0, '/Users/jackson/Documents/GitHub/requests-futures')
@@ -61,9 +62,31 @@ def scrape_opinions():
     responses = {ind:futures[ind].result() for ind in range(100)}
     return responses
 
+#write the result of a response to a csv file
 def write_opinion_db(result):
     #write all responses of requests to .csv file
     with open('sc_opinions.csv', 'w') as csvfile:
         opinion_writer = csv.writer(csvfile, delimiter=',',quotechar='|', quoting=csv.QUOTE_MINIMAL)
         for ind, response in responses.items():
-            opinion_writer.writerow([ind,opinion_text(response)])
+            plain_text=opinion_text(response)
+            opinion_writer.writerow([ind,plain_text])
+
+#load json files
+def load_json_opinions():
+    data_path = '/Users/jackson/Data/scvpo/scotus_opinions/'
+    with open('sc_opinions.csv', 'w',newline='') as csvfile:
+        fieldnames = ['scdb_id', 'opinion']
+        opin_writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writeheader()
+
+        #each json file contributes a row to the big csv file
+        for file in os.listdir(data_path):
+            filename = os.fsdecode(file)
+            if filename.endswith(".json"):
+                with open(os.path.join(data_path, filename)) as opinion_json:
+                    data = json.load(opinion_json)
+                    opinion_text = data['plain_text']
+                    opin_writer.writerow({'scdb_id': 1234, 'opinion': opinion_text})
+                    continue
+                else:
+                    continue
