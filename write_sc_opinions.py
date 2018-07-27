@@ -8,6 +8,7 @@ def json_opins_to_csv():
         fieldnames = ['scdb_id', 'opinion']
         opin_writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         opin_writer.writeheader()
+
         #each json file contributes a row to the big csv file
         for file in os.listdir(data_path):
             filename = os.fsdecode(file)
