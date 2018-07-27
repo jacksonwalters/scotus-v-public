@@ -2,7 +2,7 @@ import csv
 import json
 
 #load json files and write to csv file
-def load_json_opinions():
+def json_opins_to_csv():
     data_path = '/Users/jackson/Data/scvpo/scotus_opinions_test/'
     with open('sc_opinions.csv', 'w',newline='') as csvfile:
         fieldnames = ['scdb_id', 'opinion']
