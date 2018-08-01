@@ -15,8 +15,9 @@ def json_opins_to_csv():
             if filename.endswith(".json"):
                 with open(os.path.join(data_path, filename)) as opinion_json:
                     data = json.load(opinion_json)
+                    id = data['id']
                     opinion_text = data['plain_text']
-                    opin_writer.writerow({'scdb_id': 1234, 'opinion': opinion_text})
+                    opin_writer.writerow({'scdb_id': id, 'opinion': opinion_text})
                     continue
             else:
                 continue
