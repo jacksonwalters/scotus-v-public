@@ -21,10 +21,10 @@ def json_opins_to_csv():
 
                     #get relevant data
                     id = filename.strip(".json")
-                    opinion_text = data['plain_text']
-                    dl_url = data['download_url']
+                    opinion_text = str(data['plain_text'])
+                    dl_url = str(data['download_url'])
                     docket = dl_url.split('/')[-1]
-                    abs_url = data['absolute_url']
+                    abs_url = str(data['absolute_url'])
                     case_name = abs_url.split('/')[-1]
 
                     #write row to csv file
