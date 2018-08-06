@@ -25,7 +25,7 @@ def json_opins_to_csv():
                     dl_url = str(data['download_url'])
                     docket = dl_url.split('/')[-1]
                     abs_url = str(data['absolute_url'])
-                    case_name = abs_url.split('/')[-1]
+                    case_name = abs_url.split('/')[-2]
 
                     #write row to csv file
                     opin_writer.writerow({'id': id, 'case_name': case_name, 'docket': docket, 'opinion': opinion_text})
