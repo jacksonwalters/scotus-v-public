@@ -20,7 +20,7 @@ def json_opins_to_csv():
                     data = json.load(opinion_json)
 
                     #get relevant data
-                    id = filename.strip(".json")
+                    id = int(filename.strip(".json"))
                     opinion_text = str(data['plain_text'])
                     dl_url = str(data['download_url'])
                     docket = dl_url.split('/')[-1]
