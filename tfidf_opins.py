@@ -19,5 +19,10 @@ for opin in list(opin_df['opinion']):
         corpus.append(opin_text)
 
 #generate tfidf matrix
-tf = TfidfVectorizer(analyzer='word', ngram_range=(1,3), min_df = 0)
+max_n=1
+tf = TfidfVectorizer(analyzer='word', ngram_range=(1,max_n), min_df = 0)
+
+#matrix with each row corresponding to an opinion
+#and each column an n-gram with n specified above
 tfidf_matrix =  tf.fit_transform(corpus[:3])
+feature_names = tf.get_feature_names()
