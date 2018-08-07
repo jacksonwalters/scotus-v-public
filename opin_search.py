@@ -14,6 +14,6 @@ def relevant_cases(keywords):
             scores.append( (row,score) )
 
     #sort scores by score value
-    scores.sort(key=lambda tup: tup[1])
+    scores.sort(key=lambda tup: tup[1],reverse=True)
 
     return scores
