@@ -25,9 +25,8 @@ tf = TfidfVectorizer(analyzer='word', ngram_range=(1,max_n), min_df = 0)
 #matrix with each row corresponding to an opinion
 #and each column an n-gram with n specified above
 tfidf_matrix =  tf.fit_transform(corpus)
+print(tfidf_matrix.shape)
 
 #extract feature names, i.e. column heads
 feature_names = tf.get_feature_names()
-
-#get dense matrix representation
-dense_tfidf = tfidf_matrix.todense()
+print(feature_names[:5])
