@@ -6,7 +6,8 @@ lgbt_keywords={'gay','lesbian','sodomy','marraige','homosexual'}
 def relevant_cases(keywords):
     keyword_ind = [feature_names.index(keyword) for keyword in keywords if keyword in feature_names]
 
-    #score each opinion based on keywords appearing
+    #score each opinion (row) based on keywords appearing
+    #by summing tfidf scores in the relevant columns
     scores = []
     for row in range(tfidf_matrix.shape[0]):
         score = sum(tfidf_matrix[row,ind] for ind in keyword_ind)

@@ -17,15 +17,19 @@ def json_opins_to_csv():
             if filename.endswith(".json"):
                 with open(os.path.join(data_path, filename)) as opinion_json:
                     #load data from json
-                    data = json.load(opinion_json)
+                    json_data = json.load(opinion_json)
 
-                    #get relevant data
+                    #id = name of json file
                     id = int(filename.strip(".json"))
-                    opinion_text = str(data['plain_text'])
-                    dl_url = str(data['download_url'])
+
+                    #
+                    dl_url = str(json_data['download_url'])
                     docket = dl_url.split('/')[-1]
-                    abs_url = str(data['absolute_url'])
+
+                    abs_url = str(json_data['absolute_url'])
                     case_name = abs_url.split('/')[-2]
+
+                    opinion_text = str(json_data['plain_text'])
 
                     #write row to csv file
                     opin_writer.writerow({'id': id, 'case_name': case_name, 'docket': docket, 'opinion': opinion_text})
