@@ -31,6 +31,7 @@ def json_opins_to_csv():
 
                     #retrieve opinion text
                     opinion_text = str(json_data['plain_text'])
+                    #ADD TEXT AND CITATION FROM HTML FIELDS
 
                     #write row to csv file
                     opin_writer.writerow({'case_name': case_name, 'docket': docket, 'opinion': opinion_text})
