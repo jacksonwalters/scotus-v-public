@@ -5,7 +5,7 @@ import json
 def json_opins_to_csv():
     data_path = '/Users/jackson/Data/scvpo/scotus_opinions/'
     with open('sc_opinions.csv', 'w',newline='') as csvfile:
-        fieldnames = ['id','case_name','docket','opinion']
+        fieldnames = ['case_name','docket','opinion']
         opin_writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         opin_writer.writeheader()
 
@@ -19,20 +19,21 @@ def json_opins_to_csv():
                     #load data from json
                     json_data = json.load(opinion_json)
 
-                    #id = name of json file
-                    id = int(filename.strip(".json"))
-
-                    #
+                    #get docket from end of download url
+                    #may be null
                     dl_url = str(json_data['download_url'])
                     docket = dl_url.split('/')[-1]
 
+                    #get case name from end of absolute url
+                    #not a unique identifier
                     abs_url = str(json_data['absolute_url'])
                     case_name = abs_url.split('/')[-2]
 
+                    #retrieve opinion text
                     opinion_text = str(json_data['plain_text'])
 
                     #write row to csv file
-                    opin_writer.writerow({'id': id, 'case_name': case_name, 'docket': docket, 'opinion': opinion_text})
+                    opin_writer.writerow({'case_name': case_name, 'docket': docket, 'opinion': opinion_text})
 
                     #print status
                     processed += 1
