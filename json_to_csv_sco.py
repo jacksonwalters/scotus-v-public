@@ -70,11 +70,6 @@ def json_opins_to_csv():
                 per_complete = 100*round(processed/total_files,4)
                 print(per_complete,"%")
 
-                #for testing
-                if processed == 5:
-                    break
-                else:
-                    continue
         else:
             continue
 
