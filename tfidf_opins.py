@@ -33,4 +33,4 @@ tfidf_matrix =  tf.fit_transform(corpus)
 print(tfidf_matrix.shape)
 
 #should write this matrix to file
-scipy.sparse.save_npz('/Users/jackson/Data/scvpo/tfidf_matrix.npz', tfidf_matrix)
+#scipy.sparse.save_npz('/Users/jackson/Data/scvpo/tfidf_matrix.npz', tfidf_matrix)

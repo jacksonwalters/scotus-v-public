@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 def json_opins_to_csv():
     data_path = '/Users/jackson/Data/scvpo/scotus_opins_json/'
     with open('sc_opinions.csv', 'w',newline='') as csvfile:
-        fieldnames = ['case_name','docket','opinion']
+        fieldnames = ['citation','case_name','date','opinion']
         opin_writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         opin_writer.writeheader()
 
@@ -21,40 +21,48 @@ def json_opins_to_csv():
                     #load data from json
                     json_data = json.load(opinion_json)
 
-                    #get docket from end of download url
-                    #may be null
+                    #try getting CITATION, from download_url
                     dl_url = str(json_data['download_url'])
-                    docket = dl_url.split('/')[-1]
+                    citation = dl_url.split('/')[-1]
 
-                    #get case name from end of absolute url
-                    #not a unique identifier
+                    #try getting CASE NAME, from absolute_url
                     abs_url = str(json_data['absolute_url'])
                     case_name = abs_url.split('/')[-2]
 
                     #retrieve opinion text
                     #w/ CourtListener data, opin may be stored
-                    #in one of three fields: plain text, html, or
-                    #possibily html with citation
+                    #in a number of fields:
+                    #plain_text
+                    #html
+                    #html_with_citations
 
-                    #get plain text. empty string if not present.
+                    #GET BEST OPINION TEXT POSSIBLE
+                    #TRY TO EXTRACT DATE, CITATION, NAME from HTML
                     opin_plain = str(json_data['plain_text'])
                     opin_html = str(json_data['html'])
                     opin_html_cite = str(json_data['html_with_citations'])
 
                     if opin_html_cite != "":
                         soup = BeautifulSoup(opin_html_cite, 'html.parser')
-                        opinion = soup.get_text()
+                        opin_text = soup.get_text()
+                        opin_text = opin_text.split('\n')
+                        opinion = ' '.join(opin_text)
                     elif opin_html != "":
                         soup = BeautifulSoup(opin_html, 'html.parser')
-                        opinion = soup.get_text()
+                        opin_text = soup.get_text()
+                        opin_text = opin_text.split('\n')
+                        opinion = ' '.join(opin_text)
                     elif opin_plain != "":
-                        opinion = opin_plain
+                        opin_text = opin_plain
+                        opin_text = opin_text.split('\n')
+                        opinion = ' '.join(opin_text)
 
                     #write row to csv file
-                    opin_writer.writerow({'case_name': case_name, 'docket': docket, 'opinion': opinion})
+                    opin_writer.writerow({'citation': citation,'case_name': case_name, 'opinion': opinion})
 
                     #print status
-                    processed += 1
+                    if opinion != "":
+                        processed += 1
                     per_complete = 100*round(processed/total_files,4)
                     print(per_complete,"%")
                     continue
