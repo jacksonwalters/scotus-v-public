@@ -1,6 +1,7 @@
-lgbt_keywords={'gay','lesbian','sodomy','marraige','homosexual'}
+import scipy.sparse
 
-#SHOULD IMPLEMENT ONLY USING SPARSE MATRICES
+#load tfidf matrix
+tfidf_matrix = scipy.sparse.load_npz("/Users/jackson/Data/scvpo/tfidf_matrix.npz")
 
 #find list of relevant cases given set of keywords
 def relevant_cases(keywords):

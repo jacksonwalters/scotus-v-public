@@ -32,5 +32,5 @@ print(tfidf_matrix.shape)
 feature_names = tf.get_feature_names()
 print(feature_names)
 
-#should write this matrix to file
+#write sparse tdidf matrix to compressed .npz file
 scipy.sparse.save_npz('/Users/jackson/Data/scvpo/tfidf_matrix.npz', tfidf_matrix)
