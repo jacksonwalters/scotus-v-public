@@ -21,16 +21,25 @@ for opin in list(opin_df['opinion']):
 
 #generate tfidf matrix
 max_n=1 #specify maximum n-gram size (length of phrases)
-tf = TfidfVectorizer(analyzer='word', ngram_range=(1,max_n), min_df = 0)
+tf = TfidfVectorizer(analyzer='word', ngram_range=(1,max_n), stop_words="english")
 
 #matrix with each row corresponding to an opinion
 #and each column an n-gram with n specified above
-tfidf_matrix =  tf.fit_transform(corpus)
-print(tfidf_matrix.shape)
-
-#extract feature names, i.e. column heads
-feature_names = tf.get_feature_names()
-print(feature_names)
-
+tfidf_matrix =  tf.fit_transform(corpus); print(tfidf_matrix.shape)
 #write sparse tdidf matrix to compressed .npz file
 scipy.sparse.save_npz('/Users/jackson/Data/scvpo/tfidf_matrix.npz', tfidf_matrix)
+
+#mapping {column index : feature name}
+vocab = tf.get_feature_names()
+#mapping {row index : opinion id}
+date = list(map(str,opin_df['date']))
+cite = list(map(str,opin_df['citation']))
+name = list(map(str,opin_df['case_name']))
+opin_indices = ["|".join([cite[i],date[i],name[i]]) for i in range(tfidf_matrix.shape[0])]
+#store index mappings as CSV
+row_df = pd.DataFrame.from_dict(data={'rows': opin_indices})
+col_df = pd.DataFrame.from_dict(data={'cols': vocab})
+row_path = os.path.join("/Users/jackson/Data/scvpo/","tfidf_rows.csv")
+col_path = os.path.join("/Users/jackson/Data/scvpo/","tfidf_cols.csv")
+row_df.to_csv(row_path, encoding='utf-8')
+col_df.to_csv(col_path, encoding='utf-8')
