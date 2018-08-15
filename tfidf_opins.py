@@ -20,8 +20,8 @@ for opin in list(opin_df['opinion']):
         corpus.append(opin_text)
 
 #generate tfidf matrix
-max_n=1 #specify maximum n-gram size (length of phrases)
-tf = TfidfVectorizer(analyzer='word', ngram_range=(1,max_n), stop_words="english")
+max_n=2 #specify maximum n-gram size (length of phrases)
+tf = TfidfVectorizer(analyzer='word', ngram_range=(1,max_n), stop_words="english", max_df=.3)
 
 #matrix with each row corresponding to an opinion
 #and each column an n-gram with n specified above
@@ -38,4 +38,4 @@ name = list(map(str,opin_df['case_name']))
 opin_id = ["|".join([cite[i],date[i],name[i]]) for i in range(tfidf_matrix.shape[0])]
 #store index mappings as CSV
 pd.DataFrame(opin_indices).to_csv("/Users/jackson/Data/scvpo/tfidf_rows.csv", encoding='utf-8',index=False)
-pd.DataFrame(vocab).to_csv("/Users/jackson/Data/scvpo/tfidf_rows.csv", encoding='utf-8',index=False)
+pd.DataFrame(vocab).to_csv("/Users/jackson/Data/scvpo/tfidf_cols.csv", encoding='utf-8',index=False)
