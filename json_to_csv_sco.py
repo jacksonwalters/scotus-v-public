@@ -30,26 +30,39 @@ def json_opins_to_csv():
                 #get date
                 date = ""
 
-                #retrieve opinion text
-                #w/ CourtListener data, opin may be stored
-                #in a number of fields:
-                #plain_text
-                #html
-                #html_with_citations
-
-                #GET BEST OPINION TEXT POSSIBLE
-                #TRY TO EXTRACT DATE, CITATION, NAME from HTML
+                #retrieve opinion text from CourtListener data
+                #opinion stored in one of three fields:
                 opin_plain = str(json_data['plain_text'])
                 opin_html = str(json_data['html'])
                 opin_html_cite = str(json_data['html_with_citations'])
 
                 if opin_html_cite != "":
                     soup = BeautifulSoup(opin_html_cite, 'html.parser')
+                    #try getting citation
+                    for tag in soup.find_all('p',class_='case_cite'):
+                        citation = tag.text
+                    #try getting date
+                    for tag in soup.find_all('p',class_='date'):
+                        date = tag.text
+                    #try getting parties/case name
+                    for tag in soup.find_all('p',class_='parties'):
+                        case_name = tag.text
+                    #get opinion text
                     opin_text = soup.get_text()
                     opin_text = opin_text.split('\n')
                     opinion = ' '.join(opin_text)
                 elif opin_html != "":
                     soup = BeautifulSoup(opin_html, 'html.parser')
+                    #try getting citation
+                    for tag in soup.find_all('p',class_='case_cite'):
+                        citation = tag.text
+                    #try getting date
+                    for tag in soup.find_all('p',class_='date'):
+                        date = tag.text
+                    #try getting parties/case name
+                    for tag in soup.find_all('p',class_='parties'):
+                        case_name = tag.text
+                    #get opinion text
                     opin_text = soup.get_text()
                     opin_text = opin_text.split('\n')
                     opinion = ' '.join(opin_text)
@@ -69,6 +82,10 @@ def json_opins_to_csv():
                     processed += 1
                 per_complete = 100*round(processed/total_files,4)
                 print(per_complete,"%")
+
+                #for testing
+                if processed == 5:
+                    break
 
         else:
             continue
