@@ -37,9 +37,5 @@ cite = list(map(str,opin_df['citation']))
 name = list(map(str,opin_df['case_name']))
 opin_indices = ["|".join([cite[i],date[i],name[i]]) for i in range(tfidf_matrix.shape[0])]
 #store index mappings as CSV
-row_df = pd.DataFrame.from_dict(data={'rows': opin_indices})
-col_df = pd.DataFrame.from_dict(data={'cols': vocab})
-row_path = os.path.join("/Users/jackson/Data/scvpo/","tfidf_rows.csv")
-col_path = os.path.join("/Users/jackson/Data/scvpo/","tfidf_cols.csv")
-row_df.to_csv(row_path, encoding='utf-8')
-col_df.to_csv(col_path, encoding='utf-8')
+pd.Series(opin_indices).to_csv("/Users/jackson/Data/scvpo/tfidf_rows.csv", encoding='utf-8')
+pd.Series(vocab).to_csv("/Users/jackson/Data/scvpo/tfidf_cols.csv", encoding='utf-8')
