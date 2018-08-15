@@ -35,7 +35,7 @@ vocab = tf.get_feature_names()
 date = list(map(str,opin_df['date']))
 cite = list(map(str,opin_df['citation']))
 name = list(map(str,opin_df['case_name']))
-opin_indices = ["|".join([cite[i],date[i],name[i]]) for i in range(tfidf_matrix.shape[0])]
+opin_id = ["|".join([cite[i],date[i],name[i]]) for i in range(tfidf_matrix.shape[0])]
 #store index mappings as CSV
-pd.Series(opin_indices).to_csv("/Users/jackson/Data/scvpo/tfidf_rows.csv", encoding='utf-8')
-pd.Series(vocab).to_csv("/Users/jackson/Data/scvpo/tfidf_cols.csv", encoding='utf-8')
+pd.DataFrame(opin_indices).to_csv("/Users/jackson/Data/scvpo/tfidf_rows.csv", encoding='utf-8',index=False)
+pd.DataFrame(vocab).to_csv("/Users/jackson/Data/scvpo/tfidf_rows.csv", encoding='utf-8',index=False)
