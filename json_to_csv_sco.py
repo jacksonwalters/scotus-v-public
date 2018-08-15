@@ -48,9 +48,7 @@ def json_opins_to_csv():
                     for tag in soup.find_all('p',class_='parties'):
                         case_name = tag.text
                     #get opinion text
-                    opin_text = soup.get_text()
-                    opin_text = opin_text.split('\n')
-                    opinion = ' '.join(opin_text)
+                    opinion = soup.get_text().rstrip()
                 elif opin_html != "":
                     soup = BeautifulSoup(opin_html, 'html.parser')
                     #try getting citation
@@ -63,13 +61,9 @@ def json_opins_to_csv():
                     for tag in soup.find_all('p',class_='parties'):
                         case_name = tag.text
                     #get opinion text
-                    opin_text = soup.get_text()
-                    opin_text = opin_text.split('\n')
-                    opinion = ' '.join(opin_text)
+                    opinion = soup.get_text().rstrip()
                 elif opin_plain != "":
-                    opin_text = opin_plain
-                    opin_text = opin_text.split('\n')
-                    opinion = ' '.join(opin_text)
+                    opinion = opin_plain.rstrip()
 
                 #write row to csv file
                 data_dict['citation'].append(citation)
@@ -84,8 +78,7 @@ def json_opins_to_csv():
                 print(per_complete,"%")
 
                 #for testing
-                if processed == 5:
-                    break
+                #if processed == 100: break
 
         else:
             continue
