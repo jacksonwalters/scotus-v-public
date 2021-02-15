@@ -1,13 +1,14 @@
+import sys
 import scipy.sparse
 import pandas as pd
 
 #load tfidf matrix
-tfidf_matrix = scipy.sparse.load_npz("/Users/jackson/Data/scvpo/tfidf_matrix.npz")
+tfidf_matrix = scipy.sparse.load_npz("/home/jackson/Documents/scvpo/tfidf_matrix.npz")
 #load {row index : opinion id} mapping
-opin_id_df = pd.read_csv("/Users/jackson/Data/scvpo/tfidf_rows.csv")
+opin_id_df = pd.read_csv("/home/jackson/Documents/scvpo/tfidf_rows.csv")
 opin_id = list(opin_id_df['0'])
 #load {col index : vocab} mapping
-vocab_df = pd.read_csv("/Users/jackson/Data/scvpo/tfidf_cols.csv")
+vocab_df = pd.read_csv("/home/jackson/Documents/scvpo/tfidf_cols.csv")
 vocab = list(vocab_df['0'])
 
 #find list of relevant cases given set of keywords
@@ -30,3 +31,8 @@ def relevant_cases(keywords):
     rel_cases = [opin_id[case[0]] for case in scores[:10]]
 
     return rel_cases
+
+if __name__ == "__main__":
+    if(len(sys.argv) > 1):
+        keywords = sys.argv[1:]
+        print(relevant_cases(keywords))

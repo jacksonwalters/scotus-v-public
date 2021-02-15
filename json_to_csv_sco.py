@@ -1,17 +1,15 @@
-import csv
-import json
-import os
+import csv, json, os
 import pandas as pd
 from bs4 import BeautifulSoup
 
 #load json files and write to csv file
 def json_opins_to_csv():
-    data_path = '/Users/jackson/Data/scvpo/scotus_opins_json/'
+    data_path = '/home/jackson/Documents/scvpo/scotus_opins_json/'
     data_dict = {'citation': [],'case_name': [],'date': [], 'opinion': []}
 
     #each json file contributes a row to the big csv file
     processed = 0
-    total_files = 63991
+    total_files = 64_184
     for file in os.listdir(data_path):
         filename = os.fsdecode(file)
         if filename.endswith(".json"):
@@ -87,7 +85,10 @@ def json_opins_to_csv():
     opin_df = pd.DataFrame.from_dict(data=data_dict)
 
     #write dataframe to file
-    out_path = "/Users/jackson/Data/scvpo/"
+    out_path = "/home/jackson/Documents/scvpo/"
     out_name = "scotus_opinions.csv"
     full_name = os.path.join(out_path,out_name)
     opin_df.to_csv(full_name, encoding='utf-8')
+
+if __name__ == '__main__':
+    json_opins_to_csv()
