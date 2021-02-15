@@ -32,5 +32,5 @@ In the end, a user puts in a set of keywords to specify an issue, and a plot of 
 vs. supreme court sentiment over time appears. One can perform regressions and try to determine when
 opinion might cross a threshold.
 
-SCOTUS Data, Free Law Project: https://www.courtlistener.com/api/bulk-info/
-PO Data, ANES: https://electionstudies.org/data-center/
+- SCOTUS Data, Free Law Project: https://www.courtlistener.com/api/bulk-info/
+- PO Data, ANES: https://electionstudies.org/data-center/
