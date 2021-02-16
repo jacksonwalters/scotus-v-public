@@ -1,4 +1,4 @@
-from flask import Flask, render_template, flash
+from flask import Flask, render_template, flash, redirect
 from forms import KeywordForm
 import scipy.sparse
 import pandas as pd

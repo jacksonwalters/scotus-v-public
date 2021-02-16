@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+  {% if title %}
+  <title>{{ title }}</title>
+  {% else %}
+  <title>Home</title>
+  {% endif %}
+  <!-- meta tags-->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <meta name="description" content="App to generate plots comparing SCOTUS opinions and public opinion on a given issue over time." />
+  <meta name="keywords" content="scotus,search,cases,opinions,compare,correlation,public,opinion" />
+  <meta name="author" content="Jackson Walters">
+
+  <!-- CSS stored in static folder in flask app  -->
+  <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}" />
+  <noscript><link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}" /></noscript>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-47781877-5"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-47781877-5');
+  </script>
+</head>
+<body>
+  <img src="{{url_for('static', filename = 'images/sc_v_po.png')}}" alt="static_plot" width="320" height="226"/>
+
+  <!-- form for user to input keywords -->
+  <form action="" method="post" novalidate>
+      {{ form.hidden_tag() }}
+      <div class="row gtr-uniform">
+        <div class="col-6">{{ form.word1(size=16) }}</div>
+        <div class="col-6">
+          {% for error in form.word1.errors %}
+          <span style="color: red;">[{{ error }}]</span>
+          {% endfor %}
+        </div>
+
+        <div class="col-6">{{ form.word2(size=16) }}</div>
+        <div class="col-6">
+          {% for error in form.word2.errors %}
+          <span style="color: red;">[{{ error }}]</span>
+          {% endfor %}
+        </div>
+
+        <div class="col-6">{{ form.word3(size=16) }}</div>
+        <div class="col-6">
+          {% for error in form.word3.errors %}
+          <span style="color: red;">[{{ error }}]</span>
+          {% endfor %}
+        </div>
+
+      </div>
+      <br/>
+      <div class="col-12">
+        <ul class="actions">
+          <li>{{ form.submit() }}</li>
+        </ul>
+      </div>
+  </form>
+
+  <!-- flash the output results -->
+  {% with outputs = get_flashed_messages(category_filter=["output"]) %}
+    {% if outputs %}
+    <ol>
+      {% for output in outputs %}
+      <li>{{ output }}</li>
+      {% endfor %}
+    </ol>
+    {% endif %}
+  {% endwith %}
+</body>
+</html>
