@@ -15,7 +15,7 @@ def json_opins_to_csv():
     for file in os.listdir(data_path):
         filename = os.fsdecode(file)
         if filename.endswith(".json"):
-            with open(os.path.join(data_path, filename)) as opinion_json:
+            with open(os.path.join(data_path, filename),encoding='utf-8') as opinion_json:
                 #load data from json
                 json_data = json.load(opinion_json)
 
