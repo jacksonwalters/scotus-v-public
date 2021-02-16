@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, flash
 import scipy.sparse
 import pandas as pd
 
@@ -37,9 +37,11 @@ def relevant_cases(keywords):
     return rel_cases
 
 @app.route("/<keywords>", methods=['GET','POST'])
-def render():
+def render(keywords):
     results = relevant_cases(keywords.split('+'))
-    return render_template("index.html",message=results)
+    for case in results:
+        flash(case,'output')
+    return render_template("index.html",title="SCvPO",message=results)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
