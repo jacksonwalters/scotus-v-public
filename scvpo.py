@@ -45,7 +45,7 @@ def search_cases():
         word1 = form.word1.data.strip().lower()
         word2 = form.word2.data.strip().lower()
         word3 = form.word3.data.strip().lower()
-		keywords = [word1,word2,word3]
+        keywords = [word1,word2,word3]
         #search cases via tf-idf and flash output
         results = relevant_cases(keywords)
         for case in results:
