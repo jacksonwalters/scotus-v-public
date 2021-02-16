@@ -1,4 +1,5 @@
 from flask import Flask, render_template, flash
+from forms import KeywordForm
 import scipy.sparse
 import pandas as pd
 
@@ -36,12 +37,20 @@ def relevant_cases(keywords):
 
     return rel_cases
 
-@app.route("/<keywords>", methods=['GET','POST'])
-def render(keywords):
-    results = relevant_cases(keywords.split('+'))
-    for case in results:
-        flash(case,'output')
-    return render_template("index.html",title="SCvPO",message=results)
+@app.route("/", methods=['GET','POST'])
+def search_cases():
+    form = KeywordForm()
+    if form.validate_on_submit():
+        #retrieve word data from form. ""->" " if (optionally) empty
+		word1 = form.word1.data.strip().lower()
+		word2 = form.word2.data.strip().lower()
+		word3 = form.word3.data.strip().lower()
+		keywords = [word1,word2,word3]
+        results = relevant_cases(keywords)
+        for case in results:
+            flash(case,'output')
+        return redirect('/')
+    return render_template("index.html",title="SCvPO",form=form)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
