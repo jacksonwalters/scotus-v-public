@@ -31,9 +31,12 @@ def tfidf_opins():
 
     #matrix with each row corresponding to an opinion
     #and each column an n-gram with n specified above
-    tfidf_matrix =  tf.fit_transform(corpus); print(tfidf_matrix.shape)
+    print(f"Building TF-IDF matrix with {max_n}-grams ...")
+    tfidf_matrix =  tf.fit_transform(corpus)
+    print("Finished TF-IDF matrix with shape",tfidf_matrix.shape)
     #write sparse tdidf matrix to compressed .npz file
     scipy.sparse.save_npz(TFIDF_MATRIX_PATH, tfidf_matrix)
+    print("Saved sparse matrix to ",TFIDF_MATRIX_PATH)
 
     #mapping {column index : feature name}
     vocab = tf.get_feature_names()
@@ -44,7 +47,9 @@ def tfidf_opins():
     opin_id = ["|".join([cite[i],date[i],name[i]]) for i in range(tfidf_matrix.shape[0])]
     #store index mappings as CSV
     pd.DataFrame(opin_id).to_csv(TFIDF_ROWS_PATH, encoding='utf-8',index=False)
+    print("Saved rows of TF-IDF matrix to ",TFIDF_ROWS_PATH)
     pd.DataFrame(vocab).to_csv(TFIDF_COLS_PATH, encoding='utf-8',index=False)
+    print("Saved cols of TF-IDF matrix to ",TFIDF_COLS_PATH)
 
 if __name__ == "__main__":
     tfidf_opins()
