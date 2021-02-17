@@ -2,7 +2,7 @@ import csv, json, os
 import pandas as pd
 from bs4 import BeautifulSoup
 
-HOME = "C:\\Users\\jacks\\OneDrive\\Documents\\GitHub\\scvpo\\"
+HOME = "C:\\Users\\jacks\\OneDrive\\Documents\\GitHub\\scvpo\\data"
 INPUT_PATH = os.path.join(HOME,"scotus_opins_json\\")
 OUTPUT_PATH = os.path.join(HOME,"scotus_opinions.csv")
 
