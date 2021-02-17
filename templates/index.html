@@ -28,8 +28,17 @@
   </script>
 </head>
 <body>
+  <!-- Wrapper -->
+  <div id="wrapper">
+  <!-- Header -->
+  <div id="main">
+    <div class="inner">
+      <h1>SCOTUS v. Public Opinion</h1>
+  <!-- display plot -->
+  <section>
   <img src="{{url_for('static', filename = 'images/sc_v_po.png')}}" alt="static_plot" width="320" height="226"/>
-
+  </section>
+  <p>Enter keywords to search for relevant cases and PO questions and see a plot vs. time.</p>
   <!-- form for user to input keywords -->
   <form action="" method="post" novalidate>
       {{ form.hidden_tag() }}
@@ -64,7 +73,9 @@
       </div>
   </form>
 
+
   <!-- flash the output results -->
+  <section>
   {% with outputs = get_flashed_messages(category_filter=["output"]) %}
     {% if outputs %}
     <ol>
@@ -74,5 +85,10 @@
     </ol>
     {% endif %}
   {% endwith %}
+</section>
+
+      </div>
+    </div>
+  </div>
 </body>
 </html>
