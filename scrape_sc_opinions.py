@@ -4,6 +4,7 @@
 #Supreme Court Citation -> /c/S. Ct./410/113/ = /c/S. Ct./volume/page
 #better to use RESTful API
 #API key = 68d4a69e6f381cfc3c9824a37487d918d218b89a
+#DEPRECATED - AS OF 2021, USE BULK DATA API.
 
 import requests
 import math
