@@ -5,7 +5,7 @@
 
 import pandas as pd
 import csv, os
-from examples import civil_rights
+from example_issues import civil_rights
 
 PATH = ".\\data\\scdb\\"
 #path for scotus case data from SCDB, 1946 - present
@@ -37,8 +37,8 @@ def all_scdb_case_data():
     return pd.concat([legacy_scdb_case_data(),scdb_case_data()],ignore_index=True)
 
 #only return relevant cases given their indices
-def rel_scdb_case_data(case_ind):
-    return all_scdb_case_data().iloc[case_ind]
+def rel_scdb_case_data(all_scdb_case_data=all_scdb_case_data(),case_ind):
+    return all_scdb_case_data.iloc[case_ind]
 
 #return scdb justice data
 def scdb_justice_data():
@@ -50,11 +50,11 @@ def legacy_scdb_justice_data():
 
 #merge legacy and up-to-present justice data and return as pandas dataframe
 def all_scdb_justice_data():
-    all_jd_df = pd.concat([scdb_justice_data(),legacy_scdb_justice_data()])
+    return pd.concat([scdb_justice_data(),legacy_scdb_justice_data()])
 
 #get justice data only for relevant cases specified by indices
-def rel_scdb_justice_data(case_ind):
-    return all_scdb_justice_data().iloc[case_ind]
+def rel_scdb_justice_data(all_scdb_justice_data=all_scdb_justice_data(),case_ind):
+    return all_scdb_justice_data.iloc[case_ind]
 
 #load supreme court data
 if __name__ == "__main__":
