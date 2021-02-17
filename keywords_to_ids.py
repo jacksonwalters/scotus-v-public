@@ -31,7 +31,7 @@ def sc_find_case(name):
 def possible_ids():
     return {name:sc_find_case(name) for name in civil_rights_cases}
 
-#BLACK RIGHTS
+#CIVIL RIGHTS
 ######################################################################
 
 #user input

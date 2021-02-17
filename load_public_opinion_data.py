@@ -6,6 +6,8 @@
 #different QUESTIONS.
 #roughly 55 million entries
 
+SURVEY_YEAR = 'VCF0004'
+
 PATH = ".\\data\\anes\\"
 DATA_TYPES = 'data_types.csv'
 PO_DATA = 'anes_data.csv'
