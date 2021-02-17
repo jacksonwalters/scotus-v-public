@@ -3,8 +3,12 @@
 #this project is for The Data Incubator, Summer 2018.
 #analyzing relationship between public opinion and supreme court decisions
 
+import os
 import numpy as np
 import datetime as dt
+
+PATH = ".\\data\\scdb\\"
+SC_ISSUES = os.path.join(PATH,'sc_issues.txt')
 
 #format entry to be float if possible
 def is_num(entry):
@@ -27,7 +31,7 @@ def scalable(entry,scale=(lambda x: x)):
 #fields of interest: caseIssuesId, issue, issueArea. these are id numbers.
 #online documentation reveals what they correspond to. create dicts/tables.
 issue_areas={1:'Criminal Procedure',2:'Civil Rights',3:'First Amendment',4:'Due Process',5:'Privacy',6:'Attorneys',7:'Unions',8:'Economic Activity',9:'Judicial Power',10:'Federalism',11:'Interstate Relations',12:'Federal Taxation',13:'Miscellaneous',14:'Private Action'} #scraped by hand
-issue_df=pd.read_csv('./scdb/sc_issues.csv')
+issue_df=pd.read_csv(SC_ISSUES)
 
 #SUPREME COURT
 #############################################################################
