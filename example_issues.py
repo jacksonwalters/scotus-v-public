@@ -12,6 +12,8 @@ class Issue:
     def __str__(self):
         return self.name
 
+#list of supreme court cases and ANES public opinion questions relevant to
+#civil rights along with map to scale response to [-1,+1]
 def civil_rights():
     return Issue(
         name="Civil Rights",
