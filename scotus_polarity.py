@@ -10,6 +10,14 @@ import datetime as dt
 PATH = ".\\data\\scdb\\"
 SC_ISSUES = os.path.join(PATH,'sc_issues.txt')
 
+#GLOBAL VARIABLES
+PLUS_POLE = +1
+MINUS_POLE = -1
+NO_POLE = 0
+CURRENT_YEAR=2018
+NUM_JUSTICES=9
+NEUTRAL = 0 #the line deciding which side of the issue
+
 #format entry to be float if possible
 def is_num(entry):
     try:

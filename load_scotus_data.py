@@ -5,6 +5,7 @@
 
 import pandas as pd
 import csv, os
+from examples import civil_rights
 
 PATH = ".\\data\\scdb\\"
 #path for scotus case data from SCDB, 1946 - present
@@ -12,46 +13,49 @@ SCOTUS_CASE_DATA_FILENAME = 'scdb_case_data.csv'
 CASE_DATA_PATH = os.path.join(PATH,SCOTUS_CASE_DATA_FILENAME)
 #path for scotus legacy case data from SCDB, 1789 - 1946
 SCOTUS_LEGACY_CASE_DATA_FILENAME = 'scdb_legacy_case_data.csv'
-LEGACY_CASE_DATA_PATH = 'scdb_legacy_case_data.csv'
+LEGACY_CASE_DATA_PATH = os.path.join(PATH,SCOTUS_LEGACY_CASE_DATA_FILENAME)
+#path for justice data, 1946 - present
+SCOTUS_JUSTICE_DATA_FILENAME = 'scdb_justice_data.csv'
+JUSTICE_DATA_PATH = os.path.join(PATH,SCOTUS_JUSTICE_DATA_FILENAME)
+#path for legacy justice data, 1789 - 1946
+LEGACY_SCOTUS_JUSTICE_DATA_FILENAME = 'scdb_legacy_justice_data.csv'
+LEGACY_JUSTICE_DATA_PATH = os.path.join(PATH,LEGACY_SCOTUS_JUSTICE_DATA_FILENAME)
 
-#GLOBAL VARIABLES
-PLUS_POLE = 1
-MINUS_POLE = -1
-NO_POLE = 0
-CURRENT_YEAR=2018
-NUM_JUSTICES=9
-NEUTRAL = 0 #the line deciding which side of the issue
+#load csv files with pandas. not utf-8, must use alternate encoding
+#case centered data stored in dataframe
+def legacy_scdb_case_data():
+    return pd.read_csv(LEGACY_CASE_DATA_PATH,encoding='windows-1252')
 
-ISSUE_NAME=CIVIL_RIGHTS_NAME
-KEYWORDS=CIVIL_RIGHTS_KEYWORDS
+#load csv files with pandas. not utf-8, must use alternate encoding
+#case centered data stored in dataframe
+def scdb_case_data():
+    return pd.read_csv(CASE_DATA_PATH,encoding='windows-1252')
 
-RESP_CONVERT=CIVIL_RIGHTS_RESPONSE_MAP
+#merge legacy and up-to-present case data and return as pandas dataframe
+#ensure numeric index is unique!
+def all_scdb_case_data():
+    return pd.concat([legacy_scdb_case_data(),scdb_case_data()],ignore_index=True)
 
-#COMPUTED FROM INPUT
-SC_REL_IND=CIVIL_RIGHTS_IND
+#only return relevant cases given their indices
+def rel_scdb_case_data(case_ind):
+    return all_scdb_case_data().iloc[case_ind]
 
-def load_scotus_data():
-    #load csv files with pandas. not utf-8, must use alternate encoding
-    #case centered data stored in dataframe
-    cd_df=pd.read_csv(CASE_DATA_PATH,encoding='windows-1252')
-    cd_legacy_df=pd.read_csv(LEGACY_CASE_DATA_PATH,encoding='windows-1252')
+#return scdb justice data
+def scdb_justice_data():
+    return pd.read_csv(JUSTICE_DATA_PATH,encoding='windows-1252')
 
-    cd_dfs=[cd_legacy_df,cd_df]
-    #merge case centered dataframes making sure to keep a unique numeric index
-    all_cd_df = pd.concat(cd_dfs,ignore_index=True)
-    rel_cd_cases = all_cd_df.iloc[SC_REL_IND] #only need relevant SC cases
+#get legacy scdb justice data
+def legacy_scdb_justice_data():
+    return pd.read_csv(LEGACY_JUSTICE_DATA_PATH,encoding='windows-1252')
 
-    #justice (the SC justice as a person) centered data stored in dataframe
-    #justice data is a superset of case data and gives info about how
-    #each particular jusitce voted.
-    jd_df=pd.read_csv('~/Data/scvpo/scdb_justice_data.csv',encoding='windows-1252')
-    jd_legacy_df=pd.read_csv('~/Data/scvpo/scdb_legacy_case_data.csv',encoding='windows-1252')
+#merge legacy and up-to-present justice data and return as pandas dataframe
+def all_scdb_justice_data():
+    all_jd_df = pd.concat([scdb_justice_data(),legacy_scdb_justice_data()])
 
-    #relevant justice data
-    jd_dfs=[jd_df,jd_legacy_df]
-    all_jd_df = pd.concat(jd_dfs) #merge justice centered dataframes
-    rel_jd_cases = all_jd_df.iloc[SC_REL_IND] #only need relevant cases
+#get justice data only for relevant cases specified by indices
+def rel_scdb_justice_data(case_ind):
+    return all_scdb_justice_data().iloc[case_ind]
 
 #load supreme court data
 if __name__ == "__main__":
-    load_scotus_data()
+    print(rel_scdb_case_data(civil_rights().case_ind))
