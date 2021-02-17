@@ -12,7 +12,7 @@ class Issue:
     def __str__(self):
         return self.name
 
-def civil_rights_issue():
+def civil_rights():
     return Issue(
         name="Civil Rights",
         keywords=['black','color','oppressed','civil','rights'],
@@ -55,7 +55,7 @@ def civil_rights_issue():
         )
 
 #keywords and cases corresponding to gay marriage issue
-def gay_marriage_issue():
+def gay_marriage():
     return Issue(
         name="Same-Sex Marriage",
         keywords=['gay','lesbian','marriage','same-sex','same sex','homosexual','spouse'],
@@ -71,4 +71,6 @@ def gay_marriage_issue():
     )
 
 if __name__ == "__main__":
-    print(civil_rights_issue(),gay_marriage_issue())
+    examples = [civil_rights(),gay_marriage()]
+    for issue in examples:
+        print(issue)
