@@ -37,7 +37,7 @@ def all_scdb_case_data():
     return pd.concat([legacy_scdb_case_data(),scdb_case_data()],ignore_index=True)
 
 #only return relevant cases given their indices
-def rel_scdb_case_data(all_scdb_case_data=all_scdb_case_data(),case_ind):
+def rel_scdb_case_data(case_ind,all_scdb_case_data=all_scdb_case_data()):
     return all_scdb_case_data.iloc[case_ind]
 
 #return scdb justice data
@@ -53,7 +53,7 @@ def all_scdb_justice_data():
     return pd.concat([scdb_justice_data(),legacy_scdb_justice_data()])
 
 #get justice data only for relevant cases specified by indices
-def rel_scdb_justice_data(all_scdb_justice_data=all_scdb_justice_data(),case_ind):
+def rel_scdb_justice_data(case_ind,all_scdb_justice_data=all_scdb_justice_data()):
     return all_scdb_justice_data.iloc[case_ind]
 
 #load supreme court data
