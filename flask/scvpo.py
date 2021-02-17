@@ -51,7 +51,7 @@ def search_cases():
         for case in results:
             flash(case,'output')
         return redirect('/')
-    return render_template("index.html",title="SCvPO",form=form)
+    return render_template("index.html",title="SCOTUS v. Public Opinion",form=form)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
