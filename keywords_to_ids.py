@@ -1,4 +1,6 @@
 import pandas as pd
+import sys
+from example_issues import civil_rights
 
 #FIND RELEVANT CASES BASED ON KEYWORDS
 ##################################################################
@@ -29,4 +31,8 @@ def sc_find_case(name):
     return result
 
 def possible_ids():
-    return {name:sc_find_case(name) for name in CIVIL_RIGHTS_CASES}
+    return {name:sc_find_case(name) for name in civil_rights().scotus_cases}
+
+if __name__ == "__main__":
+    if len(sys.argv) > 1:
+        print(possible_ids())

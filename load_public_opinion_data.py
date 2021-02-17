@@ -6,6 +6,8 @@
 #different QUESTIONS.
 #roughly 55 million entries
 
+from example_issues import civil_rights
+
 SURVEY_YEAR = 'VCF0004'
 
 PATH = ".\\data\\anes\\"
@@ -14,7 +16,7 @@ PO_DATA = 'anes_data.csv'
 DATA_TYPES_PATH = os.join(PATH,DATA_TYPES_PATH)
 PO_DATA_PATH = os.join(PATH,PO_DATA)
 #identifiers for RELEVANT QUESTIONS from ANES PO surveys
-PO_REL_QUES=list(RESP_CONVERT.keys())
+PO_REL_QUES=list(civil_rights().response_map.keys())
 
 def load_po_data():
     #build dict of data types from csv.
@@ -28,3 +30,4 @@ def load_po_data():
     SURVEY_YEARS=tuple(set(po_df[SURVEY_YEAR]))
 
 if __name__ == "__main__":
+    load_po_data()
