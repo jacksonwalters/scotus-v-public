@@ -1,14 +1,25 @@
-import sys
+import sys, os
 import scipy.sparse
 import pandas as pd
 
+PATH = ".\\data\\"
+#path for tf-idf matrix
+TDIDF_MATRIX_FILENAME = "tfidf_matrix.npz"
+TFIDF_MATRIX_PATH = os.path.join(PATH,TFIDF_MATRIX_FILENAME)
+#path for opinion ids, rows of tf-idf matrix
+OPINION_ID_FILENAME = "tfidf_rows.csv"
+OPINION_ID_PATH = os.path.join(PATH,OPINION_ID_FILENAME)
+#path for corpus vocabular, cols of tf-idf matrix
+VOCAB_FILENAME = "tfidf_cols.csv"
+VOCAB_PATH = os.path.join(PATH,VOCAB_FILENAME)
+
 #load tfidf matrix
-tfidf_matrix = scipy.sparse.load_npz("/home/jackson/Documents/scvpo/tfidf_matrix.npz")
+tfidf_matrix = scipy.sparse.load_npz(TFIDF_MATRIX_PATH)
 #load {row index : opinion id} mapping
-opin_id_df = pd.read_csv("/home/jackson/Documents/scvpo/tfidf_rows.csv")
+opin_id_df = pd.read_csv(OPINION_ID_PATH)
 opin_id = list(opin_id_df['0'])
 #load {col index : vocab} mapping
-vocab_df = pd.read_csv("/home/jackson/Documents/scvpo/tfidf_cols.csv")
+vocab_df = pd.read_csv(VOCAB_PATH)
 vocab = list(vocab_df['0'])
 
 #find list of relevant cases given set of keywords

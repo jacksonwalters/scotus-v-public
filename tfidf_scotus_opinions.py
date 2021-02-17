@@ -4,7 +4,7 @@ import math, os
 from sklearn.feature_extraction.text import TfidfVectorizer
 import scipy.sparse
 
-HOME = "C:\\Users\\jacks\\OneDrive\\Documents\\GitHub\\scvpo\\data\\" #home path
+HOME = ".\\data\\" #home path
 INPUT_PATH = os.path.join(HOME,'scotus_opinions.csv') #input filename
 
 TFIDF_MATRIX_PATH = os.path.join(HOME,'tfidf_matrix.npz') #tf-idf matrix filepath
