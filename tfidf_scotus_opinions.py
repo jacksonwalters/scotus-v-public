@@ -5,10 +5,11 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 import scipy.sparse
 from load_scotus_data import scotus_opinion_data
 
+DATA_PATH = ".\\data\\"
 #output paths
-TFIDF_MATRIX_PATH = os.path.join(HOME,'tfidf_matrix.npz') #tf-idf matrix filepath
-TFIDF_ROWS_PATH = os.path.join(HOME,"tfidf_rows.csv") #opin ids filepath
-TFIDF_COLS_PATH = os.path.join(HOME,"tfidf_cols.csv") #vocab filepath
+TFIDF_MATRIX_PATH = os.path.join(DATA_PATH,'tfidf_matrix.npz') #tf-idf matrix filepath
+TFIDF_ROWS_PATH = os.path.join(DATA_PATH,"tfidf_rows.csv") #opin ids filepath
+TFIDF_COLS_PATH = os.path.join(DATA_PATH,"tfidf_cols.csv") #vocab filepath
 
 #perform a TF-IDF analysis on corpus of opinion text data
 def tfidf_opins():
