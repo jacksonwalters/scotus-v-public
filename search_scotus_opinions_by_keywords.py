@@ -2,7 +2,7 @@ import sys, os
 import scipy.sparse
 import pandas as pd
 from load_scotus_data import all_scdb_case_data
-from find_scotus_cases import find_scdb_case
+from find_scotus_case import find_scdb_case
 
 PATH = ".\\data\\"
 #path for tf-idf matrix
@@ -49,7 +49,7 @@ def relevant_cases_by_opin_id(keywords):
 #given keywords, look up relevant cases by searching opinion text
 #match cases to SCDB data and return sub-dataframe
 def relevant_cases_scdb_df(keywords):
-    opin_ids = releveant_cases_by_opinion_id(keywords) #get opinion ids
+    opin_ids = relevant_cases_by_opin_id(keywords) #get opinion ids
     scdb_data = all_scdb_case_data() #get scdb dataframe
     scdb_cases = [find_scdb_cases(opin_id) for opin_id in opin_ids] #get list of scdb cases
     return pd.concat(scdb_cases) #concatenate into single df and return
