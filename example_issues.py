@@ -1,6 +1,4 @@
-#hard-coded examples of issues
-#online documentation reveals what they correspond to. create dicts/tables.
-#some example issue areas, scraped by hand
+#hard-coded examples of issue areas, scraped by hand
 ISSUE_AREAS={1:'Criminal Procedure',
     2:'Civil Rights',
     3:'First Amendment',
