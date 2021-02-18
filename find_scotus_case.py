@@ -25,7 +25,7 @@ def find_scdb_case(cl_opin_id,all_scdb_case_data):
     case_name_from_id = cl_opin_id.split('|')[1]
     for caseName in all_scdb_case_data['caseName']:
         if format_case_name(case_name_from_id) == format_case_name(caseName):
-            all_scdb_case_data[all_scdb_case_data['caseName']==caseName]
+            return all_scdb_case_data[all_scdb_case_data['caseName']==caseName]
 
 #given a list of case names, print indices of all cases which may be relevant
 if __name__ == "__main__":
