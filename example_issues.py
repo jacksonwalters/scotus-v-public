@@ -1,8 +1,5 @@
 #hard-coded examples of issues
 #online documentation reveals what they correspond to. create dicts/tables.
-SCDB_PATH = ".\\data\\scdb\\"
-SC_ISSUES = os.path.join(SCDB_PATH,'sc_issues.txt')
-ISSUE_DF=pd.read_csv(SC_ISSUES)
 #some example issue areas, scraped by hand
 ISSUE_AREAS={1:'Criminal Procedure',
     2:'Civil Rights',
