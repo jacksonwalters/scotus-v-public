@@ -42,10 +42,10 @@ def tfidf_opins():
     #mapping {column index : feature name}
     vocab = tf.get_feature_names()
     #mapping {row index : opinion id}
-    cite = list(map(str,opin_df['citation']))
-    date = list(map(str,opin_df['date']))
+    #opinion_id = U.S. Cite | lower-case-v-name-abbreviated
+    citation = list(map(str,opin_df['citation']))
     name = list(map(str,opin_df['case_name']))
-    opin_id = ["|".join([cite[i],date[i],name[i]]) for i in range(tfidf_matrix.shape[0])]
+    opin_id = ["|".join([citation[i],name[i]]) for i in range(tfidf_matrix.shape[0])]
     #store index mappings as CSV
     pd.DataFrame(opin_id).to_csv(TFIDF_ROWS_PATH, encoding='utf-8',index=False)
     print("Saved rows of TF-IDF matrix to ",TFIDF_ROWS_PATH)
