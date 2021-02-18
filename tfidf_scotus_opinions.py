@@ -1,6 +1,6 @@
+import os, math
 import pandas as pd
 import numpy as np
-import math, os
 from sklearn.feature_extraction.text import TfidfVectorizer
 import scipy.sparse
 from load_scotus_data import scotus_opinion_data

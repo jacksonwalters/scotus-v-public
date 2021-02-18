@@ -7,12 +7,6 @@ import os
 import numpy as np
 import datetime as dt
 
-#fields of interest: caseIssuesId, issue, issueArea. these are id numbers.
-#online documentation reveals what they correspond to. create dicts/tables.
-SCDB_PATH = ".\\data\\scdb\\"
-SC_ISSUES = os.path.join(SCDB_PATH,'sc_issues.txt')
-ISSUE_DF=pd.read_csv(SC_ISSUES)
-
 #GLOBAL VARIABLES
 PLUS_POLE = +1
 MINUS_POLE = -1
