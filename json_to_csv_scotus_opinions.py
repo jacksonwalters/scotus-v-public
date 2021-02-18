@@ -1,10 +1,24 @@
-import csv, json, os
+import csv, json, os, re
 import pandas as pd
 from bs4 import BeautifulSoup
 
 DATA_PATH = ".\\data"
 INPUT_PATH = os.path.join(DATA_PATH,"scotus_opins_json\\")
 OUTPUT_PATH = os.path.join(DATA_PATH,"scotus_opinions.csv")
+
+#get the US citation from the first two lines of the opinion text
+#use regular expression with 1-3 decimal digits, followed by U.S.,
+#followed by 1-3 decimal digits
+US_CITE_RE = "\d{1,3} U.S. \d{1,3}"
+def scrape_citation(opinion_text):
+    first = re.findall(US_CITE_RE,opinion_text.split('\n')[0])
+    second = re.findall(US_CITE_RE,opinion_text.split('\n')[1])
+    if len(first) > 0:
+        return first
+    elif len(second) > 0:
+        return second
+    else:
+        return None
 
 #load json files and write to csv file
 def json_opins_to_csv():
