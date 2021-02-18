@@ -19,12 +19,12 @@ def find_scdb_case(cl_opin_id,all_scdb_case_data):
     us_citation = cl_opin_id.split('|')[0]
     #get df of all cases with given U.S. citation "xxx U.S. xxx"
     scdb_cases = all_scdb_case_data[all_scdb_case_data['usCite']==us_citation]
-    if not scdb.empty:
+    if not scdb_cases.empty:
         return scdb_cases
     #if that doesn't work, try lower-case-v-name
-    case_name = format_case_name(cl_opin_id.split('|')[1])
-    for caseName in all_scdb_case_data['caseNames']:
-        if case_name == format_case_name(caseName):
+    case_name_from_id = cl_opin_id.split('|')[1]
+    for caseName in all_scdb_case_data['caseName']:
+        if format_case_name(case_name_from_id) == format_case_name(caseName):
             all_scdb_case_data[all_scdb_case_data['caseName']==caseName]
 
 #given a list of case names, print indices of all cases which may be relevant
