@@ -42,8 +42,8 @@ def tfidf_opins():
     #mapping {column index : feature name}
     vocab = tf.get_feature_names()
     #mapping {row index : opinion id}
-    date = list(map(str,opin_df['date']))
     cite = list(map(str,opin_df['citation']))
+    date = list(map(str,opin_df['date']))
     name = list(map(str,opin_df['case_name']))
     opin_id = ["|".join([cite[i],date[i],name[i]]) for i in range(tfidf_matrix.shape[0])]
     #store index mappings as CSV
