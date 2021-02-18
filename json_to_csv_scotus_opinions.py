@@ -14,9 +14,9 @@ def scrape_citation(opinion_text):
     first = re.findall(US_CITE_RE,opinion_text.split('\n')[0])
     second = re.findall(US_CITE_RE,opinion_text.split('\n')[1])
     if len(first) > 0:
-        return first
+        return first[0]
     elif len(second) > 0:
-        return second
+        return second[0]
     else:
         return None
 
