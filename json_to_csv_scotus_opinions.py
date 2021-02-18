@@ -34,10 +34,6 @@ def json_opins_to_csv():
                 #load data from json
                 json_data = json.load(opinion_json)
 
-                #try getting CITATION, from download_url
-                dl_url = str(json_data['download_url'])
-                citation = dl_url.split('/')[-1]
-
                 #try getting CASE NAME, from absolute_url
                 abs_url = str(json_data['absolute_url'])
                 case_name = abs_url.split('/')[-2]
@@ -79,6 +75,9 @@ def json_opins_to_csv():
                     opinion = soup.get_text().rstrip()
                 elif opin_plain != "":
                     opinion = opin_plain.rstrip()
+
+                #get U.S. citation by scraping beginning of opinion text
+                citation = scrape_citation(opinion)
 
                 #write row to csv file
                 data_dict['citation'].append(citation)
