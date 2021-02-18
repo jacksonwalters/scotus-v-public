@@ -11,7 +11,7 @@ def search_scdb_cases_by_name(word,all_scdb_case_data):
 #casenames. cl_opin case_names are from urls, so lowercase smashed w/ hyphens
 #vs,versus -> v
 def format_case_name(case_name):
-    return str(case_name).lower().lstrip().rstrip().replace(',','').replace("'",'').replace(' ','-').replace('.','').replace('versus','v').replace('vs','v')
+    return str(case_name).lower().lstrip().rstrip().replace(',','').replace("'",'').replace('versus','v').replace('vs.','v.').replace('.','').replace(' ','-')
 
 #find case in SCDB database given CourtListener opinion_id
 #CL ids are in form "U.S. citation|lower-case-v-name"
