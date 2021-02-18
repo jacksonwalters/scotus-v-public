@@ -2,11 +2,11 @@ import sys, os
 import scipy.sparse
 import pandas as pd
 from load_scotus_data import all_scdb_case_data
-from find_scotus_cases import find_scdb_cases
+from find_scotus_cases import find_scdb_case
 
 PATH = ".\\data\\"
 #path for tf-idf matrix
-TDIDF_MATRIX_FILENAME = "tfidf_matrix.npz"
+TFIDF_MATRIX_FILENAME = "tfidf_matrix.npz"
 TFIDF_MATRIX_PATH = os.path.join(PATH,TFIDF_MATRIX_FILENAME)
 #path for opinion ids, rows of tf-idf matrix
 OPINION_ID_FILENAME = "tfidf_rows.csv"
