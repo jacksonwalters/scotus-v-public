@@ -2,9 +2,9 @@ import csv, json, os
 import pandas as pd
 from bs4 import BeautifulSoup
 
-HOME = ".\\data"
-INPUT_PATH = os.path.join(HOME,"scotus_opins_json\\")
-OUTPUT_PATH = os.path.join(HOME,"scotus_opinions.csv")
+DATA_PATH = ".\\data"
+INPUT_PATH = os.path.join(DATA_PATH,"scotus_opins_json\\")
+OUTPUT_PATH = os.path.join(DATA_PATH,"scotus_opinions.csv")
 
 #load json files and write to csv file
 def json_opins_to_csv():

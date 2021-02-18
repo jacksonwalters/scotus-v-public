@@ -3,9 +3,8 @@ import numpy as np
 import math, os
 from sklearn.feature_extraction.text import TfidfVectorizer
 import scipy.sparse
+from load_scotus_data import scotus_opinion_data
 
-HOME = ".\\data\\" #home path
-INPUT_PATH = os.path.join(HOME,'scotus_opinions.csv') #input filename
 
 TFIDF_MATRIX_PATH = os.path.join(HOME,'tfidf_matrix.npz') #tf-idf matrix filepath
 TFIDF_ROWS_PATH = os.path.join(HOME,"tfidf_rows.csv") #opin ids filepath
@@ -14,7 +13,7 @@ TFIDF_COLS_PATH = os.path.join(HOME,"tfidf_cols.csv") #vocab filepath
 #perform a TF-IDF analysis on corpus of opinion text data
 def tfidf_opins():
     #store opinion data as dataframe
-    opin_df = pd.read_csv(INPUT_PATH)
+    opin_df = scotus_opinion_data()
 
     #generate corpus
     corpus=[]

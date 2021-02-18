@@ -7,19 +7,27 @@ import pandas as pd
 import csv, os
 from example_issues import civil_rights
 
-PATH = ".\\data\\scdb\\"
+SCDB_PATH = ".\\data\\scdb\\"
+OPINION_PATH = ".\\data\\"
+
+SCOTUS_OPINION_FILENAME = 'scotus_opinions.csv'
+SCOTUS_OPINION_PATH = os.path.join(OPINION_PATH,SCOTUS_OPINION_FILENAME) #input filename
 #path for scotus case data from SCDB, 1946 - present
 SCOTUS_CASE_DATA_FILENAME = 'scdb_case_data.csv'
-CASE_DATA_PATH = os.path.join(PATH,SCOTUS_CASE_DATA_FILENAME)
+CASE_DATA_PATH = os.path.join(SCDB_PATH,SCOTUS_CASE_DATA_FILENAME)
 #path for scotus legacy case data from SCDB, 1789 - 1946
 SCOTUS_LEGACY_CASE_DATA_FILENAME = 'scdb_legacy_case_data.csv'
-LEGACY_CASE_DATA_PATH = os.path.join(PATH,SCOTUS_LEGACY_CASE_DATA_FILENAME)
+LEGACY_CASE_DATA_PATH = os.path.join(SCDB_PATH,SCOTUS_LEGACY_CASE_DATA_FILENAME)
 #path for justice data, 1946 - present
 SCOTUS_JUSTICE_DATA_FILENAME = 'scdb_justice_data.csv'
-JUSTICE_DATA_PATH = os.path.join(PATH,SCOTUS_JUSTICE_DATA_FILENAME)
+JUSTICE_DATA_PATH = os.path.join(SCDB_PATH,SCOTUS_JUSTICE_DATA_FILENAME)
 #path for legacy justice data, 1789 - 1946
 LEGACY_SCOTUS_JUSTICE_DATA_FILENAME = 'scdb_legacy_justice_data.csv'
-LEGACY_JUSTICE_DATA_PATH = os.path.join(PATH,LEGACY_SCOTUS_JUSTICE_DATA_FILENAME)
+LEGACY_JUSTICE_DATA_PATH = os.path.join(SCDB_PATH,LEGACY_SCOTUS_JUSTICE_DATA_FILENAME)
+
+#load SCOTUS opinion data from CourtListener json->.csv conversion
+def scotus_opinion_data():
+    return pd.read_csv(OPINION_PATH)
 
 #load csv files with pandas. not utf-8, must use alternate encoding
 #case centered data stored in dataframe
