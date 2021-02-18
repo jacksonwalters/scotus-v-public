@@ -1,5 +1,6 @@
 #hard-coded examples of issue areas, scraped by hand
-ISSUE_AREAS={1:'Criminal Procedure',
+ISSUE_AREAS={
+    1:'Criminal Procedure',
     2:'Civil Rights',
     3:'First Amendment',
     4:'Due Process',
