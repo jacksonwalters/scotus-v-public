@@ -1,5 +1,23 @@
-#examples of issues. a set of keywords corresponds to a set of supreme court
-#cases and a set of public opinion Q+A's
+#hard-coded examples of issues
+#online documentation reveals what they correspond to. create dicts/tables.
+SCDB_PATH = ".\\data\\scdb\\"
+SC_ISSUES = os.path.join(SCDB_PATH,'sc_issues.txt')
+ISSUE_DF=pd.read_csv(SC_ISSUES)
+#some example issue areas, scraped by hand
+ISSUE_AREAS={1:'Criminal Procedure',
+    2:'Civil Rights',
+    3:'First Amendment',
+    4:'Due Process',
+    5:'Privacy',
+    6:'Attorneys',
+    7:'Unions',
+    8:'Economic Activity',
+    9:'Judicial Power',
+    10:'Federalism',
+    11:'Interstate Relations',
+    12:'Federal Taxation',
+    13:'Miscellaneous',
+    14:'Private Action'}
 
 class Issue:
     def __init__(self, name, keywords, scotus_cases, case_ind, response_map):

@@ -1,6 +1,16 @@
 #PUBLIC OPINION
 #########################################################################################
 
+#check if the entry is scalable
+def scalable(entry,scale=(lambda x: x)):
+    if is_num(entry):
+        try:
+            scale(float(entry))
+            return True
+        except KeyError:
+            return False
+    else: return False
+
 #normalize entry to polarization value in [-1,1]
 #requires maximum value in col, and dict to convert responses to a scale
 #default scale is just identity function

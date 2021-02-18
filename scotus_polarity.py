@@ -7,8 +7,11 @@ import os
 import numpy as np
 import datetime as dt
 
-PATH = ".\\data\\scdb\\"
-SC_ISSUES = os.path.join(PATH,'sc_issues.txt')
+#fields of interest: caseIssuesId, issue, issueArea. these are id numbers.
+#online documentation reveals what they correspond to. create dicts/tables.
+SCDB_PATH = ".\\data\\scdb\\"
+SC_ISSUES = os.path.join(SCDB_PATH,'sc_issues.txt')
+ISSUE_DF=pd.read_csv(SC_ISSUES)
 
 #GLOBAL VARIABLES
 PLUS_POLE = +1
@@ -25,24 +28,6 @@ def is_num(entry):
         return True
     except ValueError:
         return False
-
-#check if the entry is scalable
-def scalable(entry,scale=(lambda x: x)):
-    if is_num(entry):
-        try:
-            scale(float(entry))
-            return True
-        except KeyError:
-            return False
-    else: return False
-
-#fields of interest: caseIssuesId, issue, issueArea. these are id numbers.
-#online documentation reveals what they correspond to. create dicts/tables.
-issue_areas={1:'Criminal Procedure',2:'Civil Rights',3:'First Amendment',4:'Due Process',5:'Privacy',6:'Attorneys',7:'Unions',8:'Economic Activity',9:'Judicial Power',10:'Federalism',11:'Interstate Relations',12:'Federal Taxation',13:'Miscellaneous',14:'Private Action'} #scraped by hand
-issue_df=pd.read_csv(SC_ISSUES)
-
-#SUPREME COURT
-#############################################################################
 
 #get the justice's name given their number
 def get_name(num: int) -> str:
