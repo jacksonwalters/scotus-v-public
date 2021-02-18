@@ -7,11 +7,11 @@ import pandas as pd
 import csv, os
 from example_issues import civil_rights
 
+DATA_PATH = ".\\data\\"
 SCDB_PATH = ".\\data\\scdb\\"
-OPINION_PATH = ".\\data\\"
 
 SCOTUS_OPINION_FILENAME = 'scotus_opinions.csv'
-SCOTUS_OPINION_PATH = os.path.join(OPINION_PATH,SCOTUS_OPINION_FILENAME) #input filename
+OPINION_PATH = os.path.join(DATA_PATH,SCOTUS_OPINION_FILENAME) #input filename
 #path for scotus case data from SCDB, 1946 - present
 SCOTUS_CASE_DATA_FILENAME = 'scdb_case_data.csv'
 CASE_DATA_PATH = os.path.join(SCDB_PATH,SCOTUS_CASE_DATA_FILENAME)
