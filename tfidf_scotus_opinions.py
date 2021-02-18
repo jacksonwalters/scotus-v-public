@@ -5,8 +5,8 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 import scipy.sparse
 from load_scotus_data import scotus_opinion_data
 
-DATA_PATH = ".\\data\\"
 #output paths
+DATA_PATH = ".\\data\\"
 TFIDF_MATRIX_PATH = os.path.join(DATA_PATH,'tfidf_matrix.npz') #tf-idf matrix filepath
 TFIDF_ROWS_PATH = os.path.join(DATA_PATH,"tfidf_rows.csv") #opin ids filepath
 TFIDF_COLS_PATH = os.path.join(DATA_PATH,"tfidf_cols.csv") #vocab filepath
@@ -28,7 +28,7 @@ def tfidf_opins():
 
     #generate tfidf matrix. set maximum document freq. and minimum cut-off to limit dumb non-words
     max_n=2 #specify maximum n-gram size (length of phrases)
-    tf = TfidfVectorizer(analyzer='word', ngram_range=(1,max_n), stop_words="english", min_df=.0001,max_df=.3)
+    tf = TfidfVectorizer(analyzer='word', ngram_range=(1,max_n), stop_words="english", min_df=.00001,max_df=.1)
 
     #matrix with each row corresponding to an opinion
     #and each column an n-gram with n specified above
