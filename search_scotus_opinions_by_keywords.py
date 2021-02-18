@@ -1,6 +1,8 @@
 import sys, os
 import scipy.sparse
 import pandas as pd
+from load_scotus_data import all_scdb_case_data
+from find_scotus_cases import find_scdb_cases
 
 PATH = ".\\data\\"
 #path for tf-idf matrix
@@ -23,7 +25,8 @@ vocab_df = pd.read_csv(VOCAB_PATH)
 vocab = list(vocab_df['0'])
 
 #find list of relevant cases given set of keywords
-def relevant_cases(keywords):
+#returns list of opinion_ids
+def relevant_cases_by_opin_id(keywords):
     keyword_ind = [vocab.index(keyword) for keyword in keywords if keyword in vocab]
 
     #score each opinion (row) based on keywords appearing
@@ -42,6 +45,15 @@ def relevant_cases(keywords):
     rel_cases = [opin_id[case[0]] for case in scores[:10]]
 
     return rel_cases
+
+#given keywords, look up relevant cases by searching opinion text
+#match cases to SCDB data and return sub-dataframe
+def relevant_cases_scdb_df(keywords):
+    opin_ids = releveant_cases_by_opinion_id(keywords) #get opinion ids
+    scdb_data = all_scdb_case_data() #get scdb dataframe
+    scdb_cases = [find_scdb_cases(opin_id) for opin_id in opin_ids] #get list of scdb cases
+    return pd.concat(scdb_cases) #concatenate into single df and return
+
 
 if __name__ == "__main__":
     if(len(sys.argv) > 1):
