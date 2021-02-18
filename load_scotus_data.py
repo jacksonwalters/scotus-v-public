@@ -10,20 +10,15 @@ from example_issues import civil_rights
 DATA_PATH = ".\\data\\"
 SCDB_PATH = ".\\data\\scdb\\"
 
-SCOTUS_OPINION_FILENAME = 'scotus_opinions.csv'
-OPINION_PATH = os.path.join(DATA_PATH,SCOTUS_OPINION_FILENAME) #input filename
+OPINION_PATH = os.path.join(DATA_PATH,'scotus_opinions.csv') #input filename
 #path for scotus case data from SCDB, 1946 - present
-SCOTUS_CASE_DATA_FILENAME = 'scdb_case_data.csv'
-CASE_DATA_PATH = os.path.join(SCDB_PATH,SCOTUS_CASE_DATA_FILENAME)
+CASE_DATA_PATH = os.path.join(SCDB_PATH,'scdb_case_data.csv')
 #path for scotus legacy case data from SCDB, 1789 - 1946
-SCOTUS_LEGACY_CASE_DATA_FILENAME = 'scdb_legacy_case_data.csv'
-LEGACY_CASE_DATA_PATH = os.path.join(SCDB_PATH,SCOTUS_LEGACY_CASE_DATA_FILENAME)
+LEGACY_CASE_DATA_PATH = os.path.join(SCDB_PATH,'scdb_legacy_case_data.csv')
 #path for justice data, 1946 - present
-SCOTUS_JUSTICE_DATA_FILENAME = 'scdb_justice_data.csv'
-JUSTICE_DATA_PATH = os.path.join(SCDB_PATH,SCOTUS_JUSTICE_DATA_FILENAME)
+JUSTICE_DATA_PATH = os.path.join(SCDB_PATH,'scdb_justice_data.csv')
 #path for legacy justice data, 1789 - 1946
-LEGACY_SCOTUS_JUSTICE_DATA_FILENAME = 'scdb_legacy_justice_data.csv'
-LEGACY_JUSTICE_DATA_PATH = os.path.join(SCDB_PATH,LEGACY_SCOTUS_JUSTICE_DATA_FILENAME)
+LEGACY_JUSTICE_DATA_PATH = os.path.join(SCDB_PATH,'scdb_legacy_justice_data.csv')
 
 #load SCOTUS opinion data from CourtListener json->.csv conversion
 def scotus_opinion_data():
@@ -45,7 +40,7 @@ def all_scdb_case_data():
     return pd.concat([legacy_scdb_case_data(),scdb_case_data()],ignore_index=True)
 
 #only return relevant cases given their indices
-def rel_scdb_case_data(case_ind,all_scdb_case_data=all_scdb_case_data()):
+def rel_scdb_case_data(case_ind,all_scdb_case_data):
     return all_scdb_case_data.iloc[case_ind]
 
 #return scdb justice data
@@ -61,7 +56,7 @@ def all_scdb_justice_data():
     return pd.concat([scdb_justice_data(),legacy_scdb_justice_data()])
 
 #get justice data only for relevant cases specified by indices
-def rel_scdb_justice_data(case_ind,all_scdb_justice_data=all_scdb_justice_data()):
+def rel_scdb_justice_data(case_ind,all_scdb_justice_data):
     return all_scdb_justice_data.iloc[case_ind]
 
 #load supreme court data
