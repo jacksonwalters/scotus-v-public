@@ -51,7 +51,7 @@ def relevant_cases_by_opin_id(keywords):
 def relevant_cases_scdb_df(keywords):
     opin_ids = relevant_cases_by_opin_id(keywords) #get opinion ids
     scdb_data = all_scdb_case_data() #get scdb dataframe
-    scdb_cases = [find_scdb_case(opin_id) for opin_id in opin_ids] #get list of scdb cases
+    scdb_cases = [find_scdb_case(opin_id,scdb_data) for opin_id in opin_ids] #get list of scdb cases
     return pd.concat(scdb_cases) #concatenate into single df and return
 
 
