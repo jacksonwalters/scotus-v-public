@@ -50,7 +50,11 @@ def relevant_cases_by_opin_id(keywords):
 def relevant_cases_scdb_df(keywords):
     opin_ids = relevant_cases_by_opin_id(keywords) #get opinion ids
     scdb_cases = [find_scdb_case(opin_id,all_scdb_case_data) for opin_id in opin_ids] #get list of scdb cases
-    return pd.concat(scdb_cases) #concatenate into single df and return
+    #if no scdb_cases is empty list
+    if not scdb_cases:
+        return pd.DataFrame() #return the empty dataframe
+    else:
+        return pd.concat(scdb_cases) #concatenate the dataframes and return
 
 @app.route("/", methods=['GET','POST'])
 def search_cases():

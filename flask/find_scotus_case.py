@@ -24,3 +24,5 @@ def find_scdb_case(cl_opin_id,all_scdb_case_data):
     for caseName in all_scdb_case_data['caseName']:
         if format_case_name(case_name_from_id) == format_case_name(caseName):
             return all_scdb_case_data[all_scdb_case_data['caseName']==caseName]
+    #if no match, return the empty DataFrame
+    return pd.DataFrame()
