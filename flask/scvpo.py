@@ -67,8 +67,11 @@ def search_cases():
         keywords = [word1,word2,word3]
         #search cases via tf-idf and flash output
         results = relevant_cases_scdb_df(keywords)
-        for case_name in results['caseName']:
-            flash(case_name,'output')
+        if not results.empty:
+            for case_name in results['caseName']:
+                flash(case_name,'output')
+        else:
+            flash("No results!",'output')
         return redirect('/')
     return render_template("index.html",title="SCOTUS v. Public Opinion",form=form)
 
