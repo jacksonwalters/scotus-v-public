@@ -79,7 +79,7 @@ def scotus_plot(sc_polarity,title="ISSUE"):
     ax.legend()
     plt.xlabel('Time (year)')
     plt.ylabel('Polarity')
-    plt.title('SCOTUS v. [Public TBD] on ' + title)
+    plt.title('SCOTUS v. [Public Opinion TBD] on ' + title)
     plt.grid(True)
     plt.yticks(np.arange(-1,2,1),["Conservative","Neutral","Liberal"]) #y-ticks are -1, 0, +1
 
@@ -89,8 +89,11 @@ def scotus_plot(sc_polarity,title="ISSUE"):
     min_yr=min(x_sc)
     plt.axis([min_yr-2, CURRENT_YEAR, -1.1, 1.1])
 
-    #remove previous plot and save new one
-    plot_filename = "sc_v_po.png"
+    #remove previous plot and save new one with title corresponding to keywords
+    plot_filename = "sc_v_po_" + title + ".png"
+    for filename in os.listdir('./static/images/'):
+        if filename.startswith('sc_v_po_'):
+            os.remove('./static/images/' + filename)
     plt.savefig(IMG_PATH+plot_filename, bbox_inches='tight')
     #plt.show()
     plt.gcf().clear()

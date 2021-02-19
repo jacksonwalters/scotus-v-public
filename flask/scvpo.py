@@ -9,7 +9,7 @@ from plot import scotus_plot
 
 #set up Flask app
 app = Flask(__name__)
-app.secret_key = 'secret_key'
+app.secret_key = '@5yHj#bn^&(a62andnf,'
 
 #load tfidf matrix
 tfidf_matrix = scipy.sparse.load_npz("./data/tfidf_matrix.npz")
@@ -71,7 +71,8 @@ def search_cases():
         results = relevant_cases_scdb_df(keywords)
         if not results.empty:
             #plot {year:polarity} of resulting cases
-            scotus_plot(sc_polarity(results),title="+".join(keywords))
+            plot_filename=scotus_plot(sc_polarity(results),title="+".join(keywords))
+            flash(plot_filename,'plot_filename')
             for case_name in results['caseName']:
                 flash(case_name,'output')
         else:

@@ -60,7 +60,15 @@
 							</header>
               <!-- display plot -->
               <section>
-              <img src="{{url_for('static', filename = 'images/sc_v_po.png')}}" alt="static_plot" width="320" height="226"/>
+								{% with messages = get_flashed_messages(category_filter=["plot_filename"]) %}
+	                {% if messages %}
+	                  {% for plot_filename in messages %}
+	                  <img src="{{url_for('static', filename = 'images/'+plot_filename)}}" alt="static_plot" width="320" height="226"/>
+	                  {% endfor %}
+									{% else %}
+									  <img src="{{url_for('static', filename = 'images/example_issue_gay_marriage.png')}}" alt="static_plot" width="320" height="226"/>
+	                {% endif %}
+	              {% endwith %}
               </section>
               <!-- form for user to input keywords -->
               <form action="" method="post" novalidate>
