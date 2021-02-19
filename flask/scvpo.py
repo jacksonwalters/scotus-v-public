@@ -4,6 +4,8 @@ import scipy.sparse
 import pandas as pd
 import os
 from find_scotus_case import find_scdb_case
+from scotus_polarity import sc_polarity
+from plot import scotus_plot
 
 #set up Flask app
 app = Flask(__name__)
@@ -68,6 +70,8 @@ def search_cases():
         #search cases via tf-idf and flash output
         results = relevant_cases_scdb_df(keywords)
         if not results.empty:
+            #plot {year:polarity} of resulting cases
+            scotus_plot(sc_polarity(results),title="+".join(keywords))
             for case_name in results['caseName']:
                 flash(case_name,'output')
         else:
