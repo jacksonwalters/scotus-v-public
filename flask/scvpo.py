@@ -2,6 +2,8 @@ from flask import Flask, render_template, flash, redirect
 from forms import KeywordForm
 import scipy.sparse
 import pandas as pd
+import os
+from find_scotus_case import find_scdb_case
 
 #set up Flask app
 app = Flask(__name__)
@@ -15,9 +17,15 @@ opin_id = list(opin_id_df['0'])
 #load {col index : vocab} mapping
 vocab_df = pd.read_csv("./data/tfidf_cols.csv")
 vocab = list(vocab_df['0'])
+#get modern scdb case data, 1946 - present
+modern_scdb_case_data = pd.read_csv("./data/scdb/scdb_case_data.csv",encoding='windows-1252')
+#path for scotus legacy case data from SCDB, 1789 - 1946
+legacy_scdb_case_data = pd.read_csv('./data/scdb/scdb_legacy_case_data.csv',encoding='windows-1252')
+#get scdb dataframe for all (modern+legacy) cases
+all_scdb_case_data=pd.concat([legacy_scdb_case_data,modern_scdb_case_data],ignore_index=True)
 
 #find list of relevant cases given set of keywords
-def relevant_cases(keywords):
+def relevant_cases_by_opin_id(keywords):
     keyword_ind = [vocab.index(keyword) for keyword in keywords if keyword in vocab]
 
     #score each opinion (row) based on keywords appearing
@@ -37,6 +45,13 @@ def relevant_cases(keywords):
 
     return rel_cases
 
+#given keywords, look up relevant cases by searching opinion text
+#match cases to SCDB data and return sub-dataframe
+def relevant_cases_scdb_df(keywords):
+    opin_ids = relevant_cases_by_opin_id(keywords) #get opinion ids
+    scdb_cases = [find_scdb_case(opin_id,all_scdb_case_data) for opin_id in opin_ids] #get list of scdb cases
+    return pd.concat(scdb_cases) #concatenate into single df and return
+
 @app.route("/", methods=['GET','POST'])
 def search_cases():
     form = KeywordForm()
@@ -47,9 +62,9 @@ def search_cases():
         word3 = form.word3.data.rstrip().lstrip().lower()
         keywords = [word1,word2,word3]
         #search cases via tf-idf and flash output
-        results = relevant_cases(keywords)
-        for case in results:
-            flash(case,'output')
+        results = relevant_cases_scdb_df(keywords)
+        for case_name in results['caseName']:
+            flash(case_name,'output')
         return redirect('/')
     return render_template("index.html",title="SCOTUS v. Public Opinion",form=form)
 
