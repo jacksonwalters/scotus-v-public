@@ -86,7 +86,8 @@ def plot(sc_polarity,title="ISSUE"):
 
     #fig.colorbar(sc_scatter)
 
-    min_yr=min(x_po+x_sc)
+    #min_yr=min(x_po+x_sc)
+    min_yr=min(x_sc)
     plt.axis([min_yr-2, CURRENT_YEAR, -1.1, 1.1])
 
     plt.savefig(SAVE_PATH, bbox_inches='tight')
