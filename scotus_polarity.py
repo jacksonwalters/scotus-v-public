@@ -47,9 +47,11 @@ def case_year(case):
     return dt.datetime.strptime(case['dateDecision'],'%m/%d/%Y').year
 
 #given dataframe of relevant cases, compute vote_ratio*sentiment_direction
-#to get polarity for each case
+#to get polarity for each case. sort {year:polarity} dict by key.
 def sc_polarity(relevant_cases):
-    return {case_year(case):sc_force(case) for index, case in relevant_cases.iterrows()}
+    polarity = {case_year(case):sc_force(case) for index, case in relevant_cases.iterrows()}
+    sorted_polarity = dict(sorted(polarity.items()))
+    return sorted_polarity
 
 #given relevant cases dataframe, compute polarity by year
 if __name__ == "__main__":
