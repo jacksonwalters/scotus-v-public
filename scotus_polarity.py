@@ -55,7 +55,7 @@ def sc_polarity(relevant_cases):
 
 #given relevant cases dataframe, compute polarity by year
 if __name__ == "__main__":
-    keywords=["gay","marriage","lgbt"]
+    keywords=["gay","marriage","lgbt","rights","sodomy"]
     rel_cases=relevant_cases_scdb_df(keywords)
     polarity=sc_polarity(rel_cases)
     print(polarity)
