@@ -95,7 +95,7 @@ def plot(sc_polarity,title="ISSUE"):
     plt.gcf().clear()
 
 if __name__ == "__main__":
-    keywords=["gay","marriage","lgbt","rights","sodomy"]
+    keywords=["civil","rights","black","negro","vote","free"]
     rel_cases=relevant_cases_scdb_df(keywords)
     sc_polarity=sc_polarity(rel_cases)
     plot(sc_polarity,title="+".join(keywords))
