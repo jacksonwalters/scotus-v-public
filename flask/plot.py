@@ -4,10 +4,11 @@ import scipy.optimize as opt
 import numpy as np
 from matplotlib import cm
 from numpy.random import randn
+import time, os
 
 CURRENT_YEAR=2021
 NEUTRAL = 0 #the line deciding which side of the issue
-SAVE_PATH='./static/images/sc_v_po.png'
+IMG_PATH='./static/images/'
 
 #create plot of SC opinion polarity given {YEAR:POLARITY}
 def scotus_plot(sc_polarity,title="ISSUE"):
@@ -88,6 +89,10 @@ def scotus_plot(sc_polarity,title="ISSUE"):
     min_yr=min(x_sc)
     plt.axis([min_yr-2, CURRENT_YEAR, -1.1, 1.1])
 
-    plt.savefig(SAVE_PATH, bbox_inches='tight')
+    #remove previous plot and save new one
+    plot_filename = "sc_v_po.png"
+    plt.savefig(IMG_PATH+plot_filename, bbox_inches='tight')
     #plt.show()
     plt.gcf().clear()
+
+    return plot_filename
