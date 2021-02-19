@@ -5,6 +5,9 @@ import numpy as np
 from matplotlib import cm
 from numpy.random import randn
 
+CURRENT_YEAR=2018
+NEUTRAL = 0 #the line deciding which side of the issue
+
 #STATS & MODEL
 ################################################################################
 
