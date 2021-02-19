@@ -78,7 +78,7 @@ def scotus_plot(sc_polarity,title="ISSUE"):
     ax.legend()
     plt.xlabel('Time (year)')
     plt.ylabel('Polarity')
-    plt.title('SCOTUS v. Public Sentiment on ' + title)
+    plt.title('SCOTUS v. [Public TBD] on ' + title)
     plt.grid(True)
     plt.yticks(np.arange(-1,2,1),["Conservative","Neutral","Liberal"]) #y-ticks are -1, 0, +1
 
