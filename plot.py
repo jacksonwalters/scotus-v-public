@@ -9,9 +9,10 @@ from scotus_polarity import sc_polarity
 
 CURRENT_YEAR=2021
 NEUTRAL = 0 #the line deciding which side of the issue
+SAVE_PATH='.\\plots\\test_sc_plot.png'
 
 #create plot of SC opinion polarity given {YEAR:POLARITY}
-plot(sc_polarity,title=issue_name):
+def plot(sc_polarity,title="ISSUE"):
     """
     #PUBLIC OPINION
     x_po=list(po_polarity.keys())
@@ -51,10 +52,6 @@ plot(sc_polarity,title=issue_name):
     #this is guaranteed for a linear fit.
     p_shift_sc=opt.fsolve(g1-NEUTRAL,2000)
 
-    #find difference of paradigm shift
-    p_shift_diff = p_shift_sc - p_shift_po
-    p_shift_min = min(p_shift_sc,p_shift_po)
-
     #create figure, axes
     fig = plt.figure()
     ax = fig.add_subplot(111)
@@ -83,7 +80,7 @@ plot(sc_polarity,title=issue_name):
     ax.legend()
     plt.xlabel('Time (year)')
     plt.ylabel('Polarity')
-    plt.title('SCOTUS v. Public Sentiment on ' + issue_name)
+    plt.title('SCOTUS v. Public Sentiment on ' + title)
     plt.grid(True)
     plt.yticks(np.arange(-1,2,1),["Conservative","Neutral","Liberal"]) #y-ticks are -1, 0, +1
 
@@ -92,7 +89,7 @@ plot(sc_polarity,title=issue_name):
     min_yr=min(x_po+x_sc)
     plt.axis([min_yr-2, CURRENT_YEAR, -1.1, 1.1])
 
-    plt.savefig('./plots/sc_v_po_civil_rights.png', bbox_inches='tight')
+    plt.savefig(SAVE_PATH, bbox_inches='tight')
     #plt.show()
     plt.gcf().clear()
 
