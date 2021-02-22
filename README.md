@@ -32,7 +32,6 @@ In the end, a user puts in a set of keywords to specify an issue, and a plot of 
 vs. supreme court sentiment over time appears. One can perform regressions and try to determine when
 opinion might cross a threshold.
 
-- SCOTUS Case, Justice Data: http://scdb.wustl.edu/
+- SCOTUS Case & Justice Data: http://scdb.wustl.edu/
 - SCOTUS Opinions, Free Law Project: https://www.courtlistener.com/api/bulk-info/
 - PO Data, ANES: https://electionstudies.org/data-center/
-- Prototype: https://petalmotors.bike
