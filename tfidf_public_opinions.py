@@ -3,10 +3,10 @@ import pandas as pd
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 import scipy.sparse
-from load_scotus_data import scotus_opinion_data
+from load_public_data import anes_opinion_data, anes_codebook
 
 #output paths
-DATA_PATH = ".\\data\\tf-idf\\scotus\\"
+DATA_PATH = ".\\data\\tf-idf\\public_opinion\\"
 TFIDF_MATRIX_PATH = os.path.join(DATA_PATH,'tfidf_matrix.npz') #tf-idf matrix filepath
 TFIDF_ROWS_PATH = os.path.join(DATA_PATH,"tfidf_rows.csv") #opin ids filepath
 TFIDF_COLS_PATH = os.path.join(DATA_PATH,"tfidf_cols.csv") #vocab filepath
@@ -14,11 +14,11 @@ TFIDF_COLS_PATH = os.path.join(DATA_PATH,"tfidf_cols.csv") #vocab filepath
 #perform a TF-IDF analysis on corpus of opinion text data
 def tfidf_opins():
     #store opinion data as dataframe
-    opin_df = scotus_opinion_data()
+    opin_df = anes_codebook()
 
     #generate corpus
     corpus=[]
-    for opin in list(opin_df['opinion']):
+    for opin in list(opin_df['question']):
         try:
             if math.isnan(opin):
                 corpus.append("")
@@ -43,9 +43,9 @@ def tfidf_opins():
     vocab = tf.get_feature_names()
     #mapping {row index : opinion id}
     #opinion_id = U.S. Cite | lower-case-v-name-abbreviated
-    citation = list(map(str,opin_df['citation']))
-    name = list(map(str,opin_df['case_name']))
-    opin_id = ["|".join([citation[i],name[i]]) for i in range(tfidf_matrix.shape[0])]
+    vcf_code = list(map(str,opin_df['vcf_code']))
+    assert tfidf_matrix.shape[0] == len(vcf_code)
+    opin_id = vcf_code
     #store index mappings as CSV
     pd.DataFrame(opin_id).to_csv(TFIDF_ROWS_PATH, encoding='utf-8',index=False)
     print("Saved rows of TF-IDF matrix to ",TFIDF_ROWS_PATH)
