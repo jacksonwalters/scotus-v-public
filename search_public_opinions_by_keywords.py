@@ -1,10 +1,10 @@
 import sys, os
 import scipy.sparse
 import pandas as pd
-from load_scotus_data import all_scdb_case_data
-from find_scotus_case import find_scdb_case
+from load_public_data import anes_opinion_data, anes_codebook
+from find_public_opinion_question import find_anes_question
 
-PATH = ".\\data\\tf-idf\\scotus\\"
+PATH = ".\\data\\tf-idf\\public_opinion\\"
 #path for tf-idf matrix
 TFIDF_MATRIX_FILENAME = "tfidf_matrix.npz"
 TFIDF_MATRIX_PATH = os.path.join(PATH,TFIDF_MATRIX_FILENAME)
@@ -48,14 +48,14 @@ def relevant_cases_by_opin_id(keywords):
 
 #given keywords, look up relevant cases by searching opinion text
 #match cases to SCDB data and return sub-dataframe
-def relevant_cases_scdb_df(keywords):
+def relevant_questions(keywords):
     opin_ids = relevant_cases_by_opin_id(keywords) #get opinion ids
-    scdb_data = all_scdb_case_data() #get scdb dataframe
-    scdb_cases = [find_scdb_case(opin_id,scdb_data) for opin_id in opin_ids] #get list of scdb cases
-    return pd.concat(scdb_cases) #concatenate into single df and return
+    anes_codebook_df = anes_codebook() #get scdb dataframe
+    rel_questions = [find_anes_question(opin_id,anes_codebook_df) for opin_id in opin_ids] #get list of scdb cases
+    return pd.concat(rel_questions) #concatenate into single df and return
 
 
 if __name__ == "__main__":
     if(len(sys.argv) > 1):
         keywords = sys.argv[1:]
-        print(relevant_cases(keywords))
+        print(relevant_questions(keywords))

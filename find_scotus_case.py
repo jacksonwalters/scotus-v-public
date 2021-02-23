@@ -1,5 +1,4 @@
 import pandas as pd
-import sys
 from example_issues import civil_rights
 
 #given a word, search all cases and find caseNames which contain the word
