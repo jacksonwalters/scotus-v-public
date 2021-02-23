@@ -2,8 +2,8 @@ import csv, json, os, re
 import pandas as pd
 from bs4 import BeautifulSoup
 
-DATA_PATH = ".\\data"
-INPUT_PATH = os.path.join(DATA_PATH,"scotus_opins_json\\")
+DATA_PATH = ".\\data\\scotus_opinions\\"
+INPUT_PATH = os.path.join(DATA_PATH,"json\\")
 OUTPUT_PATH = os.path.join(DATA_PATH,"scotus_opinions.csv")
 
 #get the US citation from the first two lines of the opinion text
