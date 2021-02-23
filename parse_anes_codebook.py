@@ -69,8 +69,8 @@ if __name__ == "__main__":
     formatted_questions=[format(question) for question in question_arr]
     print("# questions found: ",len(formatted_questions))
 
-    f = open(OUTPUT_PATH, "w")
-    writer = csv.DictWriter(f, fieldnames=[
+    with open(OUTPUT_PATH, 'w',newline='',encoding='utf-8') as f:
+        writer = csv.DictWriter(f, fieldnames=[
             "vcf_code",
             "code_category",
             "question",
@@ -79,8 +79,7 @@ if __name__ == "__main__":
             "notes",
             "weight",
             "source_vars"])
-    writer.writeheader()
-    writer.writerows(formatted_questions)
-    f.close()
+        writer.writeheader()
+        writer.writerows(formatted_questions)
 
     print("Output file: ",OUTPUT_PATH)
