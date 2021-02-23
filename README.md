@@ -1,5 +1,9 @@
 #scvpo
 
+- SCOTUS Case & Justice Data: http://scdb.wustl.edu/
+- SCOTUS Opinions, Free Law Project: https://www.courtlistener.com/api/bulk-info/
+- PO Data, ANES: https://electionstudies.org/data-center/
+
 This is a partially completed capstone project I did for a data science fellowship
 with The Data Incubator in Oakland, CA.
 
@@ -31,7 +35,3 @@ one using tweet data from Donald Trump and AOC from 2018, and it performed reaso
 In the end, a user puts in a set of keywords to specify an issue, and a plot of public sentiment
 vs. supreme court sentiment over time appears. One can perform regressions and try to determine when
 opinion might cross a threshold.
-
-- SCOTUS Case & Justice Data: http://scdb.wustl.edu/
-- SCOTUS Opinions, Free Law Project: https://www.courtlistener.com/api/bulk-info/
-- PO Data, ANES: https://electionstudies.org/data-center/
