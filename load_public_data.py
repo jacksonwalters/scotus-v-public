@@ -8,12 +8,6 @@
 
 import os
 import pandas as pd
-from example_issues import civil_rights
-
-#ANES code for survey year
-SURVEY_YEAR = 'VCF0004'
-#identifiers for RELEVANT QUESTIONS from ANES PO surveys
-PO_REL_QUES=list(civil_rights().response_map.keys())
 
 PATH = ".\\data\\anes\\"
 
@@ -39,6 +33,7 @@ CODEBOOK_PATH = os.path.join(PATH,CODEBOOK_FILENAME)
 def anes_codebook():
     return pd.read_csv(CODEBOOK_PATH)
 
+#run a sample test
 if __name__ == "__main__":
     anes_df=anes_data()
     anes_codebook_df=anes_codebook()

@@ -26,7 +26,7 @@ vocab = list(vocab_df['0'])
 
 #find list of relevant cases given set of keywords
 #returns list of opinion_ids
-def relevant_cases_by_opin_id(keywords):
+def relevant_questions_by_vcf_code(keywords):
     keyword_ind = [vocab.index(keyword) for keyword in keywords if keyword in vocab]
 
     #score each opinion (row) based on keywords appearing
@@ -46,12 +46,12 @@ def relevant_cases_by_opin_id(keywords):
 
     return rel_cases
 
-#given keywords, look up relevant cases by searching opinion text
-#match cases to SCDB data and return sub-dataframe
+#given keywords, look up relevant questions by searching question text
+#and return ANES codebook sub-dataframe
 def relevant_questions_anes_df(keywords):
-    opin_ids = relevant_cases_by_opin_id(keywords) #get opinion ids
+    vcf_codes = relevant_questions_by_vcf_code(keywords) #get opinion ids
     anes_codebook_df = anes_codebook() #get scdb dataframe
-    rel_questions = [find_anes_question(opin_id,anes_codebook_df) for opin_id in opin_ids] #get list of scdb cases
+    rel_questions = [find_anes_question(vcf_code,anes_codebook_df) for vcf_code in vcf_codes] #get list of scdb cases
     return pd.concat(rel_questions) #concatenate into single df and return
 
 

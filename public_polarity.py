@@ -1,4 +1,12 @@
+from random import choice
 from search_public_opinions_by_keywords import relevant_questions_anes_df
+from load_public_data import anes_opinion_data
+from example_issues import civil_rights
+
+#ANES code for survey year
+SURVEY_YEAR = 'VCF0004'
+#identifiers for RELEVANT QUESTIONS from ANES PO surveys
+EX_PO_REL_QUES = list(civil_rights().response_map.keys())
 
 #check if the entry is scalable
 def scalable(entry,scale=(lambda x: x)):
@@ -10,7 +18,7 @@ def scalable(entry,scale=(lambda x: x)):
             return False
     else: return False
 
-#normalize entry to polarization value in [-1,1]
+#normalize entry to value in [-1,1]
 #requires maximum value in col, and dict to convert responses to a scale
 #default scale is just identity function
 def norm(entry,resp_conv):
@@ -29,7 +37,7 @@ def norm_col(col,resp_conv):
     return [norm(entry,resp_conv) for entry in col if scalable(entry,scale)]
 
 #get dict of averages for each column by year
-def scaled_avg_by_year(q_id):
+def scaled_avg_by_year(q_id,rel_po_df):
     #get column for q_id
     col = rel_po_df[ [SURVEY_YEAR,q_id] ]
     #get appropriate conversion of responses to support values
@@ -45,15 +53,28 @@ def scaled_avg_by_year(q_id):
 
     return ques_yr_avg
 
-#a dictionary keeping track of the conversion scales for
-#for each PO question
+#dictionary keeping track of the conversion scales for
+#for every response type for PO questions
 def resp_convert():
     return dict()
 
+#given a PO question, determine whether an affirmative response would be
+#considered LIBERAL or CONSERVATIVE. this is a binary classifier which
+#can be implemented as a trained neural network, a CNN. likely will just
+#append YES or NO to the question and apply a sigmoid to the output of a sentiment
+#analyzer. for now, it is a placeholder
+def orientation(question):
+    return choice([-1,+1])
+
 #return {year:polarity} dict for public opinion
-def public_polarity(relevant_questions):
+def public_polarity(rel_ques_df,anes_df):
+    #get keys for relevant questions as VCF codes
+    po_rel_ques_keys = list(rel_ques_df['vcf_code'])
+    print(po_rel_ques_keys)
+    #for each question key, avgerage the responses from that column
+    po_q_avgs = [scaled_avg_by_year(q_id,anes_df) for q_id in po_rel_ques_keys] #collect avg's for all Q's
+    print(po_q_avgs)
     """
-    po_q_avgs = [scaled_avg_by_year(q_id) for q_id in PO_REL_QUES] #collect avg's for all Q's
     po_q_avgs_df = pd.concat(po_q_avgs,axis=1) #join series into df
     po_avgs_df = po_q_avgs_df.mean(axis=1) #take row mean
     po_avgs_df = po_avgs_df.loc[ po_avgs_df.notna() ] #remove NaN's
@@ -61,8 +82,13 @@ def public_polarity(relevant_questions):
     """
     return dict()
 
+#run a sample test
 if __name__ == "__main__":
-    keywords=["gay","marriage","lgbt","rights","sodomy"]
-    rel_questions=relevant_questions_anes_df(keywords)
-    polarity=public_polarity(rel_questions)
+    keywords=["gay","marriage","lgbt","rights","sodomy"] #example keywords
+    #search the relevant q's & return ANES codebook sub-df
+    rel_ques_df=relevant_questions_anes_df(keywords)
+    #load the full ANES response data. should be trimmed to *relevant dataframe*
+    anes_df = anes_opinion_data()
+    #compute polarity for relevant questions
+    polarity=public_polarity(rel_ques_df,anes_df)
     print(polarity)
