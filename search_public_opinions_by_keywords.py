@@ -31,9 +31,9 @@ def relevant_questions_by_vcf_code(keywords):
 
     #score each opinion (row) based on keywords appearing
     #by summing tfidf scores in the relevant columns
-    num_opinions = tfidf_matrix.shape[0]
+    num_questions = tfidf_matrix.shape[0]
     scores = []
-    for row in range(num_opinions):
+    for row in range(num_questions):
         score = sum(tfidf_matrix[row,ind] for ind in keyword_ind)
         if score != 0:
             scores.append( (row,score) )
@@ -41,13 +41,15 @@ def relevant_questions_by_vcf_code(keywords):
     #sort scores by score value, in descending order
     scores.sort(key=lambda tup: tup[1],reverse=True)
 
-    #get relevant cases
-    rel_cases = [opin_id[case[0]] for case in scores[:10]]
+    #get relevant questions
+    rel_questions = [opin_id[case[0]] for case in scores[:10]]
 
-    return rel_cases
+    return rel_questions
 
 #given keywords, look up relevant questions by searching question text
 #and return ANES codebook sub-dataframe
+#NOTE: this should probably return the sub-df from the ANES response data
+#to line up with the SCOTUS flow
 def relevant_questions_anes_df(keywords):
     vcf_codes = relevant_questions_by_vcf_code(keywords) #get opinion ids
     anes_codebook_df = anes_codebook() #get scdb dataframe
