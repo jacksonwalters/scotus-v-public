@@ -36,4 +36,4 @@ opinion might cross a threshold.
 - SCOTUS Opinions, Free Law Project: https://www.courtlistener.com/api/bulk-info/
 - PO Data, ANES: https://electionstudies.org/data-center/
 
-Disclaimer: This type of tool is inherently as dangerous as it is powerful. It is meant to provide transparency in service of creating laws of, for, and by the people which are faithfully executed and under which lies equal justice.
+This tool is meant to provide transparency in service of creating laws of, for, and by the people which are faithfully executed and under which lies equal justice.
