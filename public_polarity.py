@@ -1,5 +1,4 @@
-#PUBLIC OPINION
-#########################################################################################
+from search_public_opinions_by_keywords import relevant_questions_anes_df
 
 #check if the entry is scalable
 def scalable(entry,scale=(lambda x: x)):
@@ -49,15 +48,21 @@ def scaled_avg_by_year(q_id):
 #a dictionary keeping track of the conversion scales for
 #for each PO question
 def resp_convert():
-    return RESP_CONVERT
+    return dict()
 
+#return {year:polarity} dict for public opinion
+def public_polarity(relevant_questions):
+    """
+    po_q_avgs = [scaled_avg_by_year(q_id) for q_id in PO_REL_QUES] #collect avg's for all Q's
+    po_q_avgs_df = pd.concat(po_q_avgs,axis=1) #join series into df
+    po_avgs_df = po_q_avgs_df.mean(axis=1) #take row mean
+    po_avgs_df = po_avgs_df.loc[ po_avgs_df.notna() ] #remove NaN's
+    po_polarity = po_avgs_df.to_dict() #go from df to dictionary
+    """
+    return dict()
 
-#AVERAGE PUBLIC OPINION
-#########################################################################################
-
-#build df of overall year averages
-po_q_avgs = [scaled_avg_by_year(q_id) for q_id in PO_REL_QUES] #collect avg's for all Q's
-po_q_avgs_df = pd.concat(po_q_avgs,axis=1) #join series into df
-po_avgs_df = po_q_avgs_df.mean(axis=1) #take row mean
-po_avgs_df = po_avgs_df.loc[ po_avgs_df.notna() ] #remove NaN's
-po_polarity = po_avgs_df.to_dict() #go from df to dictionary
+if __name__ == "__main__":
+    keywords=["gay","marriage","lgbt","rights","sodomy"]
+    rel_questions=relevant_questions_anes_df(keywords)
+    polarity=public_polarity(rel_questions)
+    print(polarity)

@@ -48,7 +48,7 @@ def relevant_cases_by_opin_id(keywords):
 
 #given keywords, look up relevant cases by searching opinion text
 #match cases to SCDB data and return sub-dataframe
-def relevant_questions(keywords):
+def relevant_questions_anes_df(keywords):
     opin_ids = relevant_cases_by_opin_id(keywords) #get opinion ids
     anes_codebook_df = anes_codebook() #get scdb dataframe
     rel_questions = [find_anes_question(opin_id,anes_codebook_df) for opin_id in opin_ids] #get list of scdb cases
@@ -58,4 +58,4 @@ def relevant_questions(keywords):
 if __name__ == "__main__":
     if(len(sys.argv) > 1):
         keywords = sys.argv[1:]
-        print(relevant_questions(keywords))
+        print(relevant_questions_anes_df(keywords))
