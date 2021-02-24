@@ -60,10 +60,6 @@ def scaled_avg_by_year(q_id,rel_ans_df):
     ques_yr_avg=col.groupby([SURVEY_YEAR])[q_id].mean()
 
     return ques_yr_avg
-    """
-    survey_years = set(col[SURVEY_YEAR])
-    return {year:0 for year in survey_years}
-    """
 
 #dictionary keeping track of the conversion scales for
 #for every response type for PO questions
