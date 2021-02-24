@@ -3,7 +3,7 @@
 This is a partially completed capstone project I did for a data science fellowship
 with The Data Incubator in Oakland, CA.
 
-The idea is to compare supreme court opinions and public opinion on given issues.
+The idea is to compare supreme court opinions and public opinion on issues.
 
 Public opinion data is pulled from ANES data from 1948-2016. Supreme Court opinions
 are publicly available, and text of those opinions were gathered using an API from
@@ -35,3 +35,5 @@ opinion might cross a threshold.
 - SCOTUS Case & Justice Data: http://scdb.wustl.edu/
 - SCOTUS Opinions, Free Law Project: https://www.courtlistener.com/api/bulk-info/
 - PO Data, ANES: https://electionstudies.org/data-center/
+
+Disclaimer: This type of tool is inherently as dangerous as it is powerful. It is meant to provide transparency in service of creating laws of, for, and by the people which are faithfully executed and under which lies equal justice.
