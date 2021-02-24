@@ -74,6 +74,14 @@ def resp_convert(q_id):
 def orientation(question):
     return choice([-1,+1])
 
+#analyze the polarity of a question+answer/response.
+#merge the question and answer into a statement, and run through
+#sentiment analyzer CNN and return a number in [-1,+1] where
+#-1 represents conservative and +1 represents liberal (arbitrary)
+def sentiment(question,answer):
+    statement = question + answer
+    return int("liberal" in statement)
+
 #return {year:polarity} dict for public opinion
 def public_polarity(rel_ques_df,rel_ans_df):
     #get keys for relevant questions as VCF codes
