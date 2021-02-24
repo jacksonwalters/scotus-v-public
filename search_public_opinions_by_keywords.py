@@ -48,8 +48,6 @@ def relevant_questions_by_vcf_code(keywords):
 
 #given keywords, look up relevant questions by searching question text
 #and return ANES codebook sub-dataframe
-#NOTE: this should probably return the sub-df from the ANES response data
-#to line up with the SCOTUS flow
 def relevant_questions_anes_df(keywords):
     vcf_codes = relevant_questions_by_vcf_code(keywords) #get opinion ids
     anes_codebook_df = anes_codebook() #get scdb dataframe

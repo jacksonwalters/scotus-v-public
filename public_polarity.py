@@ -37,9 +37,10 @@ def norm_col(col,resp_conv):
     return [norm(entry,resp_conv) for entry in col if scalable(entry,scale)]
 
 #get dict of averages for each column by year
-def scaled_avg_by_year(q_id,rel_po_df):
+def scaled_avg_by_year(q_id,rel_ans_df):
     #get column for q_id
-    col = rel_po_df[ [SURVEY_YEAR,q_id] ]
+    col = rel_ans_df[ [SURVEY_YEAR,q_id] ]
+    print(col)
     #get appropriate conversion of responses to support values
     resp_conv=resp_convert()[q_id]
     #compute the possible max of all responses
@@ -67,12 +68,12 @@ def orientation(question):
     return choice([-1,+1])
 
 #return {year:polarity} dict for public opinion
-def public_polarity(rel_ques_df,anes_df):
+def public_polarity(rel_ques_df,rel_ans_df):
     #get keys for relevant questions as VCF codes
     po_rel_ques_keys = list(rel_ques_df['vcf_code'])
     print(po_rel_ques_keys)
     #for each question key, avgerage the responses from that column
-    po_q_avgs = [scaled_avg_by_year(q_id,anes_df) for q_id in po_rel_ques_keys] #collect avg's for all Q's
+    po_q_avgs = [scaled_avg_by_year(q_id,rel_ans_df) for q_id in po_rel_ques_keys] #collect avg's for all Q's
     print(po_q_avgs)
     """
     po_q_avgs_df = pd.concat(po_q_avgs,axis=1) #join series into df
@@ -86,9 +87,12 @@ def public_polarity(rel_ques_df,anes_df):
 if __name__ == "__main__":
     keywords=["gay","marriage","lgbt","rights","sodomy"] #example keywords
     #search the relevant q's & return ANES codebook sub-df
-    rel_ques_df=relevant_questions_anes_df(keywords)
+    rel_ques_df = relevant_questions_anes_df(keywords)
+    rel_vcf_codes = [SURVEY_YEAR]+list(rel_ques_df['vcf_code'])
     #load the full ANES response data. should be trimmed to *relevant dataframe*
     anes_df = anes_opinion_data()
+    #filter the relevant repsonses/answers by VCF code
+    rel_ans_df = anes_df.filter(items=rel_vcf_codes)
     #compute polarity for relevant questions
-    polarity=public_polarity(rel_ques_df,anes_df)
+    polarity=public_polarity(rel_ques_df,rel_ans_df)
     print(polarity)
