@@ -1,4 +1,5 @@
 import pandas as pd
+from find_scotus_case import find_scdb_case
 
 #find list of relevant cases given set of keywords
 def relevant_cases_by_opin_id(keywords,scotus_vocab,scotus_tfidf_matrix,scotus_opin_id):

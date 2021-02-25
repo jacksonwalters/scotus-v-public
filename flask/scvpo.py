@@ -2,8 +2,6 @@ from flask import Flask, render_template, flash, redirect
 from forms import KeywordForm
 from load_scotus_data import scotus_tfidf_matrix, scotus_opin_id, scotus_vocab, all_scdb_case_data
 from load_public_data import public_tfidf_matrix, public_opin_id, public_vocab, anes_codebook_df
-from find_scotus_case import find_scdb_case
-from find_public_opinion_question import find_anes_question
 from search_scotus_opinions_by_keyword import relevant_cases_scdb_df
 from search_public_opinions_by_keyword import relevant_questions_anes_df
 from scotus_polarity import sc_polarity
