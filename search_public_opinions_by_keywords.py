@@ -5,22 +5,19 @@ from load_public_data import anes_opinion_data, anes_codebook
 from find_public_opinion_question import find_anes_question
 
 PATH = ".\\data\\tf-idf\\public_opinion\\"
-#path for tf-idf matrix
-TFIDF_MATRIX_FILENAME = "tfidf_matrix.npz"
-TFIDF_MATRIX_PATH = os.path.join(PATH,TFIDF_MATRIX_FILENAME)
-#path for opinion ids, rows of tf-idf matrix
-OPINION_ID_FILENAME = "tfidf_rows.csv"
-OPINION_ID_PATH = os.path.join(PATH,OPINION_ID_FILENAME)
-#path for corpus vocabular, cols of tf-idf matrix
-VOCAB_FILENAME = "tfidf_cols.csv"
-VOCAB_PATH = os.path.join(PATH,VOCAB_FILENAME)
 
 #load tfidf matrix
+TFIDF_MATRIX_FILENAME = "tfidf_matrix.npz"
+TFIDF_MATRIX_PATH = os.path.join(PATH,TFIDF_MATRIX_FILENAME)
 tfidf_matrix = scipy.sparse.load_npz(TFIDF_MATRIX_PATH)
 #load {row index : opinion id} mapping
+OPINION_ID_FILENAME = "tfidf_rows.csv"
+OPINION_ID_PATH = os.path.join(PATH,OPINION_ID_FILENAME)
 opin_id_df = pd.read_csv(OPINION_ID_PATH)
 opin_id = list(opin_id_df['0'])
 #load {col index : vocab} mapping
+VOCAB_FILENAME = "tfidf_cols.csv"
+VOCAB_PATH = os.path.join(PATH,VOCAB_FILENAME)
 vocab_df = pd.read_csv(VOCAB_PATH)
 vocab = list(vocab_df['0'])
 
