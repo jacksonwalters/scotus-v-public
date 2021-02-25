@@ -15,14 +15,14 @@ app.secret_key = '@5yHj#bn^&(a62andnf,'
 
 #load scotus data
 scotus_vocab = scotus_vocab() #load {col index : vocab} mapping for scotus opinions
-scotus_tfidf_matrix = scotus_tfidf_matrix() #load scotus tfidf matrix
+scotus_tfidf_matrix_sparse = scotus_tfidf_matrix() #load scotus tfidf matrix
 scotus_opin_id_df = scotus_opin_id() #load {row index : opinion id} mapping for scotus opinions
 all_scdb_case_data=all_scdb_case_data() #get scdb dataframe for all (modern+legacy) cases
 
 #load public data
 public_vocab = public_vocab() #load {col index : vocab} mapping
-public_tfidf_matrix = public_tfidf_matrix() #load tfidf matrix
-public_opin_id = public_opin_id() #load {row index : opinion id} mapping
+public_tfidf_matrix_sparse = public_tfidf_matrix() #load tfidf matrix
+public_opin_id_df = public_opin_id() #load {row index : opinion id} mapping
 anes_codebook_df = anes_codebook_df() #load formatted ANES codebook as df
 
 @app.route("/", methods=['GET','POST'])
@@ -35,9 +35,9 @@ def search_cases():
         word3 = form.word3.data.rstrip().lstrip().lower()
         keywords = [word1,word2,word3]
         #search scotus cases via tf-idf of scotus opinion corpus. returns SCDB sub-df.
-        scotus_results = relevant_cases_scdb_df(keywords,scotus_vocab,scotus_tfidf_matrix,scotus_opin_id,all_scdb_case_data)
+        scotus_results = relevant_cases_scdb_df(keywords,scotus_vocab,scotus_tfidf_matrix_sparse,scotus_opin_id_df,all_scdb_case_data)
         #search public opinions via tf-idf of all public opinion questions. returns ANES codebook sub-df
-        public_results = relevant_questions_anes_df(keywords,public_vocab,public_tfidf_matrix,public_opin_id,anes_codebook_df)
+        public_results = relevant_questions_anes_df(keywords,public_vocab,public_tfidf_matrix_sparse,public_opin_id_df,anes_codebook_df)
         if not scotus_results.empty:
             #plot {year:polarity} of resulting cases
             plot_filename=scotus_plot(sc_polarity(scotus_results),title="+".join(keywords))
