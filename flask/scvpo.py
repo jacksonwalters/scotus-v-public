@@ -12,12 +12,12 @@ app = Flask(__name__)
 app.secret_key = '@5yHj#bn^&(a62andnf,'
 
 #load tfidf matrix
-tfidf_matrix = scipy.sparse.load_npz("./data/tfidf_matrix.npz")
+tfidf_matrix = scipy.sparse.load_npz("./data/tf-idf/scotus_opinion/tfidf_matrix.npz")
 #load {row index : opinion id} mapping
-opin_id_df = pd.read_csv("./data/tfidf_rows.csv")
+opin_id_df = pd.read_csv("./data/tf-idf/scotus_opinion/tfidf_rows.csv")
 opin_id = list(opin_id_df['0'])
 #load {col index : vocab} mapping
-vocab_df = pd.read_csv("./data/tfidf_cols.csv")
+vocab_df = pd.read_csv("./data/tf-idf/scotus_opinion/tfidf_cols.csv")
 vocab = list(vocab_df['0'])
 #get modern scdb case data, 1946 - present
 modern_scdb_case_data = pd.read_csv("./data/scdb/scdb_case_data.csv",encoding='windows-1252')
