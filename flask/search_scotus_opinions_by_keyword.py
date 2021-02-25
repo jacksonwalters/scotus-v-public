@@ -23,7 +23,7 @@ def relevant_cases_by_opin_id(keywords,scotus_vocab,scotus_tfidf_matrix,scotus_o
 
 #given keywords, look up relevant cases by searching opinion text
 #match cases to SCDB data and return sub-dataframe
-def relevant_cases_scdb_df(keywords,scotus_vocab,scotus_tfidf_matrix,scotus_opin_id,all_scdb_case_data,all_scdb_case_data):
+def relevant_cases_scdb_df(keywords,scotus_vocab,scotus_tfidf_matrix,scotus_opin_id,all_scdb_case_data):
     opin_ids = relevant_cases_by_opin_id(keywords,scotus_vocab,scotus_tfidf_matrix,scotus_opin_id) #get opinion ids
     scdb_cases = [find_scdb_case(opin_id,all_scdb_case_data) for opin_id in opin_ids] #get list of scdb cases
     #if no scdb_cases is empty list
