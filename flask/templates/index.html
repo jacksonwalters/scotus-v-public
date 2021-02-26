@@ -70,8 +70,9 @@
 	                {% endif %}
 	              {% endwith %}
               </section>
-              <!-- form for user to input keywords -->
-              <form action="" method="post" novalidate>
+							<!-- form for user to input keywords -->
+							<section>
+              	<form action="" method="post" novalidate>
                   {{ form.hidden_tag() }}
                   <div class="row gtr-uniform">
                     <div class="col-6">{{ form.word1(size=16) }}</div>
@@ -103,10 +104,11 @@
                     </ul>
                   </div>
               </form>
-
+						</section>
 
               <!-- flash the scotus output -->
               <section>
+							<h2>SCOTUS Cases</h2>
               {% with scotus_outputs = get_flashed_messages(category_filter=["scotus_output"]) %}
                 {% if scotus_outputs %}
                 <ol>
@@ -120,6 +122,7 @@
 
 							<!-- flash the public output -->
               <section>
+							<h2>Public Opinion Questions</h2>
               {% with public_outputs = get_flashed_messages(category_filter=["public_output"]) %}
                 {% if public_outputs %}
                 <ol>
