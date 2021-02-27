@@ -4,12 +4,16 @@ import scipy.optimize as opt
 import numpy as np
 from matplotlib import cm
 from numpy.random import randn
+from load_public_data import anes_opinion_data
 from search_scotus_opinions_by_keywords import relevant_cases_scdb_df
+from search_public_opinions_by_keywords import relevant_questions_anes_df
 from scotus_polarity import sc_polarity
+from public_polarity import po_polarity
 
-CURRENT_YEAR=2021
+CURRENT_YEAR = 2021
 NEUTRAL = 0 #the line deciding which side of the issue
-SAVE_PATH='.\\plots\\test_sc_plot.png'
+SURVEY_YEAR_VCF_CODE = 'VCF0004' #ANES code for survey year
+SAVE_PATH='.\\plots\\test_sc_plot.png' #path to save plot image
 
 #create plot of SC opinion polarity given {YEAR:POLARITY}
 def plot(sc_polarity,title="ISSUE"):
@@ -96,6 +100,14 @@ def plot(sc_polarity,title="ISSUE"):
 
 if __name__ == "__main__":
     keywords=["civil","rights","black","negro","vote","free"]
-    rel_cases=relevant_cases_scdb_df(keywords)
-    sc_polarity=sc_polarity(rel_cases)
+    #get scotus polarity dict
+    rel_cases=relevant_cases_scdb_df(keywords) #relevant cases from SCDB as df
+    sc_polarity=sc_polarity(rel_cases) #scotus opinion polarity dict {year:polarity}
+    #get public polarity dict
+    rel_ques_df = relevant_questions_anes_df(keywords) #search the relevant q's & return ANES codebook sub-df
+    rel_vcf_codes = [SURVEY_YEAR_VCF_CODE]+list(rel_ques_df['vcf_code']) #get relevant ANES VCF codes. first code gives year
+    anes_df = anes_opinion_data() #load the full ANES response data
+    rel_ans_df = anes_df.filter(items=rel_vcf_codes) #filter the relevant repsonses/answers by VCF code
+    po_polarity=po_polarity(rel_ques_df,rel_ans_df) #dict {year:polarity} for public opinion
+    #plot scotus opinions v. public opinions
     plot(sc_polarity,title="+".join(keywords))

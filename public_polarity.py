@@ -5,7 +5,7 @@ from example_issues import civil_rights
 import pandas as pd
 
 #ANES code for survey year
-SURVEY_YEAR = 'VCF0004'
+SURVEY_YEAR_VCF_CODE = 'VCF0004'
 #identifiers for RELEVANT QUESTIONS from ANES PO surveys
 EX_PO_REL_QUES = list(civil_rights().response_map.keys())
 
@@ -44,7 +44,7 @@ def norm(entry,resp_conv):
 #placeholder until repsonses are normalized
 def scaled_avg_by_year(q_id,rel_ans_df):
     #get column for q_id
-    col = rel_ans_df[ [SURVEY_YEAR,q_id] ]
+    col = rel_ans_df[ [SURVEY_YEAR_VCF_CODE,q_id] ]
     #get appropriate conversion of responses to support values
     #use empty placeholder dict {"":0} for now
     resp_conv=resp_convert(q_id)
@@ -57,7 +57,7 @@ def scaled_avg_by_year(q_id,rel_ans_df):
     col[q_id] = col[q_id].apply(scale)
 
     #group by year and average
-    ques_yr_avg=col.groupby([SURVEY_YEAR])[q_id].mean()
+    ques_yr_avg=col.groupby([SURVEY_YEAR_VCF_CODE])[q_id].mean()
 
     return ques_yr_avg
 
@@ -83,7 +83,7 @@ def sentiment(question,answer):
     return int("liberal" in statement)
 
 #return {year:polarity} dict for public opinion
-def public_polarity(rel_ques_df,rel_ans_df):
+def po_polarity(rel_ques_df,rel_ans_df):
     #get keys for relevant questions as VCF codes
     po_rel_ques_keys = list(rel_ques_df['vcf_code'])
 
@@ -103,13 +103,9 @@ def public_polarity(rel_ques_df,rel_ans_df):
 #run a sample test
 if __name__ == "__main__":
     keywords=["gay","marriage","lgbt","rights","sodomy"] #example keywords
-    #search the relevant q's & return ANES codebook sub-df
-    rel_ques_df = relevant_questions_anes_df(keywords)
-    rel_vcf_codes = [SURVEY_YEAR]+list(rel_ques_df['vcf_code'])
-    #load the full ANES response data. should be trimmed to *relevant dataframe*
-    anes_df = anes_opinion_data()
-    #filter the relevant repsonses/answers by VCF code
-    rel_ans_df = anes_df.filter(items=rel_vcf_codes)
-    #compute polarity for relevant questions
-    polarity=public_polarity(rel_ques_df,rel_ans_df)
+    rel_ques_df = relevant_questions_anes_df(keywords) #search the relevant q's & return ANES codebook sub-df
+    rel_vcf_codes = [SURVEY_YEAR_VCF_CODE_VCF_CODE]+list(rel_ques_df['vcf_code'])
+    anes_df = anes_opinion_data() #load the full ANES response data
+    rel_ans_df = anes_df.filter(items=rel_vcf_codes) #filter the relevant repsonses/answers by VCF code
+    polarity=po_polarity(rel_ques_df,rel_ans_df) #dict {year:polarity} for public opinion
     print(polarity)
