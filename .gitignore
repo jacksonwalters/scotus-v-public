@@ -1,2 +1,5 @@
-data/
 __pycache__/
+data/anes/
+data/scdb/
+data/scotus_opinions/
+data/tf-idf/
