@@ -16,8 +16,8 @@ SURVEY_YEAR_VCF_CODE = 'VCF0004' #ANES code for survey year
 SAVE_PATH='.\\plots\\test_sc_plot.png' #path to save plot image
 
 #create plot of SC opinion polarity given {YEAR:POLARITY}
-def plot(sc_polarity,title="ISSUE"):
-    """
+def plot(sc_polarity,po_polarity,title="ISSUE"):
+
     #PUBLIC OPINION
     x_po=list(po_polarity.keys())
     y_po=list(po_polarity.values())
@@ -36,7 +36,7 @@ def plot(sc_polarity,title="ISSUE"):
     #assuming one point of intersectionself.
     #this is guaranteed for a linear fit.
     p_shift_po=opt.fsolve(f1-NEUTRAL,2000)
-    """
+
     #SCOTUS years, liberal v. conservative sentiment
     x_sc=list(sc_polarity.keys())
     y_sc=list(sc_polarity.values())
@@ -60,12 +60,12 @@ def plot(sc_polarity,title="ISSUE"):
     fig = plt.figure()
     ax = fig.add_subplot(111)
 
-    """
+
     #average public opinion on issue
     ax.scatter(x_po,y_po,c='b',marker="x",label='Public Opinion',vmin=-1, vmax=1)
     #model for PO data
     ax.plot(x_po,f1(x_po),'-b')
-    """
+
 
     #supreme court decisions
     sc_scatter=ax.scatter(x_sc,y_sc,c='r',marker="+",label='Supreme Court',vmin=-1, vmax=1)
@@ -76,9 +76,9 @@ def plot(sc_polarity,title="ISSUE"):
     #purple='#551A8B'
     ax.axhline(y=NEUTRAL,color='k')
     #include vertical lines at paradigm shift moments
-    """
+
     ax.plot([p_shift_po], [NEUTRAL], marker='|', markersize=7, color="black")
-    """
+    
     ax.plot([p_shift_sc], [NEUTRAL], marker='|', markersize=7, color="black")
 
     ax.legend()
@@ -110,4 +110,4 @@ if __name__ == "__main__":
     rel_ans_df = anes_df.filter(items=rel_vcf_codes) #filter the relevant repsonses/answers by VCF code
     po_polarity=po_polarity(rel_ques_df,rel_ans_df) #dict {year:polarity} for public opinion
     #plot scotus opinions v. public opinions
-    plot(sc_polarity,title="+".join(keywords))
+    plot(sc_polarity,po_polarity,title="+".join(keywords))
