@@ -7,8 +7,8 @@ from numpy.random import randn
 from load_public_data import anes_opinion_data
 from search_scotus_opinions_by_keywords import relevant_cases_scdb_df
 from search_public_opinions_by_keywords import relevant_questions_anes_df
-from scotus_polarity import sc_polarity
-from public_polarity import po_polarity
+from polarity_scotus import sc_polarity
+from polarity_public import po_polarity
 
 CURRENT_YEAR = 2021
 NEUTRAL = 0 #the line deciding which side of the issue
