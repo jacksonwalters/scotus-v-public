@@ -28,7 +28,7 @@ def tfidf_opins():
 
     #generate tfidf matrix. set maximum document freq. and minimum cut-off to limit dumb non-words
     max_n=1 #specify maximum n-gram size (length of phrases)
-    tf = TfidfVectorizer(analyzer='word', ngram_range=(1,max_n), stop_words="english", min_df=.001,max_df=.10)
+    tf = TfidfVectorizer(analyzer='word', ngram_range=(1,max_n), stop_words="english", min_df=.0001,max_df=.20)
 
     #matrix with each row corresponding to an opinion
     #and each column an n-gram with n specified above
