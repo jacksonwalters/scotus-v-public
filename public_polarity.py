@@ -44,7 +44,7 @@ def norm(entry,resp_conv):
 #placeholder until repsonses are normalized
 def scaled_avg_by_year(q_id,rel_ans_df):
     #get column for q_id
-    col = rel_ans_df[ [SURVEY_YEAR_VCF_CODE,q_id] ]
+    col = rel_ans_df[ [SURVEY_YEAR_VCF_CODE,q_id] ].copy() #make a deepcopy to avoid reference warnings
     #get appropriate conversion of responses to support values
     #use empty placeholder dict {"":0} for now
     resp_conv=resp_convert(q_id)
