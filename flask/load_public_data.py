@@ -18,3 +18,7 @@ def public_opin_id():
 def public_vocab():
     public_vocab_df = pd.read_csv("./data/tf-idf/public_opinion/tfidf_cols.csv")
     return list(public_vocab_df['0'])
+
+#load full ANES public opinion responses
+def anes_opinion_data():
+    return pd.read_stata("./data/anes/anes_timeseries_cdf.dta")
