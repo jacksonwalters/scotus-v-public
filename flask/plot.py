@@ -185,7 +185,6 @@ def scotus_v_public_plot(sc_polarity,po_polarity,title="ISSUE"):
     #model for PO data
     ax.plot(x_po,f1(x_po),'-b')
 
-
     #supreme court decisions
     sc_scatter=ax.scatter(x_sc,y_sc,c='r',marker="+",label='Supreme Court',vmin=-1, vmax=1)
     #model for SC data
