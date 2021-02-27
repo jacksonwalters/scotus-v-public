@@ -35,9 +35,9 @@ def anes_codebook():
 
 #run a sample test
 if __name__ == "__main__":
-    anes_df=anes_data()
+    anes_opinion_df=anes_opinion_data()
     anes_codebook_df=anes_codebook()
-    sample_codes = list(anes_codebook_df["vcf_codes"])[:10]
-    sample_keys = list(anes_df)[:10]
+    sample_codes = list(anes_codebook_df["vcf_code"])[:10]
+    sample_keys = list(anes_opinion_df)[:10]
     print(sample_codes)
     print(sample_keys)
