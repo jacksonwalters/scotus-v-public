@@ -104,7 +104,7 @@ def po_polarity(rel_ques_df,rel_ans_df):
 if __name__ == "__main__":
     keywords=["gay","marriage","lgbt","rights","sodomy"] #example keywords
     rel_ques_df = relevant_questions_anes_df(keywords) #search the relevant q's & return ANES codebook sub-df
-    rel_vcf_codes = [SURVEY_YEAR_VCF_CODE_VCF_CODE]+list(rel_ques_df['vcf_code'])
+    rel_vcf_codes = [SURVEY_YEAR_VCF_CODE]+list(rel_ques_df['vcf_code'])
     anes_df = anes_opinion_data() #load the full ANES response data
     rel_ans_df = anes_df.filter(items=rel_vcf_codes) #filter the relevant repsonses/answers by VCF code
     polarity=po_polarity(rel_ques_df,rel_ans_df) #dict {year:polarity} for public opinion
