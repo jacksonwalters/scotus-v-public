@@ -41,3 +41,5 @@ if __name__ == "__main__":
     sample_keys = list(anes_opinion_df)[:10]
     print(sample_codes)
     print(sample_keys)
+    print(anes_opinion_df.memory_usage(index=False, deep=True))
+    print(anes_codebook_df.memory_usage(index=False, deep=True))
