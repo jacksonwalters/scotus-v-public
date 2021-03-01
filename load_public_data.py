@@ -11,16 +11,6 @@ import pandas as pd
 
 PATH = ".\\data\\anes\\"
 
-#data types
-DATA_TYPES_FILENAME = 'data_types.csv'
-DATA_TYPES_PATH = os.path.join(PATH,DATA_TYPES_FILENAME)
-def anes_data_types():
-    #build dict of data types from csv.
-    with open(DATA_TYPES_PATH, mode='r') as infile:
-        reader = csv.reader(infile)
-        data_types = {rows[0]:rows[1] for rows in reader}
-    return data_types
-
 #load ANES public opinion data
 ANES_DATA_FILENAME = 'anes_timeseries_cdf.dta'
 ANES_DATA_PATH = os.path.join(PATH,ANES_DATA_FILENAME)
