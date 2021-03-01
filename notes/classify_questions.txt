@@ -1,15 +1,6 @@
-will classify vcf_codes which have both a question and a response. 
-
-for questions:
+each vcf_code has a question which will be classified into 1 of 3 categories:
 
 +1 = Affirmative answer indicates LIBERAL
 0 = neutral/undecidable
 -1 = Affirmative answer indicates CONSERVATIVE
-
-for responses:
-
-YES-NO = {"Yes", "No"}
-THERMOMETER = [0,100]
-AGREE-SCALE = {"strongly agree", "agree", "neutral", "disagree", "strongly disagree"}
-...
 

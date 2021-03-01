@@ -1,0 +1,7 @@
+each vcf_code has a set of possible responses. will label their types.
+
+YES-NO = {"Yes", "No"}
+THERMOMETER = [0,100]
+NUMERIC_MIN_MAX = {MIN, ..., MAX}
+AGREE-SCALE = {"strongly agree", "agree", "neutral", "disagree", "strongly disagree"}
+...
