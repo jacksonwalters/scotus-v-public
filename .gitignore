@@ -2,7 +2,6 @@ __pycache__/
 data/anes/codebook/anes_timeseries_cdf_codebook_app.txt
 data/anes/codebook/anes_timeseries_cdf_codebook_int.txt
 data/anes/codebook/anes_timeseries_cdf_codebook_var.txt
-data/anes/codebook/formatted_codebook.csv
 data/anes/anes_timeseries_cdf.dta
 data/scdb/sc_issues.csv
 data/scdb/sc_issues.txt
