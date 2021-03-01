@@ -1,5 +1,5 @@
 __pycache__/
-data/anes/
+data/anes/anes_timeseries_cdf.dta
 data/scdb/
 data/scotus_opinions/
 data/tf-idf/

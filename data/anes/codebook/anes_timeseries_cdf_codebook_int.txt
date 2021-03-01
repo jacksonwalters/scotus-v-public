@@ -1,0 +1,199 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    AMERICAN NATIONAL ELECTION STUDIES
+
+                   TIME SERIES CUMULATIVE DATA FILE 1948-2016
+
+
+
+
+
+
+
+
+                                Sep 10, 2019
+
+
+
+
+
+
+
+
+
+
+
+
+TABLE OF CONTENTS
+
+ 
+Note:  sections in the codebook introduction and codebook appendix can 
+be navigated in the machine-readable files by searching >>
+
+
+CUMULATIVE DATA FILE - GENERAL INTRODUCTION  (this file)
+
+CUMULATIVE DATA FILE VARIABLE DOCUMENTATION    (file anes_timeseries_cdf_codebook_var.txt)
+
+CUMULATIVE DATA FILE APPENDICES   (file anes_timeseries_cdf_codebook_app.txt), containing:
+
+>> WEIGHTS IN THE 2012 RELEASE OF THE CUMULATIVE DATA FILE
+>> 1992 ERRORS IN CONGRESSIONAL DISTRICT ASSIGNMENTS
+>> URBANISM NOTE
+>> ETHNICITY
+>> INCOME
+>> CENSUS OCCUPATION CODES
+   I.   1980 CENSUS OCCUPATION CODES
+   II.  1990 CENSUS OCCUPATION CODES
+>> CENSUS OCCUPATION 71 CATEGORIES
+>> WORK STATUS
+>> PRESTIGE SCORES
+     I.  DUNCAN S.E.I. AND NORC PRESTIGE SCALES 1976-1982
+    II.  1984 DUNCAN S.E.I.
+   III.  OCCUPATION S.E.S SCORES 1966-1974
+>> RELIGION
+     I.  RELIGION 1960-1988,2002
+    II.  RELIGION 1990-LATER, EXC.2002
+   III.  2002 RELIGION NOTE
+>> STATE AND COUNTRY CODES (ICPSR)
+>> COUNTY CODES
+     I.  1956-1960 PSU-COUNTY CODES (VCF0170a)
+    II.  1964-1976 SAMPLING-PSU COUNTY CODES (VCF0170b)
+   III.  1968-1982 ICPSR COUNTY CODES (VCF0170c)
+    IV.  1970,1978-1998 FIPS COUNTY CODES (VCF0170d)
+>> PRESIDENTIAL VOTE DECISION (VCF0712)
+>> MOST IMPORTANT PROBLEM
+     I.  MOST IMPORTANT PROBLEM 1960-1972
+    II.  MOST IMPORTANT PROBLEM 1974-LATER
+>> STATES AND PARTIES OF ELECTIONS/CANDIDATES
+>> 1952-1968 PARTY-CANDIDATE 
+>> 1972-LATER PARTY-CANDIDATE
+
+
+
+
+
+
+
+
+
+
+
+>> CUMULATIVE DATA FILE - GENERAL INTRODUCTION
+
+     The Cumulative Data File consists of variables derived from the 1948-2016
+series of biennial ("time-series") SRC/CPS National Election Studies.
+[NOTE:  No ANES study was conducted in 1950; 1954 was a minor study although
+its data are included here.]
+
+     To produce this dataset, cross-section cases from the time-series
+election studies have been pooled; the total unweighted cross-section N is
+46,226.  (NOTE:  non-cross-section cases from black supplements in 1964, 
+1968 and 1970 are not included in this file.) 
+
+     A variable in the dataset almost always represents a question which
+has been asked in three or more (time-series) studies.  This dataset
+incorporates for specific questions data from all time-series studies in
+which the question was asked in comparable fashion.
+
+     When using variables from this dataset, the analyst should keep the following in mind:  
+
+  1) Question wording has varied over the years.  Where there are 
+     differences in question wording, we have tried to reference them 
+     in the documentation; completeness of this effort, however, cannot
+     be guaranteed. 
+  2) Even if a question is worded identically in successive surveys, its
+     placement in the survey instrument may be different, with unknown (and
+     possibly large) effect. 
+  3) Variables have been recoded to be consistent over time. Questions are not
+     necessarily coded the same way in this dataset as they are in the
+     election study datasets from which they came.
+
+
+
+               THE SAMPLE SIZES FOR ALL YEARS ARE AS FOLLOWS:         
+
+                              Cross-section *
+                           Weighted**  Unweighted  
+                           
+               1948:            --        N=662
+               1952:            --        N=1899  
+               1954:            --        N=1139  
+               1956:            --        N=1762  
+               1958:          N=1822      N=1450  
+               1960:          N=1954      N=1181
+               1962:            --        N=1297
+               1964:            --        N=1571  
+               1966:            --        N=1291 
+               1968:            --        N=1557 
+     type 0*   1970:            --        N=1507 
+     type 1*   1970:          N=835       N=758
+     type 2*   1970:          N=817       N=749
+               1972:            --        N=2705 
+               1974:          N=2523      N=1575 
+               1976:          N=2869.5    N=2248   
+               1978:            --        N=2304  
+               1980:            --        N=1614
+               1982:            --        N=1418
+               1984:            --        N=2257
+               1986:            --        N=2176
+               1988:            --        N=2040
+               1990:            --        N=1980
+               1992:            ****      N=2485
+               1994:            ****      N=1795 
+               1996:            ****      N=1714 
+               1998:            ****      N=1281
+               2000:            ****      N=1807
+               2002:            ****      N=1511
+               2004:            ****      N=1212
+               2008:            ****      N=2322
+               2012:            ****      N=5914 *****
+               2016:            ****      N=4270 *****
+
+
+* 	1970 numbers exclude 73 non-eligible Rs in the original dataset's
+   	cross-section N.  The Cumulative File excludes all non-eligible
+      respondents from its cross-section.  For descriptions of type 0, 
+      type 1, and type 2 variables in 1970, see weight vars VCF0009-
+      VCF0011.
+
+** 	Weighted cross-section Ns are represented in the Guide to Public
+   	Opinion and Electoral Behavior, which was produced using data from 
+      The Cumulative File.  To reproduce the data appearing in the 
+      GPOEB, it is necessary to use appropriate weights (see VCF0009-
+      VCF0011).   
+
+****	Combined sample (face-to-face and internet)
+
+NOTE: Weighting 1994 and later are post-stratified and centered to a mean of 1. 
+
+
+
