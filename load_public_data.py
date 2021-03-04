@@ -12,24 +12,35 @@ import pandas as pd
 PATH = ".\\data\\anes\\"
 
 #load ANES public opinion data
-ANES_DATA_FILENAME = 'anes_timeseries_cdf.dta'
-ANES_DATA_PATH = os.path.join(PATH,ANES_DATA_FILENAME)
+ANES_DATA_PATH = os.path.join(PATH,'anes_timeseries_cdf.dta')
 def anes_opinion_data():
     return pd.read_stata(ANES_DATA_PATH)
 
 #load formatted ANES codebook as df
-CODEBOOK_FILENAME = "codebook/formatted_anes_codebook.csv"
-CODEBOOK_PATH = os.path.join(PATH,CODEBOOK_FILENAME)
+CODEBOOK_PATH = os.path.join(PATH,"codebook/formatted_anes_codebook.csv")
 def anes_codebook():
     return pd.read_csv(CODEBOOK_PATH)
 
+#load list of {-1,0,+1} classified questions as df
+CLASSIFIED_QUES_PATH = os.path.join(PATH,"classified_questions.csv")
+def classified_questions():
+    return pd.read_csv(CLASSIFIED_QUES_PATH,index_col='vcf_code')
+
 #run a sample test
 if __name__ == "__main__":
+    #load data
     anes_opinion_df=anes_opinion_data()
     anes_codebook_df=anes_codebook()
+    anes_class_ques_df=classified_questions()
+    #choose sample subsets
     sample_codes = list(anes_codebook_df["vcf_code"])[:10]
     sample_keys = list(anes_opinion_df)[:10]
+    sample_classified_ques = list(anes_class_ques_df["ques_class"][200:300])
+    #print samples
     print(sample_codes)
     print(sample_keys)
+    print(sample_classified_ques)
+    #print memory usage of data
     print(anes_opinion_df.memory_usage(index=False, deep=True))
     print(anes_codebook_df.memory_usage(index=False, deep=True))
+    print(anes_class_ques_df.memory_usage(index=False, deep=True))
