@@ -1,8 +1,8 @@
+import pandas as pd
 from random import choice
 from search_public_opinions_by_keywords import relevant_questions_anes_df
 from load_public_data import anes_opinion_data
 from example_issues import civil_rights
-import pandas as pd
 
 #ANES code for survey year
 SURVEY_YEAR_VCF_CODE = 'VCF0004'
