@@ -17,22 +17,27 @@ and the magnitude is given by the vote ratio for each case. We normalize to a [-
 scale corresponding to the [LIBERAL,CONSERVATIVE] spectrum, one of many axes.
 
 The public opinion questions have answers which are over a range of values. Typically
-binary, 1-5, or 0-100. The strategy is to take the question and answer and put them
+binary, 1-5, or 0-100. One strategy is to take the question and answer and put them
 together to form a statement, which is easier to analyze for LIBERAL vs. CONSERVATIVE
 sentiment, e.g. Do you support medicare-for-all? 1) Strong Yes 2) Yes ... 5) Strong No.
 maps to 1) I strongly support medicare-for-all which, on a scale of [-1,+1] with -1 being
-LIBERAL, this question/answer pair would map close to a value of -1.
+LIBERAL, this question/answer pair would map close to a value of -1. Putting a question and
+answer together can be performed by a neural network which is trained on a large set of Q/A pairs.
+An RNN or CNN would be best suited to this task.
 
-Putting a question and answer together can be performed by a neural network which is trained
-on a large set of Q/A pairs. An RNN or CNN would be best suited to this task. Further, there
-currently exist trained networks to perform political sentiment analysis on text. I trained
+There currently exist trainable networks to perform political sentiment analysis on text. I trained
 one using tweet data from Donald Trump and AOC from 2018 using [Denny Britz's classifier](https://github.com/jacksonwalters/cnn-text-political-bias-tf),
 and it performed okay. In the intervening years TensorFlow upgraded to v2.0+ and deprecated tf.contrib, which broke this with no easy ability
 to downgrade to TF 1.14. They're encouraging people to use [Keras](https://www.tensorflow.org/tutorials/keras/text_classification_with_hub),
 a higher level toolkit, and use pre-existing datasets or upload their own in a specific format.
 
-In the end, a user puts in a set of keywords to specify an issue, and a plot of public sentiment
-vs. supreme court sentiment over time appears. One can perform regressions and try to determine when
+Rather than combining response text with questions to form statements to analyze, it is easier
+and likely less noisy to simply classify the questions depending on whether an affirmative response
+would be considered liberal. This gives a question orientation. The responses can be scaled directly
+to get the magnitude, and then these are multiplied together to get polarity.
+
+In the end, a user puts in a set of keywords to specify an issue, and a plot of public polarity
+vs. SCOTUS polarity over time appears. One can perform regressions and try to determine when
 opinion might cross a threshold.
 
 - SCOTUS Case & Justice Data: http://scdb.wustl.edu/
