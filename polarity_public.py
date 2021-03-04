@@ -36,7 +36,7 @@ def norm(entry,resp_conv):
     max_mag = max(abs(high),abs(low))  #find absolute max of high & low values
     scale = (lambda x: resp_conv[x] if x in resp_conv.keys() else 0) #create a scale based on conversion dictionary
     if scalable(entry,scale): #check if the entry can be scaled at all
-        return scale(float(entry))/max_mag if max_mag != 0 else 0  #normalize to [-1,1]
+        return scale(float(entry))/max_mag if max_mag != 0 else 0  #normalize to [-1,1] maximum is zero
     else:
         return float('nan')
 
