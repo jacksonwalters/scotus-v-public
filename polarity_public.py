@@ -60,7 +60,8 @@ def resp_convert(q_id):
 #append YES or NO to the question and apply a sigmoid to the output of a sentiment
 #analyzer. for now, it is a placeholder
 def orientation(q_id):
-    return choice([-1,+1])
+    class_ques_df = classified_questions()
+    return class_ques_df.loc[q_id,'ques_class']
 
 #PLACEHOLDER. analyze the polarity of a question+answer/response.
 #merge the question and answer into a statement, and run through
