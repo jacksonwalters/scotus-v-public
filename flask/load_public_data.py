@@ -22,3 +22,7 @@ def public_vocab():
 #load full ANES public opinion responses
 def anes_opinion_data():
     return pd.read_stata("./data/anes/anes_timeseries_cdf.dta")
+
+#load list of {-1,0,+1} classified questions as df
+def classified_questions():
+    return pd.read_csv("./data/anes/classified_questions.csv",index_col='vcf_code')
