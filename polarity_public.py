@@ -31,23 +31,23 @@ def scalable(entry,scale=(lambda x: x)):
 #requires maximum value in col, and dict to convert responses to a scale
 #default scale is just identity function
 def norm(entry,resp_conv):
-    high = max(resp_conv.values())
-    low = min(resp_conv.values())
-    max_mag = max(abs(high),abs(low))
-    scale=(lambda x: resp_conv[x] if x in resp_conv.keys() else 0)
+    high = max(resp_conv.values()) #get maximum value of response conversion dict
+    low = min(resp_conv.values()) #get minimum value of response conversion dict
+    max_mag = max(abs(high),abs(low))  #find absolute max of high & low values
+    scale=(lambda x: resp_conv[x] if x in resp_conv.keys() else 0) #create a scale based on conversion dictionary
     if scalable(entry,scale):
-        return scale(float(entry))/max_mag if max_mag !=0 else 0  #normalize to [-1,1]
+        return scale(float(entry))/max_mag if max_mag != 0 else 0  #normalize to [-1,1]
     else:
         return float('nan')
 
-#get dict(?) of averages for each column by year
+#get pandas series of averages for each column by year
 def scaled_avg_by_year(q_id,rel_ans_df):
     col = rel_ans_df[ [SURVEY_YEAR_VCF_CODE,q_id] ].copy() #get column for q_id. make a deepcopy to avoid reference warnings
     resp_conv=resp_convert(q_id) #get response conversion dictionary
     scale=(lambda x: orientation(q_id)*norm(x,resp_conv)) #construct a function to use as a conversion scale
     col[q_id] = col[q_id].apply(scale) #scale the column of question responses
     ques_yr_avg=col.groupby([SURVEY_YEAR_VCF_CODE])[q_id].mean() #group by year and average
-    return ques_yr_avg #return dict of averages for each column by year
+    return ques_yr_avg #return series of averages for q_id column in rel_ans_df
 
 #PLACEHOLDER. dictionary keeping track of the conversion scales for
 #for every response type for PO questions
@@ -85,7 +85,7 @@ def po_polarity(rel_ques_df,rel_ans_df):
 if __name__ == "__main__":
     keywords=["gay","marriage","lgbt","rights","sodomy"] #example keywords
     rel_ques_df = relevant_questions_anes_df(keywords) #search the relevant q's & return ANES codebook sub-df
-    rel_vcf_codes = [SURVEY_YEAR_VCF_CODE]+list(rel_ques_df['vcf_code'])
+    rel_vcf_codes = [SURVEY_YEAR_VCF_CODE]+list(rel_ques_df['vcf_code']) #list of relevant vcf_code keys including code for question year
     anes_df = anes_opinion_data() #load the full ANES response data
     rel_ans_df = anes_df.filter(items=rel_vcf_codes) #filter the relevant repsonses/answers by VCF code
     polarity=po_polarity(rel_ques_df,rel_ans_df) #dict {year:polarity} for public opinion
