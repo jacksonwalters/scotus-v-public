@@ -34,7 +34,7 @@ def norm(entry,resp_conv):
     high = max(resp_conv.values()) #get maximum value of response conversion dict
     low = min(resp_conv.values()) #get minimum value of response conversion dict
     max_mag = max(abs(high),abs(low))  #find absolute max of high & low values
-    scale = (lambda x: resp_conv[x] if x in resp_conv.keys() else 0) #create a scale based on conversion dictionary
+    scale = (lambda x: resp_conv[x] if x in resp_conv.keys() else float('nan')) #create a scale based on conversion dictionary
     if scalable(entry,scale): #check if the entry can be scaled at all
         return scale(float(entry))/max_mag if max_mag != 0 else 0  #normalize to [-1,1] maximum is zero
     else:
@@ -43,16 +43,22 @@ def norm(entry,resp_conv):
 #get pandas series of averages for each column by year
 def scaled_avg_by_year(q_id,rel_ans_df):
     col = rel_ans_df[ [SURVEY_YEAR_VCF_CODE,q_id] ].copy() #get column for q_id. make a deepcopy to avoid reference warnings
-    resp_conv = resp_convert(q_id) #get response conversion dictionary
-    scale = (lambda x: orientation(q_id)*norm(x,resp_conv)) #construct a function to use as a conversion scale
-    col[q_id] = col[q_id].apply(scale) #scale the column of question responses
+    q_orient = orientation(q_id)
+    resp_conv = resp_convert(q_id,rel_ans_df) #get response conversion dictionary
+    polarity = (lambda x: q_orient*norm(x,resp_conv)) #construct a function to use as a conversion scale
+    col[q_id] = col[q_id].apply(polarity) #scale the column of question responses
     ques_yr_avg = col.groupby([SURVEY_YEAR_VCF_CODE])[q_id].mean() #group by year and average
     return ques_yr_avg #return series of averages for q_id column in rel_ans_df
 
 #PLACEHOLDER. dictionary keeping track of the conversion scales for
 #for every response type for PO questions
-def resp_convert(q_id):
-    return {"":0}
+def resp_convert(q_id,rel_ans_df):
+    if rel_ans_df[q_id].dtype.name == "category":
+        categories = list(anes_df[q_id].cat.categories) #get ordered list of categories
+        resp_dict = {category: 2*(categories.index(category)/(len(categories)-1))-1 for category in categories} #map to [-1,1] based on max/min index
+        return resp_dict
+    else:
+        return {"":0}
 
 #PLACEHOLDER. given a PO question, determine whether an affirmative response would be
 #considered LIBERAL or CONSERVATIVE. this is a binary classifier which
