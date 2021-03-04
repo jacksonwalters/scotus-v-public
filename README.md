@@ -27,8 +27,8 @@ Putting a question and answer together can be performed by a neural network whic
 on a large set of Q/A pairs. An RNN or CNN would be best suited to this task. Further, there
 currently exist trained networks to perform political sentiment analysis on text. I trained
 one using tweet data from Donald Trump and AOC from 2018 using [Denny Britz's classifier](https://github.com/jacksonwalters/cnn-text-political-bias-tf),
-and it performed okay. In the intervening years TensorFlow upgraded to v2.0+ and deprecated tf.contrib. TensorFlow is
-encouraging people to use [Keras](https://www.tensorflow.org/tutorials/keras/text_classification_with_hub),
+and it performed okay. In the intervening years TensorFlow upgraded to v2.0+ and deprecated tf.contrib, which broke this with no easy ability
+to downgrade to TF 1.14. They're encouraging people to use [Keras](https://www.tensorflow.org/tutorials/keras/text_classification_with_hub),
 a higher level toolkit, and use pre-existing datasets or upload their own in a specific format.
 
 In the end, a user puts in a set of keywords to specify an issue, and a plot of public sentiment
