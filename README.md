@@ -26,7 +26,10 @@ LIBERAL, this question/answer pair would map close to a value of -1.
 Putting a question and answer together can be performed by a neural network which is trained
 on a large set of Q/A pairs. An RNN or CNN would be best suited to this task. Further, there
 currently exist trained networks to perform political sentiment analysis on text. I trained
-one using tweet data from Donald Trump and AOC from 2018, and it performed reasonably well.
+one using tweet data from Donald Trump and AOC from 2018 using [Denny Britz's classifier]
+(https://github.com/dennybritz/cnn-text-classification-tf), and it performed okay. In the
+intervening years TensorFlow upgraded to v2.0+ and deprecated tf.contrib. TensorFlow is
+encouraging people to use Keras and upload their own formatted datasets.
 
 In the end, a user puts in a set of keywords to specify an issue, and a plot of public sentiment
 vs. supreme court sentiment over time appears. One can perform regressions and try to determine when
