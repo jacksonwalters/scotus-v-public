@@ -43,9 +43,9 @@ def norm(entry,resp_conv):
 #get pandas series of averages for each column by year
 def scaled_avg_by_year(q_id,rel_ans_df):
     col = rel_ans_df[ [SURVEY_YEAR_VCF_CODE,q_id] ].copy() #get column for q_id. make a deepcopy to avoid reference warnings
-    q_orient = orientation(q_id)
+    q_orientation = orientation(q_id)
     resp_conv = resp_convert(q_id,rel_ans_df) #get response conversion dictionary
-    polarity = (lambda x: q_orient*norm(x,resp_conv)) #construct a function to use as a conversion scale
+    polarity = (lambda x: q_orientation*norm(x,resp_conv)) #construct a function to use as a conversion scale
     col[q_id] = col[q_id].apply(polarity) #scale the column of question responses
     ques_yr_avg = col.groupby([SURVEY_YEAR_VCF_CODE])[q_id].mean() #group by year and average
     return ques_yr_avg #return series of averages for q_id column in rel_ans_df
