@@ -4,7 +4,7 @@ import pandas as pd
 from load_scotus_data import all_scdb_case_data
 from find_scotus_case import find_scdb_case
 
-PATH = ".\\data\\tf-idf\\scotus\\"
+PATH = ".\\data\\tf-idf\\scotus_opinion\\"
 #path for tf-idf matrix
 TFIDF_MATRIX_FILENAME = "tfidf_matrix.npz"
 TFIDF_MATRIX_PATH = os.path.join(PATH,TFIDF_MATRIX_FILENAME)
