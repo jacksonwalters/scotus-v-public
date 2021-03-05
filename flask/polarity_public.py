@@ -30,7 +30,7 @@ def norm(entry,resp_conv):
     high = max(resp_conv.values()) #get maximum value of response conversion dict
     low = min(resp_conv.values()) #get minimum value of response conversion dict
     max_mag = max(abs(high),abs(low))  #find absolute max of high & low values
-    scale = (lambda x: resp_conv[x] if x in resp_conv.keys() else float('nan')) #create a scale based on conversion dictionary
+    scale = (lambda x: resp_conv[x] if x in resp_conv.keys() else 0) #create a scale based on conversion dictionary
     if scalable(entry,scale): #check if the entry can be scaled at all
         return scale(float(entry))/max_mag if max_mag != 0 else 0  #normalize to [-1,1] maximum is zero
     else:
