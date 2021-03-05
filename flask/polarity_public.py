@@ -4,45 +4,14 @@ from load_public_data import anes_opinion_data, classified_questions
 #ANES code for survey year
 SURVEY_YEAR_VCF_CODE = 'VCF0004'
 
-
-#format entry to be float if possible
-def is_num(entry):
-    try:
-        float(entry)
-        return True
-    except ValueError:
-        return False
-
-#check if the entry is scalable
-def scalable(entry,scale=(lambda x: x)):
-    if is_num(entry):
-        try:
-            scale(float(entry))
-            return True
-        except KeyError:
-            return False
-    else: return False
-
-#normalize entry to value in [-1,1]
-#requires maximum value in col, and dict to convert responses to a scale
-#default scale is just identity function
-def norm(entry,resp_conv):
-    high = max(resp_conv.values()) #get maximum value of response conversion dict
-    low = min(resp_conv.values()) #get minimum value of response conversion dict
-    max_mag = max(abs(high),abs(low))  #find absolute max of high & low values
-    scale = (lambda x: resp_conv[x] if x in resp_conv.keys() else 0) #create a scale based on conversion dictionary
-    if scalable(entry,scale): #check if the entry can be scaled at all
-        return scale(float(entry))/max_mag if max_mag != 0 else 0  #normalize to [-1,1] maximum is zero
-    else:
-        return float('nan')
-
 #get pandas series of averages for each column by year
 def scaled_avg_by_year(q_id,rel_ans_df):
     col = rel_ans_df[ [SURVEY_YEAR_VCF_CODE,q_id] ].copy() #get column for q_id. make a deepcopy to avoid reference warnings
+    q_orientation = orientation(q_id) #get the LIB/CONS orientation of the question
     resp_conv = resp_convert(q_id,rel_ans_df) #get response conversion dictionary
-    q_orientation = orientation(q_id)
-    polarity = (lambda x: q_orientation*norm(x,resp_conv)) #construct a function to use as a conversion scale
-    col[q_id] = col[q_id].apply(polarity) #scale the column of question responses
+    magnitude = (lambda x: resp_conv[x] if x in resp_conv.keys() else float('nan')) #create a scale based on conversion dictionary
+    polarity = (lambda x: q_orientation*magnitude(x)) #construct a function to use as a conversion scale
+    col[q_id] = col[q_id].apply(polarity).astype(float) #scale the column of question responses
     ques_yr_avg = col.groupby([SURVEY_YEAR_VCF_CODE])[q_id].mean() #group by year and average
     return ques_yr_avg #return series of averages for q_id column in rel_ans_df
 
