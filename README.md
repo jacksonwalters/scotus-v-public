@@ -1,16 +1,14 @@
 #scotus-v-public
 
-This is a partially completed capstone project I did for a data science fellowship
-with The Data Incubator in Oakland, CA.
+This is the capstone project I did for a data science fellowship with The Data Incubator 
+in Oakland, CA beginning in 2018.
 
-The idea is to compare supreme court opinions and public opinion on issues.
+The idea is to compare supreme court opinions and public opinion on arbitrary issues. 
 
-Public opinion data is pulled from ANES data from 1948-2016. Supreme Court opinions
-are publicly available, and text of those opinions were gathered using an API from
-Free Law Project and the help of Michael Lissner.
-
-The method is to take a set of keyword inputs from the user, and filter relevant
-public opinion questions and supreme court opinions.
+Public opinion questions and responses are pulled from the ANES time series, 1948-2016. 
+Supreme Court opinions are publicly available, and text of those opinions were gathered 
+using an API from Free Law Project and the help of Michael Lissner. In the intervening 
+years, it has become easier to obtain this data as a bulk download from CourtListener.
 
 The SCOTUS opinion data is labeled as being decided in a liberal or conservative direction,
 and the magnitude is given by the vote ratio for each case. We normalize to a [-1,+1]
@@ -36,9 +34,11 @@ and likely less noisy to simply classify the questions depending on whether an a
 would be considered liberal. This gives a question orientation. The responses can be scaled directly
 to get the magnitude, and then these are multiplied together to get polarity.
 
-In the end, a user puts in a set of keywords to specify an issue, and a plot of public polarity
-vs. SCOTUS polarity over time appears. One can perform regressions and try to determine when
-opinion might cross a threshold.
+The user inputs a set of keywords, a search of SCOTUS cases by opinion text and 
+public opinion questions by question text yields a set of relevant cases and questions,
+and the liberal/conservative direction of the decisions and public responses are computed
+resulting in a plot of political polarity for both over time. One can then perform regressions 
+and try to determine when opinion might cross a threshold, etc.
 
 - SCOTUS Case & Justice Data: http://scdb.wustl.edu/
 - SCOTUS Opinions, Free Law Project: https://www.courtlistener.com/api/bulk-info/
