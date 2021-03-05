@@ -21,7 +21,7 @@ def scotus_v_public_plot(sc_polarity=None,po_polarity=None,title="ISSUE"):
     min_year = MIN_YEAR  #minimum year for t-axis on plot
 
     #PUBLIC OPINION
-    if po_polarity is not None:
+    if po_polarity: #check if po_polarity is None *or* an empty dictionary
         x_po=list(po_polarity.keys()) #get public opinion years
         y_po=list(po_polarity.values()) #get public opinion polarity values
         min_year = min(x_po+[min_year]) #update minimum year from public opinion data
@@ -33,7 +33,7 @@ def scotus_v_public_plot(sc_polarity=None,po_polarity=None,title="ISSUE"):
         ax.plot(x_po,f1(x_po),'-b') #plot model for PO data
 
     #SCOTUS OPINIONS
-    if sc_polarity is not None:
+    if sc_polarity: #check if sc_polarity is None *or* an empty dictionary
         x_sc=list(sc_polarity.keys()) #get scotus years
         y_sc=list(sc_polarity.values()) #get scotus polarity values
         min_year = min(x_sc+[min_year]) #update minimum year from scotus data
