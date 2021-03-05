@@ -26,7 +26,7 @@ def scotus_v_public_plot(sc_polarity=None,po_polarity=None,title="ISSUE"):
     min_year = MIN_YEAR  #minimum year for t-axis on plot
 
     #PUBLIC OPINION
-    if po_polarity is not None:
+    if po_polarity:
         x_po=list(po_polarity.keys()) #get public opinion years
         y_po=list(po_polarity.values()) #get public opinion polarity values
         min_year = min(x_po+[min_year]) #update minimum year from public opinion data
@@ -38,7 +38,7 @@ def scotus_v_public_plot(sc_polarity=None,po_polarity=None,title="ISSUE"):
         ax.plot(x_po,f1(x_po),'-b') #plot model for PO data
 
     #SCOTUS OPINIONS
-    if sc_polarity is not None:
+    if sc_polarity:
         x_sc=list(sc_polarity.keys()) #get scotus years
         y_sc=list(sc_polarity.values()) #get scotus polarity values
         min_year = min(x_sc+[min_year]) #update minimum year from scotus data
@@ -66,7 +66,7 @@ def scotus_v_public_plot(sc_polarity=None,po_polarity=None,title="ISSUE"):
     return plot_filename
 
 if __name__ == "__main__":
-    keywords=["civil","rights","black","negro","vote","free"]
+    keywords=["equal"]
     #get scotus polarity dict
     rel_cases=relevant_cases_scdb_df(keywords) #relevant cases from SCDB as df
     sc_polarity=sc_polarity(rel_cases) #scotus opinion polarity dict {year:polarity}
@@ -76,5 +76,6 @@ if __name__ == "__main__":
     anes_df = anes_opinion_data() #load the full ANES response data
     rel_ans_df = anes_df.filter(items=rel_vcf_codes) #filter the relevant repsonses/answers by VCF code
     po_polarity=po_polarity(rel_ques_df,rel_ans_df) #dict {year:polarity} for public opinion
+    print(po_polarity)
     #plot scotus opinions v. public opinions
     scotus_v_public_plot(sc_polarity,po_polarity,title="+".join(keywords))
