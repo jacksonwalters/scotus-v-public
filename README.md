@@ -1,4 +1,4 @@
-#scotus-v-public
+#scotus-v-public-opinion
 
 This is the capstone project I did for a data science fellowship with The Data Incubator 
 in Oakland, CA beginning in 2018.
