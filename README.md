@@ -42,4 +42,4 @@ and try to determine when opinion might cross a threshold, etc.
 
 - SCOTUS Case & Justice Data: http://scdb.wustl.edu/
 - SCOTUS Opinions, Free Law Project: https://www.courtlistener.com/api/bulk-info/
-- PO Data, ANES: https://electionstudies.org/data-center/
+- Public Opinion Data, ANES: https://electionstudies.org/data-center/
