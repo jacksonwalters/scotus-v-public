@@ -17,3 +17,5 @@ data/tf-idf/public_opinion/tfidf_matrix.npz
 data/tf-idf/scotus_opinion/tfidf_cols.csv
 data/tf-idf/scotus_opinion/tfidf_rows.csv
 data/tf-idf/scotus_opinion/tfidf_matrix.npz
+keras_model/assets/
+keras_model/variables/
