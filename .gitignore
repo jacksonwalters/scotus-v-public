@@ -1,4 +1,7 @@
 __pycache__/
+.DS_Store
+data/.DS_Store
+data/anes/.DS_Store
 data/anes/codebook/anes_timeseries_cdf_codebook_app.txt
 data/anes/codebook/anes_timeseries_cdf_codebook_int.txt
 data/anes/codebook/anes_timeseries_cdf_codebook_var.txt
