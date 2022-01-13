@@ -1,20 +1,34 @@
 from tensorflow import keras
-from load_public_data import anes_codebook
+import pandas as pd
+from keras.preprocessing.text import Tokenizer
+from keras.preprocessing.sequence import pad_sequences
+from sklearn.model_selection import train_test_split
+#from load_public_data import anes_codebook
 
-#place number into 3 classes {-1,0,1} based sign or if close to zero
-def classify(q):
-    return 0 if abs(q) <= .1 else q/abs(q)
-
-#PLACEHOLDER. use Keras text classifier
-#https://github.com/tensorflow/docs/blob/master/site/en/tutorials/keras/text_classification_with_hub.ipynb
-#would need to upload formatted data for political bias classification
+#load a CNN binary classifier which is trained on political text data
 if __name__ == "__main__":
-    model = keras.models.load_model('keras_model') #load the trained CNN text classifier
-    examples = ["This movie is great.","This movie is alright.","This movie is bad."] #some examples for IMBD data
-    preds = model.predict(examples) #get numeric predictions
-    print([classify(pred[0]) for pred in preds]) #print classified results
-    #PLACEHOLDER. 'example' for classification of ANES questions
-    codebook_df = anes_codebook()
-    questions = list(codebook_df["question"])
-    preds = model.predict(questions[:10])
-    print([classify(pred[0]) for pred in preds])
+    #load labeled data
+    project_path = '/Users/jacksonwalters/Documents/GitHub/scotus-v-public/'
+    data_path = 'data/training/all_labeled_tweets.txt'
+    file_path = project_path + data_path
+    df = pd.read_csv(file_path, names=['sentence', 'label'], sep='\t')
+    sentences = df['sentence'].values
+    y = df['label'].values  #tweet sentence sentiment labels. 0 = negative, 1 = positive
+    #split the sentences into training data and test data
+    sentences_train, sentences_test, y_train, y_test = train_test_split(sentences, y, test_size=0.25, random_state=1000)
+    #build vectorizer and set padding param
+    tokenizer = Tokenizer(num_words=5000)
+    tokenizer.fit_on_texts(sentences_train)
+    vocab_size = len(tokenizer.word_index) + 1
+    maxlen = 100
+
+    #load the model
+    model = keras.models.load_model('cnn_model')
+
+    #get predictions for some example sentences
+    examples = ["fake news","mike pence","witch hunt","law and order","health care","kamala harris"]
+    X_ex_sent = tokenizer.texts_to_sequences(examples)
+    X_ex_sent = pad_sequences(X_ex_sent, padding='post', maxlen=maxlen)
+    predictions = model.predict(X_ex_sent)
+    pred_dict = {examples[i]:predictions[i][0] for i in range(len(examples))}
+    print(pred_dict)
