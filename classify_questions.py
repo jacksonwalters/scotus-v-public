@@ -3,7 +3,7 @@ import pandas as pd
 from keras.preprocessing.text import Tokenizer
 from keras.preprocessing.sequence import pad_sequences
 from sklearn.model_selection import train_test_split
-#from load_public_data import anes_codebook
+from load_public_data import anes_codebook
 
 #load a CNN binary classifier which is trained on political text data
 if __name__ == "__main__":

@@ -9,7 +9,7 @@
 import os
 import pandas as pd
 
-PATH = ".\\data\\anes\\"
+PATH = "./data/anes/"
 
 #load ANES public opinion data
 ANES_DATA_PATH = os.path.join(PATH,'anes_timeseries_cdf.dta')
