@@ -42,3 +42,4 @@ state and local case data, and supplemented with more public opinion questions.
 - SCOTUS Case & Justice Data: http://scdb.wustl.edu/
 - SCOTUS Opinions, Free Law Project: https://www.courtlistener.com/api/bulk-info/
 - Public Opinion Data, ANES: https://electionstudies.org/data-center/
+- SCOTUS v. American Public Opinion (July 2020): https://www.hks.harvard.edu/faculty-research/policy-topics/democracy-governance/us-supreme-court-v-american-public-opinion
