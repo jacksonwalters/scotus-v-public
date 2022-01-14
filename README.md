@@ -3,7 +3,7 @@
 This is the capstone project I did for a data science fellowship with The Data Incubator
 in Oakland, CA beginning in 2018.
 
-The idea is to compare supreme court opinions and public opinion on arbitrary issues.
+The idea is to compare supreme court opinions and public opinion on arbitrary issues over time.
 
 Public opinion questions and responses are pulled from the ANES time series, 1948-2016.
 Supreme Court opinions are publicly available, and text of those opinions were gathered
