@@ -88,7 +88,7 @@ if __name__ == "__main__":
     plot_history(history)
 
     #test examples
-    ex_sent = "fake news"
+    ex_sent = "conservative feeling"
     X_ex_sent = tokenizer.texts_to_sequences([ex_sent])
     X_ex_sent = pad_sequences(X_ex_sent, padding='post', maxlen=maxlen)
     print(model.predict(X_ex_sent))
