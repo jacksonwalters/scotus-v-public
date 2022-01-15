@@ -29,7 +29,7 @@ classified as +1.
 To perform this classification, I use a neural network with a 1d CNN layer trained
 using the Tensorflow/Keras framework. This performs well on text data as it is
 able to pick out short distance correlations between words. I hand classify a
-subset of the 1,000 or so public opinion questions and (TODO) train the network using
+subset of the 1,000 or so public opinion questions and train the network using
 this dataset. The model is, at present, trained on Trump/Biden tweet data. 
 
 The interface is a Flask webapp. The user inputs a set of keywords, and a TF-IDF search of
