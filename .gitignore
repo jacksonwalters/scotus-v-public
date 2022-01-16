@@ -22,3 +22,5 @@ data/tf-idf/scotus_opinion/tfidf_rows.csv
 data/tf-idf/scotus_opinion/tfidf_matrix.npz
 cnn_model/assets/
 cnn_model/variables/
+cnn_model/variables/variables.data-00000-of-00001
+cnn_model/variables/variables.index
