@@ -30,7 +30,7 @@ To perform this classification, I use a neural network with a 1d CNN layer train
 using the Tensorflow/Keras framework. This performs well on text data as it is
 able to pick out short distance correlations between words. I hand classify a
 subset of the 1,000 or so public opinion questions and train the network using
-this dataset. The model is, at present, trained on Trump/Biden tweet data. 
+this dataset. Ideally, all questions would be labeled.
 
 The interface is a Flask webapp. The user inputs a set of keywords, and a TF-IDF search of
 SCOTUS cases by opinion text and public opinion questions by question text yields a set of relevant cases and questions. The liberal/conservative direction of SCOTUS opinion and public opinion are computed resulting in a plot of ideological polarity for both over time. One can then perform regressions and try to determine when opinion might cross a threshold, etc.
