@@ -24,7 +24,7 @@ the questions themselves to determine liberal/conservative direction {-1,+1}, an
 use the responses to gauge the magnitude. The subtlety is you must pick an orientation,
 i.e. the classification is telling you that an *affirmative/yes/agree/warm feeling*
 response to the question at hand indicates a liberal sentiment, and should be
-classified as +1. In mathematics, orientation is up to the practitioner.
+classified as +1. In mathematics, orientation is an element of Z/2Z.
 
 To perform this classification, I use a neural network with a 1d CNN layer trained
 using the Tensorflow/Keras framework. This performs well on text data as it is
