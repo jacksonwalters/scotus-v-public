@@ -1,15 +1,8 @@
 import scipy.sparse
 import pandas as pd
-import mysql.connector
 
 #load scotus tfidf matrix
 def scotus_tfidf_matrix():
-    # Creating connection object
-    mydb = mysql.connector.connect(
-    	host = "localhost",
-    	user = "example_user",
-    	password = "ColorfulLove19#"
-    )
     return scipy.sparse.load_npz("./data/tf-idf/scotus_opinion/tfidf_matrix.npz")
 
 #load {row index : opinion id} mapping for scotus opinions
