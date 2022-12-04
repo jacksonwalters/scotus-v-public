@@ -9,7 +9,7 @@ import scipy.sparse
 mydb = mysql.connector.connect(
     host = "localhost",
     user = "jackson",
-    password = "ColorfulLove19#"",
+    password = "ColorfulLove19#",
     database = "scvpo"
 )
 
