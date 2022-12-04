@@ -19,9 +19,3 @@ for row,col in zip(rows,cols):
     print(row,col,scotus_tfidf_sparse_matrix[row,col])
     mycursor.execute("INSERT INTO scvpo.tfidf_scotus_opinions (row_index,col_index,tfidf_value) \
     VALUES ({row_index},{col_index},{tfidf_value});".format(row_index=row,col_index=col,tfidf_value=scotus_tfidf_sparse_matrix[row,col]))
-
-#print the values in the table tfidf_scotus_opinions
-mycursor.execute("SELECT * FROM tfidf_scotus_opinions")
-myresult = mycursor.fetchall()
-for x in myresult:
-  print(x)
