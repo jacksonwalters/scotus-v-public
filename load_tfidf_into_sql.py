@@ -3,12 +3,14 @@ import scipy.sparse
 
 #scotus_tfidf_sparse_matrix = scipy.sparse.load_npz("./data/tf-idf/scotus_opinion/tfidf_matrix.npz")
 
+#sql_password = input("Enter MySQL password: ")
+
 # Creating connection object
 mydb = mysql.connector.connect(
     host = "localhost",
-    user = "example_user",
-    password = "ColorfulLove19#",
-    database = "example_database"
+    user = "jackson",
+    password = ColorfulLove19#,
+    database = "scvpo"
 )
 
 print(mydb)
@@ -20,7 +22,7 @@ mycursor.execute("SHOW DATABASES")
 for x in mycursor:
   print(x)
 
-mycursor.execute("SELECT * FROM todo_list")
+mycursor.execute("SELECT * FROM tfidf_scotus_opinions")
 
 myresult = mycursor.fetchall()
 
