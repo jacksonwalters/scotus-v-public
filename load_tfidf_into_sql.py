@@ -9,7 +9,6 @@ mydb = mysql.connector.connect(
     password = "ColorfulLove19#",
     database = "scvpo"
 )
-
 mycursor = mydb.cursor()
 
 #insert sparse matrix in sql database
