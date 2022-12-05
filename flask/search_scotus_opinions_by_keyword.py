@@ -2,7 +2,7 @@ import pandas as pd
 from find_scotus_case import find_scdb_case
 
 #find list of relevant cases given set of keywords
-def relevant_cases_by_opin_id(keywords,scotus_vocab,scotus_tfidf_matrix,scotus_opin_id):
+def relevant_cases_by_opin_id(keywords,scotus_vocab,scotus_tfidf_db_cursor,scotus_opin_id):
     keyword_ind = [scotus_vocab.index(keyword) for keyword in keywords if keyword in scotus_vocab]
 
     #score each opinion (row) based on keywords appearing
@@ -10,7 +10,11 @@ def relevant_cases_by_opin_id(keywords,scotus_vocab,scotus_tfidf_matrix,scotus_o
     num_opinions = scotus_tfidf_matrix.shape[0]
     scores = []
     for row in range(num_opinions):
-        score = sum(scotus_tfidf_matrix[row,ind] for ind in keyword_ind)
+        score = 0
+        for ind in keyword_ind:
+            scotus_tfidf_db_cursor.execute("SELECT tfidf_value FROM scvpo.tfidf_scotus_opinions WHERE row_index={row} AND col_index={col};".format(row_index=row,col_index=ind))
+            tfidf_value = scotus_tfidf_db_cursor.fetchall()
+            score += tfidf_value[0]
         if score != 0:
             scores.append( (row,score) )
 
