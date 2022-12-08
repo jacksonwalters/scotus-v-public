@@ -7,7 +7,7 @@ from search_public_opinions_by_keyword import relevant_questions_anes_df
 from polarity_scotus import sc_polarity
 from polarity_public import po_polarity
 from plot import scotus_v_public_plot
-import mysql.connector
+#import mysql.connector
 
 #set up Flask app
 app = Flask(__name__)
@@ -16,6 +16,7 @@ SURVEY_YEAR_VCF_CODE = 'VCF0004' #ANES code for survey year
 
 #Create MySQL connection object to database
 #sql_password = input("Enter MySQL password: ")
+"""
 mydb = mysql.connector.connect(
     host = "localhost",
     user = "jackson",
@@ -23,10 +24,11 @@ mydb = mysql.connector.connect(
     database = "scvpo"
 )
 scotus_tfidf_db_cursor = mydb.cursor()
+"""
 
 #load scotus data
 scotus_vocab = scotus_vocab() #load {col index : vocab} mapping for scotus opinions
-#scotus_tfidf_matrix_sparse = scotus_tfidf_matrix() #load scotus tfidf matrix
+scotus_tfidf_matrix_sparse = scotus_tfidf_matrix() #load scotus tfidf matrix
 scotus_opin_id_df = scotus_opin_id() #load {row index : opinion id} mapping for scotus opinions
 all_scdb_case_data=all_scdb_case_data() #get scdb dataframe for all (modern+legacy) cases
 
@@ -47,7 +49,7 @@ def scotus_v_public():
         word3 = form.word3.data.rstrip().lstrip().lower()
         keywords = [word1,word2,word3]
         #search scotus cases via tf-idf of scotus opinion corpus. returns SCDB sub-df.
-        scotus_results = relevant_cases_scdb_df(keywords,scotus_vocab,scotus_tfidf_db_cursor,scotus_opin_id_df,all_scdb_case_data)
+        scotus_results = relevant_cases_scdb_df(keywords,scotus_vocab,scotus_tfidf_matrix_sparse,scotus_opin_id_df,all_scdb_case_data)
         scotus_polarity = None
         #search public opinions via tf-idf of all public opinion questions. returns ANES codebook sub-df
         public_results = relevant_questions_anes_df(keywords,public_vocab,public_tfidf_matrix_sparse,public_opin_id_df,anes_codebook_df)

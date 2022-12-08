@@ -11,6 +11,16 @@ mydb = mysql.connector.connect(
 )
 mycursor = mydb.cursor()
 
+mycursor.execute("SELECT row_index FROM scvpo.tfidf_scotus_opinions ORDER BY row_index DESC LIMIT 1;")
+myresult = mycursor.fetchall()
+print(myresult[0][0])
+
+mycursor.execute("SELECT tfidf_value FROM scvpo.tfidf_scotus_opinions WHERE row_index=0 AND col_index=12313213;")
+myresult = mycursor.fetchall()
+print(len(myresult))
+for x in myresult:
+  print(x[0])
+
 #insert sparse matrix in sql database
 scotus_tfidf_sparse_matrix = scipy.sparse.load_npz("./data/tf-idf/scotus_opinion/tfidf_matrix.npz")
 rows,cols = scotus_tfidf_sparse_matrix.nonzero()
