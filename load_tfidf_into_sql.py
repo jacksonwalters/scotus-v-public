@@ -6,7 +6,7 @@ import scipy.sparse
 mydb = mysql.connector.connect(
     host = "localhost",
     user = "jackson",
-    password = "ColorfulLove19#",
+    password = "your-password-here",
     database = "scvpo"
 )
 mycursor = mydb.cursor()
