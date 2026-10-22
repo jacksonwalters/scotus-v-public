@@ -1,0 +1,15 @@
+{
+  "revision": "880acec67a69766075ddb42882de4722efdeddb2",
+  "files": [
+    {
+      "path": "casesumm/data-00000-of-00002.arrow",
+      "url": "https://huggingface.co/datasets/ChicagoHAI/CaseSumm/resolve/880acec67a69766075ddb42882de4722efdeddb2/data-00000-of-00002.arrow",
+      "sha256": "86d7f1048189946467c3c81e573034d123be73c3ddb1616d6abc6b94a0093653"
+    },
+    {
+      "path": "casesumm/data-00001-of-00002.arrow",
+      "url": "https://huggingface.co/datasets/ChicagoHAI/CaseSumm/resolve/880acec67a69766075ddb42882de4722efdeddb2/data-00001-of-00002.arrow",
+      "sha256": "664c3aafc1abd7c5f7e6a459e99303c9cb023bf0324f0c4fec13a0c97fcccf15"
+    }
+  ]
+}

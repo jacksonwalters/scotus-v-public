@@ -1,0 +1,21 @@
+name: Test
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -r requirements-build.txt
+      - run: python -m unittest discover -s tests -v
+      - run: python -m scvpublic.build --demo --output artifacts/demo.sqlite
+      - run: PYTHONPATH=. python scripts/check_serving.py artifacts/demo.sqlite
+      - run: PYTHONPATH=. python scripts/package_release.py artifacts/demo.sqlite
+      - run: chmod 644 artifacts/demo.sqlite
+      - run: SCVPO_ARTIFACT_PATH=./artifacts/demo.sqlite docker compose up --build -d --wait
+      - run: curl --fail 'http://127.0.0.1:8000/?q1=marriage'
+      - if: always()
+        run: docker compose logs && docker compose down

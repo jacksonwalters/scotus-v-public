@@ -1,45 +1,99 @@
-#scotus-v-public-opinion
+# SCOTUS versus public opinion
 
-This is the capstone project I did for a data science fellowship with The Data Incubator
-in Oakland, CA beginning in 2018.
+A rebuilt 2018 Data Incubator capstone: search Supreme Court opinions and ANES
+survey questions locally, then compare descriptive liberal/conservative trends.
+Flask serves a precomputed SQLite search index; no API or model training runs
+on a request.
 
-The idea is to compare supreme court opinions and public opinion on arbitrary issues over time.
+## Run locally
 
-Public opinion questions and responses are pulled from the ANES time series, 1948-2016.
-Supreme Court opinions are publicly available, and text of those opinions were gathered
-using an API from Free Law Project and the help of Michael Lissner. In the intervening
-years, it has become easier to obtain this data as a bulk download from CourtListener.
+Python 3.12 is required. With the current locally built artifact:
 
-The SCOTUS opinion text data is labeled as being decided in a liberal or conservative direction, and the magnitude is given by the vote ratio for each case. We normalize to a [-1,+1] scale corresponding to the [CONSERVATIVE,LIBERAL] spectrum, one of many axes.
+```sh
+make setup
+make test
+make check-serving
+make serve
+```
 
-The public opinion questions have answers which are over a range of values, e.g. yes/no,
-strongly agree - strongly disagree, a temperature 0-100, etc. We'd like to map a
-(question, answer) pair to a statement whose sentiment can be analyzed. For example,
-Q: "Do you support government subsidized health care?" A: "Yes." should be interpreted
-as a liberal sentiment, +1.
+Open http://127.0.0.1:8000/?q1=abortion. The default artifact is
+`artifacts/casesumm.sqlite`. For a fresh checkout without downloaded data:
 
-Rather than trying to combine the questions and answers into statement sentences and
-map directly to a [-1,+1] scale, it is cleaner to perform a binary classification on
-the questions themselves to determine liberal/conservative direction {-1,+1}, and then
-use the responses to gauge the magnitude. The subtlety is you must pick an orientation,
-i.e. the classification is telling you that an *affirmative/yes/agree/warm feeling*
-response to the question at hand indicates a liberal sentiment, and should be
-classified as +1. In mathematics, orientation is an element of Z/2Z.
+```sh
+make setup
+make demo
+make serve ARTIFACT=artifacts/demo.sqlite
+```
 
-To perform this classification, I use a neural network with a 1d CNN layer trained
-using the Tensorflow/Keras framework. This performs well on text data as it is
-able to pick out short distance correlations between words. I hand classify a
-subset of the 1,000 or so public opinion questions and train the network using
-this dataset. Ideally, all questions would be labeled.
+Demo data are synthetic. For serving alone, install `requirements.txt`; `make
+setup` installs the larger build dependencies including Arrow.
 
-The interface is a Flask webapp. The user inputs a set of keywords, and a TF-IDF search of
-SCOTUS cases by opinion text and public opinion questions by question text yields a set of relevant cases and questions. The liberal/conservative direction of SCOTUS opinion and public opinion are computed resulting in a plot of ideological polarity for both over time. One can then perform regressions and try to determine when opinion might cross a threshold, etc.
+## Rebuild the data
 
-Of course, with more data the resulting plots will be more informative, and likely become
-rather jagged, like a stock market tracker. These data could be filled in with relevant
-state and local case data, and supplemented with more public opinion questions.
+See [CaseSumm acquisition and matching](docs/CASESUMM_REVIEW.md) and
+[ANES mappings](docs/ANES_REVIEW.md) for source versions, download instructions,
+checksums and exclusions. Raw downloads and generated artifacts are ignored by
+Git. Keep the source archives and build manifests for reproducibility.
 
-- SCOTUS Case & Justice Data: http://scdb.wustl.edu/
-- SCOTUS Opinions, Free Law Project: https://www.courtlistener.com/api/bulk-info/
-- Public Opinion Data, ANES: https://electionstudies.org/data-center/
-- SCOTUS v. American Public Opinion (July 2020): https://www.hks.harvard.edu/faculty-research/policy-topics/democracy-governance/us-supreme-court-v-american-public-opinion
+The current workflow, once those raw sources are present, is:
+
+```sh
+make public       # ANES respondents + reviewed response mappings -> public.json
+make casesumm     # CaseSumm opinions + SCDB votes + public.json -> SQLite
+make inspect
+make check-serving
+```
+
+CaseSumm refuses to overwrite its index bundle. For another complete build use
+`python -m scvpublic.casesumm --bundle artifacts/casesumm-index-v2 --output
+artifacts/casesumm-v2.sqlite`. To update only ANES, use `make refresh-public`,
+then restart the serving process. Build on a workstation, not the VPS.
+`make build` is the historical pipeline and requires its original inputs;
+it does not produce the current reviewed ANES methodology.
+
+The current artifact contains 7,018 matched cases from 1950–2016 and 127 ANES
+variables in 98 question families. ANES observations extend beyond Court
+coverage. Not every ANES variable measures a political attitude; some included
+measures are explicitly labeled partisan or movement proxies.
+
+## Methodology
+
+Search sums TF-IDF weights and returns up to ten results per corpus. Phrases
+are split into words; public searches also boost adjacent bigrams. This is
+partial-word-set matching, not an exact phrase requirement. Very common Court
+terms removed during TF-IDF construction may return no Court results.
+
+SCDB direction supplies the sign of the Court score, multiplied by the absolute
+vote margin divided by total votes. CaseSumm matches use citations or unique
+term/docket identifiers; ambiguous records are excluded. The historical Court
+aggregation still keeps the last ranked case for each year. This limitation is
+preserved rather than silently changing the original comparison.
+
+ANES response codes have explicit reviewed mappings to [-1, 1], with +1 liberal.
+Missing answers are excluded and documented survey weights applied. Retrieved
+variants are deduplicated by question family per year; selected comparative
+indices supersede their components. Question-family means are equally weighted
+in the displayed public series. Trend lines are descriptive linear fits, not
+causal estimates or a validated general ideology measure.
+
+## Code layout
+
+- `scvpublic/anes.py`, `public.py`, `casesumm.py`: offline processing and builds.
+- `scvpublic/store.py`, `web.py`, `chart.py`: read-only search and Flask serving.
+- `scripts/`: source audits, mapping maintenance, release and acceptance tools.
+- `deploy/`: systemd and Nginx configuration for `svp.walterslabs.dev`.
+- `tests/`: scoring, acquisition, matching, search and request regression tests.
+
+Original root scripts and notebooks are retained as historical references.
+The CNN is not used by the rebuilt pipeline.
+
+## Deployment
+
+Run `make release` to check the real artifact and produce an allowlisted bundle.
+See [deployment and rollback](docs/DEPLOYMENT.md) for the existing Ubuntu/Nginx
+VPS, or the optional Docker route. Only pinned serving dependencies and the
+precomputed index are needed at runtime.
+
+Project code uses [LICENSE](LICENSE). Data retain their own terms. CaseSumm's
+published license statements conflict; resolve those terms before public
+hosting of the derived artifact (details in the CaseSumm review).

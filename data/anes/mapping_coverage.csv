@@ -1,0 +1,1031 @@
+code,description,status,family,reason
+VCF0004,Year of Study,administrative,,"Survey administration, identifier, weight, or interviewer assessment; not a respondent policy position."
+VCF0006,Study Respondent Number: Year-level Case ID,administrative,,"Survey administration, identifier, weight, or interviewer assessment; not a respondent policy position."
+VCF0006a,Unique Respondent Number (Cross-year ID for panel cases),administrative,,"Survey administration, identifier, weight, or interviewer assessment; not a respondent policy position."
+VCF0009x,"Weight: For 1970 type 0 - 2012, 2016, 2024 FTF sample",administrative,,"Survey administration, identifier, weight, or interviewer assessment; not a respondent policy position."
+VCF0009y,"Weight: For 1970 type 0 - 2012, 2016, 2024 Web sample",administrative,,"Survey administration, identifier, weight, or interviewer assessment; not a respondent policy position."
+VCF0009z,Weight: For 1970 type 0 - 2012-2024 full sample,administrative,,"Survey administration, identifier, weight, or interviewer assessment; not a respondent policy position."
+VCF0010x,"Weight: For 1970 type 1 - 2012, 2016, 2024 FTF sample",administrative,,"Survey administration, identifier, weight, or interviewer assessment; not a respondent policy position."
+VCF0010y,"Weight: For 1970 type 1 - 2012, 2016, 2024 Web sample",administrative,,"Survey administration, identifier, weight, or interviewer assessment; not a respondent policy position."
+VCF0010z,Weight: For 1970 type 1 - 2012-2024 full sample,administrative,,"Survey administration, identifier, weight, or interviewer assessment; not a respondent policy position."
+VCF0011x,"Weight: For 1970 type 2 - 2012, 2016, 2024 FTF sample",administrative,,"Survey administration, identifier, weight, or interviewer assessment; not a respondent policy position."
+VCF0011y,"Weight: For 1970 type 2 - 2012, 2016, 2024 Web sample",administrative,,"Survey administration, identifier, weight, or interviewer assessment; not a respondent policy position."
+VCF0011z,Weight: For 1970 type 2 - 2012-2024 full sample,administrative,,"Survey administration, identifier, weight, or interviewer assessment; not a respondent policy position."
+VCF0012,Form Filter for Paper Questionnaires,administrative,,"Survey administration, identifier, weight, or interviewer assessment; not a respondent policy position."
+VCF0013,Completion - Post-election (flag),administrative,,"Survey administration, identifier, weight, or interviewer assessment; not a respondent policy position."
+VCF0014,Completion - Pre-election (flag),administrative,,"Survey administration, identifier, weight, or interviewer assessment; not a respondent policy position."
+VCF0015a,Abbreviated Interview - Pre,administrative,,"Survey administration, identifier, weight, or interviewer assessment; not a respondent policy position."
+VCF0015b,Abbreviated Interview - Post,administrative,,"Survey administration, identifier, weight, or interviewer assessment; not a respondent policy position."
+VCF0016,Cross-section composition: fresh Cross or panel case,administrative,,"Survey administration, identifier, weight, or interviewer assessment; not a respondent policy position."
+VCF0017,Mode of Interview,administrative,,"Survey administration, identifier, weight, or interviewer assessment; not a respondent policy position."
+VCF0018a,Language of Interview - Pre,administrative,,"Survey administration, identifier, weight, or interviewer assessment; not a respondent policy position."
+VCF0018b,Language of Interview - Post,administrative,,"Survey administration, identifier, weight, or interviewer assessment; not a respondent policy position."
+VCF0019,R Relationship to Head of HH 1952-1986,administrative,,"Survey administration, identifier, weight, or interviewer assessment; not a respondent policy position."
+VCF0050a,Respondent Level of Political Info - Pre,administrative,,"Survey administration, identifier, weight, or interviewer assessment; not a respondent policy position."
+VCF0050b,Respondent Level of Political Info - Post,administrative,,"Survey administration, identifier, weight, or interviewer assessment; not a respondent policy position."
+VCF0070a,Interviewer Gender - Pre,administrative,,"Survey administration, identifier, weight, or interviewer assessment; not a respondent policy position."
+VCF0070b,Interviewer Gender - Post,administrative,,"Survey administration, identifier, weight, or interviewer assessment; not a respondent policy position."
+VCF0071a,Interviewer Race Full - Pre,administrative,,"Survey administration, identifier, weight, or interviewer assessment; not a respondent policy position."
+VCF0071b,Interviewer Race Full - Post,administrative,,"Survey administration, identifier, weight, or interviewer assessment; not a respondent policy position."
+VCF0071c,Interviewer Race 2-category - Pre,administrative,,"Survey administration, identifier, weight, or interviewer assessment; not a respondent policy position."
+VCF0071d,Interviewer Race 2-category - Post,administrative,,"Survey administration, identifier, weight, or interviewer assessment; not a respondent policy position."
+VCF0072a,Interviewer Ethnicity - Pre,administrative,,"Survey administration, identifier, weight, or interviewer assessment; not a respondent policy position."
+VCF0072b,Interviewer Ethnicity - Post,administrative,,"Survey administration, identifier, weight, or interviewer assessment; not a respondent policy position."
+VCF0101,Respondent - Age,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0102,Respondent - Age Group,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0103,Respondent - Cohort,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0104,Respondent - Gender,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0105a,"Race-ethnicity summary, 7 categories",personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0105b,"Race-ethnicity summary, 4 categories",personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0106,"Race summary, 3 categories",personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0107,Respondent - Hispanic Origin Type,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0108,Respondent - Hispanic Origin,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0109,Respondent - Ethnicity,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0110,Respondent - Education 4-category,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0111,Urbanism,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0112,Census Region,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0113,Political South/Nonsouth,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0114,Respondent Family - Income Group,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0115,Respondent - Occupation Group 6-category,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0116,Respondent - Work Status 7-category,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0117,Head of HH - Work Status 7-category 1948-1986,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0118,Respondent - Work Status 5-category,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0119,Head of HH - Work Status 5-category 1952-1986,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0120,Respondent - Prestige Score S.E.I. Rank 1976-1984,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0121,Head of HH - Prestige Score S.E.I. Rank 1976-1984,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0122,Respondent - Prestige Score NORC Rank 1976-1982,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0123,Head of HH - Prestige Score NORC Rank 1976-1982,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0124,Respondent - Prestige Score S.E.S. Rank 1968-1974,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0125,Head of HH - Prestige Score S.E.S. Rank 1968-1974,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0126,Father of Respondent - Occupation 5-category 1952-1996,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0126a,Father of Respondent Occupation 8-category 1970-1976,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0126b,"Father of Respondent - Occupation Group 1978-1982,1996",personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0126c,"Father of Respondent - Occupation Group 1984-1988,1992",personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0127,Household - Union Membership,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0127a,Household - Who Belongs to Union 8-category,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0127b,Household - Who Belongs to Union 4-category,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0128,Respondent - Religion Major Group,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0128a,Respondent - Religion 7-category 1960-1988,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0128b,Respondent - Religion 8-category 1990-1996,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0129,"Respondent - Religion Full Code 1960-1988,2002",personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0130,Respondent - Church Attendance 1970-,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0130a,Respondent - Church Attendance 1990-,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0131,Respondent - Church Attendance 1952-1968,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0132,Respondent - Where Grew Up: State 1968-,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0133,Respondent - Where Grew Up: State 1952-1966,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0134,"Respondent - Where Grew Up: Farm 1952-1994,2000",personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0135,"Respondent - Where Grew Up: Large City 1952-1994,2000",personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0136,Respondent - Where Grew Up: Urbanism 1956-1976,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0137,Respondent - Where Grew Up: Urbanism 1978-2000,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0138,Number of Children in family,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0138a,Number Children Under Age 6 in HH,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0138b,Number Children Ages 6-9 in HH,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0138c,Number Children Ages 10-13 in HH,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0138d,Number Children Ages 14-17 in HH,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0138e,Age Youngest Child in HH,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0139,Respondent - How Many Children Does R Have,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0140,Respondent - Education 6-category,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0140a,Respondent - Education 7-category,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0141,Head of HH - Education 6-category 1962-1986,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0142,Respondent - Place of Birth,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0143,Respondent Parents - Native Born,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0144,Respondent Father - Where Born,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0145,Respondent Mother - Where Born,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0146,Respondent Family - Home Ownership,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0147,Respondent - Marital Status,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0148,Respondent - Social Class 8-category,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0148a,Respondent - Average or Upper Middle/Working Class,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0149,Respondent - Think of Self as Member of Social Class,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0150,Respondent - Work Status 16-category,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0151,Respondent - Occupation Group 5-Category,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0152,Respondent - Religion Full Code 1990-,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0153a,Mother of Respondent - Occupation 8-category 1970-1976,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0153b,Mother of Respondent - Occupation Group 1978-1982,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0153c,Mother of Respondent - Occupation Group 1984-1988,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0154a,Respondent - Occupation 71-category,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0154b,Respondent - Occupation 14-category,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0155,Respondent - Worried about Find/Losing Job,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0156,Respondent - Working R Laid off Last 6 Months,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0157,Respondent - Working R Hours Reduced/Cut in Pay,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0170a,County of IW 1956-1960,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0170b,County of IW 1964-1976,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0170c,County of IW 1968-1982,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0170d,"County of IW 1970,1978-1998",personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0201,Thermometer - Democrats,mapped,dem_thermometer,Warmth toward the named partisan/ideological group; 97 top-coded to 100.
+VCF0202,Thermometer - Republicans,mapped,rep_thermometer,Warmth toward the named partisan/ideological group; 97 top-coded to 100.
+VCF0203,Thermometer - Protestants,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0204,Thermometer - Catholics,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0205,Thermometer - Jews,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0206,Thermometer - Blacks,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0207,Thermometer - Whites,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0208,Thermometer - Southerners,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0209,Thermometer - Big Business,mapped,business_affect,Movement/economic-group affect proxy using the historical project orientation; warmth is not a direct policy position.
+VCF0210,Thermometer - Labor Unions,mapped,union_affect,Movement/economic-group affect proxy using the historical project orientation; warmth is not a direct policy position.
+VCF0211,Thermometer - Liberals,mapped,liberal_thermometer,Warmth toward the named partisan/ideological group; 97 top-coded to 100.
+VCF0212,Thermometer - Conservatives,mapped,conservative_thermometer,Warmth toward the named partisan/ideological group; 97 top-coded to 100.
+VCF0213,Thermometer - Military,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0214,Thermometer - Policemen/Police,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0215,Thermometer - Black Militants,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0216,Thermometer - Civil Rights Leaders,mapped,civil_rights_affect,Movement/economic-group affect proxy using the historical project orientation; warmth is not a direct policy position.
+VCF0217,Thermometer - Chicanos/Hispanics,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0218,Thermometer - Democratic Party,mapped,dem_thermometer,Warmth toward the named partisan/ideological group; 97 top-coded to 100.
+VCF0219,Thermometer - Middle Class People,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0220,Thermometer - People on Welfare,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0221,Thermometer - Political Independents,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0222,Thermometer - Political Parties,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0223,Thermometer - Poor People,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0224,Thermometer - Republican Party,mapped,rep_thermometer,Warmth toward the named partisan/ideological group; 97 top-coded to 100.
+VCF0225,Thermometer - Womens Libbers,mapped,feminist_affect,Movement/economic-group affect proxy using the historical project orientation; warmth is not a direct policy position.
+VCF0226,Thermometer - Young People,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0227,Thermometer - Asian-Americans,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0228,Thermometer - Congress,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0229,Thermometer - Environmentalists,mapped,environmentalist_affect,Movement/economic-group affect proxy using the historical project orientation; warmth is not a direct policy position.
+VCF0230,Thermometer - Anti-Abortionists,mapped,anti_abortion_affect,Movement/economic-group affect proxy using the historical project orientation; warmth is not a direct policy position.
+VCF0231,Thermometer - Federal Government,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0232,Thermometer - Gays and Lesbians,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0233,Thermometer - Illegal Aliens,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0234,Thermometer - Christian Fundamentalists,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0235,Thermometer - Radical Students,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0236,Thermometer - Farmers,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0253,Thermometer - Feminists,mapped,feminist_affect,Movement/economic-group affect proxy using the historical project orientation; warmth is not a direct policy position.
+VCF0290,Thermometer Average - Major Parties,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0291,Thermometer Index - Major Parties,mapped,comparative_party_affect,Comparative partisan thermometer index: preserve 50 as neutral; (code-50)/50.
+VCF0301,Party Identification of Respondent- 7-point Scale,mapped,party_identification,"Explicit party-identification proxy: Democrat positive, Republican negative; not direct policy opinion."
+VCF0302,Party Identification of Respondent- Initial Party ID Response,partisan_variant,,Nominal initial response or strength-only measure; use the mapped 7-point party-identification summary.
+VCF0303,Party Identification of Respondent- Summary 3-Category,mapped,party_identification,"Collapsed party-identification proxy: Democrat positive, Republican negative."
+VCF0305,Party Identification of Respondent- Strength of Partisanship,partisan_variant,,Nominal initial response or strength-only measure; use the mapped 7-point party-identification summary.
+VCF0306,Party Identification of Respondent's Father,family_or_interest,,Parental political affiliation or political interest/attention is not the respondent’s directional policy preference.
+VCF0307,Party Identification of Respondent's Mother,family_or_interest,,Parental political affiliation or political interest/attention is not the respondent’s directional policy preference.
+VCF0308,Political Interest of Respondent's Father,family_or_interest,,Parental political affiliation or political interest/attention is not the respondent’s directional policy preference.
+VCF0309,Political Interest of Respondent's Mother,family_or_interest,,Parental political affiliation or political interest/attention is not the respondent’s directional policy preference.
+VCF0310,Interest in the Elections,family_or_interest,,Parental political affiliation or political interest/attention is not the respondent’s directional policy preference.
+VCF0311,Does Respondent Care Which Party Wins Presidential Election,family_or_interest,,Parental political affiliation or political interest/attention is not the respondent’s directional policy preference.
+VCF0312,Respondent Care(d) Which Party Wins Congressional Election,family_or_interest,,Parental political affiliation or political interest/attention is not the respondent’s directional policy preference.
+VCF0313,Interest in Public Affairs,family_or_interest,,Parental political affiliation or political interest/attention is not the respondent’s directional policy preference.
+VCF0314,Democratic Party: Respondent Likes - Number of Mentions,salience,,Attention or number of reasons mentioned does not encode liberal/conservative direction.
+VCF0315,Democratic Party: Respondent Dislikes - Number of Mentions,salience,,Attention or number of reasons mentioned does not encode liberal/conservative direction.
+VCF0316,Democratic Party: Affect (Likes-Dislikes),derived_affect,,Derived party/candidate affect index; avoid duplicating direct feeling ratings without validating its construction.
+VCF0317,Democratic Party: Salience (Likes-Dislikes),salience,,Attention or number of reasons mentioned does not encode liberal/conservative direction.
+VCF0318,Republican Party: Respondent Likes - Number of Mentions,salience,,Attention or number of reasons mentioned does not encode liberal/conservative direction.
+VCF0319,Republican Party: Respondent Dislikes - Number of Mentions,salience,,Attention or number of reasons mentioned does not encode liberal/conservative direction.
+VCF0320,Republican Party: Affect (Likes-Dislikes),derived_affect,,Derived party/candidate affect index; avoid duplicating direct feeling ratings without validating its construction.
+VCF0321,Republican Party: Salience (Likes-Dislikes),salience,,Attention or number of reasons mentioned does not encode liberal/conservative direction.
+VCF0322,Major Parties: Affect (Likes-Dislikes),derived_affect,,Derived party/candidate affect index; avoid duplicating direct feeling ratings without validating its construction.
+VCF0323,Major Parties: Salience (Likes-Dislikes),salience,,Attention or number of reasons mentioned does not encode liberal/conservative direction.
+VCF0324,Major Parties: Relative Salience (Likes-Dislikes),salience,,Attention or number of reasons mentioned does not encode liberal/conservative direction.
+VCF0338,President- Intelligent,candidate_traits,,"Candidate competence, character or emotional reaction is not a direct ideological stance; excluded from topic policy averages."
+VCF0339,President- Compassionate,candidate_traits,,"Candidate competence, character or emotional reaction is not a direct ideological stance; excluded from topic policy averages."
+VCF0340,President- Decent,candidate_traits,,"Candidate competence, character or emotional reaction is not a direct ideological stance; excluded from topic policy averages."
+VCF0341,President- Inspiring,candidate_traits,,"Candidate competence, character or emotional reaction is not a direct ideological stance; excluded from topic policy averages."
+VCF0342,President- Knowledgeable,candidate_traits,,"Candidate competence, character or emotional reaction is not a direct ideological stance; excluded from topic policy averages."
+VCF0343,President- Moral,candidate_traits,,"Candidate competence, character or emotional reaction is not a direct ideological stance; excluded from topic policy averages."
+VCF0344,President- Leadership,candidate_traits,,"Candidate competence, character or emotional reaction is not a direct ideological stance; excluded from topic policy averages."
+VCF0345,President- Cares,candidate_traits,,"Candidate competence, character or emotional reaction is not a direct ideological stance; excluded from topic policy averages."
+VCF0346,President- Angry,candidate_traits,,"Candidate competence, character or emotional reaction is not a direct ideological stance; excluded from topic policy averages."
+VCF0347,President- Afraid,candidate_traits,,"Candidate competence, character or emotional reaction is not a direct ideological stance; excluded from topic policy averages."
+VCF0348,President- Hopeful,candidate_traits,,"Candidate competence, character or emotional reaction is not a direct ideological stance; excluded from topic policy averages."
+VCF0349,President- Proud,candidate_traits,,"Candidate competence, character or emotional reaction is not a direct ideological stance; excluded from topic policy averages."
+VCF0350,Democratic Presidential Cand- Intelligent,mapped,dem_candidate_intelligence,Partisan candidate-trait proxy: favorable Democratic assessment positive; favorable Republican assessment negative.
+VCF0351,Democratic Presidential Cand- Compassionate,mapped,dem_candidate_compassion,Partisan candidate-trait proxy: favorable Democratic assessment positive; favorable Republican assessment negative.
+VCF0352,Democratic Presidential Cand- Decent,mapped,dem_candidate_decency,Partisan candidate-trait proxy: favorable Democratic assessment positive; favorable Republican assessment negative.
+VCF0353,Democratic Presidential Cand- Inspiring,mapped,dem_candidate_inspiration,Partisan candidate-trait proxy: favorable Democratic assessment positive; favorable Republican assessment negative.
+VCF0354,Democratic Presidential Cand- Knowledgeable,mapped,dem_candidate_knowledge,Partisan candidate-trait proxy: favorable Democratic assessment positive; favorable Republican assessment negative.
+VCF0355,Democratic Presidential Cand- Moral,mapped,dem_candidate_morality,Partisan candidate-trait proxy: favorable Democratic assessment positive; favorable Republican assessment negative.
+VCF0356,Democratic Presidential Cand- Leadership,mapped,dem_candidate_leadership,Partisan candidate-trait proxy: favorable Democratic assessment positive; favorable Republican assessment negative.
+VCF0357,Democratic Presidential Cand- Cares,mapped,dem_candidate_care,Partisan candidate-trait proxy: favorable Democratic assessment positive; favorable Republican assessment negative.
+VCF0358,Democratic Presidential Cand- Angry,candidate_traits,,"Candidate competence, character or emotional reaction is not a direct ideological stance; excluded from topic policy averages."
+VCF0359,Democratic Presidential Cand- Afraid,candidate_traits,,"Candidate competence, character or emotional reaction is not a direct ideological stance; excluded from topic policy averages."
+VCF0360,Democratic Presidential Cand- Hopeful,candidate_traits,,"Candidate competence, character or emotional reaction is not a direct ideological stance; excluded from topic policy averages."
+VCF0361,Democratic Presidential Cand- Proud,candidate_traits,,"Candidate competence, character or emotional reaction is not a direct ideological stance; excluded from topic policy averages."
+VCF0362,Republican Presidential Cand- Intelligent,mapped,rep_candidate_intelligence,Partisan candidate-trait proxy: favorable Democratic assessment positive; favorable Republican assessment negative.
+VCF0363,Republican Presidential Cand- Compassionate,mapped,rep_candidate_compassion,Partisan candidate-trait proxy: favorable Democratic assessment positive; favorable Republican assessment negative.
+VCF0364,Republican Presidential Cand- Decent,mapped,rep_candidate_decency,Partisan candidate-trait proxy: favorable Democratic assessment positive; favorable Republican assessment negative.
+VCF0365,Republican Presidential Cand- Inspiring,mapped,rep_candidate_inspiration,Partisan candidate-trait proxy: favorable Democratic assessment positive; favorable Republican assessment negative.
+VCF0366,Republican Presidential Cand- Knowledgeable,mapped,rep_candidate_knowledge,Partisan candidate-trait proxy: favorable Democratic assessment positive; favorable Republican assessment negative.
+VCF0367,Republican Presidential Cand- Moral,mapped,rep_candidate_morality,Partisan candidate-trait proxy: favorable Democratic assessment positive; favorable Republican assessment negative.
+VCF0368,Republican Presidential Cand- Leadership,mapped,rep_candidate_leadership,Partisan candidate-trait proxy: favorable Democratic assessment positive; favorable Republican assessment negative.
+VCF0369,Republican Presidential Cand- Cares,mapped,rep_candidate_care,Partisan candidate-trait proxy: favorable Democratic assessment positive; favorable Republican assessment negative.
+VCF0370,Republican Presidential Cand- Angry,candidate_traits,,"Candidate competence, character or emotional reaction is not a direct ideological stance; excluded from topic policy averages."
+VCF0371,Republican Presidential Cand- Afraid,candidate_traits,,"Candidate competence, character or emotional reaction is not a direct ideological stance; excluded from topic policy averages."
+VCF0372,Republican Presidential Cand- Hopeful,candidate_traits,,"Candidate competence, character or emotional reaction is not a direct ideological stance; excluded from topic policy averages."
+VCF0373,Republican Presidential Cand- Proud,candidate_traits,,"Candidate competence, character or emotional reaction is not a direct ideological stance; excluded from topic policy averages."
+VCF0374,Likes Anything about Democratic party,one_sided_affect,,Absence of something liked/disliked does not establish the opposite ideology; prefer bipolar feeling ratings.
+VCF0375a,1972-2004 Mention 1: Like About Democratic Party,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0375b,1972-2004 Mention 1: Like About Democratic Party COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0375c,1952-1968 Mention 1: Like About Democratic Party,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0375d,1952-1968 Mention 1: Like About Democratic Party COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0376a,1972-2004 Mention 2: Like About Democratic Party,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0376b,1972-2004 Mention 2: Like About Democratic Party COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0376c,1952-1968 Mention 2: Like About Democratic Party,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0376d,1952-1968 Mention 2: Like About Democratic Party COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0377a,1972-2004 Mention 3: Like About Democratic Party,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0377b,1972-2004 Mention 3: Like About Democratic Party COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0377c,1952-1968 Mention 3: Like About Democratic Party,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0377d,1952-1968 Mention 3: Like About Democratic Party COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0378a,1972-2004 Mention 4: Like About Democratic Party,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0378b,1972-2004 Mention 4: Like About Democratic Party COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0378c,1952-1968 Mention 4: Like About Democratic Party,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0378d,1952-1968 Mention 4: Like About Democratic Party COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0379a,1972-2004 Mention 5: Like About Democratic Party,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0379b,1972-2004 Mention 5: Like About Democratic Party COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0379c,1952-1968 Mention 5: Like About Democratic Party,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0379d,1952-1968 Mention 5: Like About Democratic Party COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0380,Dislikes Anything about Democratic party,one_sided_affect,,Absence of something liked/disliked does not establish the opposite ideology; prefer bipolar feeling ratings.
+VCF0381a,1972-2004 Mention 1: Dislike About Democratic Party,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0381b,1972-2004 Mention 1: Dislike About Democratic Party COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0381c,1952-1968 Mention 1: Dislike About Democratic Party,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0381d,1952-1968 Mention 1: Dislike About Democratic Party COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0382a,1972-2004 Mention 2: Dislike About Democratic Party,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0382b,1972-2004 Mention 2: Dislike About Democratic Party COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0382c,1952-1968 Mention 2: Dislike About Democratic Party,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0382d,1952-1968 Mention 2: Dislike About Democratic Party COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0383a,1972-2004 Mention 3: Dislike About Democratic Party,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0383b,1972-2004 Mention 3: Dislike About Democratic Party COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0383c,1952-1968 Mention 3: Dislike About Democratic Party,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0383d,1952-1968 Mention 3: Dislike About Democratic Party COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0384a,1972-2004 Mention 4: Dislike About Democratic Party,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0384b,1972-2004 Mention 4: Dislike About Democratic Party COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0384c,1952-1968 Mention 4: Dislike About Democratic Party,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0384d,1952-1968 Mention 4: Dislike About Democratic Party COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0385a,1972-2004 Mention 5: Dislike About Democratic Party,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0385b,1972-2004 Mention 5: Dislike About Democratic Party COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0385c,1952-1968 Mention 5: Dislike About Democratic Party,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0385d,1952-1968 Mention 5: Dislike About Democratic Party COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0386,Likes Anything about Republican party,one_sided_affect,,Absence of something liked/disliked does not establish the opposite ideology; prefer bipolar feeling ratings.
+VCF0387a,1972-2004 Mention 1: Like About Republican Party,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0387b,1972-2004 Mention 1: Like About Republican Party COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0387c,1952-1968 Mention 1: Like About Republican Party,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0387d,1952-1968 Mention 1: Like About Republican Party COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0388a,1972-2004 Mention 2: Like About Republican Party,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0388b,1972-2004 Mention 2: Like About Republican Party COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0388c,1952-1968 Mention 2: Like About Republican Party,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0388d,1952-1968 Mention 2: Like About Republican Party COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0389a,1972-2004 Mention 3: Like About Republican Party,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0389b,1972-2004 Mention 3: Like About Republican Party COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0389c,1952-1968 Mention 3: Like About Republican Party,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0389d,1952-1968 Mention 3: Like About Republican Party COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0390a,1972-2004 Mention 4: Like About Republican Party,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0390b,1972-2004 Mention 4: Like About Republican Party COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0390c,1952-1968 Mention 4: Like About Republican Party,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0390d,1952-1968 Mention 4: Like About Republican Party COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0391a,1972-2004 Mention 5: Like About Republican Party,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0391b,1972-2004 Mention 5: Like About Republican Party COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0391c,1952-1968 Mention 5: Like About Republican Party,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0391d,1952-1968 Mention 5: Like About Republican Party COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0392,Dislikes Anything about Republican party,one_sided_affect,,Absence of something liked/disliked does not establish the opposite ideology; prefer bipolar feeling ratings.
+VCF0393a,1972-2004 Mention 1: Dislike About Republican Party,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0393b,1972-2004 Mention 1: Dislike About Republican Party COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0393c,1952-1968 Mention 1: Dislike About Republican Party,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0393d,1952-1968 Mention 1: Dislike About Republican Party COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0394a,1972-2004 Mention 2: Dislike About Republican Party,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0394b,1972-2004 Mention 2: Dislike About Republican Party COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0394c,1952-1968 Mention 2: Dislike About Republican Party,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0394d,1952-1968 Mention 2: Dislike About Republican Party COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0395a,1972-2004 Mention 3: Dislike About Republican Party,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0395b,1972-2004 Mention 3: Dislike About Republican Party COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0395c,1952-1968 Mention 3: Dislike About Republican Party,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0395d,1952-1968 Mention 3: Dislike About Republican Party COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0396a,1972-2004 Mention 4: Dislike About Republican Party,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0396b,1972-2004 Mention 4: Dislike About Republican Party COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0396c,1952-1968 Mention 4: Dislike About Republican Party,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0396d,1952-1968 Mention 4: Dislike About Republican Party COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0397a,1972-2004 Mention 5: Dislike About Republican Party,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0397b,1972-2004 Mention 5: Dislike About Republican Party COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0397c,1952-1968 Mention 5: Dislike About Republican Party,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0397d,1952-1968 Mention 5: Dislike About Republican Party COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0401,Democratic Presidential Cand: Respondent Likes - Number of Mentions,salience,,Attention or number of reasons mentioned does not encode liberal/conservative direction.
+VCF0402,Democratic Presidential Cand: Respondent Dislikes - Number of Mentions,salience,,Attention or number of reasons mentioned does not encode liberal/conservative direction.
+VCF0403,Democratic Presidential Cand: Affect (Likes-Dislikes),derived_affect,,Derived party/candidate affect index; avoid duplicating direct feeling ratings without validating its construction.
+VCF0404,Democratic Presidential Cand: Salience (Likes-Dislikes),salience,,Attention or number of reasons mentioned does not encode liberal/conservative direction.
+VCF0405,Republican Presidential Cand: Respondent Likes - Number of Mentions,salience,,Attention or number of reasons mentioned does not encode liberal/conservative direction.
+VCF0406,Republican Presidential Cand: Respondent Dislikes - Number of Mentions,salience,,Attention or number of reasons mentioned does not encode liberal/conservative direction.
+VCF0407,Republican Presidential Cand: Affect (Likes-Dislikes),derived_affect,,Derived party/candidate affect index; avoid duplicating direct feeling ratings without validating its construction.
+VCF0408,Republican Presidential Cand: Salience (Likes-Dislikes),salience,,Attention or number of reasons mentioned does not encode liberal/conservative direction.
+VCF0409,Presidential Candidates: Affect (Likes-Dislikes),derived_affect,,Derived party/candidate affect index; avoid duplicating direct feeling ratings without validating its construction.
+VCF0410,Presidential Candidates: Salience (Likes-Dislikes),salience,,Attention or number of reasons mentioned does not encode liberal/conservative direction.
+VCF0411,Presidential Candidates: Relative Salience (Likes-Dislikes),salience,,Attention or number of reasons mentioned does not encode liberal/conservative direction.
+VCF0412,Thermometer Average - Presidential Candidates,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0413,Thermometer Index - Presidential Candidates,mapped,comparative_pres_affect,Comparative partisan thermometer index: preserve 50 as neutral; (code-50)/50.
+VCF0414,Thermometer Average - Vice-Presidential Candidates,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0415,Thermometer Index - Vice-Presidential Candidates,mapped,comparative_vp_affect,Comparative partisan thermometer index: preserve 50 as neutral; (code-50)/50.
+VCF0424,Thermometer - Democratic Presidential Candidate,mapped,dem_pres_affect,"Explicit partisan affect proxy; warmer Democratic ratings positive, Republican negative."
+VCF0425,Thermometer - Democratic Vice-presidential Candidate,mapped,dem_vp_affect,"Explicit partisan affect proxy; warmer Democratic ratings positive, Republican negative."
+VCF0426,Thermometer - Republican Presidential Candidate,mapped,rep_pres_affect,"Explicit partisan affect proxy; warmer Democratic ratings positive, Republican negative."
+VCF0427,Thermometer - Republican Vice-presidential Candidate,mapped,rep_vp_affect,"Explicit partisan affect proxy; warmer Democratic ratings positive, Republican negative."
+VCF0428,Thermometer - U.S. President,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0429,Thermometer - Vice-president,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0432,Thermometer - Hubert Humphrey,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0433,Thermometer - Ted Kennedy,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0434,Thermometer - Eugene McCarthy,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0435,Thermometer - George McGovern,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0436,Thermometer - Walter Mondale,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0437,Thermometer - Edmund Muskie,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0438,Thermometer - George Bush Sr.,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0439,Thermometer - George Wallace,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0440,Thermometer - Spiro Agnew,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0441,Thermometer - Gerald Ford,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0442,Thermometer - Richard Nixon,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0443,Thermometer - Ronald Reagan,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0444,Thermometer - Nelson Rockefeller,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0445,Thermometer - Robert Dole,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0446,Thermometer - Jimmy Carter,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0447,Thermometer - Bill Clinton,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0448,Thermometer - Al Gore,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0449,Thermometer - Ross Perot,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0450,Approve of President Performance,performance_or_conditions,,Evaluation of conditions/performance is not a fixed ideological direction; may depend on administration or context.
+VCF0451,Strength Approve/Disapprove President Performance,performance_or_conditions,,Evaluation of conditions/performance is not a fixed ideological direction; may depend on administration or context.
+VCF0471,Thermometer - Hillary Clinton,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0472,Thermometer - Pat Buchanan,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0473,Thermometer - Dan Quayle,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0475,Likes Anything about Democratic Presidential Cand,one_sided_affect,,Absence of something liked/disliked does not establish the opposite ideology; prefer bipolar feeling ratings.
+VCF0476a,1972-2004 Mention 1: Like About Democratic Presidential Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0476b,1972-2004 Mention 1: Like About Democratic Presidential Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0476c,1952-1968 Mention 1: Like About Democratic Presidential Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0476d,1952-1968 Mention 1: Like About Democratic Presidential Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0477a,1972-2004 Mention 2: Like About Democratic Presidential Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0477b,1972-2004 Mention 2: Like About Democratic Presidential Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0477c,1952-1968 Mention 2: Like About Democratic Presidential Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0477d,1952-1968 Mention 2: Like About Democratic Presidential Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0478a,1972-2004 Mention 3: Like About Democratic Presidential Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0478b,1972-2004 Mention 3: Like About Democratic Presidential Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0478c,1952-1968 Mention 3: Like About Democratic Presidential Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0478d,1952-1968 Mention 3: Like About Democratic Presidential Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0479a,1972-2004 Mention 4: Like About Democratic Presidential Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0479b,1972-2004 Mention 4: Like About Democratic Presidential Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0479c,1952-1968 Mention 4: Like About Democratic Presidential Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0479d,1952-1968 Mention 4: Like About Democratic Presidential Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0480a,1972-2004 Mention 5: Like About Democratic Presidential Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0480b,1972-2004 Mention 5: Like About Democratic Presidential Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0480c,1952-1968 Mention 5: Like About Democratic Presidential Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0480d,1952-1968 Mention 5: Like About Democratic Presidential Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0481,Dislikes Anything about Democratic Presidential Cand,one_sided_affect,,Absence of something liked/disliked does not establish the opposite ideology; prefer bipolar feeling ratings.
+VCF0482a,1972-2004 Mention 1: Dislike About Democratic Presidential Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0482b,1972-2004 Mention 1: Dislike About Democratic Presidential Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0482c,1952-1968 Mention 1: Dislike About Democratic Presidential Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0482d,1952-1968 Mention 1: Dislike About Democratic Presidential Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0483a,1972-2004 Mention 2: Dislike About Democratic Presidential Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0483b,1972-2004 Mention 2: Dislike About Democratic Presidential Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0483c,1952-1968 Mention 2: Dislike About Democratic Presidential Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0483d,1952-1968 Mention 2: Dislike About Democratic Presidential Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0484a,1972-2004 Mention 3: Dislike About Democratic Presidential Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0484b,1972-2004 Mention 3: Dislike About Democratic Presidential Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0484c,1952-1968 Mention 3: Dislike About Democratic Presidential Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0484d,1952-1968 Mention 3: Dislike About Democratic Presidential Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0485a,1972-2004 Mention 4: Dislike About Democratic Presidential Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0485b,1972-2004 Mention 4: Dislike About Democratic Presidential Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0485c,1952-1968 Mention 4: Dislike About Democratic Presidential Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0485d,1952-1968 Mention 4: Dislike About Democratic Presidential Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0486a,1972-2004 Mention 5: Dislike About Democratic Presidential Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0486b,1972-2004 Mention 5: Dislike About Democratic Presidential Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0486c,1952-1968 Mention 5: Dislike About Democratic Presidential Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0486d,1952-1968 Mention 5: Dislike About Democratic Presidential Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0487,Likes anything about Republican Presidential Cand,one_sided_affect,,Absence of something liked/disliked does not establish the opposite ideology; prefer bipolar feeling ratings.
+VCF0488a,1972-2004 Mention 1: Like About Republican Presidential Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0488b,1972-2004 Mention 1: Like About Republican Presidential Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0488c,1952-1968 Mention 1: Like About Republican Presidential Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0488d,1952-1968 Mention 1: Like About Republican Presidential Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0489a,1972-2004 Mention 2: Like About Republican Presidential Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0489b,1972-2004 Mention 2: Like About Republican Presidential Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0489c,1952-1968 Mention 2: Like About Republican Presidential Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0489d,1952-1968 Mention 2: Like About Republican Presidential Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0490a,1972-2004 Mention 3: Like About Republican Presidential Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0490b,1972-2004 Mention 3: Like About Republican Presidential Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0490c,1952-1968 Mention 3: Like About Republican Presidential Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0490d,1952-1968 Mention 3: Like About Republican Presidential Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0491a,1972-2004 Mention 4: Like About Republican Presidential Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0491b,1972-2004 Mention 4: Like About Republican Presidential Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0491c,1952-1968 Mention 4: Like About Republican Presidential Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0491d,1952-1968 Mention 4: Like About Republican Presidential Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0492a,1972-2004 Mention 5: Like About Republican Presidential Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0492b,1972-2004 Mention 5: Like About Republican Presidential Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0492c,1952-1968 Mention 5: Like About Republican Presidential Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0492d,1952-1968 Mention 5: Like About Republican Presidential Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0493,Dislikes anything about Republican Presidential Cand,one_sided_affect,,Absence of something liked/disliked does not establish the opposite ideology; prefer bipolar feeling ratings.
+VCF0494a,1972-2004 Mention 1: Dislike About Republican Presidential Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0494b,1972-2004 Mention 1: Dislike About Republican Presidential Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0494c,1952-1968 Mention 1: Dislike About Republican Presidential Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0494d,1952-1968 Mention 1: Dislike About Republican Presidential Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0495a,1972-2004 Mention 2: Dislike About Republican Presidential Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0495b,1972-2004 Mention 2: Dislike About Republican Presidential Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0495c,1952-1968 Mention 2: Dislike About Republican Presidential Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0495d,1952-1968 Mention 2: Dislike About Republican Presidential Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0496a,1972-2004 Mention 3: Dislike About Republican Presidential Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0496b,1972-2004 Mention 3: Dislike About Republican Presidential Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0496c,1952-1968 Mention 3: Dislike About Republican Presidential Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0496d,1952-1968 Mention 3: Dislike About Republican Presidential Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0497a,1972-2004 Mention 4: Dislike About Republican Presidential Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0497b,1972-2004 Mention 4: Dislike About Republican Presidential Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0497c,1952-1968 Mention 4: Dislike About Republican Presidential Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0497d,1952-1968 Mention 4: Dislike About Republican Presidential Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0498a,1972-2004 Mention 5: Dislike About Republican Presidential Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0498b,1972-2004 Mention 5: Dislike About Republican Presidential Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0498c,1952-1968 Mention 5: Dislike About Republican Presidential Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0498d,1952-1968 Mention 5: Dislike About Republican Presidential Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0501,Difference Between Major Parties,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF0502,Which Major Party is More Conservative 3-Category,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF0502a,Which Major Party is More Conservative 4-Category,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF0503,Democratic Party- Liberal-Conservative Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF0504,Republican Party- Liberal-Conservative Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF0507,Which Party Favors Government Help With Medical Care,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF0508,Democratic Party- Government Health Insurance Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF0509,Republican Party- Government Health Insurance Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF0512,Which Party Favors Guaranteed Jobs and Standard of Living,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF0513,Democratic Party- Guaranteed Jobs-Living Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF0514,Republican Party- Guaranteed Jobs-Living Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF0517,Democratic Party- Aid to Blacks Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF0518,Republican Party- Aid to Blacks Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF0521,Which Party Favors Stronger Government,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF0521a,Which Party Favors Stronger Government w/ No Opinion,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF0522,Which Party Will Best Avoid War/Bigger War,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF0523,Which Party Favors Military Spending Cut,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF0524,Democratic Party- Rights of Accused Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF0525,Republican Party- Rights of Accused Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF0528,Democratic Party- Urban Unrest Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF0529,Republican Party- Urban Unrest Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF0533,Democratic Party- School Busing Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF0534,Republican Party- School Busing Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF0537,Democratic Party- Women Equal Role Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF0538,Republican Party- Women Equal Role Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF0541,Democratic Party- Government Services-Spending Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF0542,Republican Party- Government Services-Spending Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF0545,Democratic Party- Cooperation with U.S.S.R. Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF0546,Republican Party- Cooperation with U.S.S.R. Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF0549,Democratic Party- Defense Spending Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF0550,Republican Party- Defense Spending Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF0601,Approve Participation in Protests,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0602,Approve Civil Disobedience,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0603,Approve Demonstrations,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0604,Trust the Federal Government To Do What is Right,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0605,Federal Government Run by Few Interests or for the Benefit of All,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0606,How Much Does the Federal Government Waste Tax Money,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0607,How Many Government Officials Are Smart,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0608,How Many Government Officials Are Crooked,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0609,Government Officials Care What People Like Respondent Think,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0610,Congressmen Lose Touch with Constituents,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0611,Parties Only Interested in Votes,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0612,Voting is the Only Way to Have a Say in Government,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0613,People like Respondent Have Any Say in What the Government Does,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0614,Politics and Government Seem Too Complicated,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0615,Matter Whether Respondent Votes or Not,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0616,Should Those Who Don't Care About Election Outcome Vote,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0617,Should Someone Vote If Their Party Can't Win,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0618,A Good Many Local Elections Unimportant,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0619,Most People Can Be Trusted OR: Can't Be Too Careful With People,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0620,People Are Helpful OR: People Look Out for Themselves,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0621,People Will Take Advantage of Others OR: People Will Try to be Fair,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0622,How Much Government Pays Attention to What People Think,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0623,How Much Parties Make Government Pay Attention to People,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0624,How Much Elections Make Government Pay Attention to People,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0625,How Much Attention Congressmen Pay to Constituents,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0626,Respondent Usually Able to Carry Out Plans as Expected,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0627,Better to Plan Life a Good Way Ahead,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0628,Sure Life Would Work out as Expected,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0629,Can Run Life as Wanted,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0630,Government Level Respondent Has Most Faith in,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0631,Government Level Respondent Has Least Faith in,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0632,Branch of Government Respondent Trusts Most,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0633,Branch of Government Respondent Trusts 2nd Most,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0634,Branch of Government Respondent Trusts Least,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0640,Government Handling of Most Important Problem mentioned by Respondent,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0648,External Efficacy Index,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0649,Government Responsiveness Index,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0650,Federal Government Performance Rating,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0651,State Government Performance Rating,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0652,Local Government Performance Rating,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0653,Presidency Performance Rating,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0654,Congress Performance Rating,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0655,Supreme Court Performance Rating,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0656,Trust in Government Index,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0675,How Much of the Time Does Respondent Trust the Media to Report Fairly,trust_efficacy_participation,,"Trust, efficacy, civic participation or protest approval is not consistently liberal/conservative across administrations and causes."
+VCF0700,Who Will Be Elected President in November,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0701,Registered to Vote Pre-Election,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0702,Did Respondent Vote in the National Elections,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0703,Register and Turnout SUMMARY,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0704,Vote for President- Major Candidates,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0704a,Vote for President- Major Parties,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0705,Vote for President- Major Parties and Other,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0706,Vote and Nonvote- President,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0707,Vote for Congressman,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0708,Vote for Senator,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0709,Vote Ticket-splitting- President/House,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0710,Vote Ticket-splitting- President/Senate,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0711,Does Respondent Always Vote for the Same Party,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0712,Timing of Respondent's Presidential Vote Decision,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0713,Respondent Pre-election Intent for Vote for President,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0714,Will the Presidential Election Be Close,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0715,State/Local Vote Straight Ticker or Split 5-Category,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0716,State/Local Vote Straight Ticker or Split 2-Category,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0717,Respondent Try to Influence the Vote of Others During the Campaign,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0718,Respondent Attend Political Meetings/Rallies During the Campaign,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0719,Respondent Work for Party or Candidate During the Campaign,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0720,Respondent Display Candidate Button/Sticker During the Campaign,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0721,Respondent Donate Money to Party or Candidate During the Campaign,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0722,Has Respondent Ever Written a Letter to a Public Official,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0723,Count of Campaign Participation Activities 6-Category,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0723a,Count of Campaign Participation Activities 4-Category,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0724,Watch TV Programs about the Election Campaigns,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0725,Hear Programs about Campaigns on the Radio 2-Category,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0726,Articles about Election Campaigns in Magazines,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0727,Number of Articles about Election Campaigns in Magazines,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0728,Count of Media Exposure Types,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0729,Party with House Majority Before the Election,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0730,Party with House Majority After the Election,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0731,Respondent Discuss Politics with Family and Friends,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0732,How Often Respondent Discusses Politics with Family and Friends,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0733,How Often in the Last Week Respondent Discussed Politics,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0734,Intended Presidential Vote versus Actual Presidential Vote,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0735,Vote for U.S. House- Candidate Code,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0736,Vote for U.S. House- Party,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0737,Registered to Vote Post-Election,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0738,Party of Registration Post-election,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0738a,Party of Registration Pre-election,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0739,Respondent Made $1 Tax Checkoff for Political Contribution,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0740,Contribute to Political Party During the Campaigns,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0741,Contribute to PAC During the Campaigns,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0742,Give Money to Individual Candidate During the Campaigns,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0743,Does R Belong to Political Organization or Club,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0744,Have Access to Internet,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0745,Saw Election Campaign Information on the Internet,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0746,Did Religious/Moral Group Try to Influence Respondent Vote,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0747,Information about Candidates/Parties/Issues at Church,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0748,Voted on Election Day or Before,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0749,How Long Before Election Did Respondent Vote,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0750,Vote in Person Or with Absentee Ballot,electoral_behavior,,"Voting, registration, campaigning, media exposure or political knowledge; does not directly score a policy preference."
+VCF0801,Thermometer Index - Rating of Liberals and Conservatives,mapped,comparative_ideology_affect,Comparative liberal/conservative affect index; piecewise scaling preserves documented neutral code 49.
+VCF0803,Liberal-Conservative Scale,mapped,self_ideology,Self-placement from liberal to conservative.
+VCF0804,Liberal-Conservative Scale 1972- COLLAPSED,mapped,self_ideology,Collapsed liberal to conservative self-placement.
+VCF0805,Government Assistance with Medical Care,mapped,health_insurance,Government medical assistance is the liberal endpoint.
+VCF0806,Government Health Insurance Scale,mapped,health_insurance,Government insurance versus private insurance.
+VCF0808,Guaranteed Jobs and Income,mapped,jobs_income,Government guarantee of jobs/income is the liberal endpoint.
+VCF0809,Guaranteed Jobs and Income Scale,mapped,jobs_income,Government guarantee versus individual responsibility.
+VCF0811,Urban Unrest Scale,mapped,VCF0811,Address poverty rather than use force in response to urban unrest.
+VCF0813,How Much Has the Position of Blacks Changed,descriptive_belief,,"Belief about conditions, risks or groups is not itself a policy preference; no automatic ideological mapping."
+VCF0814,Civil Rights Pushes Too Fast or Not Fast Enough,mapped,VCF0814,Faster civil-rights progress is the liberal endpoint.
+VCF0815,Segregation or Desegregation,mapped,VCF0815,Desegregation versus strict segregation.
+VCF0816,Should Government Ensure School Integration,mapped,VCF0816,Government action for school integration.
+VCF0817,School Busing Scale,mapped,VCF0817,Busing to achieve integration is the liberal endpoint.
+VCF0818,Should Government Ensure Fair Jobs/Housing for Blacks,mapped,VCF0818,Government assurance of fair jobs/housing; uncertain category 3 excluded.
+VCF0819,Open Housing,mapped,VCF0819,Equal access to housing versus racial exclusion.
+VCF0820,Do Whites in the Area Favor Segregation,descriptive_belief,,"Belief about conditions, risks or groups is not itself a policy preference; no automatic ideological mapping."
+VCF0821,Do Blacks in the Area Favor Desegregation,descriptive_belief,,"Belief about conditions, risks or groups is not itself a policy preference; no automatic ideological mapping."
+VCF0822,Rating of Government Economic Policy,performance_or_conditions,,Evaluation of government/economic performance depends on administration and is not a fixed ideological score.
+VCF0823,Better off if U.S. Unconcerned with Rest of World,performance_or_conditions,,Evaluation of conditions/performance is not a fixed ideological direction; may depend on administration or context.
+VCF0824,If Compelled to Choose Liberal or Conservative,mapped,self_ideology,"Liberal, moderate, conservative self-placement."
+VCF0825,How Likely for U.S. to be at War/in Bigger War,descriptive_belief,,"Belief about conditions, risks or groups is not itself a policy preference; no automatic ideological mapping."
+VCF0826,Did U.S. Do Right Thing Getting Involved in War,cross_cutting_policy,,Policy trade-off does not have a stable liberal/conservative sign across this historical period; needs a period-specific interpretation.
+VCF0827,How Should U.S. Proceed in Current War,cross_cutting_policy,,Policy trade-off does not have a stable liberal/conservative sign across this historical period; needs a period-specific interpretation.
+VCF0827a,U.S. Stand in Vietnam Scale,cross_cutting_policy,,Policy trade-off does not have a stable liberal/conservative sign across this historical period; needs a period-specific interpretation.
+VCF0828,Should Government Cut Military Spending,mapped,defense_spending,Reduced military spending is the liberal endpoint.
+VCF0829,Is the Government in Washington Too Strong,mapped,VCF0829,Acceptance of federal government power versus concern it is too powerful.
+VCF0830,Aid to Blacks Scale,mapped,VCF0830,Government assistance to Black Americans versus self-reliance.
+VCF0832,Rights of the Accused Scale,mapped,VCF0832,Protect rights of accused versus stopping crime regardless of rights.
+VCF0833,Favor or Oppose Equal Rights Amendment,mapped,VCF0833,Approval of the Equal Rights Amendment.
+VCF0834,Women Equal Role Scale,mapped,VCF0834,Equal roles for women and men is the liberal endpoint.
+VCF0836,Should Women Stay out of Politics,mapped,VCF0836,Disagreement that women should stay out of politics.
+VCF0837,When Should Abortion Be Allowed,mapped,abortion,More permissive abortion policy is the liberal endpoint.
+VCF0838,"By Law, When Should Abortion Be Allowed",mapped,abortion,More permissive abortion policy is the liberal endpoint.
+VCF0839,Government Services-Spending Scale,mapped,VCF0839,More government services/spending is the liberal endpoint.
+VCF0840,Favor or Oppose Term Limits,cross_cutting_policy,,Policy trade-off does not have a stable liberal/conservative sign across this historical period; needs a period-specific interpretation.
+VCF0841,Cooperation with U.S.S.R. Scale,cross_cutting_policy,,Policy trade-off does not have a stable liberal/conservative sign across this historical period; needs a period-specific interpretation.
+VCF0842,Environmental Regulation Scale,mapped,VCF0842,Stronger environmental regulation is the liberal endpoint.
+VCF0843,Defense Spending Scale,mapped,defense_spending,Reduced versus increased defense spending.
+VCF0844,How Willing Should U.S. Be to Use Military Force,cross_cutting_policy,,Policy trade-off does not have a stable liberal/conservative sign across this historical period; needs a period-specific interpretation.
+VCF0845,Authority of the Bible 1964-1990,religion_or_values_proxy,,"Religious belief or child-rearing preference is an indirect ideology proxy, not a direct political stance."
+VCF0846,Is Religion Important to Respondent,religion_or_values_proxy,,"Religious belief or child-rearing preference is an indirect ideology proxy, not a direct political stance."
+VCF0847,How Much Guidance from Religion,religion_or_values_proxy,,"Religious belief or child-rearing preference is an indirect ideology proxy, not a direct political stance."
+VCF0848,Concern about Conventional War,descriptive_belief,,"Belief about conditions, risks or groups is not itself a policy preference; no automatic ideological mapping."
+VCF0848a,Concern about Nuclear War,descriptive_belief,,"Belief about conditions, risks or groups is not itself a policy preference; no automatic ideological mapping."
+VCF0849,Liberal-Conservative Position 1984- COLLAPSED,mapped,self_ideology,"Liberal, moderate, conservative self-placement."
+VCF0850,Authority of the Bible 1984-,religion_or_values_proxy,,"Religious belief or child-rearing preference is an indirect ideology proxy, not a direct political stance."
+VCF0851,Newer Lifestyles Contribute to Society Breakdown,mapped,VCF0851,Disagreement with traditionalist social-values statement.
+VCF0852,Should Adjust View of Moral Behavior to Changes,mapped,VCF0852,Agreement with acceptance of changing or differing moral standards.
+VCF0853,Should be More Emphasis on Traditional Values,mapped,VCF0853,Disagreement with traditionalist social-values statement.
+VCF0854,Tolerance of Different Moral Standards,mapped,VCF0854,Agreement with acceptance of changing or differing moral standards.
+VCF0860,Racial Composition of Neighborhood- Respondent Description,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0861,Racial Composition of Grade School- Respondent Description,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0862,Racial Composition of Junior High School,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0863,Racial Composition of High School- Respondent Description,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0864,Racial Composition of Work Place- Respondent Description,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0865,Racial Composition of Where R Shops- Respondent Description,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0866,Racial Composition of Friends,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF0867,Affirmative Action in Hiring/Promotion [1 of 2],mapped,affirmative_action,Support for affirmative action in hiring.
+VCF0867a,Affirmative Action in Hiring/Promotion [2 of 2],mapped,affirmative_action,Strength of support for affirmative action.
+VCF0870,Better or Worse Economy in Past Year,performance_or_conditions,,Evaluation of conditions/performance is not a fixed ideological direction; may depend on administration or context.
+VCF0871,How Much Better or Worse Economy in Past Year,performance_or_conditions,,Evaluation of conditions/performance is not a fixed ideological direction; may depend on administration or context.
+VCF0872,Better or Worse Economy in Next Year,performance_or_conditions,,Evaluation of conditions/performance is not a fixed ideological direction; may depend on administration or context.
+VCF0873,Did R Delay Medical/Dental Treatment Due to the Expense,personal_characteristic,,Experience of medical affordability is not an expressed policy position.
+VCF0875,Mention 1: What is the Most Important National Problem,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0875a,Mention 2: What is the Most Important National Problem,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0875b,Mention 3: What is the Most Important National Problem,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF0876,Law to Protect Homosexuals Against Discrimination,mapped,gay_discrimination,Support for gay/lesbian employment discrimination protections.
+VCF0876a,Strength of Position on Law to Protect Homosexuals Against Discrimination,mapped,gay_discrimination,Strength of support for discrimination protections.
+VCF0877,Favor or Oppose Gays in the Military,mapped,gay_military,Support for gays serving in the military.
+VCF0877a,Strength of Position on Gays in the Military,mapped,gay_military,Strength of support for gays serving in the military.
+VCF0878,Should Gays/Lesbians Be Able to Adopt Children,mapped,VCF0878,Support for gay/lesbian adoption.
+VCF0879,Increase or Decrease Number of Immigrants to U.S. 6-Category,mapped,immigration,Increased immigration is the liberal endpoint; unchanged is midpoint.
+VCF0879a,Increase or Decrease Number of Immigrants to U.S. 4-Category,mapped,immigration,Increased versus decreased immigration.
+VCF0880,Better or Worse Off in Past Year,performance_or_conditions,,Evaluation of conditions/performance is not a fixed ideological direction; may depend on administration or context.
+VCF0880a,How Much Better/Worse Off in Past Year,performance_or_conditions,,Evaluation of conditions/performance is not a fixed ideological direction; may depend on administration or context.
+VCF0880b,Financial Situation Better/Worse in Past Few Years,performance_or_conditions,,Evaluation of conditions/performance is not a fixed ideological direction; may depend on administration or context.
+VCF0881,Better or Worse Off in Next Year,performance_or_conditions,,Evaluation of conditions/performance is not a fixed ideological direction; may depend on administration or context.
+VCF0886,Federal Spending- Poor/Poor People,mapped,VCF0886,Increased social-program spending is the liberal endpoint.
+VCF0887,Federal Spending- Child Care,mapped,VCF0887,Increased social-program spending is the liberal endpoint.
+VCF0888,Federal Spending- Dealing with Crime,cross_cutting_policy,,Policy trade-off does not have a stable liberal/conservative sign across this historical period; needs a period-specific interpretation.
+VCF0889,Federal Spending- Aids Research/Fight Aids,mapped,VCF0889,Increased social-program spending is the liberal endpoint.
+VCF0890,Federal Spending- Public Schools,mapped,VCF0890,Increased social-program spending is the liberal endpoint.
+VCF0891,Federal Spending- Fin Aid for College Students,mapped,VCF0891,Increased social-program spending is the liberal endpoint.
+VCF0892,Federal Spending- Foreign Aid,cross_cutting_policy,,Policy trade-off does not have a stable liberal/conservative sign across this historical period; needs a period-specific interpretation.
+VCF0893,Federal Spending- The Homeless,mapped,VCF0893,Increased social-program spending is the liberal endpoint.
+VCF0894,Federal Spending- Welfare Programs,mapped,VCF0894,Increased social-program spending is the liberal endpoint.
+VCF0900,Congressional District of Residence,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0900b,State and Congressional District- FIPS,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0900c,State and Congressional District- Postal Abbrev and CD,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0901a,State Code- FIPS,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0901b,State Postal Abbrev,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0902,Type of U.S. House Race,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0903,Is House Incumbent Running,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0904,Is House Incumbent Opposed,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0905,Number of Candidates in U.S. House Race,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0906,Thermometer - Democratic House Candidate,source_correction_pending,,Codebook reports 2016 House-candidate thermometer corrections in progress; withhold until resolved.
+VCF0907,Thermometer - Republican House Candidate,source_correction_pending,,Codebook reports 2016 House-candidate thermometer corrections in progress; withhold until resolved.
+VCF0908,Thermometer - Incumbent House Candidate,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0909,Thermometer - Challenger House Candidate,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF0910,Contact with Running U.S. House Incumbent,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0911,Running U.S. House Incumbent: Met Him,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0912,Running U.S. House Incumbent: Attended Meeting,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0913,Running U.S. House Incumbent: Talked to Staff,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0914,Running U.S. House Incumbent: Received Mail,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0915,Running U.S. House Incumbent: Read About,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0916,Running U.S. House Incumbent: Heard on Radio,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0917,Running U.S. House Incumbent: Saw on TV,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0918,Know Anyone Who had Contact with Running U.S. House Incumbent,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0919,Challenger to Running U.S. House Incumbent,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0920,Challenger to U.S. House Running Incumbent: Met Him,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0921,Challenger to U.S. House Running Incumbent: Attended Meeting,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0922,Challenger to U.S. House Running Incumbent: Talked to Staff,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0923,Challenger to U.S. House Running Incumbent: Received Mail,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0924,Challenger to U.S. House Running Incumbent: Read About,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0925,Challenger to U.S. House Running Incumbent: Heard on Radio,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0926,Challenger to U.S. House Running Incumbent: Saw on TV,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0927,Know Anyone Who had Contact with Challenger to Running U.S. House Incumbent,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0928,Contact with U.S. House Democratic Cand,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0929,U.S. House Democratic Cand: Met Him,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0930,U.S. House Democratic Cand: Attended Meeting,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0931,U.S. House Democratic Cand: Talked to Staff,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0932,U.S. House Democratic Cand: Received Mail,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0933,U.S. House Democratic Cand: Read About,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0934,U.S. House Democratic Cand: Heard on Radio,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0935,U.S. House Democratic Cand: Saw on TV,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0936,Know Anyone Who had Contact with U.S. House Democratic Cand,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0937,Contact with U.S. House Republican Cand,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0938,U.S. House Republican Cand: Met Him,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0939,U.S. House Republican Cand: Attended Meeting,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0940,U.S. House Republican Cand: Talked to Staff,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0941,U.S. House Republican Cand: Received Mail,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0942,U.S. House Republican Cand: Read About,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0943,U.S. House Republican Cand: Heard on Radio,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0944,U.S. House Republican Cand: Saw on TV,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0945,Know Anyone Who had Contact with U.S. House Republican Cand,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0946,Count of Contact Types- Running U.S. House Incumbent Cand,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0946a,Yes/No Any Contact with Running U.S. House Incumbent Cand,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0947,Count of Contact Types- Challenger to Running U.S. House Incumbent Cand,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0947a,Yes/No Any Contact with Challenger to Running U.S. House Incumbent Cand,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0948,Count of Contact Types- U.S. House Democratic Cand,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0948a,Yes/No Any Contact with U.S. House Democratic Cand,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0949,Count of Contact Types- U.S. House Republican Cand,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0949a,Yes/No Any Contact with U.S. House Republican Cand,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0950,Contacted Running U.S. House Incumbent,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0951,Contacted Running U.S. House Incumbent to Express Opinion,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0952,Contacted Running U.S. House Incumbent to Seek Information,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0953,Contacted Running U.S. House Incumbent to Seek Help,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0954,Response to Contact with Running U.S. House Incumbent,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0955,Satisfied w/Response from Running U.S. House Incumbent,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0956,Know Anyone (Else) Who Contacted Running U.S. House Incumbent,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0957,Other Person Get Response from Running U.S. House Incumbent,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0958,Other Person Satisfied w/Response from Running U.S. House Incumbent,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0959,Would Running U.S. House Incumbent be Helpful with Problem,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0960,Running U.S. House Incumbent Done Anything Special for District,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0961,Contacted Running or Retiring U.S. House Incumbent,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0962,Contacted Running or Retiring U.S. House Incumbent to Express Opinion,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0963,Contacted Running or Retiring U.S. House Incumbent to Seek Information,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0964,Contacted Running or Retiring U.S. House Incumbent to Seek Help,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0965,Response to Contact with Running or Retiring U.S. House Incumbent,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0966,Satisfied w/Response from Running or Retiring U.S. House Incumbent,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0967,Know Anyone (Else) Who Contacted Running or Retiring U.S. House Incumbent,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0968,Other Person Get Response from Running or Retiring U.S. House Incumbent,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0969,Other Person Satisfied with Response fr Running/Retiring U.S. House Incumbent,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0970,Would Running or Retiring U.S. House Incumbent be Helpful with Problem,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0971,Running or Retiring U.S. House Incumbent Done Anything Special for District,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0972,Recall Names of U.S. House Candidates,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0973,Recall Correct Name of U.S. House Candidate,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0974,Recall Correct Name of U.S. House Candidate,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0975,Recall Correct Name of U.S. House Candidate,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0976,Number of Recalled Names of U.S. House Candidates,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0977,Know If One U.S. House Candidate Was Already in the U.S. House,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0978,Correct Whether a U.S. House Candidate Was Already in Office,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF0980,Democratic U.S. House Cand: Respondent Likes - Number of Mentions,salience,,Attention or number of reasons mentioned does not encode liberal/conservative direction.
+VCF0981,Democratic U.S. House Cand: Respondent Dislikes - Number of Mentions,salience,,Attention or number of reasons mentioned does not encode liberal/conservative direction.
+VCF0982,Democratic U.S. House Candidate Affect (Likes-Dislikes),derived_affect,,Derived party/candidate affect index; avoid duplicating direct feeling ratings without validating its construction.
+VCF0983,Democratic U.S. House Candidate Salience (Likes-Dislikes),salience,,Attention or number of reasons mentioned does not encode liberal/conservative direction.
+VCF0984,Republican U.S. House Cand: Respondent Likes - Number of Mentions,salience,,Attention or number of reasons mentioned does not encode liberal/conservative direction.
+VCF0985,Republican U.S. House Cand: Respondent Dislikes - Number of Mentions,salience,,Attention or number of reasons mentioned does not encode liberal/conservative direction.
+VCF0986,Republican U.S. House Cand: Affect (Likes-Dislikes),derived_affect,,Derived party/candidate affect index; avoid duplicating direct feeling ratings without validating its construction.
+VCF0987,Republican U.S. House Cand: Salience (Likes-Dislikes),salience,,Attention or number of reasons mentioned does not encode liberal/conservative direction.
+VCF0988,Republican U.S. House Candidate Affect (Likes-Dislikes),derived_affect,,Derived party/candidate affect index; avoid duplicating direct feeling ratings without validating its construction.
+VCF0989,U.S. House Candidate Salience (Likes-Dislikes),salience,,Attention or number of reasons mentioned does not encode liberal/conservative direction.
+VCF0990,U.S. House Candidate Relative Salience (Likes-Dislikes),salience,,Attention or number of reasons mentioned does not encode liberal/conservative direction.
+VCF0991,Approve/Disapprove of Running U.S. House Incumbent,performance_or_conditions,,Evaluation of conditions/performance is not a fixed ideological direction; may depend on administration or context.
+VCF0992,Approve/Disapprove of U.S. Congress,performance_or_conditions,,Evaluation of conditions/performance is not a fixed ideological direction; may depend on administration or context.
+VCF0993,Incumbent U.S. House Cand: Respondent Likes - Number of Mentions,salience,,Attention or number of reasons mentioned does not encode liberal/conservative direction.
+VCF0994,Incumbent U.S. House Cand: Respondent Dislikes - Number of Mentions,salience,,Attention or number of reasons mentioned does not encode liberal/conservative direction.
+VCF0995,Incumbent U.S. House Cand: Affect (Likes-Dislikes),derived_affect,,Derived party/candidate affect index; avoid duplicating direct feeling ratings without validating its construction.
+VCF0996,Incumbent U.S. House Cand: Salience (Likes-Dislikes),salience,,Attention or number of reasons mentioned does not encode liberal/conservative direction.
+VCF0997,Challenger to Incum U.S. House Cand: Respondent Likes - Number of Mentions,salience,,Attention or number of reasons mentioned does not encode liberal/conservative direction.
+VCF0998,Challenger to Incum U.S. House Cand: Respondent Dislikes - Number of Mentions,salience,,Attention or number of reasons mentioned does not encode liberal/conservative direction.
+VCF0999,Challenger to Incumbent U.S. House Cand: Affect (Likes-Dislikes),derived_affect,,Derived party/candidate affect index; avoid duplicating direct feeling ratings without validating its construction.
+VCF1000,Challenger to Incumbent U.S. House Cand: Salience (Likes-Dislikes),salience,,Attention or number of reasons mentioned does not encode liberal/conservative direction.
+VCF1001,U.S. House Candidate Affect (Likes-Dislikes),derived_affect,,Derived party/candidate affect index; avoid duplicating direct feeling ratings without validating its construction.
+VCF1002,U.S. House Candidate Salience (Likes-Dislikes),salience,,Attention or number of reasons mentioned does not encode liberal/conservative direction.
+VCF1003,U.S. House Candidate Relative Salience (Likes-Dislikes),salience,,Attention or number of reasons mentioned does not encode liberal/conservative direction.
+VCF1004,Party of Respondent/Party of U.S. House Incumbent from district of IW,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF1005,Party of Voter Respondent/ Party of U.S. House Incumbent,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF1006,Candidate Code of Correctly Recalled U.S. House Candidate from IW district,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF1007,Candidate Code of Correctly Recalled U.S. House Candidate from IW district,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF1008,Candidate Code of Correctly Recalled U.S. House Candidate from IW district,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF1009,Party of Recalled U.S. House Candidate Name(s) from district of IW,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF1010,Is Recalled U.S. House Cand Name From Own Party,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF1011,Respondent Vote for U.S. House Candidate From Own Party in district of IW,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF1012,Respondent Vote for Incumbent U.S. House Candidate in district of IW,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF1013,Respondent Vote for Winning U.S. House Candidate in district of IW,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF1014,Winning U.S. House Candidate in district of IW,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF1015,Number of Days Pre-Election IW Conducted Before Election,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF1016,Number of Days Post-Election IW Conducted After Election,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF1017,Thermometer Average - U.S. House Candidates,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF1018,Thermometer Index - U.S. House Candidats,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF1020,Likes anything about Democratic U.S. House Cand,one_sided_affect,,Absence of something liked/disliked does not establish the opposite ideology; prefer bipolar feeling ratings.
+VCF1021a,1972-2004 Mention 1: Like About Democratic U.S. House Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF1021b,1972-2004 Mention 1: Like About Democratic U.S. House Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF1022a,1972-2004 Mention 2: Like About Democratic U.S. House Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF1022b,1972-2004 Mention 2: Like About Democratic U.S. House Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF1023a,1972-2004 Mention 3: Like About Democratic U.S. House Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF1023b,1972-2004 Mention 3: Like About Democratic U.S. House Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF1024a,1972-2004 Mention 4: Like About Democratic U.S. House Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF1024b,1972-2004 Mention 4: Like About Democratic U.S. House Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF1025a,1972-2004 Mention 5: Like About Democratic U.S. House Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF1025b,1972-2004 Mention 5: Like About Democratic U.S. House Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF1026,Dislikes anything about Democratic U.S. House Cand,one_sided_affect,,Absence of something liked/disliked does not establish the opposite ideology; prefer bipolar feeling ratings.
+VCF1027a,1972-2004 Mention 1: Dislike About Democratic U.S. House Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF1027b,1972-2004 Mention 1: Dislike About Democratic U.S. House Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF1028a,1972-2004 Mention 2: Dislike About Democratic U.S. House Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF1028b,1972-2004 Mention 2: Dislike About Democratic U.S. House Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF1029a,1972-2004 Mention 3: Dislike About Democratic U.S. House Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF1029b,1972-2004 Mention 3: Dislike About Democratic U.S. House Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF1030a,1972-2004 Mention 4: Dislike About Democratic U.S. House Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF1030b,1972-2004 Mention 4: Dislike About Democratic U.S. House Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF1031a,1972-2004 Mention 5: Dislike About Democratic U.S. House Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF1031b,1972-2004 Mention 5: Dislike About Democratic U.S. House Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF1032,Likes anything about Republican U.S. House Cand,one_sided_affect,,Absence of something liked/disliked does not establish the opposite ideology; prefer bipolar feeling ratings.
+VCF1033a,1972-2004 Mention 1: Like About Republican U.S. House Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF1033b,1972-2004 Mention 1: Like About Republican U.S. House Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF1034a,1972-2004 Mention 2: Like About Republican U.S. House Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF1034b,1972-2004 Mention 2: Like About Republican U.S. House Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF1035a,1972-2004 Mention 3: Like About Republican U.S. House Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF1035b,1972-2004 Mention 3: Like About Republican U.S. House Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF1036a,1972-2004 Mention 4: Like About Republican U.S. House Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF1036b,1972-2004 Mention 4: Like About Republican U.S. House Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF1037a,1972-2004 Mention 5: Like About Republican U.S. House Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF1037b,1972-2004 Mention 5: Like About Republican U.S. House Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF1038,Dislikes anything about Republican U.S. House Cand,one_sided_affect,,Absence of something liked/disliked does not establish the opposite ideology; prefer bipolar feeling ratings.
+VCF1039a,1972-2004 Mention 1: Dislike About Republican U.S. House Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF1039b,1972-2004 Mention 1: Dislike About Republican U.S. House Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF1040a,1972-2004 Mention 2: Dislike About Republican U.S. House Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF1040b,1972-2004 Mention 2: Dislike About Republican U.S. House Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF1041a,1972-2004 Mention 3: Dislike About Republican U.S. House Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF1041b,1972-2004 Mention 3: Dislike About Republican U.S. House Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF1042a,1972-2004 Mention 4: Dislike About Republican U.S. House Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF1042b,1972-2004 Mention 4: Dislike About Republican U.S. House Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF1043a,1972-2004 Mention 5: Dislike About Republican U.S. House Cand,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF1043b,1972-2004 Mention 5: Dislike About Republican U.S. House Cand COLLAPSED,nominal_response_topics,,Topic identifiers from open-ended responses are not ordered ideological scores.
+VCF9001,Length of Residence in Community,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF9002,Length of Residence in Home,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF9003,Thermometer - Evangelical Groups,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF9004,Thermometer - Elderly,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF9005,Thermometer - Supreme Court,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF9006,Thermometer - Women,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF9007,Thermometer - Jesse Jackson,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF9008,Which Party Would Best Handle Pollution and Protecting Environment,party_competence,,Perceived party competence/representation does not identify the respondent’s desired policy direction.
+VCF9009,Approve of President Performance on Economy,performance_or_conditions,,Evaluation of conditions/performance is not a fixed ideological direction; may depend on administration or context.
+VCF9010,Which Would Best Handle Inflation,party_competence,,Perceived party competence/representation does not identify the respondent’s desired policy direction.
+VCF9011,Which Would Best Handle Unemployment,party_competence,,Perceived party competence/representation does not identify the respondent’s desired policy direction.
+VCF9012,Which Party Would Best Handle Most Important Problem,party_competence,,Perceived party competence/representation does not identify the respondent’s desired policy direction.
+VCF9013,Society Ensure Equal Opportunity to Succeed,mapped,VCF9013,Agreement with equal opportunity or structural-disadvantage statement.
+VCF9014,We Have Gone Too Far Pushing Equal Rights,mapped,VCF9014,Disagreement with opposition to equality measures or individual-blame statement.
+VCF9015,Big Problem that Not Everyone Has Equal Chance,mapped,VCF9015,Agreement with equal opportunity or structural-disadvantage statement.
+VCF9016,Not Big Problem if Some Have More Chance in Life,mapped,VCF9016,Disagreement that unequal chances in life are not a serious problem.
+VCF9017,Should Worry less about How Equal People Are,mapped,VCF9017,Disagreement with opposition to equality measures or individual-blame statement.
+VCF9018,U.S. Fewer Problems if Everyone Treated Equally,mapped,VCF9018,Agreement with equal opportunity or structural-disadvantage statement.
+VCF9019,Most Desirable Goal for the Nation: #1,cross_cutting_policy,,Policy trade-off does not have a stable liberal/conservative sign across this historical period; needs a period-specific interpretation.
+VCF9020,Most Desirable Goal for the Nation: #2,cross_cutting_policy,,Policy trade-off does not have a stable liberal/conservative sign across this historical period; needs a period-specific interpretation.
+VCF9021,Did Anyone Talk to R about Voting or Registering,electoral_behavior,,"Political participation, knowledge, campaign exposure or election context rather than a direct policy preference."
+VCF9022,Voter Strength of Preference- Presidential Cand,electoral_behavior,,"Political participation, knowledge, campaign exposure or election context rather than a direct policy preference."
+VCF9023,Nonvoter Preference- Presidential Cand,electoral_behavior,,"Political participation, knowledge, campaign exposure or election context rather than a direct policy preference."
+VCF9024,Voter Strength of Preference- U.S. House Cand,electoral_behavior,,"Political participation, knowledge, campaign exposure or election context rather than a direct policy preference."
+VCF9025,Vote for Governor- Party,electoral_behavior,,"Political participation, knowledge, campaign exposure or election context rather than a direct policy preference."
+VCF9026,Vote in Presidential year Primary- Party,electoral_behavior,,"Political participation, knowledge, campaign exposure or election context rather than a direct policy preference."
+VCF9027,Vote in Previous Presidential Election - Party,electoral_behavior,,"Political participation, knowledge, campaign exposure or election context rather than a direct policy preference."
+VCF9028,Which Presidential Candidate Will Win in State,electoral_behavior,,"Political participation, knowledge, campaign exposure or election context rather than a direct policy preference."
+VCF9029,Which Presidential Race in State Be Close,electoral_behavior,,"Political participation, knowledge, campaign exposure or election context rather than a direct policy preference."
+VCF9030,Contacted By Which Major Party,electoral_behavior,,"Political participation, knowledge, campaign exposure or election context rather than a direct policy preference."
+VCF9030a,Contacted By Any Major Party,electoral_behavior,,"Political participation, knowledge, campaign exposure or election context rather than a direct policy preference."
+VCF9030b,Contacted By Democratic Party,electoral_behavior,,"Political participation, knowledge, campaign exposure or election context rather than a direct policy preference."
+VCF9030c,Contacted By Republican Party,electoral_behavior,,"Political participation, knowledge, campaign exposure or election context rather than a direct policy preference."
+VCF9031,Contacted By Anyone Other than Parties,electoral_behavior,,"Political participation, knowledge, campaign exposure or election context rather than a direct policy preference."
+VCF9032,Hear Programs about Campaigns on the Radio 4-Category,electoral_behavior,,"Political participation, knowledge, campaign exposure or election context rather than a direct policy preference."
+VCF9033,Number of Days Read Newspaper in Last Week,electoral_behavior,,"Political participation, knowledge, campaign exposure or election context rather than a direct policy preference."
+VCF9034,Read Daily Newspaper,electoral_behavior,,"Political participation, knowledge, campaign exposure or election context rather than a direct policy preference."
+VCF9035,Number of Days Watched National TV News in Past Week,electoral_behavior,,"Political participation, knowledge, campaign exposure or election context rather than a direct policy preference."
+VCF9036,Party with Senate Majority Before the Election,electoral_behavior,,"Political participation, knowledge, campaign exposure or election context rather than a direct policy preference."
+VCF9037,Government Should Ensure Fair Jobs for Blacks,mapped,VCF9037,Federal action for fair employment of Black Americans.
+VCF9038,Guaranteed Equal Opportunity Is Not Government Job,mapped,VCF9038,Disagreement with opposition to equality measures or individual-blame statement.
+VCF9039,Conditions Make it Difficult for Blacks to Succeed,mapped,VCF9039,Agreement with equal opportunity or structural-disadvantage statement.
+VCF9040,Blacks Should Not Have Special Favors to Succeed,mapped,VCF9040,Disagreement with opposition to equality measures or individual-blame statement.
+VCF9041,Blacks Must Try Harder to Succeed,mapped,VCF9041,Disagreement with opposition to equality measures or individual-blame statement.
+VCF9042,Blacks Gotten Less than They Deserve Over the Past Few Years,mapped,VCF9042,Agreement with equal opportunity or structural-disadvantage statement.
+VCF9043,School Prayer Allowed 4-Category,mapped,school_prayer,Less state-sponsored school prayer is the liberal endpoint.
+VCF9043a,Strength of Opinion When School Prayer Allowed 4-Category,strength_only_followup,,Strength without direction; parent school-prayer question supplies direction and is already mapped.
+VCF9044,Effect of Federal Economic Policies 7-Category,performance_or_conditions,,Evaluation of government/economic performance depends on administration and is not a fixed ideological score.
+VCF9044a,Effect of Federal Economic Policies 3-Category,performance_or_conditions,,Evaluation of government/economic performance depends on administration and is not a fixed ideological score.
+VCF9045,Position of the U.S. Weaker/Stronger in the Past Year,performance_or_conditions,,Evaluation of conditions/performance is not a fixed ideological direction; may depend on administration or context.
+VCF9046,Federal Spending- Food Stamps,mapped,VCF9046,More social/environmental spending is liberal; decreased or eliminated spending is conservative.
+VCF9047,Federal Spending- Improve and Protect the Environment,mapped,VCF9047,More social/environmental spending is liberal; decreased or eliminated spending is conservative.
+VCF9048,Federal Spending- Space/Science/Technology,cross_cutting_policy,,Policy trade-off does not have a stable liberal/conservative sign across this historical period; needs a period-specific interpretation.
+VCF9049,Federal Spending- Social Security,mapped,VCF9049,More social/environmental spending is liberal; decreased or eliminated spending is conservative.
+VCF9050,Federal Spending- Assistance to Blacks,mapped,VCF9050,More social/environmental spending is liberal; decreased or eliminated spending is conservative.
+VCF9051,School Prayer Allowed 2-Category,mapped,school_prayer,Opposition to public schools starting the day with prayer.
+VCF9052,Are Things in U.S. Going Well or Not,performance_or_conditions,,Evaluation of government/economic performance depends on administration and is not a fixed ideological score.
+VCF9053,Income Kept Up with Costs in Last Year,performance_or_conditions,,Evaluation of conditions/performance is not a fixed ideological direction; may depend on administration or context.
+VCF9054,Senate Race in State,electoral_behavior,,"Political participation, knowledge, campaign exposure or election context rather than a direct policy preference."
+VCF9055,Type of U.S. Senate Race,electoral_behavior,,"Political participation, knowledge, campaign exposure or election context rather than a direct policy preference."
+VCF9056,Thermometer - Senate Democratic Candidate,mapped,dem_senate_affect,"Explicit partisan affect proxy; warmer Democratic ratings positive, Republican negative."
+VCF9057,Thermometer - Senate Republican Candidate,mapped,rep_senate_affect,"Explicit partisan affect proxy; warmer Democratic ratings positive, Republican negative."
+VCF9058,Thermometer - Senate Incumbent Candidate,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF9059,Thermometer - Senate Challenger,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF9060,Thermometer - Senator in State with Senate Race,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF9061,Thermometer - Senator 1 in State with No Senate Race),ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF9062,Thermometer - Senator 2 in State with No Senate Race),ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF9063,Recall Names of U.S. Senate Candidates,electoral_behavior,,"Political participation, knowledge, campaign exposure or election context rather than a direct policy preference."
+VCF9064,Recall Correct Name of U.S. Senate Candidate,electoral_behavior,,"Political participation, knowledge, campaign exposure or election context rather than a direct policy preference."
+VCF9065,Recall Correct Name of U.S. Senate Candidate,electoral_behavior,,"Political participation, knowledge, campaign exposure or election context rather than a direct policy preference."
+VCF9066,Recall Correct Name of U.S. Senate Candidate,electoral_behavior,,"Political participation, knowledge, campaign exposure or election context rather than a direct policy preference."
+VCF9067,Number of Recalled Names of U.S. Senate Candidates,electoral_behavior,,"Political participation, knowledge, campaign exposure or election context rather than a direct policy preference."
+VCF9069,Strength Approve/Disapprove Running U.S. House Incumbent,performance_or_conditions,,Evaluation of conditions/performance is not a fixed ideological direction; may depend on administration or context.
+VCF9070,Agreement w/ Running House Incumbent's Legislative Votes,unspecified_legislation,,Agreement or recall about an unspecified incumbent/bill has no fixed policy direction without identifying the legislation.
+VCF9071,Remember Running U.S. House Incumbent Vote on Any Bill,unspecified_legislation,,Agreement or recall about an unspecified incumbent/bill has no fixed policy direction without identifying the legislation.
+VCF9072,Agree With Running U.S. House Incumbent Vote on Bill,unspecified_legislation,,Agreement or recall about an unspecified incumbent/bill has no fixed policy direction without identifying the legislation.
+VCF9073,President on Defense Spending Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9074,President on Cooperation with USSR Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9075,President on Women's Equal Role Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9076,President on Aid to Blacks Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9077,President on Government Health Insurance Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9078,President on Government Spending/Services Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9079,President on Guaranteed Jobs and Living Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9080,President on Liberal-Conservative Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9081,Democratic Presidential Cand- Defense Spending Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9082,Democratic Presidential Cand- Cooperation with U.S.S.R. Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9083,Democratic Presidential Cand- Women Equal Role Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9084,Democratic Presidential Cand- Aid to Blacks Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9085,Democratic Presidential Cand- Government Health Insurance Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9086,Democratic Presidential Cand- Government Services-Spending Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9087,Democratic Presidential Cand- Guaranteed Jobs and Living Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9088,Democratic Presidential Cand- Liberal-Conservative Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9089,Republican Presidential Cand- Defense Spending Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9090,Republican Presidential Cand- Cooperation with U.S.S.R. Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9091,Republican Presidential Cand- Women Equal Role Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9092,Republican Presidential Cand- Aid to Blacks Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9093,Republican Presidential Cand- Government Health Insurance Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9094,Republican Presidential Cand- Government Services-Spending Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9095,Republican Presidential Cand- Guaranteed Jobs and Living Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9096,Republican Presidential Cand- Liberal-Conservative Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9097,Democratic U.S. House Cand- Women Equal Role Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9098,Democratic U.S. House Cand- Aid to Blacks Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9099,Democratic U.S. House Cand- Government Services-Spending Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9100,Democratic U.S. House Cand- Guaranteed Jobs and Living Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9101,Democratic U.S. House Cand- Liberal-Conservative Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9102,Republican U.S. House Cand- Women Equal Role Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9103,Republican U.S. House Cand- Aid to Blacks Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9104,Republican U.S. House Cand- Government Services-Spending Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9105,Republican U.S. House Cand- Guaranteed Jobs and Living Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9106,Republican U.S. House Cand- Liberal-Conservative Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9107,Incumbent U.S. House Cand- Women Equal Role Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9108,Incumbent U.S. House Cand- Aid to Blacks Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9109,Incumbent U.S. House Cand- Government Services-Spending Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9110,Incumbent U.S. House Cand- Guaranteed Jobs and Living Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9111,Incumbent U.S. House Cand- Liberal-Conservative Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9112,Challenger to Incumbent U.S. House Cand- Women Equal Role Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9113,Challenger to Incumbent U.S. House Cand- Aid to Blacks Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9114,Challenger to Incumbent U.S. House Cand- Government Services-Spending Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9115,Challenger to Incumbent U.S. House Cand- Guaranteed Jobs and Living Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9116,Challenger to Incumbent U.S. House Cand- Liberal-Conservative Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9117,Federal Government on Cooperation with USSR Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9118,Federal Government on Defense Spending Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9119,Federal Government on Aid to Blacks Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9120,Federal Government on Government Services/Spending Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9121,Federal Government on Guaranteed Jobs and Living Scale,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9122,Number of Politically Eligible Adults in HH,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF9123,Number of Pre-Election Interviewer Calls,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF9124,Number of Post-Election Interviewer Calls,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF9125,Post-Election Persuasion Letter 1978-2012,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF9131,Less Government Better OR Government Do More,mapped,VCF9131,More government activity is the liberal endpoint; less government is conservative.
+VCF9132,Govt Handle Economy OR Free Market Can Handle,mapped,VCF9132,Government action versus free-market handling of economic problems.
+VCF9133,Govt Too Involved in Things OR Problems Require,mapped,VCF9133,Government growth justified by larger problems versus unnecessary intervention.
+VCF9134,More Important to Be Cooperative OR Self-reliant,cross_cutting_policy,,Policy trade-off does not have a stable liberal/conservative sign across this historical period; needs a period-specific interpretation.
+VCF9149,Election Office Number,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF9150,R Registration Status (Self-reported),election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF9151,R Turnout (Self-reported),election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF9152,Attempted Validation of Registration,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF9153,Status of Office Voting Records,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF9154,Was R Registration Validated,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF9155,Was R Vote Validated,election_contact_administration,,"Electoral context, constituency service, contact, recall or administration rather than ideological policy preference."
+VCF9201,CSES: Like-dislike (11pt) scale placement for Democratic party,mapped,dem_thermometer,"Bipolar partisan affect proxy, normalized from the original 0–10 scale."
+VCF9202,CSES: Like-dislike (11pt) scale placement for Republican party,mapped,rep_thermometer,"Bipolar partisan affect proxy, normalized from the original 0–10 scale."
+VCF9203,CSES: Do any of the parties in the U.S. represent R's view reasonably well,trust_efficacy_participation,,"Trust, representation, political efficacy/knowledge or civic participation does not have a fixed ideological sign."
+VCF9204,CSES: Which political party is it that represents R's views best,party_competence,,Perceived party competence/representation does not identify the respondent’s desired policy direction.
+VCF9205,Which party would do a better job handling the nation's economy,party_competence,,Perceived party competence/representation does not identify the respondent’s desired policy direction.
+VCF9206,Better when one party controls both the Presidency and U.S. Congress or when con,performance_or_conditions,,Evaluation of conditions/performance is not a fixed ideological direction; may depend on administration or context.
+VCF9207,CSES: Like-dislike (11pt) scale placement for Democratic Presidential candidate,mapped,dem_pres_affect,"Bipolar partisan affect proxy, normalized from the original 0–10 scale."
+VCF9208,CSES: Like-dislike (11pt) scale placement for Republican Presidential candidate,mapped,rep_pres_affect,"Bipolar partisan affect proxy, normalized from the original 0–10 scale."
+VCF9209,How well does _provides strong leadership_ describe: Democratic Presidential can,mapped,dem_candidate_leadership,Five-point partisan candidate-trait proxy; equal ordinal spacing assumed.
+VCF9210,How well does _really cares about people like you_ describe: Democratic Presiden,mapped,dem_candidate_care,Five-point partisan candidate-trait proxy; equal ordinal spacing assumed.
+VCF9211,How well does _knowledgeable_ describe: Democratic Presidential candidate (no RB,mapped,dem_candidate_knowledge,Five-point partisan candidate-trait proxy; equal ordinal spacing assumed.
+VCF9212,"How well does _honest_ describe: Democratic Presidential candidate (no RB, 5 cat",mapped,dem_candidate_honesty,Five-point partisan candidate-trait proxy; equal ordinal spacing assumed.
+VCF9213,How well does _provides strong leadership_ describe: Republican Presidential can,mapped,rep_candidate_leadership,Five-point partisan candidate-trait proxy; equal ordinal spacing assumed.
+VCF9214,How well does _really cares about people like you_ describe: Republican Presiden,mapped,rep_candidate_care,Five-point partisan candidate-trait proxy; equal ordinal spacing assumed.
+VCF9215,How well does _knowledgeable_ describe: Republican Presidential candidate (no RB,mapped,rep_candidate_knowledge,Five-point partisan candidate-trait proxy; equal ordinal spacing assumed.
+VCF9216,"How well does _honest_ describe: Republican Presidential candidate (no RB, 5 cat",mapped,rep_candidate_honesty,Five-point partisan candidate-trait proxy; equal ordinal spacing assumed.
+VCF9217,Does R approve or disapprove of the way current U.S. President is handling forei,performance_or_conditions,,Evaluation of conditions/performance is not a fixed ideological direction; may depend on administration or context.
+VCF9218,Does R approve or disapprove of the way current U.S. President is handling healt,performance_or_conditions,,Evaluation of conditions/performance is not a fixed ideological direction; may depend on administration or context.
+VCF9219,"Current U.S. President retrospective: U.S. more or less secure, or not changed",performance_or_conditions,,Evaluation of conditions/performance is not a fixed ideological direction; may depend on administration or context.
+VCF9220,"Current U.S. President retrospective (since beginning of term): economy better, ",performance_or_conditions,,Evaluation of conditions/performance is not a fixed ideological direction; may depend on administration or context.
+VCF9221,CSES: How good or bad a job has the government done in general over the last ter,performance_or_conditions,,Evaluation of government/economic performance depends on administration and is not a fixed ideological score.
+VCF9222,Are things in this country on the right track or have things seriously gotten of,performance_or_conditions,,Evaluation of conditions/performance is not a fixed ideological direction; may depend on administration or context.
+VCF9223,How likely is it that recent immigration levels will take jobs away from people ,descriptive_belief,,"Belief about conditions, risks or groups is not itself a policy preference; no automatic ideological mapping."
+VCF9224,Is R invested in the stock market,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF9225,"Has unemployment in the country gotten better, stayed the same, or gotten worse ",performance_or_conditions,,Evaluation of conditions/performance is not a fixed ideological direction; may depend on administration or context.
+VCF9226,Much or somewhat that the level of unemployment has gotten better/worse,performance_or_conditions,,Evaluation of conditions/performance is not a fixed ideological direction; may depend on administration or context.
+VCF9227,Does R think the difference in incomes between rich and poor in the U.S. is larg,descriptive_belief,,"Belief about conditions, risks or groups is not itself a policy preference; no automatic ideological mapping."
+VCF9228,Much or somewhat larger/smaller gap in incomes between rich and poor in the U.S.,descriptive_belief,,"Belief about conditions, risks or groups is not itself a policy preference; no automatic ideological mapping."
+VCF9229,"Will unemployment get better, stay the same, or get worse in the next 12 months",performance_or_conditions,,Evaluation of conditions/performance is not a fixed ideological direction; may depend on administration or context.
+VCF9230,Should the federal government encourage or discourage American companies to repl,cross_cutting_policy,,Policy trade-off does not have a stable liberal/conservative sign across this historical period; needs a period-specific interpretation.
+VCF9231,Does R favor or oppose placing limits on imports to protect American jobs (or ha,cross_cutting_policy,,Policy trade-off does not have a stable liberal/conservative sign across this historical period; needs a period-specific interpretation.
+VCF9232,Does R favor or oppose the U.S. government torturing people who are suspected of,mapped,torture,Opposition to government torture is the liberal endpoint.
+VCF9233,How much does R favor/oppose use of U.S. govt torture [of those suspected of bei,mapped,torture,Strength of opposition to government torture.
+VCF9234,Abortion issue placement for Democratic Presidential candidate,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9235,Abortion issue placement for Republican Presidential candidate,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9236,Does R favor or oppose the death penalty for persons convicted of murder,mapped,death_penalty,Opposition to the death penalty is the liberal endpoint.
+VCF9237,R strongly or not strongly favor/oppose the death penalty for persons convicted ,mapped,death_penalty,Strength of opposition to the death penalty.
+VCF9238,"Should the government make it more difficult or easier to buy a gun, or should t",mapped,VCF9238,More difficult gun purchases are liberal; easier are conservative; unchanged is midpoint.
+VCF9239,How important is gun control issue to R,salience,,"Issue importance measures strength of attention, not support or opposition."
+VCF9240,CSES: Left-right (11pt) scale placement for R,mapped,self_ideology,"Self-placement: left is liberal-positive, right conservative-negative."
+VCF9241,CSES: Left-right (11pt) scale placement for Democratic party,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9242,CSES: Left-right (11pt) scale placement for Republican party,perceived_position,,"Rates a party, candidate or government position rather than the respondent’s own preferred policy."
+VCF9243,Would R call self a born-again Christian /consider self a born-again Christian /,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF9244,How often can R trust people,trust_efficacy_participation,,"Trust, representation, political efficacy/knowledge or civic participation does not have a fixed ideological sign."
+VCF9245,How satisfied is R with R's life,performance_or_conditions,,Evaluation of conditions/performance is not a fixed ideological direction; may depend on administration or context.
+VCF9246,Which is more important for a child to have: curiosity or good manners,religion_or_values_proxy,,"Religious belief or child-rearing preference is an indirect ideology proxy, not a direct political stance."
+VCF9247,Which is more important for a child to have: obedience or self-reliance,religion_or_values_proxy,,"Religious belief or child-rearing preference is an indirect ideology proxy, not a direct political stance."
+VCF9248,Which is more important for a child to be: considerate or well-behaved,religion_or_values_proxy,,"Religious belief or child-rearing preference is an indirect ideology proxy, not a direct political stance."
+VCF9249,Which is more important for a child to have: independence or respect for elders,religion_or_values_proxy,,"Religious belief or child-rearing preference is an indirect ideology proxy, not a direct political stance."
+VCF9250,CSES: Who votes for makes a big diffence - (5pt) scale placement for R,trust_efficacy_participation,,"Trust, representation, political efficacy/knowledge or civic participation does not have a fixed ideological sign."
+VCF9251,How well does R understand the important political issues facing our country,trust_efficacy_participation,,"Trust, representation, political efficacy/knowledge or civic participation does not have a fixed ideological sign."
+VCF9252,How often do politics and government seem so complicated that R can't really und,trust_efficacy_participation,,"Trust, representation, political efficacy/knowledge or civic participation does not have a fixed ideological sign."
+VCF9253,CSES: Make big difference who is in power (5pt) scale placement for R,trust_efficacy_participation,,"Trust, representation, political efficacy/knowledge or civic participation does not have a fixed ideological sign."
+VCF9254,CSES: How satisfied is R with the way democracy works in the U.S. (4cat: satisfi,performance_or_conditions,,Evaluation of conditions/performance is not a fixed ideological direction; may depend on administration or context.
+VCF9255,CSES: How satisfied is R with the way democracy works in the U.S. (4cat: very sa,performance_or_conditions,,Evaluation of conditions/performance is not a fixed ideological direction; may depend on administration or context.
+VCF9256,Was R able to devote any time to volunteer work in the last 12 months,trust_efficacy_participation,,"Trust, representation, political efficacy/knowledge or civic participation does not have a fixed ideological sign."
+VCF9257,Has R worked with others to deal with issue in community during the past 12 mont,trust_efficacy_participation,,"Trust, representation, political efficacy/knowledge or civic participation does not have a fixed ideological sign."
+VCF9258,Did R attend a meeting about an issue in community or schools during the past 12,trust_efficacy_participation,,"Trust, representation, political efficacy/knowledge or civic participation does not have a fixed ideological sign."
+VCF9259,How often does R follow information about politics and government,trust_efficacy_participation,,"Trust, representation, political efficacy/knowledge or civic participation does not have a fixed ideological sign."
+VCF9260,What job or office is held by named Speaker of the U.S. House,electoral_behavior,,"Political participation, knowledge, campaign exposure or election context rather than a direct policy preference."
+VCF9261,What job or office is held by named Vice-President,electoral_behavior,,"Political participation, knowledge, campaign exposure or election context rather than a direct policy preference."
+VCF9262,What job or office is held by named Chief Justice of the U.S. Supreme Court,electoral_behavior,,"Political participation, knowledge, campaign exposure or election context rather than a direct policy preference."
+VCF9263,What was the party of the running candidate to which R gave money,electoral_behavior,,"Political participation, knowledge, campaign exposure or election context rather than a direct policy preference."
+VCF9264,What was the political party to which R gave money,electoral_behavior,,"Political participation, knowledge, campaign exposure or election context rather than a direct policy preference."
+VCF9265,PRE-ELECTION: Did R vote in the state Presidential primary election or caucus,electoral_behavior,,"Political participation, knowledge, campaign exposure or election context rather than a direct policy preference."
+VCF9266,(HISPANIC Rs) For information about politics does R get the most information fro,electoral_behavior,,"Political participation, knowledge, campaign exposure or election context rather than a direct policy preference."
+VCF9267,Thermometer for: Muslims,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF9268,Thermometer for: rich people,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF9269,Thermometer for: Christians,ambiguous_affect,,Warmth toward a person/group/institution is not a stable ideological endpoint; only explicitly partisan/ideological targets are mapped.
+VCF9270,Hardworking-lazy (7pt) scale placement for whites,descriptive_belief,,"Belief about conditions, risks or groups is not itself a policy preference; no automatic ideological mapping."
+VCF9271,Hardworking-lazy (7pt) scale placement for blacks,descriptive_belief,,"Belief about conditions, risks or groups is not itself a policy preference; no automatic ideological mapping."
+VCF9272,Hardworking-lazy (7pt) scale placement for Hispanic-Americans,descriptive_belief,,"Belief about conditions, risks or groups is not itself a policy preference; no automatic ideological mapping."
+VCF9273,Hardworking-lazy (7pt) scale placement for Asian Americans,descriptive_belief,,"Belief about conditions, risks or groups is not itself a policy preference; no automatic ideological mapping."
+VCF9274,"In American life and politics, do blacks have too much, about the right amount o",descriptive_belief,,"Belief about conditions, risks or groups is not itself a policy preference; no automatic ideological mapping."
+VCF9275,"In American politics, do blacks have too much, about the right amount of, or too",descriptive_belief,,"Belief about conditions, risks or groups is not itself a policy preference; no automatic ideological mapping."
+VCF9277,"Does working/temporarily laid off R work for someone else, self, or what",personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF9278,"Does working/temporarily laid off R work for the federal, state, or local govern",personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF9279,"Does R consider self to be heterosexual or straight, homosexual or [gay/lesbian]",personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF9280,Does R know anyone among family and friends who is bisexual or gay,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF9281,Does R have any (1994: some) kind of health insurance,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF9282,Is R living with family members,personal_characteristic,,"Demographic, religious affiliation/practice, household circumstance or personal experience; do not infer ideology from identity."
+VCF9999,Weight: post-election weight full sample,administrative,,"Survey administration, identifier, weight, or interviewer assessment; not a respondent policy position."
+Version,Version Number Of Release,administrative,,"Survey administration, identifier, weight, or interviewer assessment; not a respondent policy position."

@@ -1,0 +1,30 @@
+[Unit]
+Description=SCOTUS versus public opinion
+After=network.target
+
+[Service]
+Type=simple
+DynamicUser=yes
+WorkingDirectory=/opt/scvpublic/current
+Environment=SCVPO_ARTIFACT=/opt/scvpublic/current/artifacts/search.sqlite
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStart=/opt/scvpublic/current/.venv/bin/gunicorn --bind 127.0.0.1:8010 --workers 1 --threads 2 --timeout 60 --worker-tmp-dir /tmp --access-logfile - --error-logfile - scvpublic.web:create_app()
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateDevices=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictSUIDSGID=yes
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+MemoryHigh=160M
+MemoryMax=192M
+TasksMax=32
+UMask=0027
+
+[Install]
+WantedBy=multi-user.target

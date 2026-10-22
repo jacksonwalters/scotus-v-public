@@ -1,0 +1,30 @@
+{
+  "variables": 1030,
+  "mapped_variables": 127,
+  "mapped_families": 98,
+  "categories": {
+    "administrative": 34,
+    "personal_characteristic": 98,
+    "mapped": 127,
+    "ambiguous_affect": 67,
+    "partisan_variant": 2,
+    "family_or_interest": 8,
+    "salience": 33,
+    "derived_affect": 12,
+    "candidate_traits": 20,
+    "one_sided_affect": 12,
+    "nominal_response_topics": 204,
+    "performance_or_conditions": 33,
+    "perceived_position": 84,
+    "trust_efficacy_participation": 54,
+    "electoral_behavior": 87,
+    "descriptive_belief": 15,
+    "cross_cutting_policy": 14,
+    "religion_or_values_proxy": 8,
+    "election_contact_administration": 106,
+    "source_correction_pending": 2,
+    "party_competence": 6,
+    "strength_only_followup": 1,
+    "unspecified_legislation": 3
+  }
+}
