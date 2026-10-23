@@ -2,13 +2,14 @@
 import argparse
 from collections import Counter
 import json
+import hashlib
 from pathlib import Path
 import shutil
 import numpy as np
 from tokenizers import Tokenizer
 from scvpublic.build import digest
 from scvpublic.encoding import Encoder
-from scvpublic.sources import source_texts
+from scvpublic.sources import source_texts, SOURCE_POLICY
 
 
 def token_windows(tokens, size=254, overlap=40):
@@ -41,6 +42,8 @@ def main():
         for window in token_windows(tokens):
             windows.append(window);ids.append(d['doc_id'])
     a.output.mkdir(parents=True)
+    (a.output/'sources.json').write_text(json.dumps({d['case_id']: dict(origin=origins[d['case_id']],
+        sha256=hashlib.sha256(texts[d['case_id']].encode()).hexdigest()) for d in docs}, indent=2)+'\n')
     encoder=Encoder(a.model)
     vectors=np.lib.format.open_memmap(a.output/'vectors.npy',mode='w+',dtype='float32',shape=(len(windows),384))
     cls,sep,pad=[tokenizer.token_to_id(t) for t in ('[CLS]','[SEP]','[PAD]')]
@@ -60,7 +63,7 @@ def main():
     for name in model['files']:shutil.copyfile(a.model/name,a.output/name)
     manifest=dict(model=model,document_count=len(docs),artifact_sha256=digest(a.artifact),
         description='All source tokens, 254-token windows with 40-token overlap; maximum passage cosine per case',
-        source_counts=dict(Counter(origins.values())),source_tokens=token_count,windows=len(windows),
+        source_policy=SOURCE_POLICY, source_counts=dict(Counter(origins.values())),source_tokens=token_count,windows=len(windows),
         files={p.name:digest(p) for p in a.output.iterdir() if p.is_file()})
     (a.output/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
     print('Complete',flush=True)

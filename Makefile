@@ -63,3 +63,23 @@ check-hybrid:
 	$(PY) scripts/check_hybrid_http.py --url http://127.0.0.1:$(HYBRID_PORT)
 release-hybrid:
 	PYTHONPATH=. OPENBLAS_NUM_THREADS=1 $(PY) scripts/package_release.py $(HYBRID_ARTIFACT) --hybrid $(HYBRID_BUNDLE)
+
+RELEVANCE_SPLIT ?= development
+.PHONY: evaluate-relevance check-relevance
+evaluate-relevance:
+	PYTHONPATH=. OPENBLAS_NUM_THREADS=1 $(PY) scripts/evaluate_relevance.py --artifact $(HYBRID_ARTIFACT) --bundle $(HYBRID_BUNDLE) --split $(RELEVANCE_SPLIT)
+check-relevance:
+	PYTHONPATH=. OPENBLAS_NUM_THREADS=1 $(PY) scripts/evaluate_relevance.py --artifact $(HYBRID_ARTIFACT) --bundle $(HYBRID_BUNDLE) --split $(RELEVANCE_SPLIT) --baseline data/evaluation/topic-baseline.json
+
+.PHONY: ces-download ces-audit
+ces-download:
+	$(PY) -m scvpublic.download data/manifests/ces-policy-v3.json
+ces-audit:
+	PYTHONPATH=. $(PY) scripts/audit_ces.py
+
+.PHONY: ces ces-pilot
+ces:
+	$(PY) -m scvpublic.ces
+ces-pilot:
+	$(PY) -m scvpublic.ces --base-artifact $(HYBRID_ARTIFACT) --artifact artifacts/ces-pilot.sqlite
+	PYTHONPATH=. $(PY) scripts/rebind_hybrid.py --old $(HYBRID_ARTIFACT) --new artifacts/ces-pilot.sqlite --bundle $(HYBRID_BUNDLE) --output artifacts/semantic-ces-pilot

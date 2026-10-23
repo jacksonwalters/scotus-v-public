@@ -31,6 +31,8 @@ def main():
         paths += [Path('requirements-hybrid.txt'), Path('scripts/check_hybrid_http.py')]
         extra = [(args.hybrid/name, Path('artifacts/hybrid')/name) for name in
                  ('manifest.json', 'model.onnx', 'tokenizer.json', 'vectors.npy', 'ids.json', 'README.md')]
+    if args.hybrid and (args.hybrid/'sources.json').exists():
+        extra.append((args.hybrid/'sources.json', Path('artifacts/hybrid/sources.json')))
     args.output.parent.mkdir(parents=True, exist_ok=True)
     if args.directory:
         args.directory.mkdir(parents=True, exist_ok=False)

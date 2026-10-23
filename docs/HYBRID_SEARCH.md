@@ -100,3 +100,27 @@ sudo bash /home/jackson/scvpublic/releases/20261023-hybrid/deploy/install-releas
 
 After activation, verify `/healthz` reports `search_mode: hybrid` and rerun the
 HTTP acceptance check against `https://svp.walterslabs.dev`.
+
+## Source-quality repair candidate
+
+The offline source loader now uses an available longer opinion when a syllabus
+has fewer than 40 words, counted with the loader's word-token regex. This is a
+source-length heuristic, not a relevance filter: short summaries can still be
+meaningful, but the fuller opinion provides more context. With no longer opinion,
+the short source is retained. Empty syllabuses continue to use opinion fallback.
+No query-specific rules or ranking changes are involved.
+
+New bundles record the source policy and per-case text hashes/origins in
+`sources.json`. Release packaging preserves that provenance file when present.
+The current comparison candidate is built separately with:
+
+```sh
+PYTHONPATH=. OPENBLAS_NUM_THREADS=1 TOKENIZERS_PARALLELISM=false \
+  .venv/bin/python scripts/build_full_embeddings.py \
+  --artifact artifacts/gss-pilot.sqlite --output artifacts/semantic-source-repair
+make check-relevance HYBRID_BUNDLE=artifacts/semantic-source-repair
+make check-relevance HYBRID_BUNDLE=artifacts/semantic-source-repair RELEVANCE_SPLIT=validation
+```
+
+The output directory must not already exist. The production bundle remains
+`semantic-full` until evaluation and activation of a replacement.

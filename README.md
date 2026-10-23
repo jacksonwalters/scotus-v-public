@@ -117,3 +117,12 @@ See [hybrid search and deployment](docs/HYBRID_SEARCH.md) for the current
 TF-IDF + embedding pipeline. `make serve-hybrid` runs it locally;
 `make release-hybrid` packages the complete production bundle. `/healthz`
 reports the active mode. `make serve` retains a lightweight TF-IDF fallback.
+
+Search quality is tracked by the [20-topic relevance benchmark](docs/SEARCH_BENCHMARK.md).
+Run `make check-relevance` against the local production artifacts.
+
+### CES public-opinion pilot
+
+A third survey source is available locally: 15 explicitly mapped policy variables
+(13 families), 2008–2021. See [CES setup and methodology](docs/CES.md) for
+verified downloads, scoring, artifact assembly, and a separate local preview.

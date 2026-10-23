@@ -65,7 +65,7 @@ class GSSTests(unittest.TestCase):
                 self.assertEqual(search(db, 'public', ['gun'])[0]['years'], {'2000': -1})
                 self.assertEqual(search(db, 'gss', ['gun'])[0]['code'], 'gunlaw')
                 self.assertTrue(search(db, 'gss', ['death penalty']))
-            response = create_app(output).test_client().get('/?q1=gun')
+            response = create_app(output).test_client().get('/?q1=gun&view=all')
             self.assertEqual(response.status_code, 200)
             html = response.get_data(as_text=True)
             self.assertIn('ANES 2000: -1.000', html)

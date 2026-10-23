@@ -59,12 +59,14 @@ def build(source, mappings, output, manifest):
         for d in documents}, indent=2))
 
 
-def attach(artifact, source, output):
-    """Copy an existing artifact and replace only its optional GSS corpus."""
+def attach(artifact, source, output, corpus="gss"):
+    """Copy an artifact and replace an explicitly mapped optional survey corpus."""
+    if corpus not in ("gss", "ces"):
+        raise ValueError("Unsupported survey corpus")
     from sklearn.feature_extraction.text import TfidfVectorizer
     import numpy as np
     payload = json.loads(source.read_text())
-    if payload['methodology'] != 'explicit-gss-v1':
+    if payload['methodology'] != f'explicit-{corpus}-v1':
         raise ValueError('Unsupported GSS methodology')
     if not artifact.is_file():
         raise FileNotFoundError(artifact)
@@ -76,19 +78,19 @@ def attach(artifact, source, output):
     vectorizer = TfidfVectorizer(ngram_range=(1, 2), stop_words='english', dtype=np.float32)
     matrix = vectorizer.fit_transform(d['title']+' '+d['question'] for d in documents)
     output.parent.mkdir(parents=True, exist_ok=True)
-    fd, name = tempfile.mkstemp(dir=output.parent, prefix='.gss-', suffix='.sqlite')
+    fd, name = tempfile.mkstemp(dir=output.parent, prefix=f'.{corpus}-', suffix='.sqlite')
     os.close(fd)
     try:
         shutil.copyfile(artifact, name)
         with sqlite3.connect(name) as db:
-            db.execute("DELETE FROM postings WHERE corpus='gss'")
-            db.execute("DELETE FROM documents WHERE corpus='gss'")
-            write_index(db, 'gss', matrix, vectorizer.get_feature_names_out(), documents)
+            db.execute("DELETE FROM postings WHERE corpus=?", (corpus,))
+            db.execute("DELETE FROM documents WHERE corpus=?", (corpus,))
+            write_index(db, corpus, matrix, vectorizer.get_feature_names_out(), documents)
             updates = dict(gss_documents=len(documents), gss_release=payload['release'],
                 gss_methodology=payload['methodology'], gss_notes=payload['notes'],
                 gss_sources=payload['sources'], gss_artifact_sha256=digest(source))
             db.executemany('INSERT OR REPLACE INTO meta VALUES (?,?)',
-                           [(k, json.dumps(v)) for k, v in updates.items()])
+                           [(k.replace('gss_', corpus+'_', 1), json.dumps(v)) for k, v in updates.items()])
             if db.execute('PRAGMA integrity_check').fetchone()[0] != 'ok':
                 raise ValueError('Integrity check failed')
         os.replace(name, output)

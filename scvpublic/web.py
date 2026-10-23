@@ -3,7 +3,7 @@ from contextlib import closing
 import sqlite3
 from pathlib import Path
 from flask import Flask, render_template, request
-from .chart import chart
+from .chart import chart, combine_sources
 from .store import connect, metadata, search, survey_search, series, court_counts
 
 
@@ -44,9 +44,19 @@ def create_app(artifact=None, hybrid_dir=None):
     @app.get('/')
     def index():
         terms = [request.args.get(f'q{i}', '').strip().lower() for i in range(1, 4)]
+        views = {'combined': 'Combined', 'anes': 'ANES'}
+        if info.get('gss_documents'):
+            views['gss'] = 'GSS'
+        if info.get('ces_documents'):
+            views['ces'] = 'CES'
+        views['all'] = 'All sources'
+        view = request.args.get('view', 'combined')
+        if view not in views:
+            view = 'combined'
+        contribution_rows = []
         counts = {}
         error = None
-        court, public, gss, svg = [], [], [], ''
+        court, public, gss, ces, svg = [], [], [], [], ''
         if any(len(t) > 100 for t in terms):
             error = 'Each keyword or phrase must be at most 100 characters.'
         elif any(terms):
@@ -62,10 +72,21 @@ def create_app(artifact=None, hybrid_dir=None):
                     trend_court = search(db, 'court', terms, limit=None, relative_cutoff=0.20)
                 if info.get('gss_documents'):
                     gss = survey_search(db, 'gss', terms)
+                if info.get('ces_documents'):
+                    ces = survey_search(db, 'ces', terms)
             counts = court_counts(trend_court)
-            svg = chart(*series(trend_court, public), counts=counts,
-                        gss=series([], gss)[1] if info.get('gss_documents') else None)
+            source_series = {'ANES': series([], public)[1]}
+            if info.get('gss_documents'):
+                source_series['GSS'] = series([], gss)[1]
+            if info.get('ces_documents'):
+                source_series['CES'] = series([], ces)[1]
+            combined, contributors = combine_sources(source_series)
+            contribution_rows = [(year, combined[year], names) for year, names in contributors.items()]
+            svg = chart(*series(trend_court, public), counts=counts, view=view,
+                        gss=series([], gss)[1] if info.get('gss_documents') else None,
+                        ces=series([], ces)[1] if info.get('ces_documents') else None)
         return render_template('index.html', terms=terms, court=court, public=public,
                                svg=svg, info=info, error=error, searched=any(terms),
-                               counts=counts, gss=gss), (400 if error else 200)
+                               counts=counts, gss=gss, ces=ces, view=view, views=views,
+                               contribution_rows=contribution_rows), (400 if error else 200)
     return app
