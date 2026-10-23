@@ -83,3 +83,10 @@ ces:
 ces-pilot:
 	$(PY) -m scvpublic.ces --base-artifact $(HYBRID_ARTIFACT) --artifact artifacts/ces-pilot.sqlite
 	PYTHONPATH=. $(PY) scripts/rebind_hybrid.py --old $(HYBRID_ARTIFACT) --new artifacts/ces-pilot.sqlite --bundle $(HYBRID_BUNDLE) --output artifacts/semantic-ces-pilot
+
+.PHONY: pew pew-pilot
+pew:
+	$(PY) -m scvpublic.pew
+pew-pilot:
+	$(PY) -m scvpublic.pew --base-artifact artifacts/ces-pilot.sqlite
+	PYTHONPATH=. $(PY) scripts/rebind_hybrid.py --old artifacts/ces-pilot.sqlite --new artifacts/pew-pilot.sqlite --bundle artifacts/semantic-ces-pilot --output artifacts/semantic-pew-pilot

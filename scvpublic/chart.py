@@ -13,13 +13,15 @@ def combine_sources(sources):
     return values, contributors
 
 
-def chart(court, public, counts=None, gss=None, ces=None, view="all"):
+def chart(court, public, counts=None, gss=None, ces=None, view="all", pew=None):
     sources = {'ANES': public}
-    colors = {'ANES': '#2467ad', 'GSS': '#28734f', 'CES': '#8051a4'}
+    colors = {'ANES': '#2467ad', 'GSS': '#28734f', 'CES': '#8051a4', 'Pew': '#9c620b'}
     if gss is not None:
         sources['GSS'] = gss
     if ces is not None:
         sources['CES'] = ces
+    if pew is not None:
+        sources['Pew'] = pew
     combined, contributors = combine_sources(sources)
     datasets = [(court, '#bd493d', 'Court')]
     if view == 'combined':

@@ -49,6 +49,8 @@ def create_app(artifact=None, hybrid_dir=None):
             views['gss'] = 'GSS'
         if info.get('ces_documents'):
             views['ces'] = 'CES'
+        if info.get('pew_documents'):
+            views['pew'] = 'Pew'
         views['all'] = 'All sources'
         view = request.args.get('view', 'combined')
         if view not in views:
@@ -56,7 +58,7 @@ def create_app(artifact=None, hybrid_dir=None):
         contribution_rows = []
         counts = {}
         error = None
-        court, public, gss, ces, svg = [], [], [], [], ''
+        court, public, gss, ces, pew, svg = [], [], [], [], [], ''
         if any(len(t) > 100 for t in terms):
             error = 'Each keyword or phrase must be at most 100 characters.'
         elif any(terms):
@@ -74,19 +76,24 @@ def create_app(artifact=None, hybrid_dir=None):
                     gss = survey_search(db, 'gss', terms)
                 if info.get('ces_documents'):
                     ces = survey_search(db, 'ces', terms)
+                if info.get('pew_documents'):
+                    pew = survey_search(db, 'pew', terms)
             counts = court_counts(trend_court)
             source_series = {'ANES': series([], public)[1]}
             if info.get('gss_documents'):
                 source_series['GSS'] = series([], gss)[1]
             if info.get('ces_documents'):
                 source_series['CES'] = series([], ces)[1]
+            if info.get('pew_documents'):
+                source_series['Pew'] = series([], pew)[1]
             combined, contributors = combine_sources(source_series)
             contribution_rows = [(year, combined[year], names) for year, names in contributors.items()]
             svg = chart(*series(trend_court, public), counts=counts, view=view,
                         gss=series([], gss)[1] if info.get('gss_documents') else None,
-                        ces=series([], ces)[1] if info.get('ces_documents') else None)
+                        ces=series([], ces)[1] if info.get('ces_documents') else None,
+                        pew=series([], pew)[1] if info.get('pew_documents') else None)
         return render_template('index.html', terms=terms, court=court, public=public,
                                svg=svg, info=info, error=error, searched=any(terms),
-                               counts=counts, gss=gss, ces=ces, view=view, views=views,
+                               counts=counts, gss=gss, ces=ces, pew=pew, view=view, views=views,
                                contribution_rows=contribution_rows), (400 if error else 200)
     return app

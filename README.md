@@ -126,3 +126,9 @@ Run `make check-relevance` against the local production artifacts.
 A third survey source is available locally: 15 explicitly mapped policy variables
 (13 families), 2008–2021. See [CES setup and methodology](docs/CES.md) for
 verified downloads, scoring, artifact assembly, and a separate local preview.
+
+### Pew public-opinion pilot
+
+Pew Wave 25 adds 11 gun-policy questions from March 2017, validated against its
+weighted topline. See [Pew setup and methodology](docs/PEW.md). Pew is available
+as a separate view and contributes to the combined index in its observed year.

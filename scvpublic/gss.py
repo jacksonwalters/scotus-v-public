@@ -61,13 +61,13 @@ def build(source, mappings, output, manifest):
 
 def attach(artifact, source, output, corpus="gss"):
     """Copy an artifact and replace an explicitly mapped optional survey corpus."""
-    if corpus not in ("gss", "ces"):
+    if corpus not in ("gss", "ces", "pew"):
         raise ValueError("Unsupported survey corpus")
     from sklearn.feature_extraction.text import TfidfVectorizer
     import numpy as np
     payload = json.loads(source.read_text())
     if payload['methodology'] != f'explicit-{corpus}-v1':
-        raise ValueError('Unsupported GSS methodology')
+        raise ValueError('Unsupported survey methodology')
     if not artifact.is_file():
         raise FileNotFoundError(artifact)
     if output.exists():
