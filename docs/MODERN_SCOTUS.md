@@ -136,13 +136,9 @@ validated retrieval improvement. The SQLite artifact grows from about 209 to
 unigram preview is preserved as artifacts/gss-unigram-preview.sqlite. The
 local preview uses the bigram candidate; VPS deployment is unchanged.
 
-### Search experiments
+### Current search
 
-The abandoned case-embedding and cross-encoder implementations were removed from
-active source and tests. Their code and detailed experiment notes are recoverable
-in `artifacts/retired-search-experiments.tar.gz`. Generated bundles and raw inputs
-remain intact. Flask serves the established TF-IDF index with no model dependency.
-The remaining query-expansion experiment is documented in `docs/QUERY_EXPANSION.md`.
-
-The subsequent NMF topic-model test is documented in `docs/NMF_EVALUATION.md`.
-It remains offline: learned broad topics did not resolve short-query relevance.
+See [hybrid search](HYBRID_SEARCH.md) for the current TF-IDF + embedding pipeline.
+Unused query-expansion, NMF and summary-only index experiments were removed;
+Git history retains their implementation. Raw sources and active model bundles
+are preserved for reproducible builds.

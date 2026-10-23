@@ -113,7 +113,7 @@ An optional [GSS pilot](docs/GSS.md) adds 24 policy question families across
 ARTIFACT=artifacts/modern.sqlite`, then `make serve ARTIFACT=artifacts/gss-pilot.sqlite`.
 The existing deployed artifact is preserved until the candidate is activated.
 
-For the current optional local Court search, see [hybrid search](docs/HYBRID_SEARCH.md).
-`make serve-hybrid` starts the hybrid preview on port 8004. The standard serving
-command and current public deployment remain TF-IDF. `/healthz` reports which
-search mode is active.
+See [hybrid search and deployment](docs/HYBRID_SEARCH.md) for the current
+TF-IDF + embedding pipeline. `make serve-hybrid` runs it locally;
+`make release-hybrid` packages the complete production bundle. `/healthz`
+reports the active mode. `make serve` retains a lightweight TF-IDF fallback.

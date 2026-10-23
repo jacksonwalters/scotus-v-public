@@ -1,4 +1,4 @@
-"""Smoke-test the explicitly enabled local hybrid preview."""
+"""Smoke-test the hybrid search service."""
 import argparse
 from concurrent.futures import ThreadPoolExecutor
 import json
@@ -17,7 +17,7 @@ def check(q):
     with urlopen(a.url+'/?'+urlencode({'q1':q}),timeout=30) as r:
         assert r.status==200
         html=r.read().decode()
-    assert 'Court search: hybrid preview' in html
+    assert 'Court search: TF-IDF + embeddings' in html
     if q=='birth control':
         for word in ['EISENSTADT','GRISWOLD','HOBBY LOBBY','POPULATION SERVICES']:
             assert word in html,word

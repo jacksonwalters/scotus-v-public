@@ -53,3 +53,13 @@ HYBRID_PORT ?= 8004
 .PHONY: serve-hybrid
 serve-hybrid:
 	SCVPO_ARTIFACT=$(HYBRID_ARTIFACT) SCVPO_HYBRID=$(HYBRID_BUNDLE) OPENBLAS_NUM_THREADS=1 TOKENIZERS_PARALLELISM=false $(VENV)/bin/gunicorn --bind 127.0.0.1:$(HYBRID_PORT) --workers 1 --threads 2 --timeout 90 'scvpublic.web:create_app()'
+
+.PHONY: setup-hybrid build-hybrid check-hybrid release-hybrid
+setup-hybrid:
+	$(PY) -m pip install -r requirements-hybrid.txt
+build-hybrid:
+	PYTHONPATH=. $(PY) scripts/build_full_embeddings.py --artifact $(HYBRID_ARTIFACT) --output $(HYBRID_BUNDLE)
+check-hybrid:
+	$(PY) scripts/check_hybrid_http.py --url http://127.0.0.1:$(HYBRID_PORT)
+release-hybrid:
+	PYTHONPATH=. OPENBLAS_NUM_THREADS=1 $(PY) scripts/package_release.py $(HYBRID_ARTIFACT) --hybrid $(HYBRID_BUNDLE)

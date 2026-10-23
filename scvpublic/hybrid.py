@@ -1,4 +1,4 @@
-"""Experimental single-encoder hybrid Court search; no candidate-checking model."""
+"""Hybrid Court search using TF-IDF and precomputed passage embeddings."""
 from contextlib import closing
 from functools import lru_cache
 import json

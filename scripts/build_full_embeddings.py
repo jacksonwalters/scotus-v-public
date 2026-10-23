@@ -8,7 +8,7 @@ import numpy as np
 from tokenizers import Tokenizer
 from scvpublic.build import digest
 from scvpublic.encoding import Encoder
-from scvpublic.summary import source_texts
+from scvpublic.sources import source_texts
 
 
 def token_windows(tokens, size=254, overlap=40):

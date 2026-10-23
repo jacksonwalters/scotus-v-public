@@ -1,3 +1,9 @@
+# Current hybrid release
+
+Use [the hybrid deployment instructions](HYBRID_SEARCH.md) and
+`deploy/install-release.sh` for new releases. The dated instructions below
+document the original TF-IDF deployment and its rollback history.
+
 # Deploy to svp.walterslabs.dev
 
 The inspected VPS is Ubuntu 24.04 with Python 3.12, Nginx and Certbot, about

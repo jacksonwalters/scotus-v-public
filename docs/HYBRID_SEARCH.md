@@ -1,19 +1,19 @@
-# Local hybrid Court search
+# Hybrid Court search
 
-Active locally on port 8004 when started with `make serve-hybrid`. The public
-VPS remains on its existing TF-IDF release. Default `make serve` also remains
-TF-IDF; the `/healthz` response explicitly reports `search_mode`.
+Hybrid search is explicitly enabled by `SCVPO_HYBRID`. `make serve-hybrid` runs
+on port 8004. The production service enables it with the packaged bundle.
+Without that setting, serving uses TF-IDF. `/healthz` reports the active mode.
 
 ## Run
 
 ```sh
-.venv/bin/pip install -r requirements-expansion.txt
+.venv/bin/pip install -r requirements-hybrid.txt
 make serve-hybrid
 .venv/bin/python scripts/check_hybrid_http.py
 ```
 
-The optional dependency file is shared with the query-expansion experiment;
-query expansion, NMF and a cross-encoder are not used by this search path.
+`requirements-hybrid.txt` pins the optional encoder dependencies.
+Unused query expansion, NMF and summary-only search implementations were removed.
 `HYBRID_ARTIFACT`, `HYBRID_BUNDLE` and `HYBRID_PORT` can override the Make defaults.
 The current artifact is `artifacts/gss-pilot.sqlite` and the embedding bundle is
 `artifacts/semantic-full`. Startup validates their exact hash match and the model,
@@ -50,19 +50,53 @@ abandoned cross-encoder or the NMF models. Changing the bundle requires restart.
 
 ## Validation and limits
 
-55 unit tests passed. Hybrid tests cover independent lexical nomination, the
-separate chart filter, cache reuse, semantic-only queries, weak-query abstention
-and checksum rejection. Forty-two HTTP requests passed on the local Gunicorn
-preview, including concurrent cached requests, birth-control positives/negatives,
-Obergefell/Windsor and a nonsense-query empty result. The slowest initial request
-was about 0.076 seconds, with cached requests below 0.007 seconds in this run.
+Run `make test` and `make check-hybrid` against a running service. The HTTP
+check exercises seven topics and 35 concurrent cached requests. The standalone
+`scripts/check_hybrid.py` reports candidates and chart counts separately.
+These development examples are not a held-out relevance benchmark.
 
-The standalone evaluator is `scripts/check_hybrid.py`; it reports candidate and
-chart counts separately. Results are still subject to the limitations of the
-small development relevance set. Before deployment, review 15–20 representative
-queries, reserve some for validation, and run a full VPS serving/load test. The
-previous 172 MiB VPS measurement used the same full embedding bundle but an older
-candidate rule; it is not a serving measurement for this new implementation.
+## Deployment
 
-The old release packager does not include the optional model assets/dependencies.
-Do not deploy this mode through that packager without updating and validating it.
+`make release-hybrid` validates artifact/model checksums and packages only the
+application, pinned requirements, deployment tools, index and six bundle files.
+No raw datasets or credentials are included. Extract it into a new staging
+folder, install `requirements-hybrid.txt`, and test with the service environment.
+Activate with:
+
+```sh
+sudo bash /absolute/staging/deploy/install-release.sh /absolute/staging RELEASE_NAME
+```
+
+The installer verifies checksums, creates an isolated virtualenv, retains the
+previous release and unit, and restores both if activation or HTTP checks fail.
+The unit uses one worker, two threads, `MemoryHigh=256M`, `MemoryMax=320M`,
+and bounded numerical-library threads. Measure the full service cgroup, including
+file cache, rather than relying on vector size or standalone Python RSS.
+
+For manual rollback, restore the prior `/opt/scvpublic/current` symlink and the
+new release's `previous.service` to `/etc/systemd/system/scvpublic.service`, then
+run `systemctl daemon-reload` and `systemctl restart scvpublic`.
+
+Docker defaults to TF-IDF for the small demo/CI image. To build hybrid serving,
+pass `--build-arg REQUIREMENTS=requirements-hybrid.txt`, mount the SQLite artifact
+at `/data/search.sqlite` and bundle at `/data/hybrid`, and set
+`SCVPO_HYBRID=/data/hybrid`. Docker was not validated on the native VPS.
+
+### VPS staging validation — 2026-10-23
+
+Staged release: `/home/jackson/scvpublic/releases/20261023-hybrid`.
+51 unit tests passed locally. On the VPS, 42 acceptance requests passed (slowest
+initial request 0.515 s), plus 63 requests across 21 topics with four concurrent
+clients (slowest 1.166 s). The latter checks availability, not judged relevance.
+The service cgroup peaked at 256.5 MiB including file cache, with about 106 MiB
+anonymous memory, zero service swap, no OOM events and no restarts. MemoryHigh
+triggered cache reclamation; the 320 MiB hard limit was never hit. The temporary
+service was stopped after testing. Public activation requires the sudo command
+below because the SSH account cannot elevate without a password:
+
+```sh
+sudo bash /home/jackson/scvpublic/releases/20261023-hybrid/deploy/install-release.sh /home/jackson/scvpublic/releases/20261023-hybrid 20261023-hybrid
+```
+
+After activation, verify `/healthz` reports `search_mode: hybrid` and rerun the
+HTTP acceptance check against `https://svp.walterslabs.dev`.
