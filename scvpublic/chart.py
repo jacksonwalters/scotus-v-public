@@ -2,8 +2,8 @@
 from html import escape
 
 
-def chart(court, public):
-    years = sorted(set(court) | set(public))
+def chart(court, public, counts=None, gss=None):
+    years = sorted(set(court) | set(public) | set(gss or {}))
     if not years:
         return ''
     lo, hi = min(years) - 1, max(years) + 1
@@ -14,12 +14,16 @@ def chart(court, public):
         parts.append(f'<path d="M85 {y(value)} H755" stroke="#d8dde6"/><text x="78" y="{y(value)+4}" text-anchor="end" font-size="11">{label}</text>')
     for year in sorted(set([min(years), (min(years)+max(years))//2, max(years)])):
         parts.append(f'<text x="{x(year)}" y="322" text-anchor="middle" font-size="12">{year}</text>')
-    for data, color, name in [(court, '#bd493d', 'Court'), (public, '#2467ad', 'Public')]:
+    datasets = [(court, '#bd493d', 'Court'),
+                (public, '#2467ad', 'ANES' if gss is not None else 'Public')]
+    if gss is not None:
+        datasets.append((gss, '#28734f', 'GSS'))
+    for data, color, name in datasets:
         for year, value in data.items():
-            parts.append(f'<circle cx="{x(year):.2f}" cy="{y(value):.2f}" r="4" fill="{color}"><title>{escape(name)} {year}: {value:.3f}</title></circle>')
+            parts.append(f'<circle cx="{x(year):.2f}" cy="{y(value):.2f}" r="4" fill="{color}"><title>{escape(name)} {year}: {value:.3f}{f'; {counts.get(year, 0)} cases' if name == 'Court' and counts is not None else ''}</title></circle>')
         if len(data) >= 2:
             mx, my = sum(data)/len(data), sum(data.values())/len(data)
-            slope = sum((a-mx)*(b-my) for a,b in data.items()) / sum((a-mx)**2 for a in data)
+            slope = sum((year-mx)*(value-my) for year,value in data.items()) / sum((year-mx)**2 for year in data)
             a, b = min(data), max(data)
-            parts.append(f'<path d="M{x(a):.2f} {y(my+slope*(a-mx)):.2f} L{x(b):.2f} {y(my+slope*(b-mx)):.2f}" stroke="{color}" stroke-width="2"/>')
+            parts.append(f'<path d="M{x(a):.2f} {y(my+slope*(a-mx)):.2f} L{x(b):.2f} {y(my+slope*(b-mx)):.2f}" stroke="{color}" stroke-width="2" fill="none"><title>{name} linear best fit</title></path>')
     return ''.join(parts) + '</svg>'

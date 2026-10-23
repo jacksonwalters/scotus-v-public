@@ -65,15 +65,20 @@ terms removed during TF-IDF construction may return no Court results.
 
 SCDB direction supplies the sign of the Court score, multiplied by the absolute
 vote margin divided by total votes. CaseSumm matches use citations or unique
-term/docket identifiers; ambiguous records are excluded. The historical Court
-aggregation still keeps the last ranked case for each year. This limitation is
-preserved rather than silently changing the original comparison.
+term/docket identifiers; ambiguous records are excluded. The Court
+series averages all scored cases in the retrieved results within each year,
+weighted by their TF-IDF relevance: sum(relevance × case score) / sum(relevance). The displayed list keeps the top ten opinions; the Court trend uses every match
+scoring at least 20% of the strongest match, using a fixed cutoff. This relative cutoff is an
+exploratory word-match heuristic, not a validated topic classifier. Years without scored cases remain absent.
 
 ANES response codes have explicit reviewed mappings to [-1, 1], with +1 liberal.
 Missing answers are excluded and documented survey weights applied. Retrieved
 variants are deduplicated by question family per year; selected comparative
 indices supersede their components. Question-family means are equally weighted
-in the displayed public series. Trend lines are descriptive linear fits, not
+in the displayed public series. Dots show annual scores, with a separate linear best-fit line for each series
+that has at least two observed years. Fits weight observed years equally and
+span only that series' observed range. Court counts are shown by year; public
+retrieval remains limited to ten questions. These fits are not
 causal estimates or a validated general ideology measure.
 
 ## Code layout
@@ -97,3 +102,18 @@ precomputed index are needed at runtime.
 Project code uses [LICENSE](LICENSE). Data retain their own terms. CaseSumm's
 published license statements conflict; resolve those terms before public
 hosting of the derived artifact (details in the CaseSumm review).
+
+## Modern Court coverage
+
+A separate candidate pipeline extends coverage through 2026 using refreshed SCDB
+and official opinion PDFs. See [modern corpus setup and limitations](docs/MODERN_SCOTUS.md).
+
+An optional [GSS pilot](docs/GSS.md) adds 24 policy question families across
+1972–2024 as a separate public-opinion series. Run `make gss-pilot
+ARTIFACT=artifacts/modern.sqlite`, then `make serve ARTIFACT=artifacts/gss-pilot.sqlite`.
+The existing deployed artifact is preserved until the candidate is activated.
+
+For the current optional local Court search, see [hybrid search](docs/HYBRID_SEARCH.md).
+`make serve-hybrid` starts the hybrid preview on port 8004. The standard serving
+command and current public deployment remain TF-IDF. `/healthz` reports which
+search mode is active.

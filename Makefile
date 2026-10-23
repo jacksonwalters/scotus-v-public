@@ -39,3 +39,17 @@ release: check-serving
 	PYTHONPATH=. $(PY) scripts/package_release.py $(ARTIFACT)
 refresh-public: public
 	$(PY) -m scvpublic.refresh_public --artifact $(ARTIFACT)
+
+.PHONY: gss gss-pilot
+gss:
+	PYTHONPATH=. $(PY) scripts/download_gss.py
+	$(PY) -m scvpublic.gss
+gss-pilot: gss
+	$(PY) -m scvpublic.gss --base-artifact $(ARTIFACT) --artifact artifacts/gss-pilot.sqlite
+
+HYBRID_ARTIFACT ?= artifacts/gss-pilot.sqlite
+HYBRID_BUNDLE ?= artifacts/semantic-full
+HYBRID_PORT ?= 8004
+.PHONY: serve-hybrid
+serve-hybrid:
+	SCVPO_ARTIFACT=$(HYBRID_ARTIFACT) SCVPO_HYBRID=$(HYBRID_BUNDLE) OPENBLAS_NUM_THREADS=1 TOKENIZERS_PARALLELISM=false $(VENV)/bin/gunicorn --bind 127.0.0.1:$(HYBRID_PORT) --workers 1 --threads 2 --timeout 90 'scvpublic.web:create_app()'
